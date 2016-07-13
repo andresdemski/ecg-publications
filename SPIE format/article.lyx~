@@ -2245,7 +2245,7 @@ status open
 \begin_layout Plain Layout
 \align center
 \begin_inset Graphics
-	filename D:/Mariano/research/conferences/CINC13 isquemia/images/none_ischemia_roc_x.svg
+	filename none_ischemia_roc_x.svg
 	width 100col%
 
 \end_inset
@@ -2256,7 +2256,7 @@ status open
 \begin_layout Plain Layout
 \align center
 \begin_inset Graphics
-	filename D:/Mariano/research/conferences/CINC13 isquemia/images/none_severe_roc_x.svg
+	filename none_severe_roc_x.svg
 	width 100col%
 
 \end_inset

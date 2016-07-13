@@ -2496,7 +2496,7 @@ This work was supported by projects TEC2010-21703-C03-02, TEC2010-19410
 \begin_layout Standard
 \begin_inset CommandInset bibtex
 LatexCommand bibtex
-bibfiles "D:/Mariano/research/ECG Classification/docs/database de referencias/refs"
+bibfiles "report"
 options "spiebib"
 
 \end_inset
