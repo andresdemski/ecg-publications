@@ -160,6 +160,47 @@ Over the decades, the relation between the medicine and software engineer
  All this process is called as an electrocardiogram.
 \end_layout
 
+\begin_layout Standard
+After the interpretation of the ECG, doctors can detect different cardiovascular
+ diseases (CVD):
+\end_layout
+
+\begin_layout Itemize
+Arrhythmias: heartbeat is irregular, too fast, or too slow.
+\end_layout
+
+\begin_layout Itemize
+Cardiomyopathy: measurable deterioration for any reason of the ability of
+ the myocardium (the heart muscle) to contract, leading to heart failure
+ (when the heart can't pump enough blood flow to meet body’s needs.
+\end_layout
+
+\begin_layout Itemize
+Congenital heart defects
+\end_layout
+
+\begin_layout Itemize
+Heart valve disease: when one or more valves don’t work properly.
+ 
+\end_layout
+
+\begin_layout Itemize
+Pericarditis: inflammation of the pericardium (the fibrous layer surrounding
+ the heart)
+\end_layout
+
+\begin_layout Standard
+The focus of the analysis will be on reading the information of the the
+ wave P, complex QRS and wave T.
+ Those waves generate a pattern that can be automatically analysed by a
+ computerized method to recognize the CVD mentioned above.
+ 
+\end_layout
+
+\begin_layout Standard
+
+\end_layout
+
 \begin_layout Section
 Architecture
 \end_layout
