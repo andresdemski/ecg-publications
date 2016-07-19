@@ -261,33 +261,24 @@ FlatLine detection
 The flatline is caused by the disconnection of the leads.
  For detecting this, we developed 3 algorithms analysing the variance, the
  derivative and the signal excursion: 
-\begin_inset Formula 
-\[
-FL_{det1}=\underset{i,j}{min}\sqrt{var(S_{i,j})}
-\]
+\end_layout
 
+\begin_layout Standard
+\begin_inset Formula $FL_{det1}=max\sqrt{var(S_{i,j})}$
 \end_inset
 
 
 \end_layout
 
 \begin_layout Standard
-\begin_inset Formula 
-\[
-FL_{det2}=\underset{i,j}{min}\left[mean\left(\frac{dS_{i,j}}{dt}\right)\right]
-\]
-
+\begin_inset Formula $FL_{det2}=\underset{i,j}{min}\left[mean\left(\frac{dS_{i,j}}{dt}\right)\right]$
 \end_inset
 
 
 \end_layout
 
 \begin_layout Standard
-\begin_inset Formula 
-\[
-FL_{det3}=\max\frac{dS_{i,j}}{dt}
-\]
-
+\begin_inset Formula $FL_{det3}=\max\frac{dS_{i,j}}{dt}$
 \end_inset
 
 
