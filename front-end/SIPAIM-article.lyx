@@ -93,11 +93,12 @@
 \papercolumns 1
 \papersides 1
 \paperpagestyle default
-\tracking_changes false
+\tracking_changes true
 \output_changes false
 \html_math_output 0
 \html_css_as_file 0
 \html_be_strict false
+\author 361918700 "Mariano"
 \end_header
 
 \begin_body
@@ -144,49 +145,221 @@ Introduction
 \end_layout
 
 \begin_layout Standard
-Over the decades, the relation between the medicine and software engineer
- has become closer, and as long as this relation keeps evolving, doctors,
- scientists and people will be benefit.
- Computers helps medicine in different areas such as data storage, surgical
- procedures, knowledge sharing and diagnostic.
- In this case, computerized methods can help to detect cardiovascular issues
- automatically.
- The ECG is the representation of the variation of the heart electrical
- activity over a period of time.
+
+\change_inserted 361918700 1469124744
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+
+\change_inserted 361918700 1469122653
+Alan estas son notitas que no se ven en el resultado.
+ Yo arrancaría con una oración más gral de la problemática, a ver qué te
+ parece:
+\end_layout
+
+\end_inset
+
+Cardiovascular diseases (CVD) are in the present the first cause of death
+ in the developed countries.
+ Probably the biggest challenge of the modern cardiology is the sudden cardiac
+ death, in several aspects related to ventricular arrhythmias.
+ It is well known that the study of arrhythmias requires careful inspection
+ of electrocardiogram (ECG) recordings of several hours length.
+ To this respect, the asistance of automatic algorithms may represent an
+ increase in the number of patients analyzed, and the quality of the variables
+ derived from those ECG recordings.
+\end_layout
+
+\begin_layout Standard
+
+\change_deleted 361918700 1469123827
+Over the
+\change_inserted 361918700 1469123835
+During the last
+\change_unchanged
+ decades, the relation between the 
+\change_deleted 361918700 1469123847
+medicine
+\change_inserted 361918700 1469124086
+cardiology
+\change_unchanged
+ and 
+\change_deleted 361918700 1469122527
+software engineer
+\change_inserted 361918700 1469123802
+computer technology
+\change_unchanged
+ has become closer, and as long as this relation keeps evolving, 
+\change_deleted 361918700 1469124094
+doctors
+\change_inserted 361918700 1469124097
+cardiologists
+\change_unchanged
+, scientists and people will be benefit.
+ Computers helps 
+\change_deleted 361918700 1469124120
+medicine
+\change_inserted 361918700 1469124121
+cardiology
+\change_unchanged
+ in different areas such as data storage, surgical procedures, knowledge
+ 
+\change_inserted 361918700 1469124142
+and diagnostic 
+\change_unchanged
+sharing 
+\change_deleted 361918700 1469124136
+and diagnostic
+\change_unchanged
+.
+ In this case, computerized methods can help to detect cardiovascular 
+\change_deleted 361918700 1469124168
+issues
+\change_inserted 361918700 1469124169
+diseases
+\change_unchanged
+ 
+\change_deleted 361918700 1469124212
+automatically
+\change_inserted 361918700 1469124239
+with a high degree of assistance
+\change_unchanged
+.
+ The ECG is 
+\change_inserted 361918700 1469124417
+a routine and inexpensive methodology in the clinical practice.
+ 
+\change_deleted 361918700 1469124434
+the representation of the variation of the heart electrical activity over
+ a period of time.
  Normally, ten electrodes are placed into the patient’s chest.
  The heart’s electrical potential is recorded over a period of time and
  measured from different angles, which gives an overall of the electrical
  depolarization throughout the cardiac cycle.
  All this process is called as an electrocardiogram.
+\change_inserted 361918700 1469124451
+
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+
+\change_inserted 361918700 1469124464
+no hace falta ese grado de detalle, es muy conocido el ECG
+\change_unchanged
+
+\end_layout
+
+\end_inset
+
+
+\change_deleted 361918700 1469124434
+
 \end_layout
 
 \begin_layout Standard
-After the interpretation of the ECG, doctors can detect different cardiovascular
- diseases (CVD):
+After the interpretation of the ECG, 
+\change_deleted 361918700 1469124793
+doctors
+\change_inserted 361918700 1469124795
+cardiologists
+\change_unchanged
+ can detect 
+\change_inserted 361918700 1469124771
+and analyze 
+\change_deleted 361918700 1469124777
+different cardiovascular diseases (CVD):
+\change_inserted 361918700 1469125259
+CVD's.
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+
+\change_inserted 361918700 1469125154
+no haría una enumeración así, tal vez en línea en la misma oración, ya que
+ no es necesario meterse en el detalle
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+
+\change_inserted 361918700 1469125280
+Yo acá haría una referencia a lo que ya hemos desarrollado del ecg-kit,
+ qué particularidades tiene, qué tipo de algoritmos ya tiene implementado
+ y qué análisis se podrían hacer, hacé una primera versión si querés.
+\change_unchanged
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\change_inserted 361918700 1469125261
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+
+\change_inserted 361918700 1469125668
+Faltaría un nexo entre lo que hay, y lo interesante que sería el objetivo
+ de este trabajo, que es implementar una herramienta online.
+ En el útlimo párrafo, última oración bien claro el objetivo !
+\change_unchanged
+
+\end_layout
+
+\end_inset
+
+
+\change_unchanged
+
 \end_layout
 
 \begin_layout Itemize
+
+\change_deleted 361918700 1469125083
 Arrhythmias: heartbeat is irregular, too fast, or too slow.
 \end_layout
 
 \begin_layout Itemize
+
+\change_deleted 361918700 1469125083
 Cardiomyopathy: measurable deterioration for any reason of the ability of
  the myocardium (the heart muscle) to contract, leading to heart failure
  (when the heart can't pump enough blood flow to meet body’s needs.
 \end_layout
 
 \begin_layout Itemize
+
+\change_deleted 361918700 1469125083
 Congenital heart defects
 \end_layout
 
 \begin_layout Itemize
+
+\change_deleted 361918700 1469125083
 Heart valve disease: when one or more valves don’t work properly.
  
 \end_layout
 
 \begin_layout Itemize
+
+\change_deleted 361918700 1469125083
 Pericarditis: inflammation of the pericardium (the fibrous layer surrounding
  the heart)
+\change_unchanged
+
 \end_layout
 
 \begin_layout Standard
