@@ -527,7 +527,7 @@ name "fig:Poles-and-zeros-2"
 
 \begin_layout Standard
 With the same deduction used in the low-pass filter, it's easy to see that
- this transfer function has a gain of 1 and a delay of 16 samples.
+ this transfer function has a gain of 32 and a delay of 15.5 samples.
 \end_layout
 
 \begin_layout Standard
