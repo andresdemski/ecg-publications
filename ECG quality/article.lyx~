@@ -1,7 +1,9 @@
-#LyX 2.1 created this file. For more info see http://www.lyx.org/
-\lyxformat 474
+#LyX 2.2 created this file. For more info see http://www.lyx.org/
+\lyxformat 508
 \begin_document
 \begin_header
+\save_transient_properties true
+\origin unavailable
 \textclass spie
 \begin_preamble
 %  article.tex (Version 3.3, released 19 January 2008)
@@ -40,16 +42,16 @@
 \language_package default
 \inputencoding iso8859-1
 \fontencoding default
-\font_roman default
-\font_sans default
-\font_typewriter default
-\font_math auto
+\font_roman "default" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
 \font_default_family default
 \use_non_tex_fonts false
 \font_sc false
 \font_osf false
-\font_sf_scale 100
-\font_tt_scale 100
+\font_sf_scale 100 100
+\font_tt_scale 100 100
 \graphics default
 \default_output_format default
 \output_sync 0
@@ -91,11 +93,12 @@
 \papercolumns 1
 \papersides 1
 \paperpagestyle default
-\tracking_changes false
+\tracking_changes true
 \output_changes false
 \html_math_output 0
 \html_css_as_file 0
 \html_be_strict false
+\author 361918700 "Mariano"
 \end_header
 
 \begin_body
@@ -182,14 +185,50 @@ Introduction
 \end_layout
 
 \begin_layout Standard
+
+\change_deleted 361918700 1469147553
 In all instruments and cardiacal studies where exist an electrocardiogram
  (ECG) analysis, like detection and classification of arrhytmias, heart
  activity diagnoses, Holter and heart rate studies, its extremely useful
  an accurate identification of the QRS complex and the reason is that it's
  in fact not only a result but also the input or part for further analysis.
+\change_inserted 361918700 1469147556
+
 \end_layout
 
 \begin_layout Standard
+
+\change_inserted 361918700 1469151288
+The analysis of electrocardiographic (ECG) signals provides a noninvasive
+ and inexpensive technique to analyze the heart function for different cardiac
+ conditions.
+ The first task to perform in almost all automatic procedures is the detection
+ of heartbeats or QRS complexes, and the subsequent construction of the
+ RR interval sequence.
+ In the last decades big efforts were made to perform this analysis automaticall
+y, and as a result, many algorithms for QRS complex detection were published
+ 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "pantom,Martinez04,PhysioNet"
+
+\end_inset
+
+ and some of them are open-source or freely available 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "PhysioNet,ecg-kit2016"
+
+\end_inset
+
+.
+\change_unchanged
+
+\end_layout
+
+\begin_layout Standard
+
+\change_deleted 361918700 1469151355
 The identification of QRS complex has been investigated over the past twenty
  years.
  In the current state-of-the-art algorithms used for QRS detection can be
@@ -215,15 +254,151 @@ key "sqrs"
 \end_inset
 
  and several more, each one with a different technic to meet its target.
- For example, the Pan and Tompkins algorithm uses digital bandpass filter,
- differentiation, a nonlinear transformation, a moving window integration
- and finally adaptive thresholds to create the decision rules.
- WQRS uses a digital lowpass filter, a curve length transformation and its
- decision rule is based on both adaptive thresholds and local search strategies.
- Finally, SQRS is based on the techniques of amplitud threshold, a first
+
+\change_unchanged
+ 
+\change_inserted 361918700 1469151385
+Probably the most popular detector is 
+\change_deleted 361918700 1469151391
+For example, 
+\change_unchanged
+the Pan and Tompkins algorithm
+\change_inserted 361918700 1469151835
+, developed thirty years ago it remains a common choice because of its simplicit
+y and performance.
+ It constructs a detection signal based
+\change_unchanged
+ 
+\change_deleted 361918700 1469151521
+uses 
+\change_inserted 361918700 1469151521
+on 
+\change_unchanged
+digital bandpass filter, 
+\change_inserted 361918700 1469151542
+followed by a 
+\change_unchanged
+differentiat
+\change_inserted 361918700 1469151546
+or
+\change_deleted 361918700 1469151545
+ion
+\change_unchanged
+, a 
+\change_deleted 361918700 1469151672
+nonlinear
+\change_inserted 361918700 1469151847
+squaring function
+\change_deleted 361918700 1469151878
+ transformation,
+\change_inserted 361918700 1469151880
+ and
+\change_unchanged
+ a 
+\change_deleted 361918700 1469151864
+moving
+\change_inserted 361918700 1469151864
+sliding
+\change_unchanged
+ window integrat
+\change_inserted 361918700 1469151888
+or.
+\change_deleted 361918700 1469151855
+ion
+\change_inserted 361918700 1469151913
+ The actual detection is performed through
+\change_unchanged
+ 
+\change_deleted 361918700 1469151916
+and finally 
+\change_unchanged
+adaptive thresholds 
+\change_deleted 361918700 1469151923
+to create the
+\change_inserted 361918700 1469151924
+and
+\change_unchanged
+ decision rules.
+ 
+\change_inserted 361918700 1469151946
+On the other hand, other detectors such as 
+\change_deleted 361918700 1469151949
+WQRS
+\change_inserted 361918700 1469151949
+
+\emph on
+wqrs
+\change_unchanged
+
+\emph default
+ uses 
+\change_deleted 361918700 1469151970
+a digital lowpass filter
+\change_inserted 361918700 1469151973
+a similar approach
+\change_unchanged
+, 
+\change_inserted 361918700 1469151999
+but the 
+\change_deleted 361918700 1469152001
+a
+\change_unchanged
+ curve length transformation 
+\change_inserted 361918700 1469152036
+was introduced in order to obtain the detection signal.
+ 
+\change_deleted 361918700 1469152042
+and its decision rule is based on both adaptive thresholds and local search
+ strategies
+\change_inserted 361918700 1469152044
+ 
+\change_deleted 361918700 1469152042
+.
+
+\change_unchanged
+ 
+\change_inserted 361918700 1469152066
+
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+
+\change_inserted 361918700 1469152124
+Siguiendo el enfoque, comentá que el método de Martinez04 está basado en
+ la transformada wavelet y umbrales adaptados a cada escala de esta transformada
+ como principal diferencia.
+\change_unchanged
+
+\end_layout
+
+\end_inset
+
+
+\change_unchanged
+Finally, SQRS is based on the techniques of amplitud threshold, a first
  and second derivative and a stage for digital filtering.
- It's clear that almost every algorithm for QRS detection is divided in
- two process: signal processing and decision rules.
+ 
+\change_inserted 361918700 1469152260
+
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+
+\change_inserted 361918700 1469152277
+Esta frase igual al principio del párrafo, dando una visión gral.
+ 
+\change_unchanged
+
+\end_layout
+
+\end_inset
+
+
+\change_unchanged
+It's clear that almost every algorithm for QRS detection is divided in two
+ process: signal processing and decision rules.
  In a preliminary study we evaluated wich of these algotirhms should be
  fully representative for a complete first work as researchers, and for
  being robust and widely used decided to evaluate the Pan and Tompkins algorithm
@@ -239,18 +414,46 @@ key "ecg-kit-web"
 \end_layout
 
 \begin_layout Standard
-The aim of this study was to introduce ourselfs as engineering students
- in signal processing activities, in the field of research, investigation
- and academic publishing, to evaluate each detector using a standard database
- available on Physionet: MIT-BIH Arrhythmia Database 
+The aim of this study was 
+\change_deleted 361918700 1469152324
+to introduce ourselfs as engineering students in signal processing activities,
+ in the field of research, investigation and academic publishing, 
+\change_unchanged
+to evaluate 
+\change_inserted 361918700 1469152393
+two implementations of the Pan and Tompkins algorithm 
+\change_deleted 361918700 1469152416
+each detector using a standard database available on Physionet: MIT-BIH
+ Arrhythmia Database 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "MITBIHDB,PhysioNet"
 
 \end_inset
 
- and to compare the performance detecting QRS complexs of the developed
- algorithms by using the statistical McNemar test to arrive a conclusion.
+ 
+\change_inserted 361918700 1469152431
+ 
+\change_deleted 361918700 1469152433
+and to compare
+\change_inserted 361918700 1469152434
+comparing
+\change_unchanged
+ the
+\change_inserted 361918700 1469152443
+ir
+\change_unchanged
+ performance 
+\change_deleted 361918700 1469152495
+detecting QRS complexs of the developed algorithms by using the statistical
+ McNemar test to arrive a conclusion
+\change_inserted 361918700 1469152583
+ to an open source implementation of the algorithm in a public database
+ in order to ensure results reproducibility.
+\change_deleted 361918700 1469152563
+.
+\change_unchanged
+
 \end_layout
 
 \begin_layout Section
@@ -527,7 +730,7 @@ name "fig:Poles-and-zeros-2"
 
 \begin_layout Standard
 With the same deduction used in the low-pass filter, it's easy to see that
- this transfer function has a gain of 32 and a delay of 15.5 samples.
+ this transfer function has a gain of 1 and a delay of 16 samples.
 \end_layout
 
 \begin_layout Standard
@@ -710,7 +913,7 @@ key "Sharir2012"
 
  could not be studied here.
  However, 
-\begin_inset Formula $r{}^{\mathrm{WTx}}$
+\begin_inset Formula $r^{\mathrm{WTx}}$
 \end_inset
 
  measures the higher frequency band of QRS complex, given the bandpass nature
@@ -961,7 +1164,7 @@ columnwidth}{!}{
 \align center
 \begin_inset Tabular
 <lyxtabular version="3" rows="3" columns="2">
-<features rotate="0" tabularvalignment="middle">
+<features tabularvalignment="middle">
 <column alignment="center" valignment="middle" width="15col%">
 <column alignment="center" valignment="middle" width="80col%">
 <row>
@@ -1004,113 +1207,113 @@ Features
 \begin_inset Formula $x(k_{\mathrm{Q}})_{\mathrm{SFT}}$
 \end_inset
 
- -- 
+ – 
 \begin_inset Formula $x(k_{\mathrm{Q}})_{\mathrm{PCA2}}^{\mathrm{PE}}$
 \end_inset
 
- -- 
+ – 
 \begin_inset Formula $x(k_{\mathrm{R}})_{\mathrm{SFT}}^{\mathrm{RT}}$
 \end_inset
 
- -- 
+ – 
 \begin_inset Formula $x(k_{\mathrm{S}})_{\mathrm{PCA2}}$
 \end_inset
 
- -- 
+ – 
 \begin_inset Formula $(s_{\mathrm{Q}}^{-})_{\mathrm{PCA2}}$
 \end_inset
 
- -- 
+ – 
 \begin_inset Formula $(s_{\mathrm{Q}}^{-})_{\mathrm{SFT}}$
 \end_inset
 
- -- 
+ – 
 \begin_inset Formula $(s_{\mathrm{Q}}^{-})_{\mathrm{PCA1}}^{\mathrm{PE}}$
 \end_inset
 
- -- 
+ – 
 \begin_inset Formula $(s_{\mathrm{Q}}^{-})_{\mathrm{PCA2}}^{\mathrm{PE}}$
 \end_inset
 
- -- 
+ – 
 \begin_inset Formula $(s_{\mathrm{R}}^{\mathrm{Q}})_{\mathrm{SFT}}^{\mathrm{RT}}$
 \end_inset
 
- -- 
+ – 
 \begin_inset Formula $(s_{\mathrm{S}}^{\mathrm{R}})_{\mathrm{PCA1}}^{\mathrm{RT}}$
 \end_inset
 
- -- 
+ – 
 \begin_inset Formula $(s_{\mathrm{-}}^{\mathrm{S}})_{\mathrm{PCA2}}$
 \end_inset
 
- -- 
+ – 
 \begin_inset Formula $(s_{\mathrm{-}}^{\mathrm{S}})_{\mathrm{PCA2}}^{\mathrm{PE}}$
 \end_inset
 
- -- 
+ – 
 \begin_inset Formula $(s_{\mathrm{-}}^{\mathrm{S}})_{\mathrm{SFT}}^{\mathrm{RT}}$
 \end_inset
 
- -- 
+ – 
 \begin_inset Formula $(k_{Z}^{\mathrm{QRS}})_{\mathrm{PCA2}}^{\mathrm{WT3}}$
 \end_inset
 
- -- 
+ – 
 \begin_inset Formula $(k_{Z}^{\mathrm{QRS}})_{\mathrm{PCA2}}^{\mathrm{WT3-PE}}$
 \end_inset
 
- -- 
+ – 
 \begin_inset Formula $(k_{Z}^{\mathrm{QRS}})_{\mathrm{PCA2}}^{\mathrm{WT4-PE}}$
 \end_inset
 
- -- 
+ – 
 \begin_inset Formula $(k_{Z}^{\mathrm{QRS}})_{\mathrm{SFT}}^{\mathrm{WT3}}$
 \end_inset
 
- -- 
+ – 
 \begin_inset Formula $(k_{Z}^{\mathrm{STT}})_{\mathrm{PCA1}}^{\mathrm{WT3-PE}}$
 \end_inset
 
- -- 
+ – 
 \begin_inset Formula $(k_{Z}^{\mathrm{STT}})_{\mathrm{PCA1}}^{\mathrm{WT3-RT}}$
 \end_inset
 
- -- 
+ – 
 \begin_inset Formula $(k_{Z}^{\mathrm{STT}})_{\mathrm{PCA2}}^{\mathrm{WT3-PE}}$
 \end_inset
 
- -- 
+ – 
 \begin_inset Formula $(k_{Z}^{\mathrm{STT}})_{\mathrm{SFT}}^{\mathrm{WT3-PE}}$
 \end_inset
 
--- 
+– 
 \begin_inset Formula $(k_{Z}^{\mathrm{STT}})_{\mathrm{SFT}}^{\mathrm{WT4}}$
 \end_inset
 
- -- 
-\begin_inset Formula $r{}_{\mathrm{PCA1}}^{\mathrm{WT4}}$
+ – 
+\begin_inset Formula $r_{\mathrm{PCA1}}^{\mathrm{WT4}}$
 \end_inset
 
- -- 
-\begin_inset Formula $r{}_{\mathrm{SFT}}^{\mathrm{WT3-RT}}$
+ – 
+\begin_inset Formula $r_{\mathrm{SFT}}^{\mathrm{WT3-RT}}$
 \end_inset
 
- -- 
-\begin_inset Formula $r{}_{\mathrm{PCA1}}^{\mathrm{WT4-PE}}$
+ – 
+\begin_inset Formula $r_{\mathrm{PCA1}}^{\mathrm{WT4-PE}}$
 \end_inset
 
- -- 
-\begin_inset Formula $r{}_{\mathrm{PCA1}}^{\mathrm{WT4-RT}}$
+ – 
+\begin_inset Formula $r_{\mathrm{PCA1}}^{\mathrm{WT4-RT}}$
 \end_inset
 
- -- 
+ – 
 \begin_inset Formula $\left(\nicefrac{\mathrm{ST}}{\mathrm{R}}\right)_{\mathrm{AP}}$
 \end_inset
 
- -- EST stage -- Max HR -- Rest HR -- Duke T.
- score -- Atypical EST induced CP -- Age -- Gender -- Infarction -- Max
- age-pred HR -- Systolic BP RT
+ – EST stage – Max HR – Rest HR – Duke T.
+ score – Atypical EST induced CP – Age – Gender – Infarction – Max age-pred
+ HR – Systolic BP RT
 \end_layout
 
 \end_inset
@@ -1136,101 +1339,101 @@ Features
 \begin_inset Formula $x(k_{\mathrm{Q}})_{\mathrm{PCA1}}^{\mathrm{RT}}$
 \end_inset
 
- -- 
+ – 
 \begin_inset Formula $x(k_{\mathrm{R}})_{\mathrm{SFT}}^{\mathrm{RT}}$
 \end_inset
 
- -- 
+ – 
 \begin_inset Formula $x(k_{\mathrm{R}})_{\mathrm{SFT}}^{\mathrm{PE}}$
 \end_inset
 
- -- 
+ – 
 \begin_inset Formula $x(k_{\mathrm{S}})_{\mathrm{SFT}}^{\mathrm{RT}}$
 \end_inset
 
- -- 
+ – 
 \begin_inset Formula $x(k_{\mathrm{S}})_{\mathrm{PCA2}}$
 \end_inset
 
- -- 
+ – 
 \begin_inset Formula $(s_{\mathrm{\mathrm{Q}}}^{\mathrm{-}})_{\mathrm{PCA1}}^{\mathrm{RT}}$
 \end_inset
 
- -- 
+ – 
 \begin_inset Formula $(s_{\mathrm{\mathrm{Q}}}^{\mathrm{-}})_{\mathrm{SFT}}^{\mathrm{PE}}$
 \end_inset
 
- -- 
+ – 
 \begin_inset Formula $(s_{\mathrm{R}}^{\mathrm{Q}})_{\mathrm{SFT}}^{\mathrm{PE}}$
 \end_inset
 
- -- 
+ – 
 \begin_inset Formula $(s_{\mathrm{R}}^{\mathrm{Q}})_{\mathrm{SFT}}^{\mathrm{RT}}$
 \end_inset
 
- -- 
+ – 
 \begin_inset Formula $(s_{\mathrm{S}}^{\mathrm{R}})_{\mathrm{PCA1}}^{\mathrm{PE}}$
 \end_inset
 
- -- 
+ – 
 \begin_inset Formula $(s_{\mathrm{-}}^{\mathrm{S}})_{\mathrm{PCA1}}^{\mathrm{PE}}$
 \end_inset
 
- -- 
+ – 
 \begin_inset Formula $(s_{\mathrm{-}}^{\mathrm{S}})_{\mathrm{PCA2}}^{\mathrm{PE}}$
 \end_inset
 
- -- 
+ – 
 \begin_inset Formula $(s_{\mathrm{-}}^{\mathrm{S}})_{\mathrm{PCA2}}$
 \end_inset
 
- -- 
+ – 
 \begin_inset Formula $(s_{\mathrm{-}}^{\mathrm{S}})_{\mathrm{SFT}}$
 \end_inset
 
- -- 
+ – 
 \begin_inset Formula $(k_{Z}^{\mathrm{P}})_{\mathrm{SFT}}^{\mathrm{WT3-RT}}$
 \end_inset
 
- -- 
+ – 
 \begin_inset Formula $(k_{Z}^{\mathrm{QRS}})_{\mathrm{PCA2}}^{\mathrm{WT4-RT}}$
 \end_inset
 
- -- 
+ – 
 \begin_inset Formula $(k_{Z}^{\mathrm{STT}})_{\mathrm{PCA2}}^{\mathrm{WT3}}$
 \end_inset
 
- -- 
+ – 
 \begin_inset Formula $(k_{Z}^{\mathrm{STT}})_{\mathrm{PCA2}}^{\mathrm{WT3-PE}}$
 \end_inset
 
- -- 
+ – 
 \begin_inset Formula $(k_{Z}^{\mathrm{STT}})_{\mathrm{PCA2}}^{\mathrm{WT3-RT}}$
 \end_inset
 
- -- 
+ – 
 \begin_inset Formula $(k_{Z}^{\mathrm{STT}})_{\mathrm{SFT}}^{\mathrm{WT3-PE}}$
 \end_inset
 
- --
+ –
 \begin_inset Formula $(k_{Z}^{\mathrm{STT}})_{\mathrm{PCA2}}^{\mathrm{WT4-RT}}$
 \end_inset
 
- -- 
-\begin_inset Formula $r{}_{\mathrm{PCA1}}^{\mathrm{WT3}}$
+ – 
+\begin_inset Formula $r_{\mathrm{PCA1}}^{\mathrm{WT3}}$
 \end_inset
 
- -- 
+ – 
 \begin_inset Formula $t_{r50}$
 \end_inset
 
- -- ST PE -- 
+ – ST PE – 
 \begin_inset Formula $\left(\nicefrac{\mathrm{ST}}{\mathrm{RR}}\right)_{\mathrm{SFT}}^{\mathrm{PE}}$
 \end_inset
 
- -- EST stage -- Max HR -- Non CP induced EST -- Typical CP induced EST
- -- Systolic BP PE -- Diastolic BP PE -- Pretest Score -- Max age-pred HR
- -- Systolic BP RT
+ – EST stage – Max HR – Non CP induced EST – Typical CP induced EST – Systolic
+ BP PE – Diastolic BP PE – Pretest Score – Max age-pred HR – Systolic BP
+ RT
 \end_layout
 
 \end_inset
@@ -1315,7 +1518,7 @@ textwidth}{!}{
 \align center
 \begin_inset Tabular
 <lyxtabular version="3" rows="8" columns="6">
-<features rotate="0" tabularvalignment="middle">
+<features tabularvalignment="middle">
 <column alignment="center" valignment="top">
 <column alignment="center" valignment="top">
 <column alignment="center" valignment="top">
@@ -1524,7 +1727,7 @@ key "Sharir2012"
 \begin_inset Text
 
 \begin_layout Plain Layout
---
+–
 \end_layout
 
 \end_inset
@@ -1533,7 +1736,7 @@ key "Sharir2012"
 \begin_inset Text
 
 \begin_layout Plain Layout
---
+–
 \end_layout
 
 \end_inset
@@ -1542,7 +1745,7 @@ key "Sharir2012"
 \begin_inset Text
 
 \begin_layout Plain Layout
---
+–
 \end_layout
 
 \end_inset
@@ -1976,7 +2179,7 @@ key "ellestad2003stress"
 .
  With respect to the high frequency components of the WT QRS complex measured
  with 
-\begin_inset Formula $r{}^{\mathrm{WTX}}$
+\begin_inset Formula $r^{\mathrm{WTX}}$
 \end_inset
 
 , only scales 3 and 4 were included, despite other scales of higher frequency
