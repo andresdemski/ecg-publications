@@ -176,20 +176,21 @@ Introduction
 Electrocardiogram (ECG) is common corrupted by external noises or uninteresting
  signals.
  During the processing of ECG, algorithms can be doing QRS detection, heart
- beats classification or recognising illness, and this algorithms can be
- interfered by the noise or quality of the record.
+ beats classification or recognising diseases, and these algorithms can
+ be interfered by the noise or quality of the record.
  This makes important for the automatic systems to be able for detecting
  the quality of the ECG for minimise the false alarms, discard signal segments
- from Holters monitor acquisition or take out the bad records from the datasets.
+ from Holters monitor acquisition or take out the bad records from the databases.
 \end_layout
 
 \begin_layout Standard
 This topic was discussed during the PhysioNet/Computing in Cardiology Challenge
- 2011 where the aim was is to develop an efficient algorithm able to run
- in a mobile phone and provide useful feedback about the quality of the
- ECG for interpretation.The algorithm of this challenge should match the
- opinions of a group of human reviewers, who have classified each record
- as “acceptable” or “unacceptable.
+ 2011 where the aim was to develop an efficient algorithm able to run in
+ a mobile phone and provide useful feedback about the quality of the ECG
+ for interpretation.
+ The algorithm of this challenge should match the opinions of a group of
+ human reviewers, who have classified each record as “acceptable” or “unacceptab
+le.
  The challenge results were interesting and good start point for future
  works.
  
@@ -213,8 +214,8 @@ Database
 \end_layout
 
 \begin_layout Standard
-In this work we used the database Set-A Physionet/Computing in Cardiology
- (CinC) Challenge 2011 [] and the MIT-BIH arrhythmia [] .
+In this work we used the database of the Physionet/Computing in Cardiology
+ (CinC) Challenge 2011 [] and the MIT-BIH database arrhythmia [] .
  The Set-A of the Physionet/CinC DB includes 1000 ten-seconds records of
  twelve-leads records, where there are 773 acceptable , 225 unacceptable
  and 2 unclassified records.
@@ -240,7 +241,38 @@ We decide to develop a binary tree for detecting these problems as it can
 \end_layout
 
 \begin_layout Standard
-FLOW CHART
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename img/chart.svg
+	scale 80
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -248,13 +280,13 @@ If this tree give the record as acceptable, then it is processed with a
  machine learning for a fine classification.
  Our criteria for an acceptable is that all leads of the record must be
  good quality.
- If any lead is disconnected or present bad quality, the record is considered
+ If any lead is disconnected or presents bad quality, the record is considered
  as unacceptable.
  
 \end_layout
 
 \begin_layout Subsubsection
-FlatLine detection
+FlatLine Detector
 \end_layout
 
 \begin_layout Standard
@@ -263,7 +295,7 @@ The flatline is caused by the disconnection of the leads.
  derivative and the signal excursion: 
 \begin_inset Formula 
 \[
-FL_{det1}=\underset{i,j}{min}\sqrt{var(S_{i,j})}
+FL_{det1}=\underset{i,j}{min}\left\{ \sqrt{var(S_{i,j})}\right\} 
 \]
 
 \end_inset
@@ -274,7 +306,7 @@ FL_{det1}=\underset{i,j}{min}\sqrt{var(S_{i,j})}
 \begin_layout Standard
 \begin_inset Formula 
 \[
-FL_{det2}=\underset{i,j}{min}\left[mean\left(\frac{dS_{i,j}}{dt}\right)\right]
+FL_{det2}=\underset{i,j}{min}\left\{ mean\left(\frac{dS_{i,j}}{dt}\right)\right\} 
 \]
 
 \end_inset
@@ -285,7 +317,7 @@ FL_{det2}=\underset{i,j}{min}\left[mean\left(\frac{dS_{i,j}}{dt}\right)\right]
 \begin_layout Standard
 \begin_inset Formula 
 \[
-FL_{det3}=\max\frac{dS_{i,j}}{dt}
+{\displaystyle FL_{det3}=\underset{i,j}{min}\left\{ abs\left(S_{i,j}-\overline{S_{i,j}}\:\right)\right\} }
 \]
 
 \end_inset
@@ -306,12 +338,109 @@ FL_{det3}=\max\frac{dS_{i,j}}{dt}
 \begin_inset Formula $w$
 \end_inset
 
- was set studying the morphology of ECG, as the heart rate is around 1 beat
- per second, we decided an interval of 1.5 seconds.
+ was set looking the heart rate.
+ As It is around 1 beat per second, we decided to use an interval 
+\begin_inset Formula $w$
+\end_inset
+
+ of 1.5 seconds.
+ 
 \end_layout
 
 \begin_layout Standard
-When FL is calculated, it es compared
+When the FL's estimators are calculated, they are compared with a threshold
+ which determines if it is flatline or not.
+ For setting this threshold, it was generated a sub-classification from
+ the CinC dataset having the gold-standard of flatlines for training this
+ parameter (121 flatlines and 756 acceptable records).
+ Processing all the dataset, we get the next ROC curves:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename img/fl-roc.svg
+	scale 70
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Caption
+
+\begin_layout Plain Layout
+FlatLine - ROC curves
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+It can be seen that the 
+\begin_inset Formula $FL_{det2}$
+\end_inset
+
+is the estimator with best response getting 
+\begin_inset Formula $99.17\%$
+\end_inset
+
+ of true positives and 
+\begin_inset Formula $0\%$
+\end_inset
+
+ of false negatives with a threshold value of 
+\begin_inset Formula $0.85\,\nicefrac{mV}{sec}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Subsubsection
+Speaks Detector
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+SP_{det}=\underset{j}{max}\left\{ \dfrac{1}{N}\sum_{n=1}^{N-1}\left[\dfrac{dS_{j}[n]}{dt}\geq TH\right]\right\} 
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection
+BigSteps Detector
+\end_layout
+
+\begin_layout Subsubsection
+Fine Classification: Machine Learning
+\end_layout
+
+\begin_layout Section
+Results
+\end_layout
+
+\begin_layout Section
+Discussion and Conclusion 
 \end_layout
 
 \begin_layout Standard
