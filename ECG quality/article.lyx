@@ -1,7 +1,9 @@
-#LyX 2.0 created this file. For more info see http://www.lyx.org/
-\lyxformat 413
+#LyX 2.2 created this file. For more info see http://www.lyx.org/
+\lyxformat 508
 \begin_document
 \begin_header
+\save_transient_properties true
+\origin unavailable
 \textclass spie
 \begin_preamble
 %  article.tex (Version 3.3, released 19 January 2008)
@@ -38,18 +40,18 @@
 \maintain_unincluded_children false
 \language british
 \language_package default
-\inputencoding latin1
+\inputencoding iso8859-1
 \fontencoding default
-\font_roman default
-\font_sans default
-\font_typewriter default
+\font_roman "default" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
 \font_default_family default
 \use_non_tex_fonts false
 \font_sc false
 \font_osf false
-\font_sf_scale 100
-\font_tt_scale 100
-
+\font_sf_scale 100 100
+\font_tt_scale 100 100
 \graphics default
 \default_output_format default
 \output_sync 0
@@ -60,15 +62,24 @@
 \use_hyperref false
 \papersize default
 \use_geometry false
-\use_amsmath 1
-\use_esint 1
-\use_mhchem 0
-\use_mathdots 0
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 0
+\use_package mathtools 1
+\use_package mhchem 0
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
 \cite_engine basic
+\cite_engine_type default
+\biblio_style plain
 \use_bibtopic false
 \use_indices false
 \paperorientation portrait
 \suppress_date false
+\justification true
 \use_refstyle 0
 \index Index
 \shortcut idx
@@ -82,11 +93,12 @@
 \papercolumns 1
 \papersides 1
 \paperpagestyle default
-\tracking_changes false
+\tracking_changes true
 \output_changes false
 \html_math_output 0
 \html_css_as_file 0
 \html_be_strict false
+\author 361918700 "Mariano"
 \end_header
 
 \begin_body
@@ -173,14 +185,89 @@ Introduction
 \end_layout
 
 \begin_layout Standard
-Electrocardiogram (ECG) is common corrupted by external noises or uninteresting
- signals.
- During the processing of ECG, algorithms can be doing QRS detection, heart
+
+\change_inserted 361918700 1469200546
+
+\lang english
+The electrocardiogram (ECG) is a routine and inexpensive technique to analyze
+ the heart function.
+
+\lang british
+ 
+\change_deleted 361918700 1469200552
+Electrocardiogram (ECG)
+\change_inserted 361918700 1469200566
+An ECG recording
+\change_unchanged
+ is common
+\change_inserted 361918700 1469200570
+ly
+\change_unchanged
+ corrupted by 
+\change_inserted 361918700 1469200598
+several sources of 
+\change_deleted 361918700 1469200599
+external 
+\change_unchanged
+noise
+\change_deleted 361918700 1469200574
+s
+\change_unchanged
+ or 
+\change_deleted 361918700 1469200612
+uninteresting
+\change_inserted 361918700 1469200614
+interfering
+\change_unchanged
+ signals
+\change_inserted 361918700 1469200839
+, such as power line, skeletal muscle activity, electrode movement or disconnect
+ion, among others
+\change_unchanged
+.
+ 
+\change_inserted 361918700 1469200883
+
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+
+\change_inserted 361918700 1469200880
+la idea está bien, intentá mejorar el inglés en la sig versión
+\change_unchanged
+
+\end_layout
+
+\end_inset
+
+ 
+\change_unchanged
+During the processing of ECG, algorithms can be doing QRS detection, heart
  beats classification or recognising diseases, and these algorithms can
  be interfered by the noise or quality of the record.
  This makes important for the automatic systems to be able for detecting
  the quality of the ECG for minimise the false alarms, discard signal segments
  from Holters monitor acquisition or take out the bad records from the databases.
+\change_inserted 361918700 1469201063
+
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+
+\change_inserted 361918700 1469201100
+mejorá esto si podés, poné una ref al libro de labuna tal vez, o a algún
+ artículo que amplie esto.
+\change_unchanged
+
+\end_layout
+
+\end_inset
+
+
+\change_unchanged
+
 \end_layout
 
 \begin_layout Standard
@@ -194,15 +281,93 @@ le.
  The challenge results were interesting and good start point for future
  works.
  
+\change_inserted 361918700 1469201130
+
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+
+\change_inserted 361918700 1469201150
+Entrá en los mejores 2 o 3 trabajos, muy resumido con referencias.
+\change_unchanged
+
+\end_layout
+
+\end_inset
+
+
+\change_unchanged
+
 \end_layout
 
 \begin_layout Standard
 In this paper, it is presented a 2 level ECG quality classification using
  two approaches, binary tree and machine learning.
- The binary tree is performed for detecting flatline, speaks and big steps.
- The machine learning is based in Gari D.
- Clifford works [] and the idea is to do a fine classification after the
- binary tree.
+ The binary tree is performed for detecting flatline, speaks and big steps
+\change_inserted 361918700 1469201161
+
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+
+\change_inserted 361918700 1469201178
+picos y bandazos, buscá una mejor trad
+\change_unchanged
+
+\end_layout
+
+\end_inset
+
+
+\change_unchanged
+.
+ The 
+\change_deleted 361918700 1469201220
+machine learning
+\change_inserted 361918700 1469201231
+detector
+\change_unchanged
+ is based in Gari D.
+ Clifford works []
+\change_inserted 361918700 1469201194
+
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+
+\change_inserted 361918700 1469201196
+solo la ref
+\change_unchanged
+
+\end_layout
+
+\end_inset
+
+
+\change_unchanged
+ and the idea is to 
+\change_inserted 361918700 1469201249
+
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+
+\change_inserted 361918700 1469201293
+analizar los detalles de las malas calidades de ECG no sería ? clasificación
+ fina da la impresión de muchas clases, acá solo detectamos mala calidad.
+\change_unchanged
+
+\end_layout
+
+\end_inset
+
+
+\change_unchanged
+do a fine classification after the binary tree.
 \end_layout
 
 \begin_layout Section
@@ -259,7 +424,7 @@ status open
 \end_layout
 
 \begin_layout Plain Layout
-\begin_inset Caption
+\begin_inset Caption Standard
 
 \begin_layout Plain Layout
 
@@ -376,7 +541,7 @@ status open
 
 \begin_layout Plain Layout
 \align center
-\begin_inset Caption
+\begin_inset Caption Standard
 
 \begin_layout Plain Layout
 FlatLine - ROC curves
@@ -527,7 +692,7 @@ sideways false
 status open
 
 \begin_layout Plain Layout
-\begin_inset Caption
+\begin_inset Caption Standard
 
 \begin_layout Plain Layout
 \begin_inset CommandInset label
@@ -567,7 +732,7 @@ textwidth}{!}{
 \begin_inset Tabular
 <lyxtabular version="3" rows="6" columns="3">
 <features tabularvalignment="middle">
-<column alignment="right" valignment="top" width="0">
+<column alignment="right" valignment="top">
 <column alignment="right" valignment="middle" width="35text%">
 <column alignment="left" valignment="middle" width="50text%">
 <row>
@@ -617,8 +782,8 @@ Pretest
 \begin_inset Text
 
 \begin_layout Plain Layout
-Pretest score -- Age -- Gender -- Infarction -- Smoking -- Lipids -- Diabetes
- -- STT changes -- Max age-pred HR -- Systolic BP -- Diastolic BP
+Pretest score – Age – Gender – Infarction – Smoking – Lipids – Diabetes
+ – STT changes – Max age-pred HR – Systolic BP – Diastolic BP
 \end_layout
 
 \end_inset
@@ -685,9 +850,9 @@ Exercise
 \begin_inset Text
 
 \begin_layout Plain Layout
-EST stage -- Max HR -- Rest HR -- EST duration -- HR recovery -- HR change
- -- Duke T.
- score -- Chest Pain -- Systolic BP PE -- Diastolic BP PE 
+EST stage – Max HR – Rest HR – EST duration – HR recovery – HR change –
+ Duke T.
+ score – Chest Pain – Systolic BP PE – Diastolic BP PE 
 \end_layout
 
 \end_inset
@@ -755,71 +920,71 @@ Proposed
 \begin_inset Text
 
 \begin_layout Plain Layout
-QRS width -- 
+QRS width – 
 \begin_inset Formula $\mathrm{ST_{PE}}$
 \end_inset
 
- -- 
+ – 
 \begin_inset Formula $\mathrm{ST_{AP}}$
 \end_inset
 
- -- 
+ – 
 \begin_inset Formula $\left(\nicefrac{\mathrm{ST}}{\mathrm{R}}\right)_{\mathrm{PE}}$
 \end_inset
 
- -- 
+ – 
 \begin_inset Formula $\left(\nicefrac{\mathrm{ST}}{\mathrm{R}}\right)_{\mathrm{AP}}$
 \end_inset
 
- -- 
+ – 
 \begin_inset Formula $\nicefrac{\mathrm{ST_{PE}}}{\mathrm{RR_{PE}}}$
 \end_inset
 
- -- 
+ – 
 \begin_inset Formula $x(k_{\mathrm{Q}})$
 \end_inset
 
- -- 
+ – 
 \begin_inset Formula $x(k_{\mathrm{R}})$
 \end_inset
 
- -- 
+ – 
 \begin_inset Formula $x(k_{\mathrm{S}})$
 \end_inset
 
- -- 
+ – 
 \begin_inset Formula $s_{\mathrm{Q}}^{-}$
 \end_inset
 
- -- 
+ – 
 \begin_inset Formula $s_{\mathrm{R}}^{\mathrm{Q}}$
 \end_inset
 
- -- 
+ – 
 \begin_inset Formula $s_{\mathrm{S}}^{\mathrm{R}}$
 \end_inset
 
- -- 
+ – 
 \begin_inset Formula $s_{\mathrm{-}}^{\mathrm{S}}$
 \end_inset
 
--- 
+– 
 \begin_inset Formula $k_{Z}^{P}$
 \end_inset
 
- -- 
+ – 
 \begin_inset Formula $k_{Z}^{\mathrm{QRS}}$
 \end_inset
 
- -- 
+ – 
 \begin_inset Formula $k_{Z}^{\mathrm{ST-T}}$
 \end_inset
 
- -- 
-\begin_inset Formula $r{}^{\mathrm{WTx}}$
+ – 
+\begin_inset Formula $r^{\mathrm{WTx}}$
 \end_inset
 
- -- 
+ – 
 \begin_inset Formula $t_{r50}$
 \end_inset
 
@@ -871,7 +1036,7 @@ key "Llamedo11"
 
 .
  
-\begin_inset Formula $r{}^{\mathrm{WTx}}$
+\begin_inset Formula $r^{\mathrm{WTx}}$
 \end_inset
 
  RMS calculated in the WT of the QRS complex at scale 
@@ -957,7 +1122,7 @@ key "Sharir2012"
 
  could not be studied here.
  However, 
-\begin_inset Formula $r{}^{\mathrm{WTx}}$
+\begin_inset Formula $r^{\mathrm{WTx}}$
 \end_inset
 
  measures the higher frequency band of QRS complex, given the bandpass nature
@@ -1169,7 +1334,7 @@ sideways false
 status open
 
 \begin_layout Plain Layout
-\begin_inset Caption
+\begin_inset Caption Standard
 
 \begin_layout Plain Layout
 \begin_inset CommandInset label
@@ -1251,113 +1416,113 @@ Features
 \begin_inset Formula $x(k_{\mathrm{Q}})_{\mathrm{SFT}}$
 \end_inset
 
- -- 
+ – 
 \begin_inset Formula $x(k_{\mathrm{Q}})_{\mathrm{PCA2}}^{\mathrm{PE}}$
 \end_inset
 
- -- 
+ – 
 \begin_inset Formula $x(k_{\mathrm{R}})_{\mathrm{SFT}}^{\mathrm{RT}}$
 \end_inset
 
- -- 
+ – 
 \begin_inset Formula $x(k_{\mathrm{S}})_{\mathrm{PCA2}}$
 \end_inset
 
- -- 
+ – 
 \begin_inset Formula $(s_{\mathrm{Q}}^{-})_{\mathrm{PCA2}}$
 \end_inset
 
- -- 
+ – 
 \begin_inset Formula $(s_{\mathrm{Q}}^{-})_{\mathrm{SFT}}$
 \end_inset
 
- -- 
+ – 
 \begin_inset Formula $(s_{\mathrm{Q}}^{-})_{\mathrm{PCA1}}^{\mathrm{PE}}$
 \end_inset
 
- -- 
+ – 
 \begin_inset Formula $(s_{\mathrm{Q}}^{-})_{\mathrm{PCA2}}^{\mathrm{PE}}$
 \end_inset
 
- -- 
+ – 
 \begin_inset Formula $(s_{\mathrm{R}}^{\mathrm{Q}})_{\mathrm{SFT}}^{\mathrm{RT}}$
 \end_inset
 
- -- 
+ – 
 \begin_inset Formula $(s_{\mathrm{S}}^{\mathrm{R}})_{\mathrm{PCA1}}^{\mathrm{RT}}$
 \end_inset
 
- -- 
+ – 
 \begin_inset Formula $(s_{\mathrm{-}}^{\mathrm{S}})_{\mathrm{PCA2}}$
 \end_inset
 
- -- 
+ – 
 \begin_inset Formula $(s_{\mathrm{-}}^{\mathrm{S}})_{\mathrm{PCA2}}^{\mathrm{PE}}$
 \end_inset
 
- -- 
+ – 
 \begin_inset Formula $(s_{\mathrm{-}}^{\mathrm{S}})_{\mathrm{SFT}}^{\mathrm{RT}}$
 \end_inset
 
- -- 
+ – 
 \begin_inset Formula $(k_{Z}^{\mathrm{QRS}})_{\mathrm{PCA2}}^{\mathrm{WT3}}$
 \end_inset
 
- -- 
+ – 
 \begin_inset Formula $(k_{Z}^{\mathrm{QRS}})_{\mathrm{PCA2}}^{\mathrm{WT3-PE}}$
 \end_inset
 
- -- 
+ – 
 \begin_inset Formula $(k_{Z}^{\mathrm{QRS}})_{\mathrm{PCA2}}^{\mathrm{WT4-PE}}$
 \end_inset
 
- -- 
+ – 
 \begin_inset Formula $(k_{Z}^{\mathrm{QRS}})_{\mathrm{SFT}}^{\mathrm{WT3}}$
 \end_inset
 
- -- 
+ – 
 \begin_inset Formula $(k_{Z}^{\mathrm{STT}})_{\mathrm{PCA1}}^{\mathrm{WT3-PE}}$
 \end_inset
 
- -- 
+ – 
 \begin_inset Formula $(k_{Z}^{\mathrm{STT}})_{\mathrm{PCA1}}^{\mathrm{WT3-RT}}$
 \end_inset
 
- -- 
+ – 
 \begin_inset Formula $(k_{Z}^{\mathrm{STT}})_{\mathrm{PCA2}}^{\mathrm{WT3-PE}}$
 \end_inset
 
- -- 
+ – 
 \begin_inset Formula $(k_{Z}^{\mathrm{STT}})_{\mathrm{SFT}}^{\mathrm{WT3-PE}}$
 \end_inset
 
--- 
+– 
 \begin_inset Formula $(k_{Z}^{\mathrm{STT}})_{\mathrm{SFT}}^{\mathrm{WT4}}$
 \end_inset
 
- -- 
-\begin_inset Formula $r{}_{\mathrm{PCA1}}^{\mathrm{WT4}}$
+ – 
+\begin_inset Formula $r_{\mathrm{PCA1}}^{\mathrm{WT4}}$
 \end_inset
 
- -- 
-\begin_inset Formula $r{}_{\mathrm{SFT}}^{\mathrm{WT3-RT}}$
+ – 
+\begin_inset Formula $r_{\mathrm{SFT}}^{\mathrm{WT3-RT}}$
 \end_inset
 
- -- 
-\begin_inset Formula $r{}_{\mathrm{PCA1}}^{\mathrm{WT4-PE}}$
+ – 
+\begin_inset Formula $r_{\mathrm{PCA1}}^{\mathrm{WT4-PE}}$
 \end_inset
 
- -- 
-\begin_inset Formula $r{}_{\mathrm{PCA1}}^{\mathrm{WT4-RT}}$
+ – 
+\begin_inset Formula $r_{\mathrm{PCA1}}^{\mathrm{WT4-RT}}$
 \end_inset
 
- -- 
+ – 
 \begin_inset Formula $\left(\nicefrac{\mathrm{ST}}{\mathrm{R}}\right)_{\mathrm{AP}}$
 \end_inset
 
- -- EST stage -- Max HR -- Rest HR -- Duke T.
- score -- Atypical EST induced CP -- Age -- Gender -- Infarction -- Max
- age-pred HR -- Systolic BP RT
+ – EST stage – Max HR – Rest HR – Duke T.
+ score – Atypical EST induced CP – Age – Gender – Infarction – Max age-pred
+ HR – Systolic BP RT
 \end_layout
 
 \end_inset
@@ -1383,101 +1548,101 @@ Features
 \begin_inset Formula $x(k_{\mathrm{Q}})_{\mathrm{PCA1}}^{\mathrm{RT}}$
 \end_inset
 
- -- 
+ – 
 \begin_inset Formula $x(k_{\mathrm{R}})_{\mathrm{SFT}}^{\mathrm{RT}}$
 \end_inset
 
- -- 
+ – 
 \begin_inset Formula $x(k_{\mathrm{R}})_{\mathrm{SFT}}^{\mathrm{PE}}$
 \end_inset
 
- -- 
+ – 
 \begin_inset Formula $x(k_{\mathrm{S}})_{\mathrm{SFT}}^{\mathrm{RT}}$
 \end_inset
 
- -- 
+ – 
 \begin_inset Formula $x(k_{\mathrm{S}})_{\mathrm{PCA2}}$
 \end_inset
 
- -- 
+ – 
 \begin_inset Formula $(s_{\mathrm{\mathrm{Q}}}^{\mathrm{-}})_{\mathrm{PCA1}}^{\mathrm{RT}}$
 \end_inset
 
- -- 
+ – 
 \begin_inset Formula $(s_{\mathrm{\mathrm{Q}}}^{\mathrm{-}})_{\mathrm{SFT}}^{\mathrm{PE}}$
 \end_inset
 
- -- 
+ – 
 \begin_inset Formula $(s_{\mathrm{R}}^{\mathrm{Q}})_{\mathrm{SFT}}^{\mathrm{PE}}$
 \end_inset
 
- -- 
+ – 
 \begin_inset Formula $(s_{\mathrm{R}}^{\mathrm{Q}})_{\mathrm{SFT}}^{\mathrm{RT}}$
 \end_inset
 
- -- 
+ – 
 \begin_inset Formula $(s_{\mathrm{S}}^{\mathrm{R}})_{\mathrm{PCA1}}^{\mathrm{PE}}$
 \end_inset
 
- -- 
+ – 
 \begin_inset Formula $(s_{\mathrm{-}}^{\mathrm{S}})_{\mathrm{PCA1}}^{\mathrm{PE}}$
 \end_inset
 
- -- 
+ – 
 \begin_inset Formula $(s_{\mathrm{-}}^{\mathrm{S}})_{\mathrm{PCA2}}^{\mathrm{PE}}$
 \end_inset
 
- -- 
+ – 
 \begin_inset Formula $(s_{\mathrm{-}}^{\mathrm{S}})_{\mathrm{PCA2}}$
 \end_inset
 
- -- 
+ – 
 \begin_inset Formula $(s_{\mathrm{-}}^{\mathrm{S}})_{\mathrm{SFT}}$
 \end_inset
 
- -- 
+ – 
 \begin_inset Formula $(k_{Z}^{\mathrm{P}})_{\mathrm{SFT}}^{\mathrm{WT3-RT}}$
 \end_inset
 
- -- 
+ – 
 \begin_inset Formula $(k_{Z}^{\mathrm{QRS}})_{\mathrm{PCA2}}^{\mathrm{WT4-RT}}$
 \end_inset
 
- -- 
+ – 
 \begin_inset Formula $(k_{Z}^{\mathrm{STT}})_{\mathrm{PCA2}}^{\mathrm{WT3}}$
 \end_inset
 
- -- 
+ – 
 \begin_inset Formula $(k_{Z}^{\mathrm{STT}})_{\mathrm{PCA2}}^{\mathrm{WT3-PE}}$
 \end_inset
 
- -- 
+ – 
 \begin_inset Formula $(k_{Z}^{\mathrm{STT}})_{\mathrm{PCA2}}^{\mathrm{WT3-RT}}$
 \end_inset
 
- -- 
+ – 
 \begin_inset Formula $(k_{Z}^{\mathrm{STT}})_{\mathrm{SFT}}^{\mathrm{WT3-PE}}$
 \end_inset
 
- --
+ –
 \begin_inset Formula $(k_{Z}^{\mathrm{STT}})_{\mathrm{PCA2}}^{\mathrm{WT4-RT}}$
 \end_inset
 
- -- 
-\begin_inset Formula $r{}_{\mathrm{PCA1}}^{\mathrm{WT3}}$
+ – 
+\begin_inset Formula $r_{\mathrm{PCA1}}^{\mathrm{WT3}}$
 \end_inset
 
- -- 
+ – 
 \begin_inset Formula $t_{r50}$
 \end_inset
 
- -- ST PE -- 
+ – ST PE – 
 \begin_inset Formula $\left(\nicefrac{\mathrm{ST}}{\mathrm{RR}}\right)_{\mathrm{SFT}}^{\mathrm{PE}}$
 \end_inset
 
- -- EST stage -- Max HR -- Non CP induced EST -- Typical CP induced EST
- -- Systolic BP PE -- Diastolic BP PE -- Pretest Score -- Max age-pred HR
- -- Systolic BP RT
+ – EST stage – Max HR – Non CP induced EST – Typical CP induced EST – Systolic
+ BP PE – Diastolic BP PE – Pretest Score – Max age-pred HR – Systolic BP
+ RT
 \end_layout
 
 \end_inset
@@ -1516,7 +1681,7 @@ sideways false
 status open
 
 \begin_layout Plain Layout
-\begin_inset Caption
+\begin_inset Caption Standard
 
 \begin_layout Plain Layout
 \begin_inset CommandInset label
@@ -1563,12 +1728,12 @@ textwidth}{!}{
 \begin_inset Tabular
 <lyxtabular version="3" rows="8" columns="6">
 <features tabularvalignment="middle">
-<column alignment="center" valignment="top" width="0">
-<column alignment="center" valignment="top" width="0">
-<column alignment="center" valignment="top" width="0">
-<column alignment="center" valignment="top" width="0">
-<column alignment="center" valignment="top" width="0">
-<column alignment="center" valignment="top" width="0">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
 <row>
 <cell alignment="center" valignment="top" topline="true" bottomline="true" usebox="none">
 \begin_inset Text
@@ -1771,7 +1936,7 @@ key "Sharir2012"
 \begin_inset Text
 
 \begin_layout Plain Layout
---
+–
 \end_layout
 
 \end_inset
@@ -1780,7 +1945,7 @@ key "Sharir2012"
 \begin_inset Text
 
 \begin_layout Plain Layout
---
+–
 \end_layout
 
 \end_inset
@@ -1789,7 +1954,7 @@ key "Sharir2012"
 \begin_inset Text
 
 \begin_layout Plain Layout
---
+–
 \end_layout
 
 \end_inset
@@ -2091,7 +2256,7 @@ status open
 \end_layout
 
 \begin_layout Plain Layout
-\begin_inset Caption
+\begin_inset Caption Standard
 
 \begin_layout Plain Layout
 \begin_inset CommandInset label
@@ -2223,7 +2388,7 @@ key "ellestad2003stress"
 .
  With respect to the high frequency components of the WT QRS complex measured
  with 
-\begin_inset Formula $r{}^{\mathrm{WTX}}$
+\begin_inset Formula $r^{\mathrm{WTX}}$
 \end_inset
 
 , only scales 3 and 4 were included, despite other scales of higher frequency
