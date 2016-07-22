@@ -414,13 +414,31 @@ key "ecg-kit-web"
 \end_layout
 
 \begin_layout Standard
-The aim of this study was 
+The aim of this study was
+\change_inserted 361918700 1469152646
+
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+
+\change_inserted 361918700 1469152654
+no se suele decir esto
+\change_unchanged
+
+\end_layout
+
+\end_inset
+
+
+\change_unchanged
+ 
 \change_deleted 361918700 1469152324
 to introduce ourselfs as engineering students in signal processing activities,
  in the field of research, investigation and academic publishing, 
 \change_unchanged
 to evaluate 
-\change_inserted 361918700 1469152393
+\change_inserted 361918700 1469152709
 two implementations of the Pan and Tompkins algorithm 
 \change_deleted 361918700 1469152416
 each detector using a standard database available on Physionet: MIT-BIH
@@ -447,8 +465,15 @@ ir
 \change_deleted 361918700 1469152495
 detecting QRS complexs of the developed algorithms by using the statistical
  McNemar test to arrive a conclusion
-\change_inserted 361918700 1469152583
- to an open source implementation of the algorithm in a public database
+\change_inserted 361918700 1469152847
+ to an open source implementation, evaluated in the public MIT-BIH database
+ 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "MITBIHDB"
+
+\end_inset
+
  in order to ensure results reproducibility.
 \change_deleted 361918700 1469152563
 .
@@ -461,14 +486,54 @@ Material and methods
 \end_layout
 
 \begin_layout Standard
-As previously mentioned, we used the database from Physionet: MIT-BIH Arrhythmia
- Database, wich is a collection of 48 fully annotated half-hour two-lead
- ECG.
- This samples were recorded at 360 samples per second per channel with 11-bit
- resolution over a 10mV range.
+As previously mentioned, we used the 
+\change_deleted 361918700 1469196542
+database from Physionet:
+\change_inserted 361918700 1469196548
+well-known
+\change_unchanged
+ MIT-BIH Arrhythmia 
+\change_inserted 361918700 1469196556
+d
+\change_deleted 361918700 1469196556
+D
+\change_unchanged
+atabase, w
+\change_inserted 361918700 1469196559
+h
+\change_unchanged
+ich is a collection of 48 fully annotated half-hour two-lead ECG.
+ 
+\change_deleted 361918700 1469196601
+This samples were recorded at
+\change_inserted 361918700 1469196609
+Each recording was sampled at
+\change_unchanged
+ 360 
+\change_deleted 361918700 1469196614
+samples per second
+\change_inserted 361918700 1469196792
+Hz
+\change_deleted 361918700 1469196804
+ per channel
+\change_unchanged
+ with 
+\change_deleted 361918700 1469196833
+11-bit 
+\change_inserted 361918700 1469196839
+a voltage 
+\change_unchanged
+resolution 
+\change_inserted 361918700 1469196843
+of 11-bit 
+\change_unchanged
+over a 10mV range.
  Two or more cardiologists independently annotated each record and resolved
- the disagreements, generating a reference annotation for each beat in the
- database.
+ the disagreements, generating a reference annotation for each 
+\change_inserted 361918700 1469196513
+heart
+\change_unchanged
+beat in the database.
  
 \end_layout
 
