@@ -93,12 +93,12 @@
 \papercolumns 1
 \papersides 1
 \paperpagestyle default
-\tracking_changes false
+\tracking_changes true
 \output_changes false
 \html_math_output 0
 \html_css_as_file 0
 \html_be_strict false
-\author 361918700 "Mariano"
+\author -1260779252 "mariano"
 \end_header
 
 \begin_body
@@ -110,23 +110,11 @@ An Algorithm for the Quantification the Signal Quality in the Electrocardiogram
 \begin_layout Author
 
 \lang spanish
-Andrés Demski
-\lang british
- and 
-\lang spanish
-Mariano Llamedo Soria
-\lang british
-
+Andrés Demski and Mariano Llamedo Soria
 \begin_inset Newline newline
 \end_inset
 
-
-\lang spanish
 Universidad Tecnológica Nacional, Buenos Aires, Argentina
-\end_layout
-
-\begin_layout Abstract
-
 \end_layout
 
 \begin_layout Section
@@ -134,58 +122,38 @@ Introduction
 \end_layout
 
 \begin_layout Standard
-
-\lang english
 The electrocardiogram (ECG) is a routine and inexpensive technique to analyze
  the heart function.
-
-\lang british
  An ECG recording is commonly corrupted by several sources of noise or interferi
 ng signals, such as power line, skeletal muscle activity, electrode movement
  or disconnection, among others.
  
-\change_inserted 361918700 1469200883
-
 \begin_inset Note Note
 status open
 
 \begin_layout Plain Layout
-
-\change_inserted 361918700 1469200880
 la idea está bien, intentá mejorar el inglés en la sig versión
-\change_unchanged
-
 \end_layout
 
 \end_inset
 
- 
-\change_unchanged
-During the processing of ECG, algorithms can be doing QRS detection, heart
+ During the processing of ECG, algorithms can be doing QRS detection, heart
  beats classification or recognising diseases, and these algorithms can
  be interfered by the noise or quality of the record.
  This makes important for the automatic systems to be able for detecting
  the quality of the ECG for minimise the false alarms, discard signal segments
  from Holters monitor acquisition or take out the bad records from the databases.
-\change_inserted 361918700 1469201063
-
 \begin_inset Note Note
 status open
 
 \begin_layout Plain Layout
-
-\change_inserted 361918700 1469201100
 mejorá esto si podés, poné una ref al libro de labuna tal vez, o a algún
  artículo que amplie esto.
-
-\change_unchanged
  OOOK!!! Despues agrego
 \end_layout
 
 \end_inset
 
-
-\change_unchanged
 
 \end_layout
 
@@ -243,28 +211,245 @@ Database
 
 \begin_layout Standard
 In this work we used the database of the Physionet/Computing in Cardiology
- (CinC) Challenge 2011 [] and the MIT-BIH database arrhythmia [] .
- The Set-A of the Physionet/CinC DB includes 1000 ten-seconds records of
- twelve-leads records, where there are 773 acceptable , 225 unacceptable
- and 2 unclassified records.
- This dataset is used for training and test our algorithmsn, and the MIT-BIH
- is used only for training the algorithms and morphological study of ECG.
+ (CinC) Challenge 2011 
+\change_inserted -1260779252 1469536471
+
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+
+\change_inserted -1260779252 1469536515
+pongámosle algún nombre tipo ecgqdb, el que te guste o si ya tiene uno en
+ Physionet, ese
+\change_unchanged
+
+\end_layout
+
+\end_inset
+
+
+\change_deleted -1260779252 1469536263
+[]
+\change_inserted -1260779252 1469536263
+
+\begin_inset CommandInset citation
+LatexCommand cite
+key "PhysioNet"
+
+\end_inset
+
+
+\change_unchanged
+ and the MIT-BIH database arrhythmia 
+\change_inserted -1260779252 1469536365
+
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+
+\change_inserted -1260779252 1469536389
+suele ser el code de esta base, así no usamos MIT-BIH, con el tiempo me
+ fue gustando más mitdb
+\change_unchanged
+
+\end_layout
+
+\end_inset
+
+(mitdb)
+\change_deleted -1260779252 1469536263
+[]
+\change_inserted -1260779252 1469536246
+
+\begin_inset CommandInset citation
+LatexCommand cite
+key "MITBIHDB"
+
+\end_inset
+
+
+\change_unchanged
+ .
+ The Set-A of the Physionet/CinC DB
+\change_inserted -1260779252 1469537529
+
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+
+\change_inserted -1260779252 1469537586
+nombre corto acá y algunas características técnicas Fs, bits, etc etc, de
+ las bases, el slew rate máximo de cada una si lo tenemos, no estaría mal
+\change_unchanged
+
+\end_layout
+
+\end_inset
+
+
+\change_unchanged
+ includes 1000 ten-seconds records of 
+\change_deleted -1260779252 1469536527
+twelve
+\change_inserted -1260779252 1469536527
+12
+\change_unchanged
+-leads records, where there are 773 acceptable
+\change_deleted -1260779252 1469536295
+ 
+\change_unchanged
+, 225 unacceptable 
+\change_inserted -1260779252 1469536311
+
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+
+\change_inserted -1260779252 1469536325
+qué sentido tiene poner esto ? se descartan no estos 2 ?
+\change_unchanged
+
+\end_layout
+
+\end_inset
+
+
+\change_unchanged
+and 2 unclassified records.
+ 
+\change_inserted -1260779252 1469537448
+
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+
+\change_inserted -1260779252 1469537484
+Acá poné, para entrenamiento, tal db o tales db's o partes de db's, y para
+ evaluación lo mismo, es más claro creo.
+\change_unchanged
+
+\end_layout
+
+\end_inset
+
+
+\change_unchanged
+This dataset is used for training and test our 
+\change_deleted -1260779252 1469537435
+algorithmsn
+\change_inserted -1260779252 1469537435
+algorithm
+\change_unchanged
+, and the MIT-BIH is used only for training the algorithms and morphological
+ study of ECG.
 \end_layout
 
 \begin_layout Subsection
-Algorithms
+
+\change_inserted -1260779252 1469537651
+Proposed 
+\change_deleted -1260779252 1469537655
+A
+\change_inserted -1260779252 1469537655
+a
+\change_unchanged
+lgorithm
+\change_deleted -1260779252 1469537648
+s
+\change_unchanged
+
 \end_layout
 
 \begin_layout Standard
+
+\change_deleted -1260779252 1469537681
 Firstly, we started doing a visual inspection of the CinC DB to identify
  the problems of the unacceptable records.
- We saw that there are 3 important causes: 1) Flatline 2) Spikes 3) Huge
- Impulse.
+\change_inserted -1260779252 1469537677
+
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+
+\change_inserted -1260779252 1469537694
+nooo! fijate que no aporta nada este comentario, ya lo sabe todo el mundo
+ eso.
+\change_unchanged
+
+\end_layout
+
+\end_inset
+
+
+\change_unchanged
+ We 
+\change_inserted -1260779252 1469537738
+identified 
+\change_deleted -1260779252 1469537751
+saw that there are 3 
+\change_inserted -1260779252 1469537752
+three 
+\change_unchanged
+important causes
+\change_inserted -1260779252 1469537777
+ that are present in the unacceptable recordings
+\change_unchanged
+: 1) 
+\change_deleted -1260779252 1469538478
+F
+\change_inserted -1260779252 1469538478
+f
+\change_unchanged
+latline
+\change_inserted -1260779252 1469538495
+s,
+\change_unchanged
+ 2) 
+\change_deleted -1260779252 1469538476
+S
+\change_inserted -1260779252 1469538476
+s
+\change_unchanged
+pikes 
+\change_inserted -1260779252 1469538468
+and 
+\change_unchanged
+3) 
+\change_deleted -1260779252 1469538471
+Huge Impulse
+\change_inserted -1260779252 1469538471
+steps
+\change_unchanged
+.
+
+\change_inserted -1260779252 1469538511
+ 
+\change_unchanged
+
 \end_layout
 
 \begin_layout Standard
 We decide to develop a binary tree for detecting these problems as it can
- be seen in fig []
+ be seen in fig 
+\change_deleted -1260779252 1469539320
+[]
+\change_inserted -1260779252 1469539320
+
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Flow-chart-and-main"
+
+\end_inset
+
+
+\change_unchanged
+
 \end_layout
 
 \begin_layout Standard
@@ -290,6 +475,16 @@ status open
 
 \begin_layout Plain Layout
 
+\change_inserted -1260779252 1469539309
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Flow-chart-and-main"
+
+\end_inset
+
+Flow-chart and main blocks of the proposed algorithm.
+\change_unchanged
+
 \end_layout
 
 \end_inset
@@ -304,9 +499,48 @@ status open
 
 \begin_layout Standard
 If this tree give the record as acceptable, then it is processed with a
- machine learning for doing the last classification.
- Our criterion for an acceptable is that all leads of the record must be
- good quality.
+ 
+\change_deleted -1260779252 1469538871
+machine learning
+\change_inserted -1260779252 1469538875
+detector 
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+
+\change_inserted -1260779252 1469538896
+o classifier, no me gusta machine learning para referirnos al bloque detector,
+ o a futuro clasificador.
+\change_unchanged
+
+\end_layout
+
+\end_inset
+
+
+\change_unchanged
+ for doing the last classification.
+ Our
+\change_inserted -1260779252 1469538913
+
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+
+\change_inserted -1260779252 1469540727
+acá no seguimos un criterio de otro artículo ?
+\change_unchanged
+
+\end_layout
+
+\end_inset
+
+
+\change_unchanged
+ criterion for an acceptable is that all leads of the record must be good
+ quality.
  If any lead is disconnected or presents bad quality, the record is considered
  as unacceptable.
  
@@ -317,7 +551,27 @@ FlatLine Detector
 \end_layout
 
 \begin_layout Standard
-The flatline is caused by the disconnection of the leads.
+The flatline is caused by the disconnection of the leads
+\change_inserted -1260779252 1469540759
+ 
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+
+\change_inserted -1260779252 1469540800
+No estoy seguro, aparte, no interesa qué lo causa sino como se manifiesta
+ en el ECG, simplemente expliquemos el fenómeno que observamos, y cómo proponemo
+s detectarlo.
+\change_unchanged
+
+\end_layout
+
+\end_inset
+
+
+\change_unchanged
+.
  For detecting this, we developed 3 algorithms analysing the variance, the
  derivative and the signal excursion: 
 \begin_inset Formula 
@@ -327,6 +581,24 @@ FL_{det1}=\underset{i,j}{min}\left\{ \sqrt{var(S_{i,j})}\right\}
 
 \end_inset
 
+
+\change_inserted -1260779252 1469542257
+
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+
+\change_inserted -1260779252 1469542274
+FL1 ? o F1
+\change_unchanged
+
+\end_layout
+
+\end_inset
+
+
+\change_unchanged
 
 \end_layout
 
@@ -339,9 +611,45 @@ FL_{det2}=\underset{i,j}{min}\left\{ mean\left(\frac{dS_{i,j}}{dt}\right)\right\
 \end_inset
 
 
+\change_inserted -1260779252 1469542322
+
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+
+\change_inserted -1260779252 1469542328
+definí mean
+\change_unchanged
+
+\end_layout
+
+\end_inset
+
+
+\change_unchanged
+
 \end_layout
 
 \begin_layout Standard
+
+\change_inserted -1260779252 1469542360
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+
+\change_inserted -1260779252 1469542368
+aca usarías mean de nuevo
+\change_unchanged
+
+\end_layout
+
+\end_inset
+
+
+\change_unchanged
+
 \begin_inset Formula 
 \[
 {\displaystyle FL_{det3}=\underset{i,j}{min}\left\{ abs\left(S_{i,j}-\overline{S_{i,j}}\:\right)\right\} }
@@ -356,31 +664,155 @@ FL_{det2}=\underset{i,j}{min}\left\{ mean\left(\frac{dS_{i,j}}{dt}\right)\right\
 \begin_inset Formula $S_{i,j}$
 \end_inset
 
- represents the signal in the interval 
+ represents the 
+\change_inserted -1260779252 1469540862
+ECG 
+\change_unchanged
+signal in the interval 
 \begin_inset Formula $w$
 \end_inset
 
- around the sample i of the lead j.
- The interval 
+
+\change_inserted -1260779252 1469540896
+, which starts at 
+\change_unchanged
+ 
+\change_deleted -1260779252 1469540906
+around 
+\change_unchanged
+the sample i
+\change_inserted -1260779252 1469540923
+
+\emph on
+th
+\change_unchanged
+
+\emph default
+ of the 
+\change_inserted -1260779252 1469540947
+j
+\emph on
+th
+\emph default
+ 
+\change_unchanged
+lead
+\change_deleted -1260779252 1469540948
+ j
+\change_unchanged
+.
+ The 
+\change_deleted -1260779252 1469541085
+interval 
+\change_unchanged
+
 \begin_inset Formula $w$
 \end_inset
 
- was set looking the heart rate.
+ 
+\change_inserted -1260779252 1469541086
+interval 
+\change_unchanged
+was 
+\change_deleted -1260779252 1469541018
+set 
+\change_inserted -1260779252 1469541721
+adopted of 1.5 seconds length, this restriction makes unlikely to produce
+ false detections in heart rates above 40 bpm.
+ 
+\change_deleted -1260779252 1469541737
+looking the heart rate.
  As It is around 1 beat per second, we decided to use an interval 
 \begin_inset Formula $w$
 \end_inset
 
  of 1.5 seconds.
  
+\change_inserted -1260779252 1469541739
+
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+
+\change_inserted -1260779252 1469541755
+sugerencia, intentá justificar de una manera similar la adopción de umbrales
+\change_unchanged
+
+\end_layout
+
+\end_inset
+
+
+\change_unchanged
+
 \end_layout
 
 \begin_layout Standard
-When the FL's estimators are calculated, they are compared with a threshold
- which determines if it is flatline or not.
+When the FL's
+\change_inserted -1260779252 1469541771
+
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+
+\change_inserted -1260779252 1469541777
+donde definiste FL?
+\change_unchanged
+
+\end_layout
+
+\end_inset
+
+
+\change_unchanged
+ estimators are calculated, they are compared with a threshold which determines
+ if it is flatline or not.
  For setting this threshold, it was generated a labelling from the CinC
  dataset having the gold-standard of flatlines for training this parameter
  (121 flatlines and 756 acceptable records).
- Processing all the dataset, we get the next ROC curves:
+\change_inserted -1260779252 1469542427
+
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+
+\change_inserted -1260779252 1469542480
+Un poco más de cómo hicimos esto, comentá que 1 persona experimentada en
+ el análisis de ECG lo anotó
+\change_unchanged
+
+\end_layout
+
+\end_inset
+
+
+\change_unchanged
+ Processing all the dataset, we get the next ROC curves
+\change_inserted -1260779252 1469542490
+.
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+
+\change_inserted -1260779252 1469542636
+Esta oración y hasta el final pasalo a resultados.
+ Falta explicar los umbrales para cada caso, cómo los obtuviste, si analizaste
+ un solo umbral, si son el mejor umbral para cada detector.
+\change_unchanged
+
+\end_layout
+
+\end_inset
+
+
+\change_deleted -1260779252 1469542488
+:
+\change_unchanged
+
 \end_layout
 
 \begin_layout Standard
@@ -388,7 +820,7 @@ When the FL's estimators are calculated, they are compared with a threshold
 placement H
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \align center
@@ -411,6 +843,25 @@ FlatLine - ROC curves
 
 \end_inset
 
+
+\change_inserted -1260779252 1469541947
+
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+
+\change_inserted -1260779252 1469542122
+0.9917 de TP no sale en el gráfico, por lo tanto no se puede ver.
+ Ojo ! 
+\change_unchanged
+
+\end_layout
+
+\end_inset
+
+
+\change_unchanged
 
 \end_layout
 
@@ -444,9 +895,45 @@ Spikes Detector
 \end_layout
 
 \begin_layout Standard
-The spikes detector is based in [http://www.cinc.org/archives/2011/pdf/0353.pdf].
+The spikes detector is based in
+\change_inserted -1260779252 1469542661
+ 
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+
+\change_inserted -1260779252 1469542666
+metele con las citaaaaaaaaaas
+\change_unchanged
+
+\end_layout
+
+\end_inset
+
+
+\change_unchanged
+ [http://www.cinc.org/archives/2011/pdf/0353.pdf].
  This algorithm analyse the percentage of signal per lead which its variability
- is higher than a threshold.
+ 
+\change_inserted -1260779252 1469542677
+
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+
+\change_inserted -1260779252 1469542685
+variance ?
+\change_unchanged
+
+\end_layout
+
+\end_inset
+
+
+\change_unchanged
+is higher than a threshold.
  It can be represented by the next equation:
 \end_layout
 
@@ -459,17 +946,75 @@ SP_{det}=\underset{j}{max}\left\{ \dfrac{1}{N}\sum_{n=1}^{N-1}\left[\dfrac{dS_{j
 \end_inset
 
 
+\change_inserted -1260779252 1469542738
+
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+
+\change_inserted -1260779252 1469542754
+Sumatoria hasta N o arrancala en 0
+\change_unchanged
+
+\end_layout
+
+\end_inset
+
+
+\change_unchanged
+
 \end_layout
 
 \begin_layout Standard
-The TH was obtained analysing the slew rate of the QRS complex in the entire
- MIT-BIH DB.
+The TH was obtained analysing the slew rate of the QRS complex
+\change_inserted -1260779252 1469542858
+
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+
+\change_inserted -1260779252 1469542883
+en registros limpios ! por lo tanto -> buscamos en una db mayormente limpia
+ como la mitdb
+\change_unchanged
+
+\end_layout
+
+\end_inset
+
+
+\change_unchanged
+ in the entire MIT-BIH DB.
  Using the MIT's QRS annotations, we calculated the max slew rate around
  each QRS complex using an interval of 
 \begin_inset Formula $\pm100ms$
 \end_inset
 
+
+\change_deleted -1260779252 1469542899
 , obtaining the next histogram:
+\change_inserted -1260779252 1469542903
+
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+
+\change_inserted -1260779252 1469542940
+no se suele hablar del siguiente graf, simplemente se lo cita, LaTex ya
+ se encarga de ponerte la ref cruzada a la fig.
+ ahi te agrego la etiqueta para que veas como se hace la ref cruzada
+\change_unchanged
+
+\end_layout
+
+\end_inset
+
+
+\change_unchanged
+
 \end_layout
 
 \begin_layout Standard
@@ -477,7 +1022,7 @@ The TH was obtained analysing the slew rate of the QRS complex in the entire
 placement H
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \align center
@@ -488,9 +1033,53 @@ status collapsed
 \end_inset
 
 
+\change_inserted -1260779252 1469543299
+
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+
+\change_inserted -1260779252 1469543350
+A todos los grafs, sacales las cajas, creo que en matlab es box off o algo
+ así, o borralas en inkscape.
+ Ponele tipografía CMR10, eso lo podés editar en inkscape.
+\change_unchanged
+
+\end_layout
+
+\end_inset
+
+
+\change_unchanged
+
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
+
+\change_inserted -1260779252 1469542949
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:QRS-complex's-slew"
+
+\end_inset
+
+
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+
+\change_inserted -1260779252 1469542956
+<- etiqueta
+\change_unchanged
+
+\end_layout
+
+\end_inset
+
+
+\change_unchanged
 QRS complex's slew rate histogram
 \end_layout
 
@@ -505,14 +1094,46 @@ QRS complex's slew rate histogram
 \end_layout
 
 \begin_layout Standard
-The last bar of the histogram is due to the hardware used in the MIT-BIH
- DB, which limits the slew rate to 
+
+\change_inserted -1260779252 1469543017
+In Fig.
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:QRS-complex's-slew"
+
+\end_inset
+
+ 
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+
+\change_inserted -1260779252 1469543000
+<- ref cruzada
+\change_unchanged
+
+\end_layout
+
+\end_inset
+
+ the 
+\change_deleted -1260779252 1469543023
+The 
+\change_unchanged
+last bar of the histogram is due to the hardware used in the MIT-BIH DB,
+ which limits the slew rate to 
 \begin_inset Formula $225\,\nicefrac{mV}{sec}$
 \end_inset
 
 .
- For getting a threshold value, the 
-\begin_inset Formula $90\%$
+ For getting a threshold value, 
+\change_inserted -1260779252 1469543056
+we adopted 
+\change_unchanged
+the 
+\begin_inset Formula $90th$
 \end_inset
 
  percentile 
@@ -521,11 +1142,20 @@ status open
 
 \begin_layout Plain Layout
 Se escribe asi? no me suena
+\change_inserted -1260779252 1469543085
+.
+ Se pone el ordinal por lo gral.
+\change_unchanged
+
 \end_layout
 
 \end_inset
 
- is calculated, resulting in TH value of 
+ 
+\change_deleted -1260779252 1469543101
+is calculated
+\change_unchanged
+, resulting in TH value of 
 \begin_inset Formula $189\,\nicefrac{mV}{sec}$
 \end_inset
 
@@ -544,7 +1174,28 @@ for considering the record as acceptable.
 \end_inset
 
 for all the non-flat records (756 acceptable and 61 unacceptable records)
- and we perform the following ROC curve:
+ and we perform the following ROC curve
+\change_inserted -1260779252 1469543134
+
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+
+\change_inserted -1260779252 1469543165
+de nuevo, pasá esto a resultados, y simplemente terminá donde explicás la
+ adopción del umbral.
+\change_unchanged
+
+\end_layout
+
+\end_inset
+
+
+\change_deleted -1260779252 1469543168
+:
+\change_unchanged
+
 \end_layout
 
 \begin_layout Standard
@@ -552,7 +1203,7 @@ for all the non-flat records (756 acceptable and 61 unacceptable records)
 placement H
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \align center
@@ -574,10 +1225,6 @@ status collapsed
 
 \end_inset
 
-
-\end_layout
-
-\begin_layout Plain Layout
 
 \end_layout
 
@@ -615,6 +1262,24 @@ Hicieron algo parecido aca http://www.cinc.org/archives/2011/pdf/0357.pdf ,
 \end_inset
 
 
+\change_inserted -1260779252 1469543365
+
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+
+\change_inserted -1260779252 1469543370
+obviamente
+\change_unchanged
+
+\end_layout
+
+\end_inset
+
+
+\change_unchanged
+
 \end_layout
 
 \begin_layout Standard
@@ -627,19 +1292,87 @@ For this detector, the median value is subtracted from the record and then
 , then the section is considered bad quality.
  At least 3 bad quality section are needed for considerate the record as
  unacceptable 
+\change_inserted -1260779252 1469543384
+
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+
+\change_inserted -1260779252 1469543444
+poné algún ejemplo, con valores, creo que podría aportar para ver cómo funciona
+ el detector, qué te parece ?
+\change_unchanged
+
+\end_layout
+
+\end_inset
+
+
+\change_unchanged
+
 \end_layout
 
 \begin_layout Subsubsection
 Fine Classification: Machine Learning
+\change_inserted -1260779252 1469543450
+
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+
+\change_inserted -1260779252 1469543458
+cambiá lo de ML, queda muy mal
+\change_unchanged
+
+\end_layout
+
+\end_inset
+
+
+\change_unchanged
+
 \end_layout
 
 \begin_layout Standard
 For the machine learning approach, the feature model described in [ , ,
  ] was implemented.
- Performing it, we found an obstacle: the eplimited QRS detector [] have
- 8 seconds of initialisation and it is not useful for 10 seconds records.
+ Performing it, we found an obstacle: the eplimited QRS detector 
+\change_inserted -1260779252 1469543685
+
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+
+\change_inserted -1260779252 1469543705
+fijate cómo lo cita clifford, sino citá a Clifford o al ecg-kit
+\change_unchanged
+
+\end_layout
+
+\end_inset
+
+
+\change_unchanged
+[] have 8 seconds of initialisation and it is not useful for 10 seconds
+ records.
  Then, we decided to use other QRS detectors and evaluate their performance.
- When only one detector is needed, it is used the Wavelet detector [].
+ When only one detector is needed, it is used the Wavelet detector 
+\change_deleted -1260779252 1469543722
+[]
+\change_inserted -1260779252 1469543722
+
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Martinez04"
+
+\end_inset
+
+
+\change_unchanged
+.
  A Support Vector Machine with Gaussian kernel is used.
  
 \end_layout

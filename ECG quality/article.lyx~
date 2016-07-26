@@ -98,7 +98,7 @@
 \html_math_output 0
 \html_css_as_file 0
 \html_be_strict false
-\author 361918700 "Mariano"
+\author -1260779252 "mariano"
 \end_header
 
 \begin_body
@@ -110,74 +110,11 @@ An Algorithm for the Quantification the Signal Quality in the Electrocardiogram
 \begin_layout Author
 
 \lang spanish
-Andrés Demski
-\lang british
- and 
-\lang spanish
-Mariano Llamedo Soria
-\lang british
-
+Andrés Demski and Mariano Llamedo Soria
 \begin_inset Newline newline
 \end_inset
 
-
-\lang spanish
 Universidad Tecnológica Nacional, Buenos Aires, Argentina
-\end_layout
-
-\begin_layout Abstract
-In this work we evaluated the improvement in the detection of stress induced
- ischemia achieved by ECG features not commonly measured by cardiologists.
- We evaluated 927 patients recorded during treadmill exercise SPECT following
- the Bruce protocol.
- The patients were labeled in three groups by two experts according to their
- SPECT images as: no ischemia (Ischemic Miocardium (IM)
-\begin_inset Formula $<5\%$
-\end_inset
-
-), mild ischemia (
-\begin_inset Formula $5\%\leq$
-\end_inset
-
-IM
-\begin_inset Formula $<10\%$
-\end_inset
-
-) and moderate/severe ischemia (IM
-\begin_inset Formula $\geq10\%$
-\end_inset
-
-).
- The features studied were grouped as pretest features, exercise features
- and those proposed in this work.
- Among the features proposed, we included the Q, R, and S wave amplitudes,
- the slopes around each wave, and estimates of the P and T wave widths,
- as well as the QRS complex width.
- We also studied other features related to the ST segment.
- For the detection task, we used logistic regression, while the performance
- was evaluated using k-fold crossvalidation.
- Most discriminant features were selected using a feature selection algorithm
- for two thresholds of ischemia, 
-\begin_inset Formula $\geq5\%$
-\end_inset
-
- and 
-\begin_inset Formula $\geq10\%$
-\end_inset
-
-.
- Finally, two models of features were evaluated and compared to those reported
- by Sharir et al.
- obtaining improved performance for 
-\begin_inset Formula $\mathrm{IM}\geq5\%$
-\end_inset
-
- in Se 77%, Sp 88% and AUC 0.88; while for 
-\begin_inset Formula $\mathrm{IM}\geq10\%$
-\end_inset
-
-, Se 76%, Sp 90% and AUC 0.95.
- 
 \end_layout
 
 \begin_layout Section
@@ -185,88 +122,38 @@ Introduction
 \end_layout
 
 \begin_layout Standard
-
-\change_inserted 361918700 1469200546
-
-\lang english
 The electrocardiogram (ECG) is a routine and inexpensive technique to analyze
  the heart function.
-
-\lang british
+ An ECG recording is commonly corrupted by several sources of noise or interferi
+ng signals, such as power line, skeletal muscle activity, electrode movement
+ or disconnection, among others.
  
-\change_deleted 361918700 1469200552
-Electrocardiogram (ECG)
-\change_inserted 361918700 1469200566
-An ECG recording
-\change_unchanged
- is common
-\change_inserted 361918700 1469200570
-ly
-\change_unchanged
- corrupted by 
-\change_inserted 361918700 1469200598
-several sources of 
-\change_deleted 361918700 1469200599
-external 
-\change_unchanged
-noise
-\change_deleted 361918700 1469200574
-s
-\change_unchanged
- or 
-\change_deleted 361918700 1469200612
-uninteresting
-\change_inserted 361918700 1469200614
-interfering
-\change_unchanged
- signals
-\change_inserted 361918700 1469200839
-, such as power line, skeletal muscle activity, electrode movement or disconnect
-ion, among others
-\change_unchanged
-.
- 
-\change_inserted 361918700 1469200883
-
 \begin_inset Note Note
 status open
 
 \begin_layout Plain Layout
-
-\change_inserted 361918700 1469200880
 la idea está bien, intentá mejorar el inglés en la sig versión
-\change_unchanged
-
 \end_layout
 
 \end_inset
 
- 
-\change_unchanged
-During the processing of ECG, algorithms can be doing QRS detection, heart
+ During the processing of ECG, algorithms can be doing QRS detection, heart
  beats classification or recognising diseases, and these algorithms can
  be interfered by the noise or quality of the record.
  This makes important for the automatic systems to be able for detecting
  the quality of the ECG for minimise the false alarms, discard signal segments
  from Holters monitor acquisition or take out the bad records from the databases.
-\change_inserted 361918700 1469201063
-
 \begin_inset Note Note
 status open
 
 \begin_layout Plain Layout
-
-\change_inserted 361918700 1469201100
 mejorá esto si podés, poné una ref al libro de labuna tal vez, o a algún
  artículo que amplie esto.
-\change_unchanged
-
+ OOOK!!! Despues agrego
 \end_layout
 
 \end_inset
 
-
-\change_unchanged
 
 \end_layout
 
@@ -284,12 +171,34 @@ le.
 \end_layout
 
 \begin_layout Standard
+One of the best results in the first event of this challenge, was the Gari
+ D.
+ Clifford work[], who presents a machine learning classification approach
+ based on features corresponding to signal quality indices (SQI).
+ Also, there are several works [, ,] which developed algorithms using binary
+ trees.
+ They focus their work in the detection of some characteristics like flatlines,
+ huge impulses or deviation of the mean, among others.
+\end_layout
+
+\begin_layout Standard
 In this paper, it is presented a 2 level ECG quality classification using
  two approaches, binary tree and machine learning.
- The binary tree is performed for detecting flatline, speaks and big steps.
- The machine learning is based in Gari D.
- Clifford works [] and the idea is to do a fine classification after the
- binary tree.
+ The binary tree is performed for detecting flatline, spikes[http://www.cinc.org/a
+rchives/2011/pdf/0353.pdf] 
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+Se que suena mal pero esta asi en el paper de que lo saque
+\end_layout
+
+\end_inset
+
+ and huge impulses; and the machine learning detector is based in Gari D.
+ Clifford model.
+ Finally, We are going to evaluate each detector individually and the joint
+ performance for comparing the results with CinC Challenge result.
 \end_layout
 
 \begin_layout Section
@@ -302,29 +211,245 @@ Database
 
 \begin_layout Standard
 In this work we used the database of the Physionet/Computing in Cardiology
- (CinC) Challenge 2011 [] and the MIT-BIH database arrhythmia [] .
- The Set-A of the Physionet/CinC DB includes 1000 ten-seconds records of
- twelve-leads records, where there are 773 acceptable , 225 unacceptable
- and 2 unclassified records.
- This dataset is used for training and test our algorithms.
- The MIT-BIH is used only for training the algorithms and morphological
+ (CinC) Challenge 2011 
+\change_inserted -1260779252 1469536471
+
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+
+\change_inserted -1260779252 1469536515
+pongámosle algún nombre tipo ecgqdb, el que te guste o si ya tiene uno en
+ Physionet, ese
+\change_unchanged
+
+\end_layout
+
+\end_inset
+
+
+\change_deleted -1260779252 1469536263
+[]
+\change_inserted -1260779252 1469536263
+
+\begin_inset CommandInset citation
+LatexCommand cite
+key "PhysioNet"
+
+\end_inset
+
+
+\change_unchanged
+ and the MIT-BIH database arrhythmia 
+\change_inserted -1260779252 1469536365
+
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+
+\change_inserted -1260779252 1469536389
+suele ser el code de esta base, así no usamos MIT-BIH, con el tiempo me
+ fue gustando más mitdb
+\change_unchanged
+
+\end_layout
+
+\end_inset
+
+(mitdb)
+\change_deleted -1260779252 1469536263
+[]
+\change_inserted -1260779252 1469536246
+
+\begin_inset CommandInset citation
+LatexCommand cite
+key "MITBIHDB"
+
+\end_inset
+
+
+\change_unchanged
+ .
+ The Set-A of the Physionet/CinC DB
+\change_inserted -1260779252 1469537529
+
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+
+\change_inserted -1260779252 1469537586
+nombre corto acá y algunas características técnicas Fs, bits, etc etc, de
+ las bases, el slew rate máximo de cada una si lo tenemos, no estaría mal
+\change_unchanged
+
+\end_layout
+
+\end_inset
+
+
+\change_unchanged
+ includes 1000 ten-seconds records of 
+\change_deleted -1260779252 1469536527
+twelve
+\change_inserted -1260779252 1469536527
+12
+\change_unchanged
+-leads records, where there are 773 acceptable
+\change_deleted -1260779252 1469536295
+ 
+\change_unchanged
+, 225 unacceptable 
+\change_inserted -1260779252 1469536311
+
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+
+\change_inserted -1260779252 1469536325
+qué sentido tiene poner esto ? se descartan no estos 2 ?
+\change_unchanged
+
+\end_layout
+
+\end_inset
+
+
+\change_unchanged
+and 2 unclassified records.
+ 
+\change_inserted -1260779252 1469537448
+
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+
+\change_inserted -1260779252 1469537484
+Acá poné, para entrenamiento, tal db o tales db's o partes de db's, y para
+ evaluación lo mismo, es más claro creo.
+\change_unchanged
+
+\end_layout
+
+\end_inset
+
+
+\change_unchanged
+This dataset is used for training and test our 
+\change_deleted -1260779252 1469537435
+algorithmsn
+\change_inserted -1260779252 1469537435
+algorithm
+\change_unchanged
+, and the MIT-BIH is used only for training the algorithms and morphological
  study of ECG.
 \end_layout
 
 \begin_layout Subsection
-Algorithms
+
+\change_inserted -1260779252 1469537651
+Proposed 
+\change_deleted -1260779252 1469537655
+A
+\change_inserted -1260779252 1469537655
+a
+\change_unchanged
+lgorithm
+\change_deleted -1260779252 1469537648
+s
+\change_unchanged
+
 \end_layout
 
 \begin_layout Standard
+
+\change_deleted -1260779252 1469537681
 Firstly, we started doing a visual inspection of the CinC DB to identify
  the problems of the unacceptable records.
- We saw that there are 3 important causes: 1) Flatline 2) Speaks 3) Big
- Steps.
+\change_inserted -1260779252 1469537677
+
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+
+\change_inserted -1260779252 1469537694
+nooo! fijate que no aporta nada este comentario, ya lo sabe todo el mundo
+ eso.
+\change_unchanged
+
+\end_layout
+
+\end_inset
+
+
+\change_unchanged
+ We 
+\change_inserted -1260779252 1469537738
+identified 
+\change_deleted -1260779252 1469537751
+saw that there are 3 
+\change_inserted -1260779252 1469537752
+three 
+\change_unchanged
+important causes
+\change_inserted -1260779252 1469537777
+ that are present in the unacceptable recordings
+\change_unchanged
+: 1) 
+\change_deleted -1260779252 1469538478
+F
+\change_inserted -1260779252 1469538478
+f
+\change_unchanged
+latline
+\change_inserted -1260779252 1469538495
+s,
+\change_unchanged
+ 2) 
+\change_deleted -1260779252 1469538476
+S
+\change_inserted -1260779252 1469538476
+s
+\change_unchanged
+pikes 
+\change_inserted -1260779252 1469538468
+and 
+\change_unchanged
+3) 
+\change_deleted -1260779252 1469538471
+Huge Impulse
+\change_inserted -1260779252 1469538471
+steps
+\change_unchanged
+.
+
+\change_inserted -1260779252 1469538511
+ 
+\change_unchanged
+
 \end_layout
 
 \begin_layout Standard
 We decide to develop a binary tree for detecting these problems as it can
- be seen in fig []
+ be seen in fig 
+\change_deleted -1260779252 1469539320
+[]
+\change_inserted -1260779252 1469539320
+
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Flow-chart-and-main"
+
+\end_inset
+
+
+\change_unchanged
+
 \end_layout
 
 \begin_layout Standard
@@ -350,6 +475,16 @@ status open
 
 \begin_layout Plain Layout
 
+\change_inserted -1260779252 1469539309
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Flow-chart-and-main"
+
+\end_inset
+
+Flow-chart and main blocks of the proposed algorithm.
+\change_unchanged
+
 \end_layout
 
 \end_inset
@@ -364,9 +499,48 @@ status open
 
 \begin_layout Standard
 If this tree give the record as acceptable, then it is processed with a
- machine learning for a fine classification.
- Our criteria for an acceptable is that all leads of the record must be
- good quality.
+ 
+\change_deleted -1260779252 1469538871
+machine learning
+\change_inserted -1260779252 1469538875
+detector 
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+
+\change_inserted -1260779252 1469538896
+o classifier, no me gusta machine learning para referirnos al bloque detector,
+ o a futuro clasificador.
+\change_unchanged
+
+\end_layout
+
+\end_inset
+
+
+\change_unchanged
+ for doing the last classification.
+ Our
+\change_inserted -1260779252 1469538913
+
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+
+\change_inserted -1260779252 1469540727
+acá no seguimos un criterio de otro artículo ?
+\change_unchanged
+
+\end_layout
+
+\end_inset
+
+
+\change_unchanged
+ criterion for an acceptable is that all leads of the record must be good
+ quality.
  If any lead is disconnected or presents bad quality, the record is considered
  as unacceptable.
  
@@ -377,7 +551,27 @@ FlatLine Detector
 \end_layout
 
 \begin_layout Standard
-The flatline is caused by the disconnection of the leads.
+The flatline is caused by the disconnection of the leads
+\change_inserted -1260779252 1469540759
+ 
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+
+\change_inserted -1260779252 1469540800
+No estoy seguro, aparte, no interesa qué lo causa sino como se manifiesta
+ en el ECG, simplemente expliquemos el fenómeno que observamos, y cómo proponemo
+s detectarlo.
+\change_unchanged
+
+\end_layout
+
+\end_inset
+
+
+\change_unchanged
+.
  For detecting this, we developed 3 algorithms analysing the variance, the
  derivative and the signal excursion: 
 \begin_inset Formula 
@@ -387,6 +581,24 @@ FL_{det1}=\underset{i,j}{min}\left\{ \sqrt{var(S_{i,j})}\right\}
 
 \end_inset
 
+
+\change_inserted -1260779252 1469542257
+
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+
+\change_inserted -1260779252 1469542274
+FL1 ? o F1
+\change_unchanged
+
+\end_layout
+
+\end_inset
+
+
+\change_unchanged
 
 \end_layout
 
@@ -399,9 +611,45 @@ FL_{det2}=\underset{i,j}{min}\left\{ mean\left(\frac{dS_{i,j}}{dt}\right)\right\
 \end_inset
 
 
+\change_inserted -1260779252 1469542322
+
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+
+\change_inserted -1260779252 1469542328
+definí mean
+\change_unchanged
+
+\end_layout
+
+\end_inset
+
+
+\change_unchanged
+
 \end_layout
 
 \begin_layout Standard
+
+\change_inserted -1260779252 1469542360
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+
+\change_inserted -1260779252 1469542368
+aca usarías mean de nuevo
+\change_unchanged
+
+\end_layout
+
+\end_inset
+
+
+\change_unchanged
+
 \begin_inset Formula 
 \[
 {\displaystyle FL_{det3}=\underset{i,j}{min}\left\{ abs\left(S_{i,j}-\overline{S_{i,j}}\:\right)\right\} }
@@ -416,31 +664,155 @@ FL_{det2}=\underset{i,j}{min}\left\{ mean\left(\frac{dS_{i,j}}{dt}\right)\right\
 \begin_inset Formula $S_{i,j}$
 \end_inset
 
- represents the signal in the interval 
+ represents the 
+\change_inserted -1260779252 1469540862
+ECG 
+\change_unchanged
+signal in the interval 
 \begin_inset Formula $w$
 \end_inset
 
- around the sample i of the lead j.
- The interval 
+
+\change_inserted -1260779252 1469540896
+, which starts at 
+\change_unchanged
+ 
+\change_deleted -1260779252 1469540906
+around 
+\change_unchanged
+the sample i
+\change_inserted -1260779252 1469540923
+
+\emph on
+th
+\change_unchanged
+
+\emph default
+ of the 
+\change_inserted -1260779252 1469540947
+j
+\emph on
+th
+\emph default
+ 
+\change_unchanged
+lead
+\change_deleted -1260779252 1469540948
+ j
+\change_unchanged
+.
+ The 
+\change_deleted -1260779252 1469541085
+interval 
+\change_unchanged
+
 \begin_inset Formula $w$
 \end_inset
 
- was set looking the heart rate.
+ 
+\change_inserted -1260779252 1469541086
+interval 
+\change_unchanged
+was 
+\change_deleted -1260779252 1469541018
+set 
+\change_inserted -1260779252 1469541721
+adopted of 1.5 seconds length, this restriction makes unlikely to produce
+ false detections in heart rates above 40 bpm.
+ 
+\change_deleted -1260779252 1469541737
+looking the heart rate.
  As It is around 1 beat per second, we decided to use an interval 
 \begin_inset Formula $w$
 \end_inset
 
  of 1.5 seconds.
  
+\change_inserted -1260779252 1469541739
+
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+
+\change_inserted -1260779252 1469541755
+sugerencia, intentá justificar de una manera similar la adopción de umbrales
+\change_unchanged
+
+\end_layout
+
+\end_inset
+
+
+\change_unchanged
+
 \end_layout
 
 \begin_layout Standard
-When the FL's estimators are calculated, they are compared with a threshold
- which determines if it is flatline or not.
- For setting this threshold, it was generated a sub-classification from
- the CinC dataset having the gold-standard of flatlines for training this
- parameter (121 flatlines and 756 acceptable records).
- Processing all the dataset, we get the next ROC curves:
+When the FL's
+\change_inserted -1260779252 1469541771
+
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+
+\change_inserted -1260779252 1469541777
+donde definiste FL?
+\change_unchanged
+
+\end_layout
+
+\end_inset
+
+
+\change_unchanged
+ estimators are calculated, they are compared with a threshold which determines
+ if it is flatline or not.
+ For setting this threshold, it was generated a labelling from the CinC
+ dataset having the gold-standard of flatlines for training this parameter
+ (121 flatlines and 756 acceptable records).
+\change_inserted -1260779252 1469542427
+
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+
+\change_inserted -1260779252 1469542480
+Un poco más de cómo hicimos esto, comentá que 1 persona experimentada en
+ el análisis de ECG lo anotó
+\change_unchanged
+
+\end_layout
+
+\end_inset
+
+
+\change_unchanged
+ Processing all the dataset, we get the next ROC curves
+\change_inserted -1260779252 1469542490
+.
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+
+\change_inserted -1260779252 1469542636
+Esta oración y hasta el final pasalo a resultados.
+ Falta explicar los umbrales para cada caso, cómo los obtuviste, si analizaste
+ un solo umbral, si son el mejor umbral para cada detector.
+\change_unchanged
+
+\end_layout
+
+\end_inset
+
+
+\change_deleted -1260779252 1469542488
+:
+\change_unchanged
+
 \end_layout
 
 \begin_layout Standard
@@ -472,6 +844,25 @@ FlatLine - ROC curves
 \end_inset
 
 
+\change_inserted -1260779252 1469541947
+
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+
+\change_inserted -1260779252 1469542122
+0.9917 de TP no sale en el gráfico, por lo tanto no se puede ver.
+ Ojo ! 
+\change_unchanged
+
+\end_layout
+
+\end_inset
+
+
+\change_unchanged
+
 \end_layout
 
 \end_inset
@@ -500,7 +891,50 @@ is the estimator with best response getting
 \end_layout
 
 \begin_layout Subsubsection
-Speaks Detector
+Spikes Detector
+\end_layout
+
+\begin_layout Standard
+The spikes detector is based in
+\change_inserted -1260779252 1469542661
+ 
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+
+\change_inserted -1260779252 1469542666
+metele con las citaaaaaaaaaas
+\change_unchanged
+
+\end_layout
+
+\end_inset
+
+
+\change_unchanged
+ [http://www.cinc.org/archives/2011/pdf/0353.pdf].
+ This algorithm analyse the percentage of signal per lead which its variability
+ 
+\change_inserted -1260779252 1469542677
+
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+
+\change_inserted -1260779252 1469542685
+variance ?
+\change_unchanged
+
+\end_layout
+
+\end_inset
+
+
+\change_unchanged
+is higher than a threshold.
+ It can be represented by the next equation:
 \end_layout
 
 \begin_layout Standard
@@ -512,18 +946,1166 @@ SP_{det}=\underset{j}{max}\left\{ \dfrac{1}{N}\sum_{n=1}^{N-1}\left[\dfrac{dS_{j
 \end_inset
 
 
+\change_inserted -1260779252 1469542738
+
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+
+\change_inserted -1260779252 1469542754
+Sumatoria hasta N o arrancala en 0
+\change_unchanged
+
+\end_layout
+
+\end_inset
+
+
+\change_unchanged
+
+\end_layout
+
+\begin_layout Standard
+The TH was obtained analysing the slew rate of the QRS complex
+\change_inserted -1260779252 1469542858
+
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+
+\change_inserted -1260779252 1469542883
+en registros limpios ! por lo tanto -> buscamos en una db mayormente limpia
+ como la mitdb
+\change_unchanged
+
+\end_layout
+
+\end_inset
+
+
+\change_unchanged
+ in the entire MIT-BIH DB.
+ Using the MIT's QRS annotations, we calculated the max slew rate around
+ each QRS complex using an interval of 
+\begin_inset Formula $\pm100ms$
+\end_inset
+
+
+\change_deleted -1260779252 1469542899
+, obtaining the next histogram:
+\change_inserted -1260779252 1469542903
+
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+
+\change_inserted -1260779252 1469542940
+no se suele hablar del siguiente graf, simplemente se lo cita, LaTex ya
+ se encarga de ponerte la ref cruzada a la fig.
+ ahi te agrego la etiqueta para que veas como se hace la ref cruzada
+\change_unchanged
+
+\end_layout
+
+\end_inset
+
+
+\change_unchanged
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename img/slewrate_hist.svg
+	scale 80
+
+\end_inset
+
+
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+
+\change_inserted -1260779252 1469542949
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:QRS-complex's-slew"
+
+\end_inset
+
+
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+
+\change_inserted -1260779252 1469542956
+<- etiqueta
+\change_unchanged
+
+\end_layout
+
+\end_inset
+
+
+\change_unchanged
+QRS complex's slew rate histogram
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\change_inserted -1260779252 1469543017
+In Fig.
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:QRS-complex's-slew"
+
+\end_inset
+
+ 
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+
+\change_inserted -1260779252 1469543000
+<- ref cruzada
+\change_unchanged
+
+\end_layout
+
+\end_inset
+
+ the 
+\change_deleted -1260779252 1469543023
+The 
+\change_unchanged
+last bar of the histogram is due to the hardware used in the MIT-BIH DB,
+ which limits the slew rate to 
+\begin_inset Formula $225\,\nicefrac{mV}{sec}$
+\end_inset
+
+.
+ For getting a threshold value, 
+\change_inserted -1260779252 1469543056
+we adopted 
+\change_unchanged
+the 
+\begin_inset Formula $90th$
+\end_inset
+
+ percentile 
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+Se escribe asi? no me suena
+\change_inserted -1260779252 1469543085
+.
+ Se pone el ordinal por lo gral.
+\change_unchanged
+
+\end_layout
+
+\end_inset
+
+ is calculated, resulting in TH value of 
+\begin_inset Formula $189\,\nicefrac{mV}{sec}$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+Then, we train the value of 
+\begin_inset Formula $SP_{det}$
+\end_inset
+
+for considering the record as acceptable.
+ For the training process, we calculate the 
+\begin_inset Formula $SP_{det}$
+\end_inset
+
+for all the non-flat records (756 acceptable and 61 unacceptable records)
+ and we perform the following ROC curve:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename img/spike_roc.svg
+	scale 70
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Considering a true positive error of 
+\begin_inset Formula $1\%$
+\end_inset
+
+ as acceptable, we assume a condition of 
+\begin_inset Formula $10\%$
+\end_inset
+
+ of spikes to classify the record as unacceptable.
+ 
 \end_layout
 
 \begin_layout Subsubsection
-BigSteps Detector
+Huge Impulse Detector
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+Hicieron algo parecido aca http://www.cinc.org/archives/2011/pdf/0357.pdf ,
+ los citamos?
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+For this detector, the median value is subtracted from the record and then
+ it is divided in 10 sections.
+ If any sample of a section is higher than 
+\begin_inset Formula $1mV$
+\end_inset
+
+, then the section is considered bad quality.
+ At least 3 bad quality section are needed for considerate the record as
+ unacceptable 
 \end_layout
 
 \begin_layout Subsubsection
 Fine Classification: Machine Learning
 \end_layout
 
+\begin_layout Standard
+For the machine learning approach, the feature model described in [ , ,
+ ] was implemented.
+ Performing it, we found an obstacle: the eplimited QRS detector [] have
+ 8 seconds of initialisation and it is not useful for 10 seconds records.
+ Then, we decided to use other QRS detectors and evaluate their performance.
+ When only one detector is needed, it is used the Wavelet detector [].
+ A Support Vector Machine with Gaussian kernel is used.
+ 
+\end_layout
+
+\begin_layout Standard
+The feature model is composed of seventeen signal quality indices (SQI)
+ that were calculated per lead resulting in a total of 204 features :
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+Las descripciones son casi todas copy paste del paper de C.
+ Pongo matematica o con referencias alcanza?
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+pSQI: the relative power in the QRS complex.
+\end_layout
+
+\begin_layout Enumerate
+basSQI: the relative power in the baseline
+\end_layout
+
+\begin_layout Enumerate
+bsSQI: baseline wander check in time domain.
+\end_layout
+
+\begin_layout Enumerate
+eSQI: the relative energy in the QRS complex.
+\end_layout
+
+\begin_layout Enumerate
+hfSQI: the relative amplitude of high frequency noise.
+\end_layout
+
+\begin_layout Enumerate
+bSQI[1-6]: the percentage of beats detected by one detector that were also
+ detected by other one.
+ We performed 6 combinations of detectors generating 6 different SQI to
+ evaluate.
+ The combinations of detectors are: 1) sqrs[] and wqrs[] 2) gqrs[] and wqrs
+ 3) wqrs and wavedet[] 4) sqrs and wavedet 5) gqrs and wavedet 6) gqrs and
+ sqrs.
+ 
+\end_layout
+
+\begin_layout Enumerate
+sSQI: the third moment (skewness) of the ECG signal
+\end_layout
+
+\begin_layout Enumerate
+kSQI: the fourth moment (kurtosis) of the ECG signal
+\end_layout
+
+\begin_layout Enumerate
+rsdSQI: the relative standard deviation (STD) of QRS com- plex
+\end_layout
+
+\begin_layout Enumerate
+purSQI: signal purity of ECG
+\end_layout
+
+\begin_layout Enumerate
+entSQI: sample entropy of the ECG signal
+\end_layout
+
+\begin_layout Enumerate
+pcaSQI: Ratio between the sum of the eigenvalues associated with the five
+ principal components over the sum of all eigenvalues.
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+Hasta aca llegue, despues sigo.
+ 
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
 \begin_layout Section
 Results
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float table
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Individual Performance
+\end_layout
+
+\end_inset
+
+
+\begin_inset Tabular
+<lyxtabular version="3" rows="5" columns="4">
+<features tabularvalignment="middle">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Accuracy
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Sensitivity
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Specificity
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+FlatLine
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.9379
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+1 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.7438 
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Spike
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.7695 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.9907 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.0785
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Huge Impulse
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.8026
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.9762
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.2603
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+ML
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float table
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Binary Tree: Joint Performance
+\end_layout
+
+\end_inset
+
+
+\begin_inset Tabular
+<lyxtabular version="3" rows="13" columns="4">
+<features tabularvalignment="middle">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Accuracy
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Sensitivity
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Specificity
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+FlatLine-Spike
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.9419
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.9907
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.7893
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Spike-FlatLine
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.9419
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.9907
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.7893
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+FlatLine-Huge Impulse
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.9399
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.9762 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.8264 
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Huge Impulse-Flatline
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.9399
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.9762 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.8264 
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Spike-Huge Impulse
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.8006
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.9722
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.2645
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Huge Impulse - Spike
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.8006
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.9722
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.2645
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+FlatLine - Spike - Huge Impulse
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.9379
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.9722
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.8306
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+FlatLine - Huge Impulse - Spike
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.9379
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.9722
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.8306
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Spike - FlatLine - Huge Impulse
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.9379
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.9722
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.8306
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Spike - Huge Impulse - FlatLine
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.9379
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.9722
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.8306
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Huge Impulse - FlatLine - Spike
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.9379
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.9722
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.8306
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Huge Impulse - Spike - FlatLine
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.9379
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.9722
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.8306
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+Orden de los factores no altera la clasificacion 
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Section
@@ -531,1852 +2113,13 @@ Discussion and Conclusion
 \end_layout
 
 \begin_layout Standard
-The first stage for ECG noise reduction was to low-pass filter (FIR, 
-\begin_inset Formula $fc=35$
-\end_inset
-
- Hz, 80 db stop) in order to suppress power-line and high frequency noise.
- Next, QRS complex detection was performed with a validated algorithm 
-\begin_inset CommandInset citation
-LatexCommand cite
-key "Martinez04"
-
-\end_inset
-
-.
- The fiducial points previously obtained are used to calculate a signal-averaged
- heartbeat (SAHB) with all normal heartbeats in the previous 20 seconds,
- thus attenuating part of the noise not synchronized with the heartbeats.
- This SAHB is calculated at rest, at peak exercise (PE or max HR) and after
- peak exercise (AP), i.e.
- when the HR is below 128 bpm, to avoid T and P waves to overlap.
- All features were calculated either in the SAHB, or in the wavelet transform
- (WT) of the SAHB.
- The prototype wavelet used is the as in 
-\begin_inset CommandInset citation
-LatexCommand cite
-key "Llamedo11"
-
-\end_inset
-
-.
-\end_layout
-
-\begin_layout Standard
-The features used can be grouped in three categories: 1) pretest, or those
- calculated before the EST, 2) exercise, or those typically measured in
- EST and 3) those proposed in this work.
- These features are summarized in Table 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "tab:Features-used"
-
-\end_inset
-
-.
- The features proposed in this study were calculated in two modalities:
- 1) as a ratio, relative to the value of the feature at rest, e.g.
- the value is 1 if no change, and 2) as two features, one value at rest
- and other at either PE or AP, in case the absolute value retains discriminant
- information.
- Also the feature measurements along ECG leads are integrated according
- to: 1) calculating features in the first two principal components (PCA1
- and 2) 
-\begin_inset CommandInset citation
-LatexCommand cite
-key "Llamedo12Multilead"
-
-\end_inset
-
-, and 2) calculating the feature for each lead, and then mapping each feature
- value to the 
-\begin_inset Formula $[0,\,1]$
-\end_inset
-
- domain with a logistic function 
-\begin_inset Formula $\frac{1}{1+e^{-x}}$
-\end_inset
-
-.
- Then values from the 12 leads are summed into the final feature value in
- the 
-\begin_inset Formula $[0,\,12]$
-\end_inset
-
- domain.
- We referred to this strategy as soft integration (SFT).
-\end_layout
-
-\begin_layout Standard
-\begin_inset Float table
-wide true
-sideways false
-status open
-
-\begin_layout Plain Layout
-\begin_inset Caption Standard
-
-\begin_layout Plain Layout
-\begin_inset CommandInset label
-LatexCommand label
-name "tab:Features-used"
-
-\end_inset
-
-Features used in this work.
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-%
-\backslash
-resizebox{
-\backslash
-textwidth}{!}{
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-\align center
-\begin_inset Tabular
-<lyxtabular version="3" rows="6" columns="3">
-<features tabularvalignment="middle">
-<column alignment="right" valignment="top">
-<column alignment="right" valignment="middle" width="35text%">
-<column alignment="left" valignment="middle" width="50text%">
-<row>
-<cell alignment="right" valignment="top" bottomline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-Group
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="right" valignment="top" bottomline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\series bold
-Feature
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="left" valignment="top" bottomline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\series bold
-Description
-\end_layout
-
-\end_inset
-</cell>
-</row>
-<row>
-<cell alignment="right" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-Pretest
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="right" valignment="middle" rightline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-Pretest score – Age – Gender – Infarction – Smoking – Lipids – Diabetes
- – STT changes – Max age-pred HR – Systolic BP – Diastolic BP
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="left" valignment="middle" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-Clinical features included with the database.
- Description available in 
-\begin_inset CommandInset citation
-LatexCommand cite
-key "THEW"
-
-\end_inset
-
-.
- BP at rest
-\end_layout
-
-\end_inset
-</cell>
-</row>
-<row>
-<cell alignment="center" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="right" valignment="top" rightline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="left" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-</cell>
-</row>
-<row>
-<cell alignment="right" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-Exercise
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="right" valignment="middle" rightline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-EST stage – Max HR – Rest HR – EST duration – HR recovery – HR change –
- Duke T.
- score – Chest Pain – Systolic BP PE – Diastolic BP PE 
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="left" valignment="middle" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-EST duration in seconds.
- Chest pain: typical - atypical - none.
- Exercise features included with the database.
- Description available in 
-\begin_inset CommandInset citation
-LatexCommand cite
-key "THEW"
-
-\end_inset
-
-.
-\end_layout
-
-\end_inset
-</cell>
-</row>
-<row>
-<cell alignment="center" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="right" valignment="top" rightline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="left" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-</cell>
-</row>
-<row>
-<cell alignment="right" valignment="top" bottomline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-Proposed
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="right" valignment="middle" bottomline="true" rightline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-QRS width – 
-\begin_inset Formula $\mathrm{ST_{PE}}$
-\end_inset
-
- – 
-\begin_inset Formula $\mathrm{ST_{AP}}$
-\end_inset
-
- – 
-\begin_inset Formula $\left(\nicefrac{\mathrm{ST}}{\mathrm{R}}\right)_{\mathrm{PE}}$
-\end_inset
-
- – 
-\begin_inset Formula $\left(\nicefrac{\mathrm{ST}}{\mathrm{R}}\right)_{\mathrm{AP}}$
-\end_inset
-
- – 
-\begin_inset Formula $\nicefrac{\mathrm{ST_{PE}}}{\mathrm{RR_{PE}}}$
-\end_inset
-
- – 
-\begin_inset Formula $x(k_{\mathrm{Q}})$
-\end_inset
-
- – 
-\begin_inset Formula $x(k_{\mathrm{R}})$
-\end_inset
-
- – 
-\begin_inset Formula $x(k_{\mathrm{S}})$
-\end_inset
-
- – 
-\begin_inset Formula $s_{\mathrm{Q}}^{-}$
-\end_inset
-
- – 
-\begin_inset Formula $s_{\mathrm{R}}^{\mathrm{Q}}$
-\end_inset
-
- – 
-\begin_inset Formula $s_{\mathrm{S}}^{\mathrm{R}}$
-\end_inset
-
- – 
-\begin_inset Formula $s_{\mathrm{-}}^{\mathrm{S}}$
-\end_inset
-
-– 
-\begin_inset Formula $k_{Z}^{P}$
-\end_inset
-
- – 
-\begin_inset Formula $k_{Z}^{\mathrm{QRS}}$
-\end_inset
-
- – 
-\begin_inset Formula $k_{Z}^{\mathrm{ST-T}}$
-\end_inset
-
- – 
-\begin_inset Formula $r^{\mathrm{WTx}}$
-\end_inset
-
- – 
-\begin_inset Formula $t_{r50}$
-\end_inset
-
- 
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="left" valignment="top" bottomline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-RT: rest.
- PE: peak exercise.
- AP: After PE.
- 
-\begin_inset Formula $\nicefrac{\mathrm{ST}}{\mathrm{R}}$
-\end_inset
-
- ST normalized with respect R wave 
-\begin_inset CommandInset citation
-LatexCommand cite
-key "ellestad2003stress"
-
-\end_inset
-
-.
- 
-\begin_inset Formula $x(k_{\mathrm{X}})$
-\end_inset
-
- ECG value at X wave.
- 
-\begin_inset Formula $s_{\mathrm{Y}}^{\mathrm{X}}$
-\end_inset
-
- slope between X and Y waves.
- 
-\begin_inset Formula $k_{Z}^{\mathrm{X}}$
-\end_inset
-
- zero-cross position of the WT autocorrelation signal in P, QRS and ST-T
- 
-\begin_inset CommandInset citation
-LatexCommand cite
-key "Llamedo11"
-
-\end_inset
-
-.
- 
-\begin_inset Formula $r^{\mathrm{WTx}}$
-\end_inset
-
- RMS calculated in the WT of the QRS complex at scale 
-\begin_inset Formula $\mathrm{x}$
-\end_inset
-
-.
- 
-\begin_inset Formula $t_{r50}$
-\end_inset
-
- is the time to decrease 50% of the HR change from PE.
-\end_layout
-
-\end_inset
-</cell>
-</row>
-</lyxtabular>
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-%}
-\end_layout
-
-\end_inset
-
-presented
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-In 
-\begin_inset CommandInset citation
-LatexCommand cite
-key "Llamedo11"
-
-\end_inset
-
- we used feature 
-\begin_inset Formula $k_{Z}^{\mathrm{QRS}}$
-\end_inset
-
- as a robust surrogate of QRS complex width.
- We extrapolated this concept to the P wave, and ST-T complex by moving
- the analysis window to 
-\begin_inset Formula $\mathrm{QRS_{on}}-[200,\:50]$
-\end_inset
-
- ms and 
-\begin_inset Formula $\mathrm{QRS_{off}}+[0,\:350]$
-\end_inset
-
- ms positions respectively.
- The slopes of the QRS complex were studied in 
-\begin_inset CommandInset citation
-LatexCommand cite
-key "Pueyo2008"
-
-\end_inset
-
-, and performed better than HFQRS in detecting acute myocardial ischemia
- during PTCA.
- As the analog bandwidth of the recordings has a cut off in 125 Hz, HFQRS
- features calculated in 
-\begin_inset CommandInset citation
-LatexCommand cite
-key "Sharir2012"
-
-\end_inset
-
- could not be studied here.
- However, 
-\begin_inset Formula $r^{\mathrm{WTx}}$
-\end_inset
-
- measures the higher frequency band of QRS complex, given the bandpass nature
- of the WT.
- The rest of the features enumerated in Table 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "tab:Features-used"
-
-\end_inset
-
- are described in 
-\begin_inset CommandInset citation
-LatexCommand cite
-key "ellestad2003stress"
-
-\end_inset
-
-, but are not conventionally used in EST.
- 
-\end_layout
-
-\begin_layout Standard
-The feature vector 
-\begin_inset Formula $\mathrm{\mathbf{x}}$
-\end_inset
-
- is constructed with the values described above, followed with a 1.
- Then 
-\begin_inset Formula $\mathrm{\mathbf{x}}$
-\end_inset
-
- was used with a logistic regression detector 
-\begin_inset Formula 
-\begin{equation}
-p(\mathrm{\mathbf{x}})=\frac{1}{1+e^{-\mathrm{\mathbf{a}^{T}\mathbf{x}}}}
-\end{equation}
-
-\end_inset
-
- where the patient is classified as ischemic if 
-\begin_inset Formula $p(\mathrm{\mathbf{x}})>0.5$
-\end_inset
-
-.
- The process of training the detector consists in estimating the vector
- of regression coefficients 
-\begin_inset Formula $\mathrm{\mathbf{a}}$
-\end_inset
-
- with an iterative algorithm, while the evaluation in calculating 
-\family roman
-\series medium
-\shape up
-\size normal
-\emph off
-\bar no
-\strikeout off
-\uuline off
-\uwave off
-\noun off
-\color none
-
-\begin_inset Formula $p(\mathbf{x})$
-\end_inset
-
-.
-
-\family default
-\series default
-\shape default
-\size default
-\emph default
-\bar default
-\strikeout default
-\uuline default
-\uwave default
-\noun default
-\color inherit
- The implementation of the detector was performed using the PRTools toolbox
- 
-\begin_inset CommandInset citation
-LatexCommand cite
-key "PRTOOLS"
-
-\end_inset
-
-.
- 
-\end_layout
-
-\begin_layout Standard
-As one of the objectives of this work was to asses the incremental value
- of the proposed features with respect to the 
-\emph on
-a priori
-\emph default
- information available, we performed a sequential floating feature selection
- (SFFS) in three steps 
-\begin_inset CommandInset citation
-LatexCommand cite
-key "Llamedo11"
-
-\end_inset
-
-, one for each group of features in Table 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "tab:Features-used"
-
-\end_inset
-
-.
- Therefore we first performed an SFFS for pretest group, obtain a pretest
- model and use it as starting point to the following SFFS of exercise features.
- The same procedure was repeated for the last group of proposed features.
- This triple-SFFS was repeated for both 5 and 10% IM thresholds, obtaining
- one final feature model for each.
- The evaluation of each model within the SFFS was performed following a
- k-fold cross-validation with 
-\begin_inset Formula $k=10$
-\end_inset
-
- folds.
- It is important that each cross-validation step implies training in 
-\begin_inset Formula $\nicefrac{9}{10}$
-\end_inset
-
- of the database patients, and testing in the remaining 
-\begin_inset Formula $\nicefrac{1}{10}$
-\end_inset
-
- of the patients.
- The optimization parameter for the SFFS is the area under (AUC) the receiver
- operating curve (ROC).
- The two feature models obtained were finally evaluated in the whole database,
- as performed in 
-\begin_inset CommandInset citation
-LatexCommand cite
-key "Sharir2012"
-
-\end_inset
-
-.
-\end_layout
-
-\begin_layout Section
-Results
-\end_layout
-
-\begin_layout Standard
-The models obtained from the SFFS are presented in Table 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "tab:Features-selected"
 
 \end_inset
 
-.
- The group of proposed features selected for 
-\begin_inset Formula $\mathrm{IM}\geq5\%$
-\end_inset
-
- were: 1) features from Q and R waves amplitudes, 2) all slopes of the QRS
- complex, 3) features related to the QRS complex width measured at WT scales
- 3 and 4, 4) features related to the duration of ventricular repolarization
- at WT scales 3 and 4, 5) the energy of the QRS complex measured at WT scales
- 3 and 4 and 6) the ST normalized by the R wave amplitude after PE.
- The final evaluation resulted for the threshold of 
-\begin_inset Formula $\mathrm{IM}\geq5\%$
-\end_inset
-
-, in a sensitivity (Se) of 77%, specificity (Sp) of 88% and AUC of 0.88,
- while for 
-\begin_inset Formula $\mathrm{IM}\geq10\%$
-\end_inset
-
-, Se 76%, Sp 90% and AUC 0.95.
- These results are presented in Table 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "tab:Performance"
-
-\end_inset
-
- and compared with the results obtained in 
-\begin_inset CommandInset citation
-LatexCommand cite
-key "Sharir2012"
-
-\end_inset
-
-.
- Figure 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "fig:ROC-curves-for"
-
-\end_inset
-
- shows the incremental value of the proposed features as they are included
- into the model.
-\end_layout
-
-\begin_layout Standard
-\begin_inset Float table
-wide false
-sideways false
-status open
-
-\begin_layout Plain Layout
-\begin_inset Caption Standard
-
-\begin_layout Plain Layout
-\begin_inset CommandInset label
-LatexCommand label
-name "tab:Features-selected"
-
-\end_inset
-
-Features obtained from the SFFS.
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-resizebox{
-\backslash
-columnwidth}{!}{
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-\align center
-\begin_inset Tabular
-<lyxtabular version="3" rows="3" columns="2">
-<features tabularvalignment="middle">
-<column alignment="center" valignment="middle" width="15col%">
-<column alignment="center" valignment="middle" width="80col%">
-<row>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-IM
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-Features
-\end_layout
-
-\end_inset
-</cell>
-</row>
-<row>
-<cell alignment="center" valignment="middle" bottomline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-\begin_inset Formula $\geq5\%$
-\end_inset
-
-
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" bottomline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-\begin_inset Formula $x(k_{\mathrm{Q}})_{\mathrm{SFT}}$
-\end_inset
-
- – 
-\begin_inset Formula $x(k_{\mathrm{Q}})_{\mathrm{PCA2}}^{\mathrm{PE}}$
-\end_inset
-
- – 
-\begin_inset Formula $x(k_{\mathrm{R}})_{\mathrm{SFT}}^{\mathrm{RT}}$
-\end_inset
-
- – 
-\begin_inset Formula $x(k_{\mathrm{S}})_{\mathrm{PCA2}}$
-\end_inset
-
- – 
-\begin_inset Formula $(s_{\mathrm{Q}}^{-})_{\mathrm{PCA2}}$
-\end_inset
-
- – 
-\begin_inset Formula $(s_{\mathrm{Q}}^{-})_{\mathrm{SFT}}$
-\end_inset
-
- – 
-\begin_inset Formula $(s_{\mathrm{Q}}^{-})_{\mathrm{PCA1}}^{\mathrm{PE}}$
-\end_inset
-
- – 
-\begin_inset Formula $(s_{\mathrm{Q}}^{-})_{\mathrm{PCA2}}^{\mathrm{PE}}$
-\end_inset
-
- – 
-\begin_inset Formula $(s_{\mathrm{R}}^{\mathrm{Q}})_{\mathrm{SFT}}^{\mathrm{RT}}$
-\end_inset
-
- – 
-\begin_inset Formula $(s_{\mathrm{S}}^{\mathrm{R}})_{\mathrm{PCA1}}^{\mathrm{RT}}$
-\end_inset
-
- – 
-\begin_inset Formula $(s_{\mathrm{-}}^{\mathrm{S}})_{\mathrm{PCA2}}$
-\end_inset
-
- – 
-\begin_inset Formula $(s_{\mathrm{-}}^{\mathrm{S}})_{\mathrm{PCA2}}^{\mathrm{PE}}$
-\end_inset
-
- – 
-\begin_inset Formula $(s_{\mathrm{-}}^{\mathrm{S}})_{\mathrm{SFT}}^{\mathrm{RT}}$
-\end_inset
-
- – 
-\begin_inset Formula $(k_{Z}^{\mathrm{QRS}})_{\mathrm{PCA2}}^{\mathrm{WT3}}$
-\end_inset
-
- – 
-\begin_inset Formula $(k_{Z}^{\mathrm{QRS}})_{\mathrm{PCA2}}^{\mathrm{WT3-PE}}$
-\end_inset
-
- – 
-\begin_inset Formula $(k_{Z}^{\mathrm{QRS}})_{\mathrm{PCA2}}^{\mathrm{WT4-PE}}$
-\end_inset
-
- – 
-\begin_inset Formula $(k_{Z}^{\mathrm{QRS}})_{\mathrm{SFT}}^{\mathrm{WT3}}$
-\end_inset
-
- – 
-\begin_inset Formula $(k_{Z}^{\mathrm{STT}})_{\mathrm{PCA1}}^{\mathrm{WT3-PE}}$
-\end_inset
-
- – 
-\begin_inset Formula $(k_{Z}^{\mathrm{STT}})_{\mathrm{PCA1}}^{\mathrm{WT3-RT}}$
-\end_inset
-
- – 
-\begin_inset Formula $(k_{Z}^{\mathrm{STT}})_{\mathrm{PCA2}}^{\mathrm{WT3-PE}}$
-\end_inset
-
- – 
-\begin_inset Formula $(k_{Z}^{\mathrm{STT}})_{\mathrm{SFT}}^{\mathrm{WT3-PE}}$
-\end_inset
-
-– 
-\begin_inset Formula $(k_{Z}^{\mathrm{STT}})_{\mathrm{SFT}}^{\mathrm{WT4}}$
-\end_inset
-
- – 
-\begin_inset Formula $r_{\mathrm{PCA1}}^{\mathrm{WT4}}$
-\end_inset
-
- – 
-\begin_inset Formula $r_{\mathrm{SFT}}^{\mathrm{WT3-RT}}$
-\end_inset
-
- – 
-\begin_inset Formula $r_{\mathrm{PCA1}}^{\mathrm{WT4-PE}}$
-\end_inset
-
- – 
-\begin_inset Formula $r_{\mathrm{PCA1}}^{\mathrm{WT4-RT}}$
-\end_inset
-
- – 
-\begin_inset Formula $\left(\nicefrac{\mathrm{ST}}{\mathrm{R}}\right)_{\mathrm{AP}}$
-\end_inset
-
- – EST stage – Max HR – Rest HR – Duke T.
- score – Atypical EST induced CP – Age – Gender – Infarction – Max age-pred
- HR – Systolic BP RT
-\end_layout
-
-\end_inset
-</cell>
-</row>
-<row>
-<cell alignment="center" valignment="middle" bottomline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-\begin_inset Formula $\geq10\%$
-\end_inset
-
-
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" bottomline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-\begin_inset Formula $x(k_{\mathrm{Q}})_{\mathrm{PCA1}}^{\mathrm{RT}}$
-\end_inset
-
- – 
-\begin_inset Formula $x(k_{\mathrm{R}})_{\mathrm{SFT}}^{\mathrm{RT}}$
-\end_inset
-
- – 
-\begin_inset Formula $x(k_{\mathrm{R}})_{\mathrm{SFT}}^{\mathrm{PE}}$
-\end_inset
-
- – 
-\begin_inset Formula $x(k_{\mathrm{S}})_{\mathrm{SFT}}^{\mathrm{RT}}$
-\end_inset
-
- – 
-\begin_inset Formula $x(k_{\mathrm{S}})_{\mathrm{PCA2}}$
-\end_inset
-
- – 
-\begin_inset Formula $(s_{\mathrm{\mathrm{Q}}}^{\mathrm{-}})_{\mathrm{PCA1}}^{\mathrm{RT}}$
-\end_inset
-
- – 
-\begin_inset Formula $(s_{\mathrm{\mathrm{Q}}}^{\mathrm{-}})_{\mathrm{SFT}}^{\mathrm{PE}}$
-\end_inset
-
- – 
-\begin_inset Formula $(s_{\mathrm{R}}^{\mathrm{Q}})_{\mathrm{SFT}}^{\mathrm{PE}}$
-\end_inset
-
- – 
-\begin_inset Formula $(s_{\mathrm{R}}^{\mathrm{Q}})_{\mathrm{SFT}}^{\mathrm{RT}}$
-\end_inset
-
- – 
-\begin_inset Formula $(s_{\mathrm{S}}^{\mathrm{R}})_{\mathrm{PCA1}}^{\mathrm{PE}}$
-\end_inset
-
- – 
-\begin_inset Formula $(s_{\mathrm{-}}^{\mathrm{S}})_{\mathrm{PCA1}}^{\mathrm{PE}}$
-\end_inset
-
- – 
-\begin_inset Formula $(s_{\mathrm{-}}^{\mathrm{S}})_{\mathrm{PCA2}}^{\mathrm{PE}}$
-\end_inset
-
- – 
-\begin_inset Formula $(s_{\mathrm{-}}^{\mathrm{S}})_{\mathrm{PCA2}}$
-\end_inset
-
- – 
-\begin_inset Formula $(s_{\mathrm{-}}^{\mathrm{S}})_{\mathrm{SFT}}$
-\end_inset
-
- – 
-\begin_inset Formula $(k_{Z}^{\mathrm{P}})_{\mathrm{SFT}}^{\mathrm{WT3-RT}}$
-\end_inset
-
- – 
-\begin_inset Formula $(k_{Z}^{\mathrm{QRS}})_{\mathrm{PCA2}}^{\mathrm{WT4-RT}}$
-\end_inset
-
- – 
-\begin_inset Formula $(k_{Z}^{\mathrm{STT}})_{\mathrm{PCA2}}^{\mathrm{WT3}}$
-\end_inset
-
- – 
-\begin_inset Formula $(k_{Z}^{\mathrm{STT}})_{\mathrm{PCA2}}^{\mathrm{WT3-PE}}$
-\end_inset
-
- – 
-\begin_inset Formula $(k_{Z}^{\mathrm{STT}})_{\mathrm{PCA2}}^{\mathrm{WT3-RT}}$
-\end_inset
-
- – 
-\begin_inset Formula $(k_{Z}^{\mathrm{STT}})_{\mathrm{SFT}}^{\mathrm{WT3-PE}}$
-\end_inset
-
- –
-\begin_inset Formula $(k_{Z}^{\mathrm{STT}})_{\mathrm{PCA2}}^{\mathrm{WT4-RT}}$
-\end_inset
-
- – 
-\begin_inset Formula $r_{\mathrm{PCA1}}^{\mathrm{WT3}}$
-\end_inset
-
- – 
-\begin_inset Formula $t_{r50}$
-\end_inset
-
- – ST PE – 
-\begin_inset Formula $\left(\nicefrac{\mathrm{ST}}{\mathrm{RR}}\right)_{\mathrm{SFT}}^{\mathrm{PE}}$
-\end_inset
-
- – EST stage – Max HR – Non CP induced EST – Typical CP induced EST – Systolic
- BP PE – Diastolic BP PE – Pretest Score – Max age-pred HR – Systolic BP
- RT
-\end_layout
-
-\end_inset
-</cell>
-</row>
-</lyxtabular>
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-}
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset Float table
-wide false
-sideways false
-status open
-
-\begin_layout Plain Layout
-\begin_inset Caption Standard
-
-\begin_layout Plain Layout
-\begin_inset CommandInset label
-LatexCommand label
-name "tab:Performance"
-
-\end_inset
-
-Final results for the models presented in Table 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "tab:Features-selected"
-
-\end_inset
-
-.
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-%
-\backslash
-resizebox{
-\backslash
-textwidth}{!}{
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-\align center
-\begin_inset Tabular
-<lyxtabular version="3" rows="8" columns="6">
-<features tabularvalignment="middle">
-<column alignment="center" valignment="top">
-<column alignment="center" valignment="top">
-<column alignment="center" valignment="top">
-<column alignment="center" valignment="top">
-<column alignment="center" valignment="top">
-<column alignment="center" valignment="top">
-<row>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-IM
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-Description
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-Se
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-Sp
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-AUC
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-Comment
-\end_layout
-
-\end_inset
-</cell>
-</row>
-<row>
-<cell multirow="3" alignment="left" valignment="middle" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-\begin_inset Formula $\geq5\%$
-\end_inset
-
-
-\end_layout
-
-\end_inset
-</cell>
-<cell multirow="3" alignment="left" valignment="middle" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-this work
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-77
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-84
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-0.88
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-crossval.
-\end_layout
-
-\end_inset
-</cell>
-</row>
-<row>
-<cell multirow="4" alignment="center" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-</cell>
-<cell multirow="4" alignment="center" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-86
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-84
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-0.92
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-biased
-\end_layout
-
-\end_inset
-</cell>
-</row>
-<row>
-<cell multirow="4" alignment="center" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-Sharir et al.
- 
-\begin_inset CommandInset citation
-LatexCommand cite
-key "Sharir2012"
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-–
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-–
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-–
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-biased
-\end_layout
-
-\end_inset
-</cell>
-</row>
-<row>
-<cell alignment="center" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-</cell>
-</row>
-<row>
-<cell multirow="3" alignment="left" valignment="middle" bottomline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-\begin_inset Formula $\geq10\%$
-\end_inset
-
-
-\end_layout
-
-\end_inset
-</cell>
-<cell multirow="3" alignment="left" valignment="middle" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-this work
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-76
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-90
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-0.95
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-crossval.
-\end_layout
-
-\end_inset
-</cell>
-</row>
-<row>
-<cell multirow="4" alignment="center" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-</cell>
-<cell multirow="4" alignment="center" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-100
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-91
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-0.99
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-biased
-\end_layout
-
-\end_inset
-</cell>
-</row>
-<row>
-<cell multirow="4" alignment="center" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" bottomline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-Sharir et al.
- 
-\begin_inset CommandInset citation
-LatexCommand cite
-key "Sharir2012"
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" bottomline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-88
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" bottomline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-78
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" bottomline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-0.89
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" bottomline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-biased
-\end_layout
-
-\end_inset
-</cell>
-</row>
-</lyxtabular>
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-%}
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\begin_inset Float figure
-wide false
-sideways false
-status open
-
-\begin_layout Plain Layout
-\align center
-\begin_inset Graphics
-	filename img/none_ischemia_roc_x.svg
-	width 100col%
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-\align center
-\begin_inset Graphics
-	filename img/none_severe_roc_x.svg
-	width 100col%
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-\begin_inset Caption Standard
-
-\begin_layout Plain Layout
-\begin_inset CommandInset label
-LatexCommand label
-name "fig:ROC-curves-for"
-
-\end_inset
-
-ROC curves for the models shown in Table 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "tab:Features-selected"
-
-\end_inset
-
-.
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Section
-Discussion and conclusions
-\end_layout
-
-\begin_layout Standard
-In this work we presented a model of features for ischemia detection in
- EST, based on three groups: pretest, exercise and a set of proposed measurement
-s calculated in ECG recordings of conventional analog bandwidth.
- The proposed group of features is the main methodological contribution
- with respect to 
-\begin_inset CommandInset citation
-LatexCommand cite
-key "Sharir2012"
-
-\end_inset
-
-.
- These features were calculated in most of the cardiac cycle in order to
- measure the effect of stress-induced ischemia.
- Some of the features were studied in previous works in the context of ischemia
- detection 
-\begin_inset CommandInset citation
-LatexCommand cite
-key "ellestad2003stress,Pueyo2008"
-
-\end_inset
-
-, while others as 
-\begin_inset Formula $k_{Z}^{\mathrm{X}}$
-\end_inset
-
- were successfully used for heartbeat classification 
-\begin_inset CommandInset citation
-LatexCommand cite
-key "Llamedo11"
-
-\end_inset
-
-.
- The performance improvement of each feature was analyzed with an SFFS algorithm
-, obtaining two models, one for IM
-\begin_inset Formula $\geq5\%$
-\end_inset
-
- and the other for IM
-\begin_inset Formula $\geq10\%$
-\end_inset
-
-, which maximized the AUC calculated in a crossvalidated fashion.
- We chose these evaluation approach to avoid obtaining a model too overfitted
- to the data, as could happen in 
-\begin_inset CommandInset citation
-LatexCommand cite
-key "Sharir2012"
-
-\end_inset
-
-.
- Of the features included in the models, measurements around the Q wave
- seem to be discriminant (
-\begin_inset Formula $x(k_{\mathrm{Q}})$
-\end_inset
-
-, 
-\begin_inset Formula $s_{\mathrm{Q}}^{-}$
-\end_inset
-
- and 
-\begin_inset Formula $s_{\mathrm{R}}^{\mathrm{Q}}$
-\end_inset
-
-), this could be related with the fact that the first region affected by
- ischemia is subendocardial 
-\begin_inset CommandInset citation
-LatexCommand cite
-key "ellestad2003stress"
-
-\end_inset
-
-.
- The terminal slope of the QRS complex ( 
-\begin_inset Formula $s_{\mathrm{-}}^{\mathrm{S}}$
-\end_inset
-
- ) measured in PCA2 or integrated with the SFT strategy were also included.
- These features together with those related to the duration of the ventricular
- repolarization should be further studied to understand its relation with
- stress-induced ischemia.
- The duration of the QRS complex (
-\begin_inset Formula $k_{Z}^{\mathrm{QRS}}$
-\end_inset
-
-) is well known to be affected by ischemia, as well as the level of the
- ST segment 
-\begin_inset CommandInset citation
-LatexCommand cite
-key "ellestad2003stress"
-
-\end_inset
-
-.
- With respect to the high frequency components of the WT QRS complex measured
- with 
-\begin_inset Formula $r^{\mathrm{WTX}}$
-\end_inset
-
-, only scales 3 and 4 were included, despite other scales of higher frequency
- were available for the feature selection.
- An aspect to be further studied is the importance that each feature has
- within the model.
- Respect to the calculation of the features as a ratio respect rest or two
- separate features, both strategies were selected.
- As a consequence, further experimentation is required to know which features
- benefit from each strategy.
- Finally, it would be interesting to study if features similar to HFQRS,
- with good performance reported in 
-\begin_inset CommandInset citation
-LatexCommand cite
-key "Sharir2012"
-
-\end_inset
-
-, could contribute to the obtained models.
- For this purpose we would need ECG recordings with an analog bandwidth
- up to 250 Hz.
-\end_layout
-
-\begin_layout Standard
-As can be seen in Table 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "tab:Performance"
-
-\end_inset
-
-, the crossvalidated performance is more conservative, but probably more
- representative of the actual performance of a classifier.
- According to the ROC curve shown in figure 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "fig:ROC-curves-for"
-
-\end_inset
-
-, the most challenging detection problem is for 
-\begin_inset Formula $\mathrm{IM}\geq5\%$
-\end_inset
-
-, for the case of 
-\begin_inset Formula $\mathrm{IM}\geq10\%$
-\end_inset
-
- the final model performs extremely well, a symptom that the model could
- be too overfitted, probably because of the scarcity of severe ischemia
- patients in the cohort analyzed.
- However, it is necessary to study how these models performance (and the
- reported in 
-\begin_inset CommandInset citation
-LatexCommand cite
-key "Sharir2012"
-
-\end_inset
-
-) generalize to other databases in order to validate the performance improvement
- presented in this work.
-\end_layout
-
-\begin_layout Standard
-As a result of the methodology presented, the results obtained in Table
- 
+methodology presented, the results obtained in Table 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "tab:Performance"
@@ -2391,19 +2134,6 @@ key "Sharir2012"
 \end_inset
 
 .
-\end_layout
-
-\begin_layout Section*
-Acknowledgments
-\end_layout
-
-\begin_layout Standard
-This work was supported by projects TEC2010-21703-C03-02, TEC2010-19410
- from MINECO (Spain) and GTC T-30 from DGA and European Social Fund (EU).
- The CIBER of Bioengineering, Biomaterials and Nanomedicine is an initiative
- of ISCIII.
- Esther Pueyo acknowledges the financial support of Ramón y Cajal program
- from MINECO, Spain.
 \end_layout
 
 \begin_layout Standard
