@@ -1013,22 +1013,14 @@
     /></g
     ><g transform="translate(480,225)" style="font-size:16px; text-rendering:geometricPrecision; color-rendering:optimizeQuality; image-rendering:optimizeQuality; font-family:'SansSerif'; color-interpolation:linearRGB;"
     ><text x="0" xml:space="preserve" y="0" style="stroke:none;"
-      >FL</text
-    ></g
-    ><g transform="translate(499,233)" style="text-rendering:geometricPrecision; font-family:'SansSerif'; color-interpolation:linearRGB; color-rendering:optimizeQuality; image-rendering:optimizeQuality;"
-    ><text x="0" xml:space="preserve" y="0" style="stroke:none;"
-      >det3</text
+      >FL3</text
     ></g
     ><g style="stroke-linecap:butt; fill:fuchsia; text-rendering:geometricPrecision; color-rendering:optimizeQuality; image-rendering:optimizeQuality; stroke-linejoin:bevel; stroke-dasharray:8,8; color-interpolation:linearRGB; stroke:fuchsia; stroke-width:2.6667; stroke-miterlimit:1;"
     ><line y2="222.7283" style="fill:none;" x1="428.3204" x2="474.9223" y1="222.7283"
     /></g
     ><g transform="translate(480,252)" style="font-size:16px; text-rendering:geometricPrecision; color-rendering:optimizeQuality; image-rendering:optimizeQuality; font-family:'SansSerif'; color-interpolation:linearRGB;"
     ><text x="0" xml:space="preserve" y="0" style="stroke:none;"
-      >FL</text
-    ></g
-    ><g transform="translate(499,260)" style="text-rendering:geometricPrecision; font-family:'SansSerif'; color-interpolation:linearRGB; color-rendering:optimizeQuality; image-rendering:optimizeQuality;"
-    ><text x="0" xml:space="preserve" y="0" style="stroke:none;"
-      >det2</text
+      >FL2</text
     ></g
     ><g style="fill:rgb(217,83,25); text-rendering:geometricPrecision; color-rendering:optimizeQuality; image-rendering:optimizeQuality; color-interpolation:linearRGB; stroke:rgb(217,83,25); stroke-width:2.6667;"
     ><line y2="249.5" style="fill:none;" x1="428.3204" x2="474.9223" y1="249.5"
@@ -1039,11 +1031,7 @@
     /></g
     ><g transform="translate(480,278)" style="font-size:16px; text-rendering:geometricPrecision; color-rendering:optimizeQuality; image-rendering:optimizeQuality; font-family:'SansSerif'; color-interpolation:linearRGB;"
     ><text x="0" xml:space="preserve" y="0" style="stroke:none;"
-      >FL</text
-    ></g
-    ><g transform="translate(499,286)" style="text-rendering:geometricPrecision; font-family:'SansSerif'; color-interpolation:linearRGB; color-rendering:optimizeQuality; image-rendering:optimizeQuality;"
-    ><text x="0" xml:space="preserve" y="0" style="stroke:none;"
-      >det1</text
+      >FL1</text
     ></g
     ><g style="stroke-linecap:butt; fill:rgb(77,190,238); text-rendering:geometricPrecision; color-rendering:optimizeQuality; image-rendering:optimizeQuality; stroke-linejoin:bevel; stroke-dasharray:2,2; color-interpolation:linearRGB; stroke:rgb(77,190,238); stroke-width:2.6667; stroke-miterlimit:1;"
     ><line y2="276.2717" style="fill:none;" x1="428.3204" x2="474.9223" y1="276.2717"

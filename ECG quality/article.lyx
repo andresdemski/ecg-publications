@@ -93,12 +93,13 @@
 \papercolumns 1
 \papersides 1
 \paperpagestyle default
-\tracking_changes true
+\tracking_changes false
 \output_changes false
 \html_math_output 0
 \html_css_as_file 0
 \html_be_strict false
 \author -1260779252 "mariano"
+\author 1323020071 "ademski,,,"
 \end_header
 
 \begin_body
@@ -122,7 +123,7 @@ Introduction
 \end_layout
 
 \begin_layout Standard
-The electrocardiogram (ECG) is a routine and inexpensive technique to analyze
+The electrocardiogram (ECG) is a routine and inexpensive technique to analyse
  the heart function.
  An ECG recording is commonly corrupted by several sources of noise or interferi
 ng signals, such as power line, skeletal muscle activity, electrode movement
@@ -173,10 +174,23 @@ le.
 \begin_layout Standard
 One of the best results in the first event of this challenge, was the Gari
  D.
- Clifford work[], who presents a machine learning classification approach
- based on features corresponding to signal quality indices (SQI).
- Also, there are several works [, ,] which developed algorithms using binary
- trees.
+ Clifford work
+\begin_inset CommandInset citation
+LatexCommand cite
+key "clifford-quality-cinc"
+
+\end_inset
+
+, who presents a machine learning classification approach based on features
+ corresponding to signal quality indices (SQI).
+ Also, there are several works 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "chengyu-cinc,dieter-cinc,Henian-cinc,lars-cinc,vaclav-cinc"
+
+\end_inset
+
+ which developed algorithms using binary trees.
  They focus their work in the detection of some characteristics like flatlines,
  huge impulses or deviation of the mean, among others.
 \end_layout
@@ -184,14 +198,10 @@ One of the best results in the first event of this challenge, was the Gari
 \begin_layout Standard
 In this paper, it is presented a 2 level ECG quality classification using
  two approaches, binary tree and machine learning.
- The binary tree is performed for detecting flatline, spikes[http://www.cinc.org/a
-rchives/2011/pdf/0353.pdf] 
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-Se que suena mal pero esta asi en el paper de que lo saque
-\end_layout
+ The binary tree is performed for detecting flatline, spikes
+\begin_inset CommandInset citation
+LatexCommand cite
+key "dieter-cinc"
 
 \end_inset
 
@@ -211,101 +221,42 @@ Database
 
 \begin_layout Standard
 In this work we used the database of the Physionet/Computing in Cardiology
- (CinC) Challenge 2011 
-\change_inserted -1260779252 1469536471
-
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-
-\change_inserted -1260779252 1469536515
-pongámosle algún nombre tipo ecgqdb, el que te guste o si ya tiene uno en
- Physionet, ese
-\change_unchanged
-
-\end_layout
-
-\end_inset
-
-
-\change_deleted -1260779252 1469536263
-[]
-\change_inserted -1260779252 1469536263
-
+ (CinC) Challenge 2011 (ecgqdb) 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "PhysioNet"
 
 \end_inset
 
-
-\change_unchanged
- and the MIT-BIH database arrhythmia 
-\change_inserted -1260779252 1469536365
-
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-
-\change_inserted -1260779252 1469536389
-suele ser el code de esta base, así no usamos MIT-BIH, con el tiempo me
- fue gustando más mitdb
-\change_unchanged
-
-\end_layout
-
-\end_inset
-
-(mitdb)
-\change_deleted -1260779252 1469536263
-[]
-\change_inserted -1260779252 1469536246
-
+ and the MIT-BIH database arrhythmia (mitdb)
 \begin_inset CommandInset citation
 LatexCommand cite
 key "MITBIHDB"
 
 \end_inset
 
-
-\change_unchanged
  .
- The Set-A of the Physionet/CinC DB
+ The ecgqdb
 \change_inserted -1260779252 1469537529
 
 \begin_inset Note Note
-status open
+status collapsed
 
 \begin_layout Plain Layout
-
-\change_inserted -1260779252 1469537586
 nombre corto acá y algunas características técnicas Fs, bits, etc etc, de
  las bases, el slew rate máximo de cada una si lo tenemos, no estaría mal
-\change_unchanged
-
 \end_layout
 
 \end_inset
 
 
 \change_unchanged
- includes 1000 ten-seconds records of 
-\change_deleted -1260779252 1469536527
-twelve
-\change_inserted -1260779252 1469536527
-12
-\change_unchanged
--leads records, where there are 773 acceptable
-\change_deleted -1260779252 1469536295
- 
-\change_unchanged
-, 225 unacceptable 
+ includes 1000 ten-seconds records of 12-leads records, where there are
+ 773 acceptable, 225 unacceptable 
 \change_inserted -1260779252 1469536311
 
 \begin_inset Note Note
-status open
+status collapsed
 
 \begin_layout Plain Layout
 
@@ -318,19 +269,16 @@ qué sentido tiene poner esto ? se descartan no estos 2 ?
 \end_inset
 
 
-\change_unchanged
-and 2 unclassified records.
- 
-\change_inserted -1260779252 1469537448
+\change_inserted 1323020071 1469554313
 
 \begin_inset Note Note
-status open
+status collapsed
 
 \begin_layout Plain Layout
 
-\change_inserted -1260779252 1469537484
-Acá poné, para entrenamiento, tal db o tales db's o partes de db's, y para
- evaluación lo mismo, es más claro creo.
+\change_inserted 1323020071 1469554337
+Se descartan, pero figuraban en la descripción...
+ yo tampoco le veo sentido
 \change_unchanged
 
 \end_layout
@@ -339,116 +287,30 @@ Acá poné, para entrenamiento, tal db o tales db's o partes de db's, y para
 
 
 \change_unchanged
-This dataset is used for training and test our 
-\change_deleted -1260779252 1469537435
-algorithmsn
-\change_inserted -1260779252 1469537435
-algorithm
-\change_unchanged
-, and the MIT-BIH is used only for training the algorithms and morphological
- study of ECG.
+and 2 unclassified records.
+ For training the algorithm we used the ecgqdb and the mitdb, and the ecgqdb
+ is used for testing the algorithm.
 \end_layout
 
 \begin_layout Subsection
-
-\change_inserted -1260779252 1469537651
-Proposed 
-\change_deleted -1260779252 1469537655
-A
-\change_inserted -1260779252 1469537655
-a
-\change_unchanged
-lgorithm
-\change_deleted -1260779252 1469537648
-s
-\change_unchanged
-
+Proposed algorithm
 \end_layout
 
 \begin_layout Standard
-
-\change_deleted -1260779252 1469537681
-Firstly, we started doing a visual inspection of the CinC DB to identify
- the problems of the unacceptable records.
-\change_inserted -1260779252 1469537677
-
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-
-\change_inserted -1260779252 1469537694
-nooo! fijate que no aporta nada este comentario, ya lo sabe todo el mundo
- eso.
-\change_unchanged
-
-\end_layout
-
-\end_inset
-
-
-\change_unchanged
- We 
-\change_inserted -1260779252 1469537738
-identified 
-\change_deleted -1260779252 1469537751
-saw that there are 3 
-\change_inserted -1260779252 1469537752
-three 
-\change_unchanged
-important causes
-\change_inserted -1260779252 1469537777
- that are present in the unacceptable recordings
-\change_unchanged
-: 1) 
-\change_deleted -1260779252 1469538478
-F
-\change_inserted -1260779252 1469538478
-f
-\change_unchanged
-latline
-\change_inserted -1260779252 1469538495
-s,
-\change_unchanged
- 2) 
-\change_deleted -1260779252 1469538476
-S
-\change_inserted -1260779252 1469538476
-s
-\change_unchanged
-pikes 
-\change_inserted -1260779252 1469538468
-and 
-\change_unchanged
-3) 
-\change_deleted -1260779252 1469538471
-Huge Impulse
-\change_inserted -1260779252 1469538471
-steps
-\change_unchanged
-.
-
-\change_inserted -1260779252 1469538511
+We identified three important causes that are present in the unacceptable
+ recordings: 1) flatlines, 2) spikes and 3) steps.
  
-\change_unchanged
-
 \end_layout
 
 \begin_layout Standard
 We decide to develop a binary tree for detecting these problems as it can
  be seen in fig 
-\change_deleted -1260779252 1469539320
-[]
-\change_inserted -1260779252 1469539320
-
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "fig:Flow-chart-and-main"
 
 \end_inset
 
-
-\change_unchanged
 
 \end_layout
 
@@ -474,8 +336,6 @@ status open
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-
-\change_inserted -1260779252 1469539309
 \begin_inset CommandInset label
 LatexCommand label
 name "fig:Flow-chart-and-main"
@@ -483,8 +343,6 @@ name "fig:Flow-chart-and-main"
 \end_inset
 
 Flow-chart and main blocks of the proposed algorithm.
-\change_unchanged
-
 \end_layout
 
 \end_inset
@@ -499,28 +357,7 @@ Flow-chart and main blocks of the proposed algorithm.
 
 \begin_layout Standard
 If this tree give the record as acceptable, then it is processed with a
- 
-\change_deleted -1260779252 1469538871
-machine learning
-\change_inserted -1260779252 1469538875
-detector 
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-
-\change_inserted -1260779252 1469538896
-o classifier, no me gusta machine learning para referirnos al bloque detector,
- o a futuro clasificador.
-\change_unchanged
-
-\end_layout
-
-\end_inset
-
-
-\change_unchanged
- for doing the last classification.
+ detector for doing the last classification.
  Our
 \change_inserted -1260779252 1469538913
 
@@ -538,6 +375,23 @@ acá no seguimos un criterio de otro artículo ?
 \end_inset
 
 
+\change_inserted 1323020071 1469554416
+
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+
+\change_inserted 1323020071 1469554463
+Si, pero nadie lo aclara.
+ 
+\change_unchanged
+
+\end_layout
+
+\end_inset
+
+
 \change_unchanged
  criterion for an acceptable is that all leads of the record must be good
  quality.
@@ -547,13 +401,15 @@ acá no seguimos un criterio de otro artículo ?
 \end_layout
 
 \begin_layout Subsubsection
-FlatLine Detector
+Flatline detector
 \end_layout
 
 \begin_layout Standard
-The flatline is caused by the disconnection of the leads
-\change_inserted -1260779252 1469540759
+When an ECG processing is performed, It is frequently observed long times
+ of non electric activity in one or multiple leads caused by different reasons.
  
+\change_deleted 1323020071 1469556090
+
 \begin_inset Note Note
 status open
 
@@ -569,43 +425,25 @@ s detectarlo.
 
 \end_inset
 
+.
 
 \change_unchanged
-.
  For detecting this, we developed 3 algorithms analysing the variance, the
  derivative and the signal excursion: 
 \begin_inset Formula 
 \[
-FL_{det1}=\underset{i,j}{min}\left\{ \sqrt{var(S_{i,j})}\right\} 
+FL1=\underset{i,j}{min}\left\{ \sqrt{var(S_{i,j})}\right\} 
 \]
 
 \end_inset
 
-
-\change_inserted -1260779252 1469542257
-
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-
-\change_inserted -1260779252 1469542274
-FL1 ? o F1
-\change_unchanged
-
-\end_layout
-
-\end_inset
-
-
-\change_unchanged
 
 \end_layout
 
 \begin_layout Standard
 \begin_inset Formula 
 \[
-FL_{det2}=\underset{i,j}{min}\left\{ mean\left(\frac{dS_{i,j}}{dt}\right)\right\} 
+FL2=\underset{i,j}{min}\left\{ mean\left(\frac{dS_{i,j}}{dt}\right)\right\} 
 \]
 
 \end_inset
@@ -620,6 +458,9 @@ status open
 
 \change_inserted -1260779252 1469542328
 definí mean
+\change_inserted 1323020071 1469556299
+.
+ Es necesario? no esta entendido que es la media?
 \change_unchanged
 
 \end_layout
@@ -632,27 +473,9 @@ definí mean
 \end_layout
 
 \begin_layout Standard
-
-\change_inserted -1260779252 1469542360
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-
-\change_inserted -1260779252 1469542368
-aca usarías mean de nuevo
-\change_unchanged
-
-\end_layout
-
-\end_inset
-
-
-\change_unchanged
-
 \begin_inset Formula 
 \[
-{\displaystyle FL_{det3}=\underset{i,j}{min}\left\{ abs\left(S_{i,j}-\overline{S_{i,j}}\:\right)\right\} }
+{\displaystyle FL3=\underset{i,j}{min}\left\{ abs\left(S_{i,j}-mean(S_{i,j})\right)\right\} }
 \]
 
 \end_inset
@@ -664,69 +487,25 @@ aca usarías mean de nuevo
 \begin_inset Formula $S_{i,j}$
 \end_inset
 
- represents the 
-\change_inserted -1260779252 1469540862
-ECG 
-\change_unchanged
-signal in the interval 
+ represents the ECG signal in the interval 
 \begin_inset Formula $w$
 \end_inset
 
-
-\change_inserted -1260779252 1469540896
-, which starts at 
-\change_unchanged
- 
-\change_deleted -1260779252 1469540906
-around 
-\change_unchanged
-the sample i
-\change_inserted -1260779252 1469540923
-
-\emph on
-th
-\change_unchanged
-
-\emph default
- of the 
-\change_inserted -1260779252 1469540947
-j
+, which starts at the sample i
 \emph on
 th
 \emph default
- 
-\change_unchanged
-lead
-\change_deleted -1260779252 1469540948
- j
-\change_unchanged
-.
+ of the j
+\emph on
+th
+\emph default
+ lead.
  The 
-\change_deleted -1260779252 1469541085
-interval 
-\change_unchanged
-
 \begin_inset Formula $w$
 \end_inset
 
- 
-\change_inserted -1260779252 1469541086
-interval 
-\change_unchanged
-was 
-\change_deleted -1260779252 1469541018
-set 
-\change_inserted -1260779252 1469541721
-adopted of 1.5 seconds length, this restriction makes unlikely to produce
- false detections in heart rates above 40 bpm.
- 
-\change_deleted -1260779252 1469541737
-looking the heart rate.
- As It is around 1 beat per second, we decided to use an interval 
-\begin_inset Formula $w$
-\end_inset
-
- of 1.5 seconds.
+ interval was adopted of 1.5 seconds length, this restriction makes unlikely
+ to produce false detections in heart rates above 40 bpm.
  
 \change_inserted -1260779252 1469541739
 
@@ -759,6 +538,8 @@ status open
 
 \change_inserted -1260779252 1469541777
 donde definiste FL?
+\change_inserted 1323020071 1469556269
+ En las ecuaciones
 \change_unchanged
 
 \end_layout
@@ -769,30 +550,17 @@ donde definiste FL?
 \change_unchanged
  estimators are calculated, they are compared with a threshold which determines
  if it is flatline or not.
- For setting this threshold, it was generated a labelling from the CinC
- dataset having the gold-standard of flatlines for training this parameter
- (121 flatlines and 756 acceptable records).
-\change_inserted -1260779252 1469542427
-
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-
-\change_inserted -1260779252 1469542480
-Un poco más de cómo hicimos esto, comentá que 1 persona experimentada en
- el análisis de ECG lo anotó
-\change_unchanged
-
-\end_layout
-
-\end_inset
-
-
-\change_unchanged
- Processing all the dataset, we get the next ROC curves
+ For setting this threshold, it was generated a labelling from the ecgqdb
+ having the gold-standard of flatlines for training this parameter (121
+ flatlines and 756 acceptable records).
+ The labeling was performed by a experimented person in ECG analysis who
+ labeled the ecgqdb at 3 times.
+ Comparing the results in each cases, if the three labels assigned to a
+ record didn't match, the record was discarded.Then, the ROC curves were
+ obtained by processing the generated dataset and sweeping the threshold
+ value for each detector.
 \change_inserted -1260779252 1469542490
-.
+
 \begin_inset Note Note
 status open
 
@@ -802,6 +570,17 @@ status open
 Esta oración y hasta el final pasalo a resultados.
  Falta explicar los umbrales para cada caso, cómo los obtuviste, si analizaste
  un solo umbral, si son el mejor umbral para cada detector.
+
+\change_inserted 1323020071 1469556573
+ 
+\end_layout
+
+\begin_layout Plain Layout
+
+\change_inserted 1323020071 1469556607
+Justamente eso da la ROC,fui variando los TH para obtener las curvas y ver
+ cual es el TH que daba una mejor performance.
+ Poreso no lo puse en resultados.
 \change_unchanged
 
 \end_layout
@@ -838,6 +617,12 @@ status open
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:FL-ROC"
+
+\end_inset
+
 FlatLine - ROC curves
 \end_layout
 
@@ -861,6 +646,23 @@ status open
 \end_inset
 
 
+\change_inserted 1323020071 1469554615
+
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+
+\change_inserted 1323020071 1469554635
+Es la linea roja...
+ tengo que ponen un punto marcando?
+\change_unchanged
+
+\end_layout
+
+\end_inset
+
+
 \change_unchanged
 
 \end_layout
@@ -871,11 +673,18 @@ status open
 \end_layout
 
 \begin_layout Standard
-It can be seen that the 
-\begin_inset Formula $FL_{det2}$
+In fig 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:FL-ROC"
+
 \end_inset
 
-is the estimator with best response getting 
+, It can be seen that the 
+\begin_inset Formula $FL2$
+\end_inset
+
+ is the estimator with best response getting 
 \begin_inset Formula $99.17\%$
 \end_inset
 
@@ -888,6 +697,27 @@ is the estimator with best response getting
 \end_inset
 
 .
+
+\change_inserted 1323020071 1469558098
+ 
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+
+\change_inserted 1323020071 1469558142
+Estos resultados son sobre el entrenamiento con la base de datos generada
+ por mi, por eso tampoco creo que va en seccion resultados.
+ 
+\change_unchanged
+
+\end_layout
+
+\end_inset
+
+
+\change_unchanged
+
 \end_layout
 
 \begin_layout Subsubsection
@@ -895,125 +725,39 @@ Spikes Detector
 \end_layout
 
 \begin_layout Standard
-The spikes detector is based in
-\change_inserted -1260779252 1469542661
- 
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-
-\change_inserted -1260779252 1469542666
-metele con las citaaaaaaaaaas
-\change_unchanged
-
-\end_layout
+The spikes detector is based in 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "dieter-cinc"
 
 \end_inset
 
-
-\change_unchanged
- [http://www.cinc.org/archives/2011/pdf/0353.pdf].
- This algorithm analyse the percentage of signal per lead which its variability
- 
-\change_inserted -1260779252 1469542677
-
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-
-\change_inserted -1260779252 1469542685
-variance ?
-\change_unchanged
-
-\end_layout
-
-\end_inset
-
-
-\change_unchanged
-is higher than a threshold.
+.
+ This algorithm analyse the percentage of signal per lead which its slew
+ rate is higher than a threshold.
  It can be represented by the next equation:
 \end_layout
 
 \begin_layout Standard
 \begin_inset Formula 
 \[
-SP_{det}=\underset{j}{max}\left\{ \dfrac{1}{N}\sum_{n=1}^{N-1}\left[\dfrac{dS_{j}[n]}{dt}\geq TH\right]\right\} 
+SP_{det}=\underset{j}{max}\left\{ \dfrac{1}{N}\sum_{n=1}^{N}\left[\dfrac{dS_{j}[n]}{dt}\geq TH\right]\right\} 
 \]
 
 \end_inset
 
 
-\change_inserted -1260779252 1469542738
-
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-
-\change_inserted -1260779252 1469542754
-Sumatoria hasta N o arrancala en 0
-\change_unchanged
-
-\end_layout
-
-\end_inset
-
-
-\change_unchanged
-
 \end_layout
 
 \begin_layout Standard
-The TH was obtained analysing the slew rate of the QRS complex
-\change_inserted -1260779252 1469542858
-
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-
-\change_inserted -1260779252 1469542883
-en registros limpios ! por lo tanto -> buscamos en una db mayormente limpia
- como la mitdb
-\change_unchanged
-
-\end_layout
-
-\end_inset
-
-
-\change_unchanged
- in the entire MIT-BIH DB.
+The TH was obtained analysing the slew rate of the QRS complex in the entire
+ mitdb because we need a mostly clean database and we don't want to overtrain
+ this threshold value to the ecgqdb.
  Using the MIT's QRS annotations, we calculated the max slew rate around
  each QRS complex using an interval of 
 \begin_inset Formula $\pm100ms$
 \end_inset
 
-
-\change_deleted -1260779252 1469542899
-, obtaining the next histogram:
-\change_inserted -1260779252 1469542903
-
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-
-\change_inserted -1260779252 1469542940
-no se suele hablar del siguiente graf, simplemente se lo cita, LaTex ya
- se encarga de ponerte la ref cruzada a la fig.
- ahi te agrego la etiqueta para que veas como se hace la ref cruzada
-\change_unchanged
-
-\end_layout
-
-\end_inset
-
-
-\change_unchanged
 
 \end_layout
 
@@ -1056,30 +800,12 @@ A todos los grafs, sacales las cajas, creo que en matlab es box off o algo
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-
-\change_inserted -1260779252 1469542949
 \begin_inset CommandInset label
 LatexCommand label
 name "fig:QRS-complex's-slew"
 
 \end_inset
 
-
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-
-\change_inserted -1260779252 1469542956
-<- etiqueta
-\change_unchanged
-
-\end_layout
-
-\end_inset
-
-
-\change_unchanged
 QRS complex's slew rate histogram
 \end_layout
 
@@ -1094,8 +820,6 @@ QRS complex's slew rate histogram
 \end_layout
 
 \begin_layout Standard
-
-\change_inserted -1260779252 1469543017
 In Fig.
  
 \begin_inset CommandInset ref
@@ -1104,58 +828,18 @@ reference "fig:QRS-complex's-slew"
 
 \end_inset
 
- 
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-
-\change_inserted -1260779252 1469543000
-<- ref cruzada
-\change_unchanged
-
-\end_layout
-
-\end_inset
-
- the 
-\change_deleted -1260779252 1469543023
-The 
-\change_unchanged
-last bar of the histogram is due to the hardware used in the MIT-BIH DB,
- which limits the slew rate to 
+ is represented the histogram of the maximum slew rates of each QRS complex.
+ Last bar of the histogram is due to the hardware used in the mitdb, which
+ limits the slew rate to 
 \begin_inset Formula $225\,\nicefrac{mV}{sec}$
 \end_inset
 
 .
- For getting a threshold value, 
-\change_inserted -1260779252 1469543056
-we adopted 
-\change_unchanged
-the 
+ For getting a threshold value, we adopted the 
 \begin_inset Formula $90th$
 \end_inset
 
- percentile 
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-Se escribe asi? no me suena
-\change_inserted -1260779252 1469543085
-.
- Se pone el ordinal por lo gral.
-\change_unchanged
-
-\end_layout
-
-\end_inset
-
- 
-\change_deleted -1260779252 1469543101
-is calculated
-\change_unchanged
-, resulting in TH value of 
+ percentile, resulting in TH value of 
 \begin_inset Formula $189\,\nicefrac{mV}{sec}$
 \end_inset
 
@@ -1174,7 +858,7 @@ for considering the record as acceptable.
 \end_inset
 
 for all the non-flat records (756 acceptable and 61 unacceptable records)
- and we perform the following ROC curve
+ and we perform the ROC curve.
 \change_inserted -1260779252 1469543134
 
 \begin_inset Note Note
@@ -1185,6 +869,10 @@ status open
 \change_inserted -1260779252 1469543165
 de nuevo, pasá esto a resultados, y simplemente terminá donde explicás la
  adopción del umbral.
+
+\change_inserted 1323020071 1469558595
+ Esto es la adopción del segundo umbral, por eso creo que va en método.
+ No estoy analizando la performance 
 \change_unchanged
 
 \end_layout
@@ -1192,8 +880,6 @@ de nuevo, pasá esto a resultados, y simplemente terminá donde explicás la
 \end_inset
 
 
-\change_deleted -1260779252 1469543168
-:
 \change_unchanged
 
 \end_layout
@@ -1251,41 +937,21 @@ Huge Impulse Detector
 \end_layout
 
 \begin_layout Standard
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-Hicieron algo parecido aca http://www.cinc.org/archives/2011/pdf/0357.pdf ,
- los citamos?
-\end_layout
+Similar to 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "chengyu-cinc"
 
 \end_inset
 
-
-\change_inserted -1260779252 1469543365
-
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-
-\change_inserted -1260779252 1469543370
-obviamente
-\change_unchanged
-
-\end_layout
-
-\end_inset
-
-
-\change_unchanged
-
-\end_layout
-
-\begin_layout Standard
-For this detector, the median value is subtracted from the record and then
+, this detector tries to detect the signals which haves a lot of energy.
+ For doing that, the median value is subtracted from the record and then
  it is divided in 10 sections.
- If any sample of a section is higher than 
+ As the QRS complex have a maximum value of 
+\begin_inset Formula $800\mu V$
+\end_inset
+
+, if any sample of a section is higher than 
 \begin_inset Formula $1mV$
 \end_inset
 
@@ -1302,6 +968,9 @@ status open
 \change_inserted -1260779252 1469543444
 poné algún ejemplo, con valores, creo que podría aportar para ver cómo funciona
  el detector, qué te parece ?
+\change_inserted 1323020071 1469558883
+ Dale, si me da el tiempo lo hago.
+ Voy primero por tener unos resultados ....
 \change_unchanged
 
 \end_layout
@@ -1324,6 +993,9 @@ status open
 
 \change_inserted -1260779252 1469543458
 cambiá lo de ML, queda muy mal
+\change_inserted 1323020071 1469560132
+.
+ Vos que nombre decis de ponerle?.
 \change_unchanged
 
 \end_layout
@@ -1336,42 +1008,30 @@ cambiá lo de ML, queda muy mal
 \end_layout
 
 \begin_layout Standard
-For the machine learning approach, the feature model described in [ , ,
- ] was implemented.
- Performing it, we found an obstacle: the eplimited QRS detector 
-\change_inserted -1260779252 1469543685
-
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-
-\change_inserted -1260779252 1469543705
-fijate cómo lo cita clifford, sino citá a Clifford o al ecg-kit
-\change_unchanged
-
-\end_layout
+For the machine learning approach, the feature models described in [
+\begin_inset CommandInset citation
+LatexCommand cite
+key "clifford-quality-cinc,behar-quality,liq-multilevel"
 
 \end_inset
 
+] were implemented.
+ Performing it, we found an obstacle: the eplimited QRS detector
+\begin_inset CommandInset citation
+LatexCommand cite
+key "eplimited"
 
-\change_unchanged
-[] have 8 seconds of initialisation and it is not useful for 10 seconds
- records.
+\end_inset
+
+ have 8 seconds of initialisation and it is not useful for 10 seconds records.
  Then, we decided to use other QRS detectors and evaluate their performance.
- When only one detector is needed, it is used the Wavelet detector 
-\change_deleted -1260779252 1469543722
-[]
-\change_inserted -1260779252 1469543722
-
+ When only one detector is needed, it is used the Wavelet detector
 \begin_inset CommandInset citation
 LatexCommand cite
 key "Martinez04"
 
 \end_inset
 
-
-\change_unchanged
 .
  A Support Vector Machine with Gaussian kernel is used.
  
@@ -1379,13 +1039,17 @@ key "Martinez04"
 
 \begin_layout Standard
 The feature model is composed of seventeen signal quality indices (SQI)
- that were calculated per lead resulting in a total of 204 features :
+ that were calculated per lead resulting in a total of 144 features :
 \begin_inset Note Note
 status open
 
 \begin_layout Plain Layout
 Las descripciones son casi todas copy paste del paper de C.
  Pongo matematica o con referencias alcanza?
+\change_inserted 1323020071 1469559744
+ Tengo que poner alguna ref en cada uno o algo?
+\change_unchanged
+
 \end_layout
 
 \end_inset
@@ -1418,9 +1082,29 @@ bSQI[1-6]: the percentage of beats detected by one detector that were also
  detected by other one.
  We performed 6 combinations of detectors generating 6 different SQI to
  evaluate.
- The combinations of detectors are: 1) sqrs[] and wqrs[] 2) gqrs[] and wqrs
- 3) wqrs and wavedet[] 4) sqrs and wavedet 5) gqrs and wavedet 6) gqrs and
- sqrs.
+ The combinations of detectors are: 1) sqrs
+\begin_inset CommandInset citation
+LatexCommand cite
+key "PhysioNet"
+
+\end_inset
+
+ and wqrs
+\begin_inset CommandInset citation
+LatexCommand cite
+key "PhysioNet"
+
+\end_inset
+
+ 2) gqrs
+\begin_inset CommandInset citation
+LatexCommand cite
+key "PhysioNet"
+
+\end_inset
+
+ and wqrs 3) wqrs and wavedets 4) sqrs and wavedet 5) gqrs and wavedet 6)
+ gqrs and sqrs.
  
 \end_layout
 
@@ -1449,13 +1133,46 @@ pcaSQI: Ratio between the sum of the eigenvalues associated with the five
  principal components over the sum of all eigenvalues.
 \end_layout
 
-\begin_layout Enumerate
-\begin_inset Note Note
+\begin_layout Standard
+From these features, we train two models: a reduced model which only uses
+ 6 of the 12 SQIs (kSQI, sSQI, pSQI, basSQI, bSQI and pcaSQI) like [
+\begin_inset CommandInset citation
+LatexCommand cite
+key "behar-quality"
+
+\end_inset
+
+]and the other, the full model, which uses all of them like [
+\begin_inset CommandInset citation
+LatexCommand cite
+key "liq-multilevel"
+
+\end_inset
+
+].
+\end_layout
+
+\begin_layout Section
+Results
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float table
+wide false
+sideways false
 status open
 
 \begin_layout Plain Layout
-Hasta aca llegue, despues sigo.
- 
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "tab:Performance-of-bSQIs"
+
+\end_inset
+
+Performance of bSQIs changing the QRS complex detectors 
 \end_layout
 
 \end_inset
@@ -1463,8 +1180,329 @@ Hasta aca llegue, despues sigo.
 
 \end_layout
 
-\begin_layout Section
-Results
+\begin_layout Plain Layout
+\align center
+\begin_inset Tabular
+<lyxtabular version="3" rows="4" columns="7">
+<features tabularvalignment="middle">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+bSQI1
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+bSQI2
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+bSQI3
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+bSQI4
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+bSQI5
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+bSQI6
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Accuracy
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.8818
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.9078 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.9038
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.8667
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.8968
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.8657
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Sensitivity
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.9819
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.9521
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.9728
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.9780
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.9728
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.9702
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Specificity
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.5378
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.7556
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.6667
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.4844
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.6356
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.5067
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+Mejor resultado bSQI2 = gqrs/wqrs
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The performance of bSQI was evaluated giving the results of table 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "tab:Performance-of-bSQIs"
+
+\end_inset
+
+.
+ There, it can be seen that the bSQI2 is the index with better individual
+ performance, then it is going to be used in the detector's model.
+\end_layout
+
+\begin_layout Standard
+The individual performance was determined using the ecgqdb.
+ The table
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "tab:Individual-Performance"
+
+\end_inset
+
+ shows that the best accuracy and sensitivity is obtained using the detector
+ with all the predictors.
+ The reduced model also gets a good performance in accuracy and sensitivity
+ with the best specificity.
 \end_layout
 
 \begin_layout Standard
@@ -1479,6 +1517,12 @@ status open
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "tab:Individual-Performance"
+
+\end_inset
+
 Individual Performance
 \end_layout
 
@@ -1486,7 +1530,7 @@ Individual Performance
 
 
 \begin_inset Tabular
-<lyxtabular version="3" rows="5" columns="4">
+<lyxtabular version="3" rows="6" columns="4">
 <features tabularvalignment="middle">
 <column alignment="center" valignment="top">
 <column alignment="center" valignment="top">
@@ -1544,7 +1588,7 @@ FlatLine
 \begin_inset Text
 
 \begin_layout Plain Layout
-0.9379
+0.9208 
 \end_layout
 
 \end_inset
@@ -1553,7 +1597,7 @@ FlatLine
 \begin_inset Text
 
 \begin_layout Plain Layout
-1 
+0.9208 
 \end_layout
 
 \end_inset
@@ -1562,7 +1606,7 @@ FlatLine
 \begin_inset Text
 
 \begin_layout Plain Layout
-0.7438 
+0.7244
 \end_layout
 
 \end_inset
@@ -1582,7 +1626,7 @@ Spike
 \begin_inset Text
 
 \begin_layout Plain Layout
-0.7695 
+0.7846
 \end_layout
 
 \end_inset
@@ -1591,7 +1635,7 @@ Spike
 \begin_inset Text
 
 \begin_layout Plain Layout
-0.9907 
+0.9897
 \end_layout
 
 \end_inset
@@ -1600,7 +1644,7 @@ Spike
 \begin_inset Text
 
 \begin_layout Plain Layout
-0.0785
+0.0800
 \end_layout
 
 \end_inset
@@ -1620,7 +1664,7 @@ Huge Impulse
 \begin_inset Text
 
 \begin_layout Plain Layout
-0.8026
+0.8056
 \end_layout
 
 \end_inset
@@ -1629,7 +1673,7 @@ Huge Impulse
 \begin_inset Text
 
 \begin_layout Plain Layout
-0.9762
+0.9677
 \end_layout
 
 \end_inset
@@ -1638,7 +1682,45 @@ Huge Impulse
 \begin_inset Text
 
 \begin_layout Plain Layout
-0.2603
+0.2489
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Reduced Detector
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.9339 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.9793 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.7778 
 \end_layout
 
 \end_inset
@@ -1649,7 +1731,7 @@ Huge Impulse
 \begin_inset Text
 
 \begin_layout Plain Layout
-ML
+Full Detector
 \end_layout
 
 \end_inset
@@ -1658,7 +1740,7 @@ ML
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+0.9379 
 \end_layout
 
 \end_inset
@@ -1667,7 +1749,7 @@ ML
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+0.9858 
 \end_layout
 
 \end_inset
@@ -1676,7 +1758,7 @@ ML
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+0.7733 
 \end_layout
 
 \end_inset
@@ -1706,14 +1788,14 @@ status open
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Binary Tree: Joint Performance
+Joint Performance
 \end_layout
 
 \end_inset
 
 
 \begin_inset Tabular
-<lyxtabular version="3" rows="13" columns="4">
+<lyxtabular version="3" rows="15" columns="4">
 <features tabularvalignment="middle">
 <column alignment="center" valignment="top">
 <column alignment="center" valignment="top">
@@ -1771,7 +1853,7 @@ FlatLine-Spike
 \begin_inset Text
 
 \begin_layout Plain Layout
-0.9419
+0.9248
 \end_layout
 
 \end_inset
@@ -1780,7 +1862,7 @@ FlatLine-Spike
 \begin_inset Text
 
 \begin_layout Plain Layout
-0.9907
+0.9690 
 \end_layout
 
 \end_inset
@@ -1789,7 +1871,7 @@ FlatLine-Spike
 \begin_inset Text
 
 \begin_layout Plain Layout
-0.7893
+0.7733 
 \end_layout
 
 \end_inset
@@ -1809,7 +1891,7 @@ Spike-FlatLine
 \begin_inset Text
 
 \begin_layout Plain Layout
-0.9419
+0.9248
 \end_layout
 
 \end_inset
@@ -1818,7 +1900,7 @@ Spike-FlatLine
 \begin_inset Text
 
 \begin_layout Plain Layout
-0.9907
+0.9690 
 \end_layout
 
 \end_inset
@@ -1827,7 +1909,7 @@ Spike-FlatLine
 \begin_inset Text
 
 \begin_layout Plain Layout
-0.7893
+0.7733 
 \end_layout
 
 \end_inset
@@ -1847,7 +1929,7 @@ FlatLine-Huge Impulse
 \begin_inset Text
 
 \begin_layout Plain Layout
-0.9399
+0.9228
 \end_layout
 
 \end_inset
@@ -1856,7 +1938,7 @@ FlatLine-Huge Impulse
 \begin_inset Text
 
 \begin_layout Plain Layout
-0.9762 
+0.9547
 \end_layout
 
 \end_inset
@@ -1865,7 +1947,7 @@ FlatLine-Huge Impulse
 \begin_inset Text
 
 \begin_layout Plain Layout
-0.8264 
+0.8133
 \end_layout
 
 \end_inset
@@ -1885,7 +1967,7 @@ Huge Impulse-Flatline
 \begin_inset Text
 
 \begin_layout Plain Layout
-0.9399
+0.9228
 \end_layout
 
 \end_inset
@@ -1894,7 +1976,7 @@ Huge Impulse-Flatline
 \begin_inset Text
 
 \begin_layout Plain Layout
-0.9762 
+0.9547
 \end_layout
 
 \end_inset
@@ -1903,7 +1985,7 @@ Huge Impulse-Flatline
 \begin_inset Text
 
 \begin_layout Plain Layout
-0.8264 
+0.8133
 \end_layout
 
 \end_inset
@@ -1923,7 +2005,7 @@ Spike-Huge Impulse
 \begin_inset Text
 
 \begin_layout Plain Layout
-0.8006
+0.8036
 \end_layout
 
 \end_inset
@@ -1932,7 +2014,7 @@ Spike-Huge Impulse
 \begin_inset Text
 
 \begin_layout Plain Layout
-0.9722
+0.9638
 \end_layout
 
 \end_inset
@@ -1941,7 +2023,7 @@ Spike-Huge Impulse
 \begin_inset Text
 
 \begin_layout Plain Layout
-0.2645
+0.2533
 \end_layout
 
 \end_inset
@@ -1961,7 +2043,7 @@ Huge Impulse - Spike
 \begin_inset Text
 
 \begin_layout Plain Layout
-0.8006
+0.8036
 \end_layout
 
 \end_inset
@@ -1970,7 +2052,7 @@ Huge Impulse - Spike
 \begin_inset Text
 
 \begin_layout Plain Layout
-0.9722
+0.9638 
 \end_layout
 
 \end_inset
@@ -1979,7 +2061,7 @@ Huge Impulse - Spike
 \begin_inset Text
 
 \begin_layout Plain Layout
-0.2645
+0.2533
 \end_layout
 
 \end_inset
@@ -1999,7 +2081,7 @@ FlatLine - Spike - Huge Impulse
 \begin_inset Text
 
 \begin_layout Plain Layout
-0.9379
+0.9208
 \end_layout
 
 \end_inset
@@ -2008,7 +2090,7 @@ FlatLine - Spike - Huge Impulse
 \begin_inset Text
 
 \begin_layout Plain Layout
-0.9722
+0.9508
 \end_layout
 
 \end_inset
@@ -2017,7 +2099,7 @@ FlatLine - Spike - Huge Impulse
 \begin_inset Text
 
 \begin_layout Plain Layout
-0.8306
+0.8178
 \end_layout
 
 \end_inset
@@ -2037,7 +2119,7 @@ FlatLine - Huge Impulse - Spike
 \begin_inset Text
 
 \begin_layout Plain Layout
-0.9379
+0.9208
 \end_layout
 
 \end_inset
@@ -2046,7 +2128,7 @@ FlatLine - Huge Impulse - Spike
 \begin_inset Text
 
 \begin_layout Plain Layout
-0.9722
+0.9508
 \end_layout
 
 \end_inset
@@ -2055,7 +2137,7 @@ FlatLine - Huge Impulse - Spike
 \begin_inset Text
 
 \begin_layout Plain Layout
-0.8306
+0.8178
 \end_layout
 
 \end_inset
@@ -2075,7 +2157,7 @@ Spike - FlatLine - Huge Impulse
 \begin_inset Text
 
 \begin_layout Plain Layout
-0.9379
+0.9208
 \end_layout
 
 \end_inset
@@ -2084,7 +2166,7 @@ Spike - FlatLine - Huge Impulse
 \begin_inset Text
 
 \begin_layout Plain Layout
-0.9722
+0.9508
 \end_layout
 
 \end_inset
@@ -2093,7 +2175,7 @@ Spike - FlatLine - Huge Impulse
 \begin_inset Text
 
 \begin_layout Plain Layout
-0.8306
+0.8178
 \end_layout
 
 \end_inset
@@ -2113,7 +2195,7 @@ Spike - Huge Impulse - FlatLine
 \begin_inset Text
 
 \begin_layout Plain Layout
-0.9379
+0.9208
 \end_layout
 
 \end_inset
@@ -2122,7 +2204,7 @@ Spike - Huge Impulse - FlatLine
 \begin_inset Text
 
 \begin_layout Plain Layout
-0.9722
+0.9508
 \end_layout
 
 \end_inset
@@ -2131,7 +2213,7 @@ Spike - Huge Impulse - FlatLine
 \begin_inset Text
 
 \begin_layout Plain Layout
-0.8306
+0.8178
 \end_layout
 
 \end_inset
@@ -2151,7 +2233,7 @@ Huge Impulse - FlatLine - Spike
 \begin_inset Text
 
 \begin_layout Plain Layout
-0.9379
+0.9208
 \end_layout
 
 \end_inset
@@ -2160,7 +2242,7 @@ Huge Impulse - FlatLine - Spike
 \begin_inset Text
 
 \begin_layout Plain Layout
-0.9722
+0.9508
 \end_layout
 
 \end_inset
@@ -2169,7 +2251,83 @@ Huge Impulse - FlatLine - Spike
 \begin_inset Text
 
 \begin_layout Plain Layout
-0.8306
+0.8178
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Huge Impulse - Spike - FlatLine
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.9208
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.9508
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.8178
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Binary tree - Reduced detector
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.9248
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.9379
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.88
 \end_layout
 
 \end_inset
@@ -2180,7 +2338,7 @@ Huge Impulse - FlatLine - Spike
 \begin_inset Text
 
 \begin_layout Plain Layout
-Huge Impulse - Spike - FlatLine
+Binary tree - Full detector
 \end_layout
 
 \end_inset
@@ -2189,7 +2347,7 @@ Huge Impulse - Spike - FlatLine
 \begin_inset Text
 
 \begin_layout Plain Layout
-0.9379
+0.9259
 \end_layout
 
 \end_inset
@@ -2198,7 +2356,7 @@ Huge Impulse - Spike - FlatLine
 \begin_inset Text
 
 \begin_layout Plain Layout
-0.9722
+0.9418
 \end_layout
 
 \end_inset
@@ -2207,7 +2365,7 @@ Huge Impulse - Spike - FlatLine
 \begin_inset Text
 
 \begin_layout Plain Layout
-0.8306
+0.8711
 \end_layout
 
 \end_inset
@@ -2222,7 +2380,12 @@ Huge Impulse - Spike - FlatLine
 status open
 
 \begin_layout Plain Layout
-Orden de los factores no altera la clasificacion 
+Orden de los factores no altera la clasificacion
+\change_inserted 1323020071 1469560245
+.
+ Se podria achicar para que no quede tan grande al pedo
+\change_unchanged
+ 
 \end_layout
 
 \end_inset
