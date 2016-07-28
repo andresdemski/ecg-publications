@@ -1,7 +1,9 @@
-#LyX 2.1 created this file. For more info see http://www.lyx.org/
-\lyxformat 474
+#LyX 2.2 created this file. For more info see http://www.lyx.org/
+\lyxformat 508
 \begin_document
 \begin_header
+\save_transient_properties true
+\origin unavailable
 \textclass spie
 \begin_preamble
 %  article.tex (Version 3.3, released 19 January 2008)
@@ -40,16 +42,16 @@
 \language_package default
 \inputencoding iso8859-1
 \fontencoding default
-\font_roman default
-\font_sans default
-\font_typewriter default
-\font_math auto
+\font_roman "default" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
 \font_default_family default
 \use_non_tex_fonts false
 \font_sc false
 \font_osf false
-\font_sf_scale 100
-\font_tt_scale 100
+\font_sf_scale 100 100
+\font_tt_scale 100 100
 \graphics default
 \default_output_format default
 \output_sync 0
@@ -91,11 +93,13 @@
 \papercolumns 1
 \papersides 1
 \paperpagestyle default
-\tracking_changes false
+\tracking_changes true
 \output_changes false
 \html_math_output 0
 \html_css_as_file 0
 \html_be_strict false
+\author -1260779252 "mariano"
+\author 226224380 "Juani"
 \end_header
 
 \begin_body
@@ -182,138 +186,419 @@ Introduction
 \end_layout
 
 \begin_layout Standard
-The analysis of the electrocardiogram (ECG) during exercise stress testing
- (EST) was first used by Feil and Siegel in 1928 
+The analysis of electrocardiographic (ECG) signals provides a noninvasive
+ and inexpensive technique to analyze the heart function for different cardiac
+ conditions.
+ The first task to perform in almost all automatic procedures is the detection
+ of heartbeats or QRS complexes, and the subsequent construction of the
+ RR interval sequence.
+ In the last decades big efforts were made to perform this analysis automaticall
+y, and as a result, many algorithms for QRS complex detection were published
+ 
 \begin_inset CommandInset citation
 LatexCommand cite
-key "feil1928electrocardiographic"
+key "pantom,Martinez04,PhysioNet"
+
+\end_inset
+
+ and some of them are open-source or freely available 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "PhysioNet,ecg-kit2016"
 
 \end_inset
 
 .
- Nowadays this technique is widely used as the first test for detecting
- coronary artery disease (CAD).
- In this preliminary study we evaluated unconventional and well established
- features measured on the ECG for detecting stress-induced ischemia.
- Some of proposed features have proven utility in the field of heartbeat
- classification 
+\end_layout
+
+\begin_layout Standard
+It's clear that almost every algorithm for QRS detection is divided in two
+ process: signal processing and decision rules.
+ In a preliminary study we evaluated wich of these algotirhms should be
+ fully representative for a complete first work as researchers, and for
+ being robust and widely used decided to evaluate the Pan and Tompkins algorithm
+ of each author of this article against the same implemented in the ECG-kit
+ 
 \begin_inset CommandInset citation
 LatexCommand cite
-key "Llamedo11"
-
-\end_inset
-
-, while others, despite well documented 
-\begin_inset CommandInset citation
-LatexCommand cite
-key "ellestad2003stress"
-
-\end_inset
-
-, never were studied in a large cohort of patients.
- In recent years features measured in the QRS complex such as slopes or
- high frequency components (HFQRS) were studied and compared 
-\begin_inset CommandInset citation
-LatexCommand cite
-key "Pueyo2008,Sharir2012"
+key "ecg-kit-web"
 
 \end_inset
 
 .
- The recent availability of ECG data recorded in a large cohort of consecutive
- patients undergoing stress test, as well as myocardial perfusion images
- (MPI) serving as gold standard, provide an adequate framework for the developme
-nt of improved ischemia detectors based on ECG measurements 
+
+\change_deleted 226224380 1469397523
+ 
+\change_unchanged
+Probably the most popular detector is the Pan and Tompkins algorithm, developed
+ thirty years ago it remains a common choice because of its simplicity and
+ performance.
+ It constructs a detection signal based on digital bandpass filter, followed
+ by a differentiator, a squaring function and a sliding window integrator.
+ The actual detection is performed through adaptive thresholds and decision
+ rules.
+ On the other hand, other detectors such as 
+\emph on
+wqrs
+\emph default
+ uses a similar approach, but the curve length transformation was introduced
+ in order to obtain the detection signal.
+ Referring to the algorithm based on wavelet transform, it's an implementation
+ based on the multiscale approach, amplitude based criteria and the adaptive
+ thresholding for each scale of this transform.
+ Finally, SQRS is based on the techniques of amplitud threshold, a first
+ and second derivative and a stage for digital filtering.
+ 
+\end_layout
+
+\begin_layout Standard
+The aim of this study was to evaluate two implementations of the Pan and
+ Tompkins algorithm comparing their performance to an open source implementation
+, evaluated in the public MIT-BIH database 
 \begin_inset CommandInset citation
 LatexCommand cite
-key "THEW,Sharir2012"
+key "MITBIHDB"
 
 \end_inset
 
-.
- The aim of this study was to compare the diagnostic performance and incremental
- value in detecting exercise-induced ischemia, using several unconventional
- features extracted from the ECG and MPI as a gold standard.
+ in order to ensure results reproducibility.
 \end_layout
 
 \begin_layout Section
 Material and methods
 \end_layout
 
+\begin_layout Subsection
+
+\change_inserted 226224380 1469420268
+MIT-BIH Arrhythmia database
+\end_layout
+
 \begin_layout Standard
-In this work we used the database 
-\begin_inset Quotes eld
+As previously mentioned, we used the well-known MIT-BIH Arrhythmia database,
+ which is a collection of 48 fully annotated half-hour two-lead ECG.
+ Each recording was sampled at 360 Hz with a voltage resolution of 11-bit
+ over a 10mV range.
+ Two or more cardiologists independently annotated each recording and resolved
+ the disagreements, generating a reference annotation for each heartbeat
+ in the database.
+ 
+\change_inserted 226224380 1469420051
+Four of the 48 records (102, 104, 107, and 217) include paced beats and
+ their QRS complexes are not recognized by using commonly methods described
+ in the introduction, so we decided not to evaluate our implementation on
+ them.
+ There are, however, developed pacemaker artifact detectors.
+\end_layout
+
+\begin_layout Subsection
+
+\change_inserted 226224380 1469420219
+Pan and Tompkins algorithm
+\change_unchanged
+
+\end_layout
+
+\begin_layout Standard
+As shown in Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Pan-and-Tompkins-1"
+
 \end_inset
 
-Exercise testing and perfusion imaging
-\begin_inset Quotes erd
+ , the algorithm consist in 6 well-defined stages: a bandpass filter, a
+ derivative block, a squaring nonlinear transformation, a moving window
+ integration, an algorithm of adaptive thresholds and a decision rule.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename C:/Users/Juani/Downloads/Untitled Diagram.png
+	lyxscale 40
+	scale 25
+	rotateOrigin center
+
 \end_inset
 
- distributed by 
-\begin_inset CommandInset citation
-LatexCommand cite
-key "THEW"
+
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Pan and Tompkins block diagram
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Pan-and-Tompkins-1"
 
 \end_inset
 
- and previously described in detail 
-\begin_inset CommandInset citation
-LatexCommand cite
-key "Sharir2012"
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+We consider important to notice that the Pan and Tompkins algorithm was
+ developed for integer arithmetic in a microprocessor, wich is intended
+ to avoid excessive computing power and permitting real-time processing.
+ Also, the original algorithm uses ECG signals obtained at 200 samples per
+ second.
+\end_layout
+
+\begin_layout Standard
+The first stage consist in a band-pass filter in order to attenuete low
+ frequencies like P and T waves, attenuate power-line, muscle noise and
+ baseline drift.
+ In fact, the original Pan and Tompkins band-pass filter consist in the
+ cascade of a low-pass filter and a high-pass filter to achieve the goal.
+ Using the technic for integer coefficents, they design a band-pass filter
+ with bandwidth about 5Hz-12Hz, where the poles are located to cancel the
+ zeros on the unit circle of the 
+\shape italic
+z
+\shape default
+ plane.
+\end_layout
+
+\begin_layout Standard
+First, the low-pass filter's transfer function is
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+H(z)=\frac{(1-z^{-6})^{2}}{(1-z^{-1})^{2}}\label{eq:lpf}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+For 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:lpf"
+
+\end_inset
+
+, the location of poles and zeros in the 
+\shape italic
+z
+\shape default
+ plane and the module and the phase response is
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement h
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename Imagenes/total_lpf.jpg
+	lyxscale 35
+	scale 35
+	rotateOrigin center
+
+\end_inset
+
+
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Amplitude response.
+ Phase response.
+ Poles and zeros in z plane.
+ Group delay.
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Poles-and-zeros"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+As can be seen in the Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Poles-and-zeros"
+
+\end_inset
+
+, this transfer function has a gain of 
+\begin_inset Formula $20log_{10}(36)=31,126dB$
+\end_inset
+
+ and a delay of 5 samples.
+ 
+\end_layout
+
+\begin_layout Standard
+Next, the high-pass filter's transfer function is implementated by a subtraction
+ of a a low-pass filter from an all-pass filter.
+ The transfer funcition for this is
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+H(z)=\frac{(-\frac{1}{32}+z^{-16}-z^{-17}+\frac{1}{32}z^{-32})}{(1-z^{-1})}\label{eq:hpf}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Again, the location of poles and zeros in the 
+\shape italic
+z
+\shape default
+ plane and the module and the phase response is represented in the Figure
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Poles-and-zeros-2"
 
 \end_inset
 
 .
- The database includes 927 patients referred for exercise MPI single photon
- emission computed tomography (SPECT).
- During the test, 12-lead ECG was recorded until the recovery phase at a
- sampling rate of 1000 Hz, 0.15 
-\begin_inset Formula $\mu$
-\end_inset
 
-V of resolution and an analog bandwidth from 0.05 to 125 Hz.
- Perfusion images were visually analyzed by two experts and the amount of
- ischemic myocardium (IM) was calculated as the summed difference score
- between stress and rest scores.
- Finally patients were labeled as: no ischemia or equivocal (IM
-\begin_inset Formula $<5\%$
-\end_inset
-
-), mild ischemia (
-\begin_inset Formula $5\%\leq$
-\end_inset
-
-IM
-\begin_inset Formula $<10\%$
-\end_inset
-
-) and moderate/severe ischemia (IM
-\begin_inset Formula $\geq10\%$
-\end_inset
-
-).
- From the 927 patients available, 18 were discarded due to missing clinical
- or MPI data or bad quality ECG recording.
- A summary of the clinical characteristics is shown in Table 
+\change_inserted 226224380 1469663110
+ Notice that 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "tab:DataDivision"
+reference "eq:hpf"
 
 \end_inset
 
- (a more complete description can be found in 
+ is different from the described in the original Pan and Tompkins paper.
+ We decided to implemet a different version of the high-pass filter described
+ in a later work from the authors
 \begin_inset CommandInset citation
 LatexCommand cite
-key "Sharir2012"
+key "BMDSP-Tomp"
 
 \end_inset
 
-).
+.
+\change_unchanged
+
 \end_layout
 
 \begin_layout Standard
-\begin_inset Float table
-placement th
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename Imagenes/total_hpf.jpg
+	lyxscale 35
+	scale 35
+
+\end_inset
+
+
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Amplitude response.
+ Phase response.
+ Poles and zeros in z plane.
+ Group delay.
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Poles-and-zeros-2"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+With the same deduction used in the low-pass filter, it's easy to see that
+ this transfer function has a gain of 1 and a delay of 16 samples.
+\end_layout
+
+\begin_layout Standard
+Finally, when cascaded both low-pass and high-pass filters, the transfer
+ function is
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+H(z)=\label{eq:bpf}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Poles-and-zeros-3"
+
+\end_inset
+
+ shows in the z plane the location of poles and zeros and the frequency
+ and phase response of this band-pass filter.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
 wide false
 sideways false
 status open
@@ -322,290 +607,18 @@ status open
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
+Amplitude response.
+ Phase response.
+ Poles and zeros in z plane.
+ Group delay.
 \begin_inset CommandInset label
 LatexCommand label
-name "tab:DataDivision"
-
-\end_inset
-
-Scheme of the division and clinical characteristics.
-\end_layout
+name "fig:Poles-and-zeros-3"
 
 \end_inset
 
 
 \end_layout
-
-\begin_layout Plain Layout
-\align center
-\begin_inset Tabular
-<lyxtabular version="3" rows="5" columns="5">
-<features rotate="0" tabularvalignment="middle">
-<column alignment="right" valignment="top">
-<column alignment="center" valignment="top">
-<column alignment="center" valignment="top">
-<column alignment="center" valignment="top">
-<column alignment="center" valignment="top">
-<row>
-<cell alignment="right" valignment="top" topline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-</cell>
-<cell multicolumn="1" alignment="center" valignment="top" topline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-Myocardial Ischemia
-\end_layout
-
-\end_inset
-</cell>
-<cell multicolumn="2" alignment="center" valignment="top" topline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-</cell>
-<cell multicolumn="2" alignment="center" valignment="top" topline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-</cell>
-<cell multicolumn="2" alignment="center" valignment="top" topline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-</cell>
-</row>
-<row>
-<cell alignment="right" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-None
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-Mild
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-Severe
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-All
-\end_layout
-
-\end_inset
-</cell>
-</row>
-<row>
-<cell alignment="right" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-#
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-843
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-32
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-34
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-909
-\end_layout
-
-\end_inset
-</cell>
-</row>
-<row>
-<cell alignment="right" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-IM (%)
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-\begin_inset Formula $0\pm0.3$
-\end_inset
-
-
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-\begin_inset Formula $7\pm1$
-\end_inset
-
-
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-\begin_inset Formula $17\pm6$
-\end_inset
-
-
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-\begin_inset Formula $1\pm4$
-\end_inset
-
-
-\end_layout
-
-\end_inset
-</cell>
-</row>
-<row>
-<cell alignment="right" valignment="top" bottomline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-Age
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" bottomline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-\begin_inset Formula $55\pm10$
-\end_inset
-
-
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" bottomline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-\begin_inset Formula $61\pm11$
-\end_inset
-
-
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" bottomline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-\begin_inset Formula $59\pm11$
-\end_inset
-
-
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" bottomline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-\begin_inset Formula $55\pm10$
-\end_inset
-
-
-\end_layout
-
-\end_inset
-</cell>
-</row>
-</lyxtabular>
 
 \end_inset
 
@@ -618,12 +631,13 @@ Age
 \end_layout
 
 \begin_layout Standard
-The first stage for ECG noise reduction was to low-pass filter (FIR, 
-\begin_inset Formula $fc=35$
-\end_inset
+The total gain of this filter is 1152, with a total delay of 20 samples.
+\change_inserted 226224380 1469422219
 
- Hz, 80 db stop) in order to suppress power-line and high frequency noise.
- Next, QRS complex detection was performed with a validated algorithm 
+\end_layout
+
+\begin_layout Standard
+, like QRS complex detection was performed with a validated algorithm 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "Martinez04"
@@ -695,401 +709,6 @@ key "Llamedo12Multilead"
 \end_layout
 
 \begin_layout Standard
-\begin_inset Float table
-wide true
-sideways false
-status open
-
-\begin_layout Plain Layout
-\begin_inset Caption Standard
-
-\begin_layout Plain Layout
-\begin_inset CommandInset label
-LatexCommand label
-name "tab:Features-used"
-
-\end_inset
-
-Features used in this work.
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-%
-\backslash
-resizebox{
-\backslash
-textwidth}{!}{
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-\align center
-\begin_inset Tabular
-<lyxtabular version="3" rows="6" columns="3">
-<features rotate="0" tabularvalignment="middle">
-<column alignment="right" valignment="top">
-<column alignment="right" valignment="middle" width="35text%">
-<column alignment="left" valignment="middle" width="50text%">
-<row>
-<cell alignment="right" valignment="top" bottomline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-Group
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="right" valignment="top" bottomline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\series bold
-Feature
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="left" valignment="top" bottomline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\series bold
-Description
-\end_layout
-
-\end_inset
-</cell>
-</row>
-<row>
-<cell alignment="right" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-Pretest
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="right" valignment="middle" rightline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-Pretest score -- Age -- Gender -- Infarction -- Smoking -- Lipids -- Diabetes
- -- STT changes -- Max age-pred HR -- Systolic BP -- Diastolic BP
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="left" valignment="middle" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-Clinical features included with the database.
- Description available in 
-\begin_inset CommandInset citation
-LatexCommand cite
-key "THEW"
-
-\end_inset
-
-.
- BP at rest
-\end_layout
-
-\end_inset
-</cell>
-</row>
-<row>
-<cell alignment="center" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="right" valignment="top" rightline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="left" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-</cell>
-</row>
-<row>
-<cell alignment="right" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-Exercise
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="right" valignment="middle" rightline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-EST stage -- Max HR -- Rest HR -- EST duration -- HR recovery -- HR change
- -- Duke T.
- score -- Chest Pain -- Systolic BP PE -- Diastolic BP PE 
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="left" valignment="middle" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-EST duration in seconds.
- Chest pain: typical - atypical - none.
- Exercise features included with the database.
- Description available in 
-\begin_inset CommandInset citation
-LatexCommand cite
-key "THEW"
-
-\end_inset
-
-.
-\end_layout
-
-\end_inset
-</cell>
-</row>
-<row>
-<cell alignment="center" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="right" valignment="top" rightline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="left" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-</cell>
-</row>
-<row>
-<cell alignment="right" valignment="top" bottomline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-Proposed
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="right" valignment="middle" bottomline="true" rightline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-QRS width -- 
-\begin_inset Formula $\mathrm{ST_{PE}}$
-\end_inset
-
- -- 
-\begin_inset Formula $\mathrm{ST_{AP}}$
-\end_inset
-
- -- 
-\begin_inset Formula $\left(\nicefrac{\mathrm{ST}}{\mathrm{R}}\right)_{\mathrm{PE}}$
-\end_inset
-
- -- 
-\begin_inset Formula $\left(\nicefrac{\mathrm{ST}}{\mathrm{R}}\right)_{\mathrm{AP}}$
-\end_inset
-
- -- 
-\begin_inset Formula $\nicefrac{\mathrm{ST_{PE}}}{\mathrm{RR_{PE}}}$
-\end_inset
-
- -- 
-\begin_inset Formula $x(k_{\mathrm{Q}})$
-\end_inset
-
- -- 
-\begin_inset Formula $x(k_{\mathrm{R}})$
-\end_inset
-
- -- 
-\begin_inset Formula $x(k_{\mathrm{S}})$
-\end_inset
-
- -- 
-\begin_inset Formula $s_{\mathrm{Q}}^{-}$
-\end_inset
-
- -- 
-\begin_inset Formula $s_{\mathrm{R}}^{\mathrm{Q}}$
-\end_inset
-
- -- 
-\begin_inset Formula $s_{\mathrm{S}}^{\mathrm{R}}$
-\end_inset
-
- -- 
-\begin_inset Formula $s_{\mathrm{-}}^{\mathrm{S}}$
-\end_inset
-
--- 
-\begin_inset Formula $k_{Z}^{P}$
-\end_inset
-
- -- 
-\begin_inset Formula $k_{Z}^{\mathrm{QRS}}$
-\end_inset
-
- -- 
-\begin_inset Formula $k_{Z}^{\mathrm{ST-T}}$
-\end_inset
-
- -- 
-\begin_inset Formula $r{}^{\mathrm{WTx}}$
-\end_inset
-
- -- 
-\begin_inset Formula $t_{r50}$
-\end_inset
-
- 
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="left" valignment="top" bottomline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-RT: rest.
- PE: peak exercise.
- AP: After PE.
- 
-\begin_inset Formula $\nicefrac{\mathrm{ST}}{\mathrm{R}}$
-\end_inset
-
- ST normalized with respect R wave 
-\begin_inset CommandInset citation
-LatexCommand cite
-key "ellestad2003stress"
-
-\end_inset
-
-.
- 
-\begin_inset Formula $x(k_{\mathrm{X}})$
-\end_inset
-
- ECG value at X wave.
- 
-\begin_inset Formula $s_{\mathrm{Y}}^{\mathrm{X}}$
-\end_inset
-
- slope between X and Y waves.
- 
-\begin_inset Formula $k_{Z}^{\mathrm{X}}$
-\end_inset
-
- zero-cross position of the WT autocorrelation signal in P, QRS and ST-T
- 
-\begin_inset CommandInset citation
-LatexCommand cite
-key "Llamedo11"
-
-\end_inset
-
-.
- 
-\begin_inset Formula $r{}^{\mathrm{WTx}}$
-\end_inset
-
- RMS calculated in the WT of the QRS complex at scale 
-\begin_inset Formula $\mathrm{x}$
-\end_inset
-
-.
- 
-\begin_inset Formula $t_{r50}$
-\end_inset
-
- is the time to decrease 50% of the HR change from PE.
-\end_layout
-
-\end_inset
-</cell>
-</row>
-</lyxtabular>
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-%}
-\end_layout
-
-\end_inset
-
-presented
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
 In 
 \begin_inset CommandInset citation
 LatexCommand cite
@@ -1131,7 +750,7 @@ key "Sharir2012"
 
  could not be studied here.
  However, 
-\begin_inset Formula $r{}^{\mathrm{WTx}}$
+\begin_inset Formula $r^{\mathrm{WTx}}$
 \end_inset
 
  measures the higher frequency band of QRS complex, given the bandpass nature
@@ -1382,7 +1001,7 @@ columnwidth}{!}{
 \align center
 \begin_inset Tabular
 <lyxtabular version="3" rows="3" columns="2">
-<features rotate="0" tabularvalignment="middle">
+<features tabularvalignment="middle">
 <column alignment="center" valignment="middle" width="15col%">
 <column alignment="center" valignment="middle" width="80col%">
 <row>
@@ -1425,113 +1044,113 @@ Features
 \begin_inset Formula $x(k_{\mathrm{Q}})_{\mathrm{SFT}}$
 \end_inset
 
- -- 
+ – 
 \begin_inset Formula $x(k_{\mathrm{Q}})_{\mathrm{PCA2}}^{\mathrm{PE}}$
 \end_inset
 
- -- 
+ – 
 \begin_inset Formula $x(k_{\mathrm{R}})_{\mathrm{SFT}}^{\mathrm{RT}}$
 \end_inset
 
- -- 
+ – 
 \begin_inset Formula $x(k_{\mathrm{S}})_{\mathrm{PCA2}}$
 \end_inset
 
- -- 
+ – 
 \begin_inset Formula $(s_{\mathrm{Q}}^{-})_{\mathrm{PCA2}}$
 \end_inset
 
- -- 
+ – 
 \begin_inset Formula $(s_{\mathrm{Q}}^{-})_{\mathrm{SFT}}$
 \end_inset
 
- -- 
+ – 
 \begin_inset Formula $(s_{\mathrm{Q}}^{-})_{\mathrm{PCA1}}^{\mathrm{PE}}$
 \end_inset
 
- -- 
+ – 
 \begin_inset Formula $(s_{\mathrm{Q}}^{-})_{\mathrm{PCA2}}^{\mathrm{PE}}$
 \end_inset
 
- -- 
+ – 
 \begin_inset Formula $(s_{\mathrm{R}}^{\mathrm{Q}})_{\mathrm{SFT}}^{\mathrm{RT}}$
 \end_inset
 
- -- 
+ – 
 \begin_inset Formula $(s_{\mathrm{S}}^{\mathrm{R}})_{\mathrm{PCA1}}^{\mathrm{RT}}$
 \end_inset
 
- -- 
+ – 
 \begin_inset Formula $(s_{\mathrm{-}}^{\mathrm{S}})_{\mathrm{PCA2}}$
 \end_inset
 
- -- 
+ – 
 \begin_inset Formula $(s_{\mathrm{-}}^{\mathrm{S}})_{\mathrm{PCA2}}^{\mathrm{PE}}$
 \end_inset
 
- -- 
+ – 
 \begin_inset Formula $(s_{\mathrm{-}}^{\mathrm{S}})_{\mathrm{SFT}}^{\mathrm{RT}}$
 \end_inset
 
- -- 
+ – 
 \begin_inset Formula $(k_{Z}^{\mathrm{QRS}})_{\mathrm{PCA2}}^{\mathrm{WT3}}$
 \end_inset
 
- -- 
+ – 
 \begin_inset Formula $(k_{Z}^{\mathrm{QRS}})_{\mathrm{PCA2}}^{\mathrm{WT3-PE}}$
 \end_inset
 
- -- 
+ – 
 \begin_inset Formula $(k_{Z}^{\mathrm{QRS}})_{\mathrm{PCA2}}^{\mathrm{WT4-PE}}$
 \end_inset
 
- -- 
+ – 
 \begin_inset Formula $(k_{Z}^{\mathrm{QRS}})_{\mathrm{SFT}}^{\mathrm{WT3}}$
 \end_inset
 
- -- 
+ – 
 \begin_inset Formula $(k_{Z}^{\mathrm{STT}})_{\mathrm{PCA1}}^{\mathrm{WT3-PE}}$
 \end_inset
 
- -- 
+ – 
 \begin_inset Formula $(k_{Z}^{\mathrm{STT}})_{\mathrm{PCA1}}^{\mathrm{WT3-RT}}$
 \end_inset
 
- -- 
+ – 
 \begin_inset Formula $(k_{Z}^{\mathrm{STT}})_{\mathrm{PCA2}}^{\mathrm{WT3-PE}}$
 \end_inset
 
- -- 
+ – 
 \begin_inset Formula $(k_{Z}^{\mathrm{STT}})_{\mathrm{SFT}}^{\mathrm{WT3-PE}}$
 \end_inset
 
--- 
+– 
 \begin_inset Formula $(k_{Z}^{\mathrm{STT}})_{\mathrm{SFT}}^{\mathrm{WT4}}$
 \end_inset
 
- -- 
-\begin_inset Formula $r{}_{\mathrm{PCA1}}^{\mathrm{WT4}}$
+ – 
+\begin_inset Formula $r_{\mathrm{PCA1}}^{\mathrm{WT4}}$
 \end_inset
 
- -- 
-\begin_inset Formula $r{}_{\mathrm{SFT}}^{\mathrm{WT3-RT}}$
+ – 
+\begin_inset Formula $r_{\mathrm{SFT}}^{\mathrm{WT3-RT}}$
 \end_inset
 
- -- 
-\begin_inset Formula $r{}_{\mathrm{PCA1}}^{\mathrm{WT4-PE}}$
+ – 
+\begin_inset Formula $r_{\mathrm{PCA1}}^{\mathrm{WT4-PE}}$
 \end_inset
 
- -- 
-\begin_inset Formula $r{}_{\mathrm{PCA1}}^{\mathrm{WT4-RT}}$
+ – 
+\begin_inset Formula $r_{\mathrm{PCA1}}^{\mathrm{WT4-RT}}$
 \end_inset
 
- -- 
+ – 
 \begin_inset Formula $\left(\nicefrac{\mathrm{ST}}{\mathrm{R}}\right)_{\mathrm{AP}}$
 \end_inset
 
- -- EST stage -- Max HR -- Rest HR -- Duke T.
- score -- Atypical EST induced CP -- Age -- Gender -- Infarction -- Max
- age-pred HR -- Systolic BP RT
+ – EST stage – Max HR – Rest HR – Duke T.
+ score – Atypical EST induced CP – Age – Gender – Infarction – Max age-pred
+ HR – Systolic BP RT
 \end_layout
 
 \end_inset
@@ -1557,101 +1176,101 @@ Features
 \begin_inset Formula $x(k_{\mathrm{Q}})_{\mathrm{PCA1}}^{\mathrm{RT}}$
 \end_inset
 
- -- 
+ – 
 \begin_inset Formula $x(k_{\mathrm{R}})_{\mathrm{SFT}}^{\mathrm{RT}}$
 \end_inset
 
- -- 
+ – 
 \begin_inset Formula $x(k_{\mathrm{R}})_{\mathrm{SFT}}^{\mathrm{PE}}$
 \end_inset
 
- -- 
+ – 
 \begin_inset Formula $x(k_{\mathrm{S}})_{\mathrm{SFT}}^{\mathrm{RT}}$
 \end_inset
 
- -- 
+ – 
 \begin_inset Formula $x(k_{\mathrm{S}})_{\mathrm{PCA2}}$
 \end_inset
 
- -- 
+ – 
 \begin_inset Formula $(s_{\mathrm{\mathrm{Q}}}^{\mathrm{-}})_{\mathrm{PCA1}}^{\mathrm{RT}}$
 \end_inset
 
- -- 
+ – 
 \begin_inset Formula $(s_{\mathrm{\mathrm{Q}}}^{\mathrm{-}})_{\mathrm{SFT}}^{\mathrm{PE}}$
 \end_inset
 
- -- 
+ – 
 \begin_inset Formula $(s_{\mathrm{R}}^{\mathrm{Q}})_{\mathrm{SFT}}^{\mathrm{PE}}$
 \end_inset
 
- -- 
+ – 
 \begin_inset Formula $(s_{\mathrm{R}}^{\mathrm{Q}})_{\mathrm{SFT}}^{\mathrm{RT}}$
 \end_inset
 
- -- 
+ – 
 \begin_inset Formula $(s_{\mathrm{S}}^{\mathrm{R}})_{\mathrm{PCA1}}^{\mathrm{PE}}$
 \end_inset
 
- -- 
+ – 
 \begin_inset Formula $(s_{\mathrm{-}}^{\mathrm{S}})_{\mathrm{PCA1}}^{\mathrm{PE}}$
 \end_inset
 
- -- 
+ – 
 \begin_inset Formula $(s_{\mathrm{-}}^{\mathrm{S}})_{\mathrm{PCA2}}^{\mathrm{PE}}$
 \end_inset
 
- -- 
+ – 
 \begin_inset Formula $(s_{\mathrm{-}}^{\mathrm{S}})_{\mathrm{PCA2}}$
 \end_inset
 
- -- 
+ – 
 \begin_inset Formula $(s_{\mathrm{-}}^{\mathrm{S}})_{\mathrm{SFT}}$
 \end_inset
 
- -- 
+ – 
 \begin_inset Formula $(k_{Z}^{\mathrm{P}})_{\mathrm{SFT}}^{\mathrm{WT3-RT}}$
 \end_inset
 
- -- 
+ – 
 \begin_inset Formula $(k_{Z}^{\mathrm{QRS}})_{\mathrm{PCA2}}^{\mathrm{WT4-RT}}$
 \end_inset
 
- -- 
+ – 
 \begin_inset Formula $(k_{Z}^{\mathrm{STT}})_{\mathrm{PCA2}}^{\mathrm{WT3}}$
 \end_inset
 
- -- 
+ – 
 \begin_inset Formula $(k_{Z}^{\mathrm{STT}})_{\mathrm{PCA2}}^{\mathrm{WT3-PE}}$
 \end_inset
 
- -- 
+ – 
 \begin_inset Formula $(k_{Z}^{\mathrm{STT}})_{\mathrm{PCA2}}^{\mathrm{WT3-RT}}$
 \end_inset
 
- -- 
+ – 
 \begin_inset Formula $(k_{Z}^{\mathrm{STT}})_{\mathrm{SFT}}^{\mathrm{WT3-PE}}$
 \end_inset
 
- --
+ –
 \begin_inset Formula $(k_{Z}^{\mathrm{STT}})_{\mathrm{PCA2}}^{\mathrm{WT4-RT}}$
 \end_inset
 
- -- 
-\begin_inset Formula $r{}_{\mathrm{PCA1}}^{\mathrm{WT3}}$
+ – 
+\begin_inset Formula $r_{\mathrm{PCA1}}^{\mathrm{WT3}}$
 \end_inset
 
- -- 
+ – 
 \begin_inset Formula $t_{r50}$
 \end_inset
 
- -- ST PE -- 
+ – ST PE – 
 \begin_inset Formula $\left(\nicefrac{\mathrm{ST}}{\mathrm{RR}}\right)_{\mathrm{SFT}}^{\mathrm{PE}}$
 \end_inset
 
- -- EST stage -- Max HR -- Non CP induced EST -- Typical CP induced EST
- -- Systolic BP PE -- Diastolic BP PE -- Pretest Score -- Max age-pred HR
- -- Systolic BP RT
+ – EST stage – Max HR – Non CP induced EST – Typical CP induced EST – Systolic
+ BP PE – Diastolic BP PE – Pretest Score – Max age-pred HR – Systolic BP
+ RT
 \end_layout
 
 \end_inset
@@ -1736,7 +1355,7 @@ textwidth}{!}{
 \align center
 \begin_inset Tabular
 <lyxtabular version="3" rows="8" columns="6">
-<features rotate="0" tabularvalignment="middle">
+<features tabularvalignment="middle">
 <column alignment="center" valignment="top">
 <column alignment="center" valignment="top">
 <column alignment="center" valignment="top">
@@ -1945,7 +1564,7 @@ key "Sharir2012"
 \begin_inset Text
 
 \begin_layout Plain Layout
---
+–
 \end_layout
 
 \end_inset
@@ -1954,7 +1573,7 @@ key "Sharir2012"
 \begin_inset Text
 
 \begin_layout Plain Layout
---
+–
 \end_layout
 
 \end_inset
@@ -1963,7 +1582,7 @@ key "Sharir2012"
 \begin_inset Text
 
 \begin_layout Plain Layout
---
+–
 \end_layout
 
 \end_inset
@@ -2237,6 +1856,8 @@ status open
 \end_inset
 
 
+\change_deleted -1260779252 1469729372
+
 \begin_inset Float figure
 wide false
 sideways false
@@ -2245,7 +1866,7 @@ status open
 \begin_layout Plain Layout
 \align center
 \begin_inset Graphics
-	filename none_ischemia_roc_x.svg
+	filename ../../../CONFER~1/SIPAIM16/QRSDET~1/none_ischemia_roc_x.svg
 	width 100col%
 
 \end_inset
@@ -2256,7 +1877,7 @@ status open
 \begin_layout Plain Layout
 \align center
 \begin_inset Graphics
-	filename none_severe_roc_x.svg
+	filename ../../../CONFER~1/SIPAIM16/QRSDET~1/none_severe_roc_x.svg
 	width 100col%
 
 \end_inset
@@ -2291,6 +1912,8 @@ reference "tab:Features-selected"
 
 \end_inset
 
+
+\change_unchanged
 
 \end_layout
 
@@ -2397,7 +2020,7 @@ key "ellestad2003stress"
 .
  With respect to the high frequency components of the WT QRS complex measured
  with 
-\begin_inset Formula $r{}^{\mathrm{WTX}}$
+\begin_inset Formula $r^{\mathrm{WTX}}$
 \end_inset
 
 , only scales 3 and 4 were included, despite other scales of higher frequency
@@ -2496,7 +2119,7 @@ This work was supported by projects TEC2010-21703-C03-02, TEC2010-19410
 \begin_layout Standard
 \begin_inset CommandInset bibtex
 LatexCommand bibtex
-bibfiles "report"
+bibfiles "report,C:/Users/Juani/My Lyx Projects/articlesDB"
 options "spiebib"
 
 \end_inset
