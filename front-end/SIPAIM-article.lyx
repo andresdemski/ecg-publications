@@ -93,12 +93,13 @@
 \papercolumns 1
 \papersides 1
 \paperpagestyle default
-\tracking_changes true
+\tracking_changes false
 \output_changes false
 \html_math_output 0
 \html_css_as_file 0
 \html_be_strict false
 \author -1260779252 "mariano"
+\author 2088930433 "Alan"
 \end_header
 
 \begin_body
@@ -126,144 +127,25 @@ Electronic Department
 \end_layout
 
 \begin_layout Abstract
-Nowadays, cardiovascular diseases (CVD) cause most of the deaths
-\change_inserted -1260779252 1469629115
- in the developed world
-\change_unchanged
-.
- Taking data from the Health Worldwide Organization, 17.3 millions people
- have died because of CVD in 2008, therefore, advances in this area could
- improve 
-\change_deleted -1260779252 1469629164
-people's life
-\change_inserted -1260779252 1469629182
-the health of many people
-\change_unchanged
-.
+Nowadays, cardiovascular diseases (CVD) cause most of the deaths in the
+ developed world.
+ Taking data from the World Health Organization, 17.3 millions people have
+ died because of CVD in 2008, therefore, advances in this area could improve
+ the health of many people.
  Taking that into account, the proposal of this work is to develop an open
- software
-\change_inserted -1260779252 1469629446
- 
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-
-\change_inserted -1260779252 1469629450
-web interface ?
-\change_unchanged
-
-\end_layout
-
-\end_inset
-
-
-\change_unchanged
- to 
-\change_deleted -1260779252 1469625808
-analyse
-\change_inserted -1260779252 1469625808
-analyze
-\change_unchanged
- 
-\change_deleted -1260779252 1469629243
-the input of any electrocardiogram 
-\change_inserted -1260779252 1469629249
-cardiovascular signals 
-\change_unchanged
-and 
-\change_deleted -1260779252 1469629261
-give
-\change_inserted -1260779252 1469629262
-provide
-\change_unchanged
- as 
-\change_deleted -1260779252 1469629253
-feedback
-\change_inserted -1260779252 1469629273
- a result
-\change_unchanged
-, 
-\change_inserted -1260779252 1469629778
-the posibility of performing automatic measurements for further analysis,
+ web interface to analyze cardiovascular signals and provide as a result,
+ the posibility of performing automatic measurements for further analysis,
+ a detailed report of several health indexes, and also the capability of
+ viewing of the
+\change_deleted 2088930433 1469826717
  
 \change_unchanged
-a detailed report 
-\change_inserted -1260779252 1469629894
-of several health indexes, 
-\change_unchanged
-and also 
-\change_deleted -1260779252 1469629667
-a detailed 
-\change_inserted -1260779252 1469629819
-the capability of 
-\change_unchanged
-view
-\change_inserted -1260779252 1469629821
-ing
-\change_unchanged
- of the 
-\change_deleted -1260779252 1469629095
-ecg
-\change_unchanged
- signals
-\change_inserted -1260779252 1469629830
- under analysis
-\change_deleted -1260779252 1469629685
-, blood pressure and plethysmographic
-\change_unchanged
-.
- Creating an open web software will give
-\change_deleted -1260779252 1469629836
- 
-\change_unchanged
-,
-\change_inserted -1260779252 1469629838
- 
-\change_unchanged
-to 
-\change_deleted -1260779252 1469629865
-any 
-\change_unchanged
-user
-\change_inserted -1260779252 1469629875
-s of several degrees of expertise
-\change_unchanged
-, the 
-\change_deleted -1260779252 1469629884
-chance
-\change_inserted -1260779252 1469629891
-possibility
-\change_unchanged
- of studying 
-\change_deleted -1260779252 1469625821
-ecg
-\change_inserted -1260779252 1469629855
-cardiovascular
-\change_unchanged
- signal
-\change_inserted -1260779252 1469629857
-s
-\change_unchanged
- without being an expert
-\change_inserted -1260779252 1469629934
- in automatic algorithms
-\change_unchanged
-.
+ signals under analysis.
+ Creating an open web software will give, to users of several degrees of
+ expertise, the possibility of studying cardiovascular signals without being
+ an expert in automatic algorithms.
  Furthermore, any researcher around the world could use this application
- to compare their 
-\change_deleted -1260779252 1469629955
-results
-\change_inserted -1260779252 1469629962
-algorithms
-\change_unchanged
- with the 
-\change_inserted -1260779252 1469629977
-ones implemented in the ecg-kit toolbox
-\change_deleted -1260779252 1469629978
-Web Application
-\change_unchanged
-.
+ to compare their algorithms with the ones implemented in the ecg-kit toolbox.
 \end_layout
 
 \begin_layout Section
@@ -275,22 +157,11 @@ Cardiovascular diseases (CVD) are in the present the first cause of death
  in the developed countries.
  Probably the biggest challenge of the modern cardiology is the sudden cardiac
  death, in several aspects related to ventricular arrhythmias.
- It is well known that the study of 
-\change_deleted -1260779252 1469625838
-arrhythmias
-\change_inserted -1260779252 1469625838
-arrhythmias
-\change_unchanged
- requires careful inspection of electrocardiogram (ECG) recordings of several
- hours length.
- To this respect, the 
-\change_deleted -1260779252 1469625825
-asistance
-\change_inserted -1260779252 1469625825
-assistance
-\change_unchanged
- of automatic algorithms may represent an increase in the number of patients
- analyzed, and the quality of the variables derived from those ECG recordings.
+ It is well known that the study of arrhythmias requires careful inspection
+ of electrocardiogram (ECG) recordings of several hours length.
+ To this respect, the assistance of automatic algorithms may represent an
+ increase in the number of patients analyzed, and the quality of the variables
+ derived from those ECG recordings.
 \end_layout
 
 \begin_layout Standard
@@ -306,126 +177,47 @@ During the last decades, the relation between the cardiology and computer
  In this case, computerized methods can help to detect cardiovascular diseases
  with a high degree of assistance.
  The ECG is a routine and inexpensive methodology in the clinical practice.
+ Its use in diagnostic is important for
+\change_deleted 2088930433 1469826848
  
-\change_inserted -1260779252 1469630475
-Its use in diagnostic is important for 
-\change_deleted -1260779252 1469630479
-After the interpretation of the ECG,
 \change_unchanged
- cardiologists 
-\change_deleted -1260779252 1469630484
-can
-\change_inserted -1260779252 1469630484
-to
-\change_unchanged
- detect and analyze CVD's.
+ cardiologists to detect and analyze CVD's.
 \end_layout
 
 \begin_layout Standard
-The 
-\change_inserted -1260779252 1469627522
-ecg-kit
-\change_deleted -1260779252 1469627522
-ECG kit
-\change_inserted -1260779252 1469630342
- 
+The ecg-kit 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "Demski2016"
 
 \end_inset
 
-
-\change_unchanged
-, is a
-\change_inserted -1260779252 1469630588
-n open source
-\change_unchanged
- toolbox 
-\change_deleted -1260779252 1469630522
-which has tools 
-\change_unchanged
-for 
-\change_deleted -1260779252 1469630524
-reading,
-\change_unchanged
- processing 
-\change_deleted -1260779252 1469630544
-and presenting results for the
-\change_unchanged
+, is an open source toolbox for
+\change_deleted 2088930433 1469826854
  
-\change_inserted -1260779252 1469630664
-cardiovascular signals, moreover, a great part of the included algorithms
- are specific for 
 \change_unchanged
-ECG
-\change_inserted -1260779252 1469630581
- signals
-\change_unchanged
-.
- One of the main features, is the possibility 
-\change_deleted -1260779252 1469630700
-to use
-\change_inserted -1260779252 1469630701
-of using
-\change_unchanged
- several algorithms for ECG processing, such 
-\change_inserted -1260779252 1469630675
-a
-\change_deleted -1260779252 1469630675
-u
-\change_unchanged
-s 
-\change_deleted -1260779252 1469630682
-Algorithms
-\change_inserted -1260779252 1469630685
-the WFDB
-\change_unchanged
+ processing
+\change_deleted 2088930433 1469826854
  
-\change_inserted -1260779252 1469630716
-toolbox 
 \change_unchanged
-from Physionet
-\change_deleted -1260779252 1469630719
-’s
-\change_inserted -1260779252 1469630734
-
+ cardiovascular signals, moreover, a great part of the included algorithms
+ are specific for ECG signals.
+ One of the main features, is the possibility of using several algorithms
+ for ECG processing, such as the WFDB toolbox from Physionet
 \begin_inset CommandInset citation
 LatexCommand cite
 key "PhysioNet"
 
 \end_inset
 
-
-\change_unchanged
-, 
-\change_inserted -1260779252 1469630857
-the Pan and Tompkins 
-\change_unchanged
-QRS detector
-\change_deleted -1260779252 1469630859
-s
-\change_inserted -1260779252 1469630875
- 
+, the Pan and Tompkins QRS detector 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "pantom"
 
 \end_inset
 
-
-\change_unchanged
-, 
-\change_inserted -1260779252 1469630892
-the and the 
-\change_deleted -1260779252 1469630798
-W
-\change_inserted -1260779252 1469630798
-w
-\change_unchanged
-avedet ECG delineator
-\change_inserted -1260779252 1469630904
- 
+, the and the wavedet ECG delineator 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "Martinez04"
@@ -433,100 +225,39 @@ key "Martinez04"
 \end_inset
 
  among others.
- 
-\change_deleted -1260779252 1469630897
-,
-\change_inserted -1260779252 1469630921
-Also the toolbox includes 
-\change_deleted -1260779252 1469630924
- and 
-\change_unchanged
-other scritps for inspecting, correcting and reporting all these results.
+ Also the toolbox includes other scritps for inspecting, correcting and
+ reporting all these results.
  The kit also implements a recording interface which allows processing several
- ECG formats, such as HL7-aECG, MIT, ISHNE, HES, Mortara, and AHA
-\change_inserted -1260779252 1469630991
-.
+ ECG formats, such as HL7-aECG, MIT, ISHNE, HES, Mortara, and AHA.
  Other important feature of the toolbox is the ability of processing signals
- 
-\change_deleted -1260779252 1469631004
-, 
-\change_unchanged
-of 
-\change_inserted -1260779252 1469631006
-an 
-\change_unchanged
-arbitrary 
-\change_deleted -1260779252 1469631011
-recording 
-\change_unchanged
-size.
+ of an arbitrary size.
  
 \end_layout
 
 \begin_layout Standard
-The toolbox
-\change_deleted -1260779252 1469631056
-, runs under 
-\change_inserted -1260779252 1469631061
- is implemented in 
-\change_unchanged
-Matlab, 
-\change_deleted -1260779252 1469631070
-therefore
-\change_inserted -1260779252 1469631094
-requiring that users must be familiar with this environment
-\change_deleted -1260779252 1469631103
- it is necessary to have enough knowledge about MATLAB
-\change_unchanged
- before using the 
-\change_inserted -1260779252 1469627522
-ecg-kit
-\change_deleted -1260779252 1469627522
-ECG kit
-\change_unchanged
-.
- In this project, we want to remove this restriction and create an open
- world wide software that could be used by any 
-\change_deleted -1260779252 1469631141
-cardiologist
-\change_inserted -1260779252 1469631141
-user
-\change_unchanged
- around the world just using their 
-\change_inserted -1260779252 1469631540
-web 
-\change_unchanged
-browsers.
+The toolbox is implemented in Matlab, requiring that users must be familiar
+ with this environment before using the ecg-kit.
+ This project is going to take benefit from ecg-kit functionalities to create
+ an open web software that could be easily accesed by any cardiologis, researche
+r, or student around the world.
  
-\change_deleted -1260779252 1469631559
-Furthermore, an open application, could give us the chance of colecting
- cardiovascular information about different people around the world.
- 
-\change_inserted -1260779252 1469631562
-
 \begin_inset Note Note
-status open
+status collapsed
 
 \begin_layout Plain Layout
-
-\change_inserted -1260779252 1469631619
 esto último no me gusta mucho :( si querés, poner algo que esta aplicación
  podría ampliar aún más el alcance global de la difusión de nuestra tarea
  investigativa.
-\change_unchanged
-
 \end_layout
 
 \end_inset
 
 
-\change_unchanged
-
 \end_layout
 
 \begin_layout Standard
 \begin_inset Note Note
-status open
+status collapsed
 
 \begin_layout Plain Layout
 Yo acá haría una referencia a lo que ya hemos desarrollado del ecg-kit,
@@ -548,22 +279,22 @@ Scope
 \end_layout
 
 \begin_layout Standard
-The main objective of the application is to give to any cardiologist around
- the world, the possibility of getting an automatic analysis from the ECG.
+As it was said before, the main objective of the application is to give
+ to any user, the possibility of getting an automatic analysis from the
+ ECG.
  The results will be shown in a report, and it will be also possible to
- see the ECG in an interactive ECG diagram.
- Every cardiologist that wants to use this application, will need the browser
- or any phone with Android or iOS, it won't be necessary to have any other
- additional software.
- Therefore.
- this application removes the need of buying any expensive software, it
- will be just necessary to have the 
-\change_deleted -1260779252 1469631663
-minimun
-\change_inserted -1260779252 1469631663
-minimum
+ see the ECG in an interactive
+\change_deleted 2088930433 1469828813
+ 
 \change_unchanged
- knowledge to use either a computer or a phone.
+ diagram.
+ Every cardiologist that wants to use this application, will need the browser
+ or any phone with Android or iOS.
+ It won't be necessary to have any other additional software.
+ In addition.
+ this application removes the need of buying any expensive software, it
+ will be just necessary to have the minimum knowledge to use either a computer
+ or a phone.
 \end_layout
 
 \begin_layout Subsection
@@ -582,28 +313,18 @@ This software will be integrated by the following main components, ECG-D3
 ECG-D3 library
 \series default
 : D3
-\change_deleted -1260779252 1469624496
- [1]
-\change_inserted -1260779252 1469624496
-
 \begin_inset CommandInset citation
 LatexCommand cite
 key "d3js"
 
 \end_inset
 
-
-\change_unchanged
  is a JavaScript library for manipulating documents based on data.
- In web development, it is the most important library to create graphs.
+ In web development, it is the most used library to create interactive graphs.
  During our research, we realized there is no any big open library to create
  ECG graphs for javascript.
- Therefore, one of the main tasks in this project will be to create an open
- library for the graphics of the ECG using D3.
- The idea is to create the library for the needs of this project, but it
- will be open on github [2], therefore any user around the world will have
- the possiblity of increase the functionality of it.
- 
+ Therefore, one of the main tasks in this project isto create an open library
+ for the graphics of the ECG using D3.
 \end_layout
 
 \begin_layout Enumerate
@@ -622,19 +343,13 @@ Front-end
 \series bold
 Back-end: 
 \series default
-REST 
-\change_deleted -1260779252 1469625198
-api
-\change_inserted -1260779252 1469625210
-API 
+REST API 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "REST"
 
 \end_inset
 
-
-\change_unchanged
 .
  It will handle the requests between front-end and the core algorihtms implented
  in Matlab.
@@ -654,16 +369,12 @@ c (PPG).
  detection, it is possible to use any of them.
  The last task, will be the ECG heartbeat classification, that follows the
  EC-57 AAMI recommendation 
-\change_inserted -1260779252 1469625243
-
 \begin_inset CommandInset citation
 LatexCommand cite
 key "AAMI-EC57"
 
 \end_inset
 
-
-\change_unchanged
 classifying heartbeats into four classes: N normal S supraventricular V
  ventricular F fusion of normal and ventricular.
  Those values will be presented to the user.
@@ -680,13 +391,14 @@ status open
 
 \change_inserted -1260779252 1469626617
 \begin_inset Graphics
-	filename D:/Users/admin/Downloads/ECG Arquitecture medium.jpg
+	filename ArchitectureUML.png
+	scale 50
 
 \end_inset
 
 
 \begin_inset Note Note
-status open
+status collapsed
 
 \begin_layout Plain Layout
 
@@ -697,7 +409,7 @@ agregá las imágenes al repo !
 \end_inset
 
 
-\change_unchanged
+\change_deleted 2088930433 1469830516
 
 \begin_inset Caption Standard
 
@@ -709,8 +421,10 @@ status open
 
 \begin_layout Plain Layout
 
-\change_inserted -1260779252 1469627096
+\change_deleted 2088930433 1469830512
 Acá se pone un pie de figura
+\change_inserted -1260779252 1469627096
+
 \end_layout
 
 \end_inset
@@ -722,6 +436,8 @@ Acá se pone un pie de figura
 
 \end_inset
 
+
+\change_unchanged
 
 \end_layout
 
@@ -735,6 +451,10 @@ Main user interaction
 \end_layout
 
 \begin_layout Standard
+TODO: add description
+\end_layout
+
+\begin_layout Standard
 \begin_inset Float figure
 wide false
 sideways false
@@ -745,7 +465,7 @@ status open
 
 \change_inserted -1260779252 1469626674
 \begin_inset Graphics
-	filename D:/Users/admin/Downloads/Arquitectura - New Page.png
+	filename userInteraction.png
 	lyxscale 40
 	scale 25
 
@@ -753,7 +473,7 @@ status open
 
 
 \begin_inset Note Note
-status open
+status collapsed
 
 \begin_layout Plain Layout
 
@@ -775,7 +495,7 @@ agregá las imágenes al repo !
 
 \change_inserted -1260779252 1469627101
 \begin_inset Note Note
-status open
+status collapsed
 
 \begin_layout Plain Layout
 
@@ -804,12 +524,24 @@ Acá se pone un pie de figura
 Results
 \end_layout
 
+\begin_layout Standard
+TODO: results we're going to show (?)
+\end_layout
+
 \begin_layout Subsubsection
 ECG 
 \end_layout
 
+\begin_layout Standard
+TODO: signals to be presented , names , and parameters 
+\end_layout
+
 \begin_layout Subsubsection
 Report
+\end_layout
+
+\begin_layout Standard
+TODO: description of the report
 \end_layout
 
 \begin_layout Section
@@ -821,35 +553,30 @@ When a patient goes to the Emergency Room, the ECG is the first procedure
  to be done.
  Sometimes, in seconds, doctors need to understand what is happening with
  the patient.
- Here, have enough practise reading ECGs, could be the difference to recover
+ Having enough practise reading ECGs, could be the difference to recover
  a patient in a risk situation.
- It is clear the importance of knowing how to read an ECG properly, just
- in a few minutes and that is why this is one of the first things doctors
- needs to learn.
+ It is clear the importance of knowing how to read an ECG properly, and
+ this the reason why ECG reading is one of the first things to be learnt
+ by doctors.
 \end_layout
 
 \begin_layout Standard
-Saying that, we belive that the application could be also used for learning
- purposes.
+This is other objective of our applicatio.
+ Our tool could be also used for learning purposes.
  Students can use the application to compare their results with the application
+\change_inserted 2088930433 1469828655
+'s
+\change_unchanged
  results.
  Furthermore, not only this app could be used by students but also by medicine
  teachers who want to use an interactive tool.
- The application will be also integrated with Physionet 
-\change_deleted -1260779252 1469625267
-[4]
-\change_unchanged
- databases
-\change_inserted -1260779252 1469625275
- 
+ The application will be also integrated with Physionet databases 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "PhysioNet"
 
 \end_inset
 
-
-\change_unchanged
 , therefore, it will be possible for students to use the app with enough
  ECG examples.
 \end_layout
@@ -877,98 +604,20 @@ It is worth highlighting that there is not any other open application like
 \end_layout
 
 \begin_layout Standard
-
-\change_deleted -1260779252 1469625033
-\begin_inset CommandInset bibitem
-LatexCommand bibitem
-label "D3 ORG"
-key "[1]"
-
-\end_inset
-
-(https://d3js.org/)
-\change_inserted -1260779252 1469625293
-
 \begin_inset Note Note
-status open
+status collapsed
 
 \begin_layout Plain Layout
-
-\change_inserted -1260779252 1469625389
 Esto no tenías por qué saberlo Alan, se suele usar el gestor de citas, para
  evitar andar renumerándolas a medida que las vas cambiando de lugar en
  el texto, y por centralizar todas las referencias.
  Eso se hace en el archivo report.bib que se lo referencia al final de este
  doc.
  Se puede editar fácilmente mediante el soft jabref
-\change_unchanged
-
 \end_layout
 
 \end_inset
 
-
-\change_unchanged
-
-\end_layout
-
-\begin_layout Standard
-
-\change_deleted -1260779252 1469625218
-\begin_inset CommandInset bibitem
-LatexCommand bibitem
-label "REST"
-key "[2]"
-
-\end_inset
-
-(https://en.wikipedia.org/wiki/Representational_state_transfer)
-\change_unchanged
-
-\end_layout
-
-\begin_layout Standard
-
-\change_deleted -1260779252 1469625249
-\begin_inset CommandInset bibitem
-LatexCommand bibitem
-label "EC-57 AAMI recommendation"
-key "[3]"
-
-\end_inset
-
-(http://marketplace.aami.org/eseries/scriptcontent/docs/Preview%20Files/EC57_1212_
-preview.pdf)
-\change_unchanged
-
-\end_layout
-
-\begin_layout Standard
-
-\change_deleted -1260779252 1469625281
-\begin_inset CommandInset bibitem
-LatexCommand bibitem
-label "PhysioNet"
-key "[4]"
-
-\end_inset
-
- (http://www.physionet.org/physiobank/database/mitdb/)
-\change_unchanged
-
-\end_layout
-
-\begin_layout Standard
-
-\change_deleted -1260779252 1469625286
-\begin_inset CommandInset bibitem
-LatexCommand bibitem
-key "key-11"
-
-\end_inset
-
-
-\change_unchanged
 
 \end_layout
 
