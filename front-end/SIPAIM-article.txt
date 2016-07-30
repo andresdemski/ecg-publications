@@ -1,0 +1,233 @@
+ECG-kit: An Online tool for Cardiovascular Signal Processing
+
+Alan Campora, Sebastián Torres and Mariano Llamedo Soria
+Electronic Department, Universidad Tecnológica Nacional, Buenos 
+Aires, Argentina
+
+Abstract
+
+Nowadays, cardiovascular diseases (CVD) cause most of the deaths 
+in the developed world. Taking data from the World Health 
+Organization, 17.3 millions people have died because of CVD in 
+2008, therefore, advances in this area could improve the health 
+of many people. Taking that into account, the proposal of this 
+work is to develop an open web interface to analyze 
+cardiovascular signals and provide as a result, the posibility of 
+performing automatic measurements for further analysis, a 
+detailed report of several health indexes, and also the 
+capability of viewing of the signals under analysis. Creating an 
+open web software will give, to users of several degrees of 
+expertise, the possibility of studying cardiovascular signals 
+without being an expert in automatic algorithms. Furthermore, any 
+researcher around the world could use this application to compare 
+their algorithms with the ones implemented in the ecg-kit 
+toolbox.
+
+1 Introduction
+
+Cardiovascular diseases (CVD) are in the present the first cause 
+of death in the developed countries. Probably the biggest 
+challenge of the modern cardiology is the sudden cardiac death, 
+in several aspects related to ventricular arrhythmias. It is well 
+known that the study of arrhythmias requires careful inspection 
+of electrocardiogram (ECG) recordings of several hours length. To 
+this respect, the assistance of automatic algorithms may 
+represent an increase in the number of patients analyzed, and the 
+quality of the variables derived from those ECG recordings.
+
+During the last decades, the relation between the cardiology and 
+computer technology has become closer, and as long as this 
+relation keeps evolving, cardiologists, scientists and people 
+will be benefit. Computers helps cardiology in different areas 
+such as data storage, surgical procedures, knowledge and 
+diagnostic sharing. In this case, computerized methods can help 
+to detect cardiovascular diseases with a high degree of 
+assistance. The ECG is a routine and inexpensive methodology in 
+the clinical practice. Its use in diagnostic is important for 
+cardiologists to detect and analyze CVD's.
+
+The ecg-kit [3], is an open source toolbox for processing 
+cardiovascular signals, moreover, a great part of the included 
+algorithms are specific for ECG signals. One of the main 
+features, is the possibility of using several algorithms for ECG 
+processing, such as the WFDB toolbox from Physionet[5], the Pan 
+and Tompkins QRS detector [7], the and the wavedet ECG delineator 
+[6] among others. Also the toolbox includes other scritps for 
+inspecting, correcting and reporting all these results. The kit 
+also implements a recording interface which allows processing 
+several ECG formats, such as HL7-aECG, MIT, ISHNE, HES, Mortara, 
+and AHA. Other important feature of the toolbox is the ability of 
+processing signals of an arbitrary size. 
+
+The toolbox is implemented in Matlab, requiring that users must 
+be familiar with this environment before using the ecg-kit. This 
+project is going to take benefit from ecg-kit functionalities to 
+create an open web software that could be easily accesed by any 
+cardiologis, researcher, or student around the world. 
+
+
+
+2 Software
+
+2.1 Scope
+
+As it was said before, the main objective of the application is 
+to give to any user, the possibility of getting an automatic 
+analysis from the ECG. The results will be shown in a report, and 
+it will be also possible to see the ECG in an interactive 
+diagram. Every cardiologist that wants to use this application, 
+will need the browser or any phone with Android or iOS. It won't 
+be necessary to have any other additional software. In addition. 
+this application removes the need of buying any expensive 
+software, it will be just necessary to have the minimum knowledge 
+to use either a computer or a phone.
+
+2.2 Components
+
+This software will be integrated by the following main 
+components, ECG-D3 library, front end web application, backend, 
+and Matlab core. 
+
+1. ECG-D3 library: D3[1] is a JavaScript library for manipulating 
+  documents based on data. In web development, it is the most 
+  used library to create interactive graphs. During our research, 
+  we realized there is no any big open library to create ECG 
+  graphs for javascript. Therefore, one of the main tasks in this 
+  project isto create an open library for the graphics of the ECG 
+  using D3.
+
+2. Front-end: this component will handle the interaction with the 
+  user. The main focus here, is to create an intuive interface to 
+  upload the files and, to present the ECG-D3 graph with the 
+  report of the results. 
+
+3. Back-end: REST API [4]. It will handle the requests between 
+  front-end and the core algorihtms implented in Matlab.
+
+4. Matlab core: implements the algorithms Wavedet, gqrs, wqrs, 
+  Pan and Tompkins, ECGpuwave, EP limited, to detect the location 
+  of each heartbeat (QRS detection). After detecting the QRS, the 
+  second task consist on running the peak detection over 
+  pulsatile signals such as arterial blood pressure (ABP) or 
+  plethysmographic (PPG). The task uses two algorithms to achieve 
+  pulse detection, and as in QRS detection, it is possible to use 
+  any of them. The last task, will be the ECG heartbeat 
+  classification, that follows the EC-57 AAMI recommendation [2]
+  classifying heartbeats into four classes: N normal S 
+  supraventricular V ventricular F fusion of normal and 
+  ventricular. Those values will be presented to the user.
+
+[float Figure:
+<Graphics file: /Users/admin/p_projects/ecg-publications/front-end/ArchitectureUML.png>
+
+]
+
+2.3 Main user interaction
+
+TODO: add description
+
+[float Figure:
+<Graphics file: /Users/admin/p_projects/ecg-publications/front-end/userInteraction.png>
+
+
+  [Figure 2: 
+
+]
+]
+
+2.4 Results
+
+Results are going to be presented in the ECG interactive graph 
+and a report to summarise the results of the whole analysis.
+
+2.4.1 ECG 
+
+2.4.2 Report
+
+Thanks to the Automatic Heartbeat classification developed in the 
+ecg-kit, the heartbeats are going to be classified into the 
+following classes: Normal, Supraventricular, Ventricular, Fusion 
+of Normal and Ventricular. The report will present, the amount of 
+hearbeats detected and the amount for each type..
+
+Furthermore, if the file uploaded by the cardiologist has the 
+annotations for each hearth beat, it is going to be possible to 
+check the effiency of the algorithm.
+
+[float Figure:
+
+
+<Graphics file: /Users/admin/p_projects/ecg-publications/front-end/img/table-smaller.png>
+[Figure 3: 
+
+]
+
+
+]
+
+3 Learning Purposes
+
+When a patient goes to the Emergency Room, the ECG is the first 
+procedure to be done. Sometimes, in seconds, doctors need to 
+understand what is happening with the patient. Having enough 
+practise reading ECGs, could be the difference to recover a 
+patient in a risk situation. It is clear the importance of 
+knowing how to read an ECG properly, and this the reason why ECG 
+reading is one of the first things to be learnt by doctors.
+
+This is other objective of our applicatio. Our tool could be also 
+used for learning purposes. Students can use the application to 
+compare their results with the application's results. 
+Furthermore, not only this app could be used by students but also 
+by medicine teachers who want to use an interactive tool. The 
+application will be also integrated with Physionet databases [5], 
+therefore, it will be possible for students to use the app with 
+enough ECG examples.
+
+4 Conclusion and Future releases
+
+As it was mentioned before, in a nearly feature the application 
+will give the option to store the recordings uploaded by the 
+cardiologist. Doing that, it will be possible to store recordings 
+of real ECG to analyse and understand CVD. Using that 
+information, it will be possible to run different analysis 
+regarding, regions, ages, and so on.
+
+It is worth highlighting that there is not any other open 
+application like this on internet. 
+
+As it was possible to see through this document, the project 
+surronds many areas such as research, medicine, learning. 
+
+The code is available on github for any developer or cardiologist 
+who wants to see how the app was done. And of course, it will be 
+also possible to collaborate fixing or creating new features for 
+the app.
+
+
+
+  Acknowledgments
+
+This work was supported by projects ASUTNBA0003860 from 
+Universidad Tecnológica Nacional, Buenos Aires, Argentina, and 
+D9-UTN1714 from Secretaría de Políticas Universitarias, 
+Ministerio de Educación, Argentina.
+
+References
+
+[1] "Data-Driven Documents".
+
+[2] AAMI-EC57, "Testing and reporting performance results of cardiac rhythm and ST-segment measurement algorithms" (1998--2008).
+
+[3] Demski, Andrés Julio and Llamedo Soria, Mariano, "ecg-kit a Matlab Toolbox for Cardiovascular Signal Processing", Journal of Open Research Software  4, 1 (2016), pp. 2--5.
+
+[4] Roy Fielding, "Representational state transfer" (2000).
+
+[5] Goldberger, Ary L. and Amaral, Luis A. N. and Glass, Leon and Hausdorff, Jeffrey M. and Ivanov, Plamen Ch. and Mark, Roger G. a…, "PhysioBank, PhysioToolkit, and PhysioNet: Components of a New Research Resource for Complex Physiologic Signals", Circulation  101, 23 (2000), pp. e215--e220.
+
+[6] J P Martínez and R Almeida and S Olmos and AP Rocha and P Laguna, "A wavelet-based ECG delineator: Evaluation on standard databases", IEEE Transactions on Biomedical Engineering  51 (2004), pp. 570-581.
+
+[7] Pan, Jiapu and Tompkins, Willis J, "A real-time QRS detection algorithm", Biomedical Engineering, IEEE Transactions on  (1985), pp. 230--236.
+
+
+

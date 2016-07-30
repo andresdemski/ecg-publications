@@ -101,13 +101,13 @@
 \begin_body
 
 \begin_layout Title
-ECG-kit: An Online tool for Cardiovascular Signal Processing
+An Algorithm for the Quantification the Signal Quality in the Electrocardiogram
 \end_layout
 
 \begin_layout Author
 
 \lang spanish
-Alan Campora, Sebastián Torres
+Andrés Demski
 \lang english
  and 
 \lang spanish
@@ -117,9 +117,9 @@ Mariano Llamedo Soria
 \begin_inset Newline newline
 \end_inset
 
-Electronic Department
+
 \lang spanish
-, Universidad Tecnológica Nacional, Buenos Aires, Argentina
+Universidad Tecnológica Nacional, Buenos Aires, Argentina
 \end_layout
 
 \begin_layout Abstract
