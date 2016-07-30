@@ -456,6 +456,8 @@ The web application receives its data in JSON format as the several points
  The data will be presented in the way of an interactive graph where the
  final user can modify the range of the signal as well as correlate the
  data to several other metrics.
+ From this point, the user can select to make a new ECG processing or keep
+ processing the ECG that was previously selected.
 \end_layout
 
 \begin_layout Standard
