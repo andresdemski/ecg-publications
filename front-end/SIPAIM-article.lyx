@@ -451,7 +451,37 @@ Main user interaction
 \end_layout
 
 \begin_layout Standard
-TODO: add description
+The user interaction will be handled by the app in the form of a SPA(Single
+ page application).
+ This means that the final user will be using the homepage for its objective.
+ The homepage will provide a checkbox for the selecction of the operations
+ to be applied to the selected ECG.
+ The range of operations available will be the ones that are already available
+ through the use of the existing ECG-Kit Matlab package.
+ The user will also be provided with an input field to upload its own registered
+ ECG's.
+\end_layout
+
+\begin_layout Standard
+Once the desired action is selected the user will be presented with a loading
+ feedback.
+ At this point the web appliaction makes a REST call to the server.
+ The server, handled in python, will process this request and send an according
+ signal to the ECG-Kit matlab package.
+ The ECG-kit matlab package will process the request and serve the raw data
+ to a python service.
+ The python service will process the newly aquired data and serve it to
+ the web application in JSON format.
+\end_layout
+
+\begin_layout Standard
+The web application receives its data in JSON format as the several points
+ in the ECG graph.
+ From this data a D3 graph will be rendered using the in-house developed
+ ECG-D3 library.
+ The data will be presented in the way of an interactive graph where the
+ final user can modify the range of the signal as well as correlate the
+ data to several other metrics.
 \end_layout
 
 \begin_layout Standard
