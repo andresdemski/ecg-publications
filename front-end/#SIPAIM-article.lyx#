@@ -94,12 +94,13 @@
 \papercolumns 1
 \papersides 1
 \paperpagestyle default
-\tracking_changes false
+\tracking_changes true
 \output_changes false
 \html_math_output 0
 \html_css_as_file 0
 \html_be_strict false
 \author -1260779252 "mariano"
+\author 361918700 "Mariano"
 \author 2088930433 "Alan"
 \end_header
 
@@ -194,11 +195,11 @@ key "Demski2016"
 \end_inset
 
 , is an open source toolbox for
-\change_deleted 2088930433 1469826854
+\change_deleted 361918700 1469986084
  
 \change_unchanged
  processing
-\change_deleted 2088930433 1469826854
+\change_deleted 361918700 1469986080
  
 \change_unchanged
  cardiovascular signals, moreover, a great part of the included algorithms
@@ -218,7 +219,20 @@ key "pantom"
 
 \end_inset
 
-, the and the wavedet ECG delineator 
+, 
+\change_deleted 361918700 1469986124
+the 
+\change_inserted 361918700 1469986182
+an ECG heartbeat classifier 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Llamedo12Semiauto"
+
+\end_inset
+
+, 
+\change_unchanged
+and the wavedet ECG delineator 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "Martinez04"
@@ -231,19 +245,28 @@ key "Martinez04"
  The kit also implements a recording interface which allows processing several
  ECG formats, such as HL7-aECG, MIT, ISHNE, HES, Mortara, and AHA.
  Other important feature of the toolbox is the ability of processing signals
- of an arbitrary size.
+ of an arbitrary size
+\change_inserted 361918700 1469986278
+, from tenth of seconds up 
+\change_unchanged
+.
  
 \end_layout
 
 \begin_layout Standard
 The toolbox is implemented in Matlab, requiring that users must be familiar
  with this environment before using the ecg-kit.
- This project is going to take benefit from ecg-kit functionalities to create
- an open web software that could be easily accesed by any cardiologis, researche
-r, or student around the world.
+ This project is going to take benefit from ecg-kit 
+\change_deleted 361918700 1469984917
+functionalities
+\change_inserted 361918700 1469984917
+features
+\change_unchanged
+ to create an open web software that could be easily accesed by any cardiologis,
+ researcher, or student around the world.
  
 \begin_inset Note Note
-status collapsed
+status open
 
 \begin_layout Plain Layout
 esto último no me gusta mucho :( si querés, poner algo que esta aplicación
@@ -258,7 +281,7 @@ esto último no me gusta mucho :( si querés, poner algo que esta aplicación
 
 \begin_layout Standard
 \begin_inset Note Note
-status collapsed
+status open
 
 \begin_layout Plain Layout
 Yo acá haría una referencia a lo que ya hemos desarrollado del ecg-kit,
@@ -361,8 +384,26 @@ key "REST"
 \series bold
 Matlab core
 \series default
-: implements the algorithms Wavedet, gqrs, wqrs, Pan and Tompkins, ECGpuwave,
- EP limited, to detect the location of each heartbeat (QRS detection).
+: implements the algorithms 
+\change_inserted 361918700 1469985733
+
+\emph on
+w
+\change_deleted 361918700 1469985733
+W
+\change_unchanged
+avedet
+\emph default
+, 
+\emph on
+gqrs
+\emph default
+, 
+\emph on
+wqrs
+\emph default
+, Pan and Tompkins, ECGpuwave, EP limited, to detect the location of each
+ heartbeat (QRS detection).
  After detecting the QRS, the second task consist on running the peak detection
  over pulsatile signals such as arterial blood pressure (ABP) or plethysmographi
 c (PPG).
@@ -464,7 +505,7 @@ The web application receives its data in JSON format as the several points
 \begin_inset Float figure
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \align center
@@ -622,7 +663,7 @@ status open
 
 
 \begin_inset Graphics
-	filename img/supraventricularHeartBeats.png
+	filename img/ventricularHeartBeats.png
 	lyxscale 40
 	scale 20
 
@@ -720,7 +761,7 @@ The code is available on github for any developer or cardiologist who wants
 
 \begin_layout Standard
 \begin_inset Note Note
-status collapsed
+status open
 
 \begin_layout Plain Layout
 Esto no tenías por qué saberlo Alan, se suele usar el gestor de citas, para
