@@ -561,11 +561,7 @@ Furthermore, when the files uploaded include the expert annotations, or
 \begin_inset Float figure
 wide false
 sideways false
-status collapsed
-
-\begin_layout Plain Layout
-
-\end_layout
+status open
 
 \begin_layout Plain Layout
 \align center
@@ -613,7 +609,7 @@ In the following image, the report will show the amount of heart beats detected
 \begin_inset Float figure
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \align center
@@ -626,7 +622,7 @@ status collapsed
 
 
 \begin_inset Graphics
-	filename img/supraventricularHeartBeats.png
+	filename img/ventricularHeartBeats.png
 	lyxscale 40
 	scale 20
 
