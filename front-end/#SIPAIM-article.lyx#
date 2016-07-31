@@ -182,7 +182,7 @@ During the last decades, the relation between the cardiology and computer
 .
  In this case, computerized methods can help to detect cardiovascular diseases
  with a high degree of assistance.
- The ECG is a routine and inexpensive methodology in the clinical practice.
+ The ECG is an inexpensive routine methodology in the clinical practice.
  Its use in diagnostic is important for cardiologists to detect and analyze
  CVD's.
 \end_layout
@@ -327,7 +327,7 @@ Scope
 \end_layout
 
 \begin_layout Standard
-As it was said above, the main objective of the application is to
+The main objective of the application is to
 \change_deleted 2088930433 1469992106
  
 \change_unchanged
@@ -336,8 +336,8 @@ As it was said above, the main objective of the application is to
  With this tool, users could perform heartbeat detection and classification,
  wave delineation and pulse detection in arterial blood pressure (ABP) or
  plethysmographic (PPG) signals.
- These analysis from these analysis, users can automatically measure several
- important indexes to study the heart function.
+ Using these analysis, users can automatically measure several important
+ indexes to study the heart function.
  The results can be shown in a report or can be downloaded for further analysis.
  It will also be possible to see the cardiovascular signals in an interactive
  chart, with the analysis results overimposed, when possible.
@@ -355,8 +355,8 @@ Components
 \end_layout
 
 \begin_layout Standard
-This software will be implemented by the following main components, ECG-D3
- library, front end web application, backend, and Matlab core.
+This software will be implemented by the following main components, ECG
+ graph library, front end web application, backend, and Matlab core.
  
 \change_inserted 361918700 1469991299
 
@@ -382,24 +382,15 @@ todo soft libre ? salvo matlab obvio, algún comentario más acerca de por
 \begin_layout Enumerate
 
 \series bold
-ECG-D3 library
+ECG graph library
 \series default
-: D3
-\begin_inset CommandInset citation
-LatexCommand cite
-key "d3js"
-
-\end_inset
-
- is a JavaScript library for manipulating documents based on data.
- In web development, it is the most used library to create interactive graphs.
- During our research, we realized there is no any big open library to create
- ECG graphs for javascript.
+: During our research, we realized there is not any well-developed open
+ library to create ECG graphs for javascript.
  Therefore, one of the main tasks in this project is
 \change_inserted 361918700 1469991349
  
 \change_unchanged
-to create an open library for the graphics of the ECG using D3.
+to create an open library for the graphics of the ECG,
 \end_layout
 
 \begin_layout Enumerate
@@ -408,8 +399,8 @@ to create an open library for the graphics of the ECG using D3.
 Front-end
 \series default
 : this component will handle the interaction with the user.
- The main focus here, is to create an intuive interface to upload the files
- and, to present the ECG-D3 graph with the report of the results.
+ The main focus here, is to create an intuive interface to upload files
+ and, to present the ECG graph with the report of the results.
  
 \end_layout
 
@@ -563,8 +554,8 @@ ecg-kit
 \begin_layout Standard
 The web application receives its data in JSON format as the several points
  in the ECG graph.
- From this data a D3 graph will be rendered using the in-house developed
- ECG-D3 library.
+ From this data a graph will be rendered using the in-house developed ECG
+ graph library.
  The data will be presented in the way of an interactive graph where the
  final user can modify the range of the signal as well as correlate the
  data to several other metrics.
@@ -577,11 +568,10 @@ ECG
 \end_layout
 
 \begin_layout Standard
-The ecg recording wil show the signals provided by the file uploaded by
- the user.
- In each of them, the application will give the option of overprint more
- information about the analysis such as QRS detections, wave delineation,
- and heartbeat type.
+The ecg recording will show signals provided by the uploaded file.
+ In each signal the application will give the option of overprint more informati
+on about the analysis such as QRS detections, wave delineation, and heartbeat
+ type.
  Furthermore, the report will include several views of the signals at different
  time scales.
 \end_layout
@@ -2261,7 +2251,7 @@ status open
 \align center
 \begin_inset Graphics
 	filename img/Recording 231.jpg
-	lyxscale 50
+	lyxscale 35
 	scale 25
 
 \end_inset
