@@ -220,7 +220,11 @@ key "PhysioNet"
 
 \end_inset
 
-, the Pan and Tompkins QRS detector 
+, the Pan and Tompkins QRS detector
+\change_inserted 361918700 1469991518
+ (pantom)
+\change_unchanged
+ 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "pantom"
@@ -380,15 +384,83 @@ Scope
 \end_layout
 
 \begin_layout Standard
-As it was said before, the main objective of the application is to give
- to any user, the possibility of getting an automatic analysis from the
- ECG.
- The results will be shown in a report, and it will be also possible to
- see the ECG in an interactive
+As it was said 
+\change_deleted 361918700 1469989474
+before
+\change_inserted 361918700 1469989475
+above
+\change_unchanged
+, the main objective of the application is to 
+\change_deleted 361918700 1469989499
+give to any user,
+\change_unchanged
+ 
+\change_inserted 361918700 1469989512
+provide 
+\change_unchanged
+the possibility of 
+\change_deleted 361918700 1469989517
+getting 
+\change_inserted 361918700 1469989519
+performing 
+\change_unchanged
+an automatic analysis 
+\change_deleted 361918700 1469989548
+from the ECG
+\change_inserted 361918700 1469989995
+of cardiovascular signals, to any user with minimum requirements of software
+ and hardware
+\change_unchanged
+.
+ 
+\change_inserted 361918700 1469990845
+With this tool, users could perform heartbeat detection and classification,
+ wave delineation and pulse detection in arterial blood pressure (ABP) or
+ plethysmographic (PPG) signals.
+ These analysis from these analysis, users can automatically measure several
+ important indexes to study the heart function.
+ 
+\change_unchanged
+The results 
+\change_deleted 361918700 1469990854
+will
+\change_inserted 361918700 1469990854
+can
+\change_unchanged
+ be shown in a report
+\change_inserted 361918700 1469990915
+ or can be downloaded for further analysis.
+ 
+\change_deleted 361918700 1469990902
+, and i
+\change_inserted 361918700 1469990902
+I
+\change_unchanged
+t will 
+\change_deleted 361918700 1469990924
+be 
+\change_unchanged
+also 
+\change_inserted 361918700 1469990925
+be 
+\change_unchanged
+possible to see 
+\change_deleted 361918700 1469990953
+the ECG 
+\change_inserted 361918700 1469991004
+the cardiovascular signals 
+\change_unchanged
+in an interactive
 \change_deleted 2088930433 1469828813
  
 \change_unchanged
- diagram.
+ 
+\change_deleted 361918700 1469990961
+diagram
+\change_inserted 361918700 1469991034
+chart, with the analysis results overimposed, when possible
+\change_unchanged
+.
  Every cardiologist that wants to use this application, will need the browser
  or any phone with Android or iOS.
  It won't be necessary to have any other additional software.
@@ -403,9 +475,34 @@ Components
 \end_layout
 
 \begin_layout Standard
-This software will be integrated by the following main components, ECG-D3
- library, front end web application, backend, and Matlab core.
+This software will be 
+\change_deleted 361918700 1469991282
+integrated
+\change_inserted 361918700 1469991283
+implemented
+\change_unchanged
+ by the following main components, ECG-D3 library, front end web application,
+ backend, and Matlab core.
  
+\change_inserted 361918700 1469991299
+
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+
+\change_inserted 361918700 1469991327
+todo soft libre ? salvo matlab obvio, algún comentario más acerca de por
+ qué elegimos cada comp ?
+\change_unchanged
+
+\end_layout
+
+\end_inset
+
+
+\change_unchanged
+
 \end_layout
 
 \begin_layout Enumerate
@@ -424,8 +521,11 @@ key "d3js"
  In web development, it is the most used library to create interactive graphs.
  During our research, we realized there is no any big open library to create
  ECG graphs for javascript.
- Therefore, one of the main tasks in this project isto create an open library
- for the graphics of the ECG using D3.
+ Therefore, one of the main tasks in this project is
+\change_inserted 361918700 1469991349
+ 
+\change_unchanged
+to create an open library for the graphics of the ECG using D3.
 \end_layout
 
 \begin_layout Enumerate
@@ -461,8 +561,27 @@ key "REST"
 \series bold
 Matlab core
 \series default
-: implements the algorithms 
-\change_inserted 361918700 1469985733
+: 
+\change_inserted 361918700 1469991470
+This component perform the actual analysis through the 
+\emph on
+ecg-kit
+\emph default
+.
+ It 
+\change_unchanged
+implements 
+\change_deleted 361918700 1469991488
+the
+\change_inserted 361918700 1469991489
+several
+\change_unchanged
+ algorithms
+\change_inserted 361918700 1469991597
+ to detect the location of each heartbeat, such as
+\change_unchanged
+ 
+\change_inserted 361918700 1469991597
 
 \emph on
 w
@@ -479,13 +598,68 @@ gqrs
 \emph on
 wqrs
 \emph default
-, Pan and Tompkins, ECGpuwave, EP limited, to detect the location of each
- heartbeat (QRS detection).
- After detecting the QRS, the second task consist on running the peak detection
- over pulsatile signals such as arterial blood pressure (ABP) or plethysmographi
-c (PPG).
+, 
+\change_deleted 361918700 1469991541
+Pan and Tompkins
+\change_inserted 361918700 1469991597
+
+\emph on
+pantom
+\change_unchanged
+
+\emph default
+, 
+\change_deleted 361918700 1469991557
+ECG
+\change_inserted 361918700 1469991597
+
+\emph on
+ecg
+\change_unchanged
+puwave
+\change_inserted 361918700 1469991597
+
+\emph default
+ and 
+\change_deleted 361918700 1469991579
+,
+\change_unchanged
+ EP limited
+\change_inserted 361918700 1469991629
+.
+\change_deleted 361918700 1469991582
+,
+\change_unchanged
+ 
+\change_deleted 361918700 1469991637
+to detect the location of each heartbeat (QRS detection).
+ 
+\change_inserted 361918700 1469991642
+ 
+\change_unchanged
+After detecting the QRS, 
+\change_deleted 361918700 1469991667
+the second task consist on running 
+\change_inserted 361918700 1469991702
+it can be performed 
+\change_unchanged
+the peak detection over pulsatile signals
+\change_inserted 361918700 1469991714
+, if available,
+\change_unchanged
+ such as 
+\change_deleted 361918700 1469990724
+arterial blood pressure (ABP) or plethysmographic (PPG)
+\change_inserted 361918700 1469991597
+ABP or PPG
+\change_unchanged
+.
  The task uses two algorithms to achieve pulse detection, and as in QRS
- detection, it is possible to use any of them.
+ detection, it is possible to use any
+\change_inserted 361918700 1469991750
+ or both
+\change_unchanged
+ of them.
  The last task, will be the ECG heartbeat classification, that follows the
  EC-57 AAMI recommendation 
 \begin_inset CommandInset citation
@@ -496,7 +670,11 @@ key "AAMI-EC57"
 
 classifying heartbeats into four classes: N normal S supraventricular V
  ventricular F fusion of normal and ventricular.
- Those values will be presented to the user.
+ 
+\change_deleted 361918700 1469991787
+Those values will be presented to the user.
+\change_unchanged
+
 \end_layout
 
 \begin_layout Standard
@@ -507,29 +685,50 @@ sideways false
 status open
 
 \begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename img/ArchitectureUML.png
+	width 80text%
+
+\end_inset
+
+
+\change_inserted 361918700 1469987181
 
 \end_layout
 
 \begin_layout Plain Layout
 \align center
+
+\change_inserted 361918700 1469987134
 \begin_inset Graphics
-	filename img/ArchitectureUML.png
+	filename img/userInteraction.png
+	lyxscale 40
+	width 95text%
 
 \end_inset
 
+
+\change_unchanged
 
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Architecture diagram
+
+\change_inserted 361918700 1469987048
+Diagram of the implemented a
+\change_deleted 361918700 1469987048
+A
+\change_unchanged
+rchitecture 
+\change_deleted 361918700 1469987051
+diagram
+\change_unchanged
+
 \end_layout
 
 \end_inset
 
-
-\end_layout
-
-\begin_layout Plain Layout
 
 \end_layout
 
@@ -617,7 +816,7 @@ status open
 \begin_layout Plain Layout
 \align center
 
-\change_inserted -1260779252 1469626674
+\change_deleted 361918700 1469987130
 \begin_inset Graphics
 	filename img/userInteraction.png
 	lyxscale 40
@@ -626,8 +825,16 @@ status open
 \end_inset
 
 
+\change_inserted 361918700 1469987081
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+
+\change_inserted -1260779252 1469626674
 \begin_inset Note Note
-status collapsed
+status open
 
 \begin_layout Plain Layout
 

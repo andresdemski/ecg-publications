@@ -147,7 +147,11 @@ Nowadays, cardiovascular diseases (CVD) cause most of the deaths in the
  expertise, the possibility of studying cardiovascular signals without being
  an expert in automatic algorithms.
  Furthermore, any researcher around the world could use this application
- to compare their algorithms with the ones implemented in the ecg-kit toolbox.
+ to compare their algorithms with the ones implemented in the 
+\emph on
+ecg-kit
+\emph default
+ toolbox.
 \end_layout
 
 \begin_layout Section
@@ -187,7 +191,11 @@ During the last decades, the relation between the cardiology and computer
 \end_layout
 
 \begin_layout Standard
-The ecg-kit 
+The 
+\emph on
+ecg-kit
+\emph default
+ 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "Demski2016"
@@ -246,25 +254,67 @@ key "Martinez04"
  ECG formats, such as HL7-aECG, MIT, ISHNE, HES, Mortara, and AHA.
  Other important feature of the toolbox is the ability of processing signals
  of an arbitrary size
-\change_inserted 361918700 1469986278
-, from tenth of seconds up 
+\change_inserted 361918700 1469986365
+, from tens of seconds up to several days with the same application programming
+ interface (API)
 \change_unchanged
 .
  
 \end_layout
 
 \begin_layout Standard
-The toolbox is implemented in Matlab, requiring that users must be familiar
- with this environment before using the ecg-kit.
- This project is going to take benefit from ecg-kit 
+The toolbox is implemented in Matlab, requiring 
+\change_deleted 361918700 1469986375
+that 
+\change_unchanged
+users 
+\change_deleted 361918700 1469986379
+must
+\change_inserted 361918700 1469986381
+to
+\change_unchanged
+ be familiar with this environment before using the 
+\emph on
+ecg-kit
+\emph default
+.
+ This project is going to take benefit from 
+\emph on
+ecg-kit
+\emph default
+ 
 \change_deleted 361918700 1469984917
 functionalities
 \change_inserted 361918700 1469984917
 features
 \change_unchanged
- to create an open web software that could be easily accesed by any cardiologis,
- researcher, or student around the world.
+ to create an open web software that could be easily accesed by any 
+\change_inserted 361918700 1469986749
+user in general, and 
+\change_unchanged
+cardiologis
+\change_inserted 361918700 1469986753
+ts
+\change_deleted 361918700 1469986763
+, 
+\change_inserted 361918700 1469986763
+ and 
+\change_unchanged
+researcher
+\change_inserted 361918700 1469986768
+s in particular.
+\change_deleted 361918700 1469986777
+, or student around the world.
+
+\change_unchanged
  
+\change_inserted 361918700 1469986784
+
+\end_layout
+
+\begin_layout Standard
+
+\change_deleted 361918700 1469986795
 \begin_inset Note Note
 status open
 
@@ -277,9 +327,13 @@ esto último no me gusta mucho :( si querés, poner algo que esta aplicación
 \end_inset
 
 
+\change_unchanged
+
 \end_layout
 
 \begin_layout Standard
+
+\change_deleted 361918700 1469986802
 \begin_inset Note Note
 status open
 
@@ -292,6 +346,29 @@ Yo acá haría una referencia a lo que ya hemos desarrollado del ecg-kit,
 \end_inset
 
 
+\change_inserted 361918700 1469986810
+
+\end_layout
+
+\begin_layout Standard
+
+\change_inserted 361918700 1469986814
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+
+\change_inserted 361918700 1469986823
+La intro ya va quedando mucho mejor ! congrats !
+\change_unchanged
+
+\end_layout
+
+\end_inset
+
+
+\change_unchanged
+
 \end_layout
 
 \begin_layout Section
@@ -303,15 +380,83 @@ Scope
 \end_layout
 
 \begin_layout Standard
-As it was said before, the main objective of the application is to give
- to any user, the possibility of getting an automatic analysis from the
- ECG.
- The results will be shown in a report, and it will be also possible to
- see the ECG in an interactive
+As it was said 
+\change_deleted 361918700 1469989474
+before
+\change_inserted 361918700 1469989475
+above
+\change_unchanged
+, the main objective of the application is to 
+\change_deleted 361918700 1469989499
+give to any user,
+\change_unchanged
+ 
+\change_inserted 361918700 1469989512
+provide 
+\change_unchanged
+the possibility of 
+\change_deleted 361918700 1469989517
+getting 
+\change_inserted 361918700 1469989519
+performing 
+\change_unchanged
+an automatic analysis 
+\change_deleted 361918700 1469989548
+from the ECG
+\change_inserted 361918700 1469989995
+of cardiovascular signals, to any user with minimum requirements of software
+ and hardware
+\change_unchanged
+.
+ 
+\change_inserted 361918700 1469990845
+With this tool, users could perform heartbeat detection and classification,
+ wave delineation and pulse detection in arterial blood pressure (ABP) or
+ plethysmographic (PPG) signals.
+ These analysis from these analysis, users can automatically measure several
+ important indexes to study the heart function.
+ 
+\change_unchanged
+The results 
+\change_deleted 361918700 1469990854
+will
+\change_inserted 361918700 1469990854
+can
+\change_unchanged
+ be shown in a report
+\change_inserted 361918700 1469990915
+ or can be downloaded for further analysis.
+ 
+\change_deleted 361918700 1469990902
+, and i
+\change_inserted 361918700 1469990902
+I
+\change_unchanged
+t will 
+\change_deleted 361918700 1469990924
+be 
+\change_unchanged
+also 
+\change_inserted 361918700 1469990925
+be 
+\change_unchanged
+possible to see 
+\change_deleted 361918700 1469990953
+the ECG 
+\change_inserted 361918700 1469991004
+the cardiovascular signals 
+\change_unchanged
+in an interactive
 \change_deleted 2088930433 1469828813
  
 \change_unchanged
- diagram.
+ 
+\change_deleted 361918700 1469990961
+diagram
+\change_inserted 361918700 1469991034
+chart, with the analysis results overimposed, when possible
+\change_unchanged
+.
  Every cardiologist that wants to use this application, will need the browser
  or any phone with Android or iOS.
  It won't be necessary to have any other additional software.
@@ -326,9 +471,34 @@ Components
 \end_layout
 
 \begin_layout Standard
-This software will be integrated by the following main components, ECG-D3
- library, front end web application, backend, and Matlab core.
+This software will be 
+\change_deleted 361918700 1469991282
+integrated
+\change_inserted 361918700 1469991283
+implemented
+\change_unchanged
+ by the following main components, ECG-D3 library, front end web application,
+ backend, and Matlab core.
  
+\change_inserted 361918700 1469991299
+
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+
+\change_inserted 361918700 1469991327
+todo soft libre ? salvo matlab obvio, algún comentario más acerca de por
+ qué elegimos cada comp ?
+\change_unchanged
+
+\end_layout
+
+\end_inset
+
+
+\change_unchanged
+
 \end_layout
 
 \begin_layout Enumerate
@@ -405,8 +575,13 @@ wqrs
 , Pan and Tompkins, ECGpuwave, EP limited, to detect the location of each
  heartbeat (QRS detection).
  After detecting the QRS, the second task consist on running the peak detection
- over pulsatile signals such as arterial blood pressure (ABP) or plethysmographi
-c (PPG).
+ over pulsatile signals such as 
+\change_deleted 361918700 1469990724
+arterial blood pressure (ABP) or plethysmographic (PPG)
+\change_inserted 361918700 1469990733
+ABP or PPG
+\change_unchanged
+.
  The task uses two algorithms to achieve pulse detection, and as in QRS
  detection, it is possible to use any of them.
  The last task, will be the ECG heartbeat classification, that follows the
@@ -430,21 +605,46 @@ sideways false
 status open
 
 \begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename img/ArchitectureUML.png
+	width 80text%
+
+\end_inset
+
+
+\change_inserted 361918700 1469987181
 
 \end_layout
 
 \begin_layout Plain Layout
 \align center
+
+\change_inserted 361918700 1469987134
 \begin_inset Graphics
-	filename img/ArchitectureUML.png
+	filename img/userInteraction.png
+	lyxscale 40
+	width 95text%
 
 \end_inset
 
 
+\change_unchanged
+
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Architecture diagram
+
+\change_inserted 361918700 1469987048
+Diagram of the implemented a
+\change_deleted 361918700 1469987048
+A
+\change_unchanged
+rchitecture 
+\change_deleted 361918700 1469987051
+diagram
+\change_unchanged
+
 \end_layout
 
 \end_inset
@@ -472,7 +672,17 @@ The user interaction will be handled by the app in the form of a SPA(Single
  The homepage will provide a checkbox for the selecction of the operations
  to be applied to the selected ECG.
  The range of operations available will be the ones that are already available
- through the use of the existing ECG-Kit Matlab package.
+ through the use of the existing 
+\change_deleted 361918700 1469986459
+ECG-Kit
+\change_inserted 361918700 1469986459
+
+\emph on
+ecg-kit
+\change_unchanged
+
+\emph default
+ Matlab package.
  The user will also be provided with an input field to upload its own registered
  ECG's.
 \end_layout
@@ -482,9 +692,29 @@ Once the desired action is selected the user will be presented with a loading
  feedback.
  At this point the web appliaction makes a REST call to the server.
  The server, handled in python, will process this request and send an according
- signal to the ECG-Kit matlab package.
- The ECG-kit matlab package will process the request and serve the raw data
- to a python service.
+ signal to the 
+\change_deleted 361918700 1469986461
+ECG-Kit
+\change_inserted 361918700 1469986461
+
+\emph on
+ecg-kit
+\change_unchanged
+
+\emph default
+ matlab package.
+ The 
+\change_deleted 361918700 1469986462
+ECG-kit
+\change_inserted 361918700 1469986462
+
+\emph on
+ecg-kit
+\change_unchanged
+
+\emph default
+ matlab package will process the request and serve the raw data to a python
+ service.
  The python service will process the newly aquired data and serve it to
  the web application in JSON format.
 \end_layout
@@ -510,7 +740,7 @@ status open
 \begin_layout Plain Layout
 \align center
 
-\change_inserted -1260779252 1469626674
+\change_deleted 361918700 1469987130
 \begin_inset Graphics
 	filename img/userInteraction.png
 	lyxscale 40
@@ -519,8 +749,16 @@ status open
 \end_inset
 
 
+\change_inserted 361918700 1469987081
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+
+\change_inserted -1260779252 1469626674
 \begin_inset Note Note
-status collapsed
+status open
 
 \begin_layout Plain Layout
 
@@ -585,9 +823,12 @@ Report
 \end_layout
 
 \begin_layout Standard
-Thanks to the Automatic Heartbeat classification developed in the ecg-kit,
- the heartbeats are going to be classified into the following classes: Normal,
- Supraventricular, Ventricular, Fusion of Normal and Ventricular.
+Thanks to the Automatic Heartbeat classification developed in the 
+\emph on
+ecg-kit
+\emph default
+, the heartbeats are going to be classified into the following classes:
+ Normal, Supraventricular, Ventricular, Fusion of Normal and Ventricular.
  The report will present, the amount of hearbeats detected and the amount
  for each type..
 \end_layout
