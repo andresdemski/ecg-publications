@@ -528,12 +528,8 @@ resolution
 of 11-bit 
 \change_unchanged
 over a 10mV range.
- Two or more cardiologists independently annotated each record
-\change_inserted 361918700 1469197104
-ing
-\change_unchanged
- and resolved the disagreements, generating a reference annotation for each
- 
+ Two or more cardiologists independently annotated each record and resolved
+ the disagreements, generating a reference annotation for each 
 \change_inserted 361918700 1469196513
 heart
 \change_unchanged
@@ -596,40 +592,6 @@ name "fig:Pan-and-Tompkins"
 
 \begin_layout Subsection
 Input
-\change_inserted 361918700 1469197695
-
-\end_layout
-
-\begin_layout Standard
-
-\change_inserted 361918700 1469197203
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-
-\change_inserted 361918700 1469197788
-Juani, yo no haría una subsec por bloque del algoritmo.
- Qué te parece hacer 3 subsec, igual me olvido alguna.
- Pero se me ocurre una para describir la base de datos, ahi hablar de los
- registros descartados y de lo que ya hablaste.
-\end_layout
-
-\begin_layout Plain Layout
-
-\change_inserted 361918700 1469197904
-Otra para el algoritmo en si, ahi meté todos los detalles estos de acá abajo.
- Y una final para la evaluación de resultados.
- y evaluación estadística.
-\change_unchanged
-
-\end_layout
-
-\end_inset
-
-
-\change_unchanged
-
 \end_layout
 
 \begin_layout Standard
