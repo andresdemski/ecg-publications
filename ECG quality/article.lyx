@@ -99,6 +99,7 @@
 \html_css_as_file 0
 \html_be_strict false
 \author -1260779252 "mariano"
+\author 361918700 "Mariano"
 \author 1323020071 "ademski,,,"
 \end_header
 
@@ -129,33 +130,67 @@ The electrocardiogram (ECG) is a routine and inexpensive technique to analyse
 ng signals, such as power line, skeletal muscle activity, electrode movement
  or disconnection, among others.
  
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-la idea está bien, intentá mejorar el inglés en la sig versión
-\end_layout
-
-\end_inset
-
- During the processing of ECG, algorithms can be doing QRS detection, heart
+\change_deleted 361918700 1470056666
+During the processing of ECG, algorithms can be doing QRS detection, heart
  beats classification or recognising diseases, and these algorithms can
- be interfered by the noise or quality of the record.
- This makes important for the automatic systems to be able for detecting
- the quality of the ECG for minimise the false alarms, discard signal segments
- from Holters monitor acquisition or take out the bad records from the databases.
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-mejorá esto si podés, poné una ref al libro de labuna tal vez, o a algún
- artículo que amplie esto.
- OOOK!!! Despues agrego
-\end_layout
-
-\end_inset
-
-
+ be interfered by the noise or quality of the record
+\change_inserted 361918700 1470058861
+The automatic processing algorithms, such as heartbeat detectors and classifiers
+, wave delineators, among others, are sensitive to the signal quality of
+ the ECG
+\change_unchanged
+.
+ This makes important for the automatic systems to be able for 
+\change_deleted 361918700 1470058892
+detecting the 
+\change_inserted 361918700 1470058898
+quantifying the 
+\change_unchanged
+quality of the ECG
+\change_inserted 361918700 1470058911
+,
+\change_unchanged
+ 
+\change_deleted 361918700 1470058913
+for 
+\change_inserted 361918700 1470058915
+in order to 
+\change_unchanged
+minimise the 
+\change_inserted 361918700 1470059073
+algorithms 
+\change_deleted 361918700 1470058939
+false alarms
+\change_inserted 361918700 1470058951
+error rate
+\change_unchanged
+, discard 
+\change_deleted 361918700 1470058997
+signal 
+\change_inserted 361918700 1470059003
+unusable 
+\change_unchanged
+segments from 
+\change_deleted 361918700 1470059013
+Holters monitor acquisition 
+\change_inserted 361918700 1470059018
+longterm recordings, 
+\change_unchanged
+or 
+\change_deleted 361918700 1470059023
+take out 
+\change_inserted 361918700 1470059024
+discard 
+\change_deleted 361918700 1470059031
+the bad 
+\change_inserted 361918700 1470059034
+corrupted 
+\change_unchanged
+records from 
+\change_deleted 361918700 1470059041
+the 
+\change_unchanged
+databases.
 \end_layout
 
 \begin_layout Standard
@@ -166,39 +201,193 @@ This topic was discussed during the PhysioNet/Computing in Cardiology Challenge
  The algorithm of this challenge should match the opinions of a group of
  human reviewers, who have classified each record as “acceptable” or “unacceptab
 le.
- The challenge results were interesting and good start point for future
- works.
+ The challenge results were interesting and 
+\change_inserted 361918700 1470059110
+a 
+\change_unchanged
+good start
+\change_inserted 361918700 1470059112
+ing
+\change_unchanged
+ point for future works.
  
 \end_layout
 
 \begin_layout Standard
-One of the best results in the first event of this challenge, was the Gari
- D.
- Clifford work
+One of the best results in the first event of 
+\change_deleted 361918700 1470060404
+this
+\change_inserted 361918700 1470060404
+the
+\change_unchanged
+ challenge
+\change_deleted 361918700 1470060408
+,
+\change_unchanged
+ was 
+\change_deleted 361918700 1470059327
+the 
+\change_inserted 361918700 1470059328
+from 
+\change_deleted 361918700 1470059335
+Gari D.
+ 
+\change_unchanged
+Clifford 
+\change_inserted 361918700 1470059341
+
+\emph on
+et al
+\emph default
+.
+ 
+\change_deleted 361918700 1470060806
+work
 \begin_inset CommandInset citation
 LatexCommand cite
 key "clifford-quality-cinc"
 
 \end_inset
 
-, who presents a machine learning classification approach based on features
- corresponding to signal quality indices (SQI).
- Also, there are several works 
+
+\change_unchanged
+, who present
+\change_inserted 361918700 1470060431
+ed
+\change_deleted 361918700 1470060420
+s
+\change_unchanged
+ a machine learning classification approach based on features corresponding
+ to signal quality 
+\change_deleted 361918700 1470060447
+indices 
+\change_inserted 361918700 1470060449
+indexes 
+\change_unchanged
+(SQI)
+\change_inserted 361918700 1470060809
+ 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "clifford-quality-cinc"
+
+\end_inset
+
+
+\change_unchanged
+.
+ 
+\change_deleted 361918700 1470060501
+Also, there are several
+\change_inserted 361918700 1470060809
+Other remarkable
+\change_unchanged
+ works 
+\change_inserted 361918700 1470061620
+studied features such as flatline or huge variations presence and baseline
+ variations among others, these features were used together with 
+\change_deleted 361918700 1470060670
+
 \begin_inset CommandInset citation
 LatexCommand cite
 key "chengyu-cinc,dieter-cinc,Henian-cinc,lars-cinc,vaclav-cinc"
 
 \end_inset
 
- which developed algorithms using binary trees.
+ which developed algorithms using 
+\change_unchanged
+binary trees
+\change_inserted 361918700 1470060809
+ 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "chengyu-cinc,dieter-cinc"
+
+\end_inset
+
+ 
+\change_unchanged
+.
+
+\change_deleted 361918700 1470060713
  They focus their work in the detection of some characteristics like flatlines,
  huge impulses or deviation of the mean, among others.
+\change_unchanged
+
 \end_layout
 
 \begin_layout Standard
-In this paper, it is presented a 2 level ECG quality classification using
- two approaches, binary tree and machine learning.
- The binary tree is performed for detecting flatline, spikes
+
+\change_deleted 361918700 1470061046
+In this 
+\change_inserted 361918700 1470061644
+Our objective 
+\change_deleted 361918700 1470061046
+paper
+\change_inserted 361918700 1470061347
+is to study an ECG quality detector, based on the best ranked works presented
+ in the challenge 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "chengyu-cinc,dieter-cinc,clifford-quality-cinc"
+
+\end_inset
+
+.
+ 
+\change_deleted 361918700 1470061344
+,
+\change_unchanged
+ 
+\change_inserted 361918700 1470061414
+Our approach 
+\change_deleted 361918700 1470061425
+it is presented 
+\change_inserted 361918700 1470061498
+consists in 
+\change_unchanged
+a 2 level 
+\change_deleted 361918700 1470061436
+ECG quality classification
+\change_inserted 361918700 1470061437
+detector
+\change_unchanged
+ using 
+\change_deleted 361918700 1470061444
+two approaches, 
+\change_inserted 361918700 1470061447
+first a 
+\change_unchanged
+binary tree 
+\change_inserted 361918700 1470063648
+as in 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "chengyu-cinc,dieter-cinc"
+
+\end_inset
+
+, 
+\change_deleted 361918700 1470061449
+and 
+\change_inserted 361918700 1470061511
+followed by 
+\change_deleted 361918700 1470061542
+machine learning
+\change_inserted 361918700 1470061560
+an SQI approach as presented in 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "clifford-quality-cinc"
+
+\end_inset
+
+
+\change_unchanged
+.
+ 
+\change_deleted 361918700 1470061573
+The binary tree is performed for detecting flatline, spikes
 \begin_inset CommandInset citation
 LatexCommand cite
 key "dieter-cinc"
@@ -207,8 +396,28 @@ key "dieter-cinc"
 
  and huge impulses; and the machine learning detector is based in Gari D.
  Clifford model.
- Finally, We are going to evaluate each detector individually and the joint
- performance for comparing the results with CinC Challenge result.
+
+\change_unchanged
+ Finally, 
+\change_deleted 361918700 1470061725
+W
+\change_inserted 361918700 1470061725
+w
+\change_unchanged
+e are going to evaluate each detector individually and the joint performance
+ for comparing 
+\change_deleted 361918700 1470061750
+the results 
+\change_unchanged
+with 
+\change_inserted 361918700 1470061753
+the 
+\change_unchanged
+CinC Challenge result
+\change_inserted 361918700 1470061756
+s
+\change_unchanged
+.
 \end_layout
 
 \begin_layout Section
@@ -221,7 +430,10 @@ Database
 
 \begin_layout Standard
 In this work we used the database of the Physionet/Computing in Cardiology
- (CinC) Challenge 2011 (ecgqdb) 
+\change_deleted 361918700 1470064375
+ (CinC)
+\change_unchanged
+ Challenge 2011 (ecgqdb) 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "PhysioNet"
@@ -237,7 +449,7 @@ key "MITBIHDB"
 
  .
  The ecgqdb
-\change_inserted -1260779252 1469537529
+\change_deleted 361918700 1470064555
 
 \begin_inset Note Note
 status collapsed
@@ -251,9 +463,29 @@ nombre corto acá y algunas características técnicas Fs, bits, etc etc, de
 
 
 \change_unchanged
- includes 1000 ten-seconds records of 12-leads records, where there are
- 773 acceptable, 225 unacceptable 
-\change_inserted -1260779252 1469536311
+ includes 1000 ten-seconds records of 12-leads
+\change_inserted 361918700 1470064746
+, sampled at 500 Hz with 16 bits and 
+\begin_inset Formula $5\,\mu V$
+\end_inset
+
+ of resolution.
+ 
+\change_deleted 361918700 1470064800
+ records, where there are
+\change_inserted 361918700 1470064827
+The database includes
+\change_unchanged
+ 773 acceptable
+\change_inserted 361918700 1470064436
+ and
+\change_deleted 361918700 1470064437
+,
+\change_unchanged
+ 225 unacceptable 
+\change_inserted 361918700 1470064838
+quality recordings.
+\change_deleted 361918700 1470064788
 
 \begin_inset Note Note
 status collapsed
@@ -269,8 +501,6 @@ qué sentido tiene poner esto ? se descartan no estos 2 ?
 \end_inset
 
 
-\change_inserted 1323020071 1469554313
-
 \begin_inset Note Note
 status collapsed
 
@@ -285,11 +515,44 @@ Se descartan, pero figuraban en la descripción...
 
 \end_inset
 
+and 2 unclassified records.
 
 \change_unchanged
-and 2 unclassified records.
- For training the algorithm we used the ecgqdb and the mitdb, and the ecgqdb
- is used for testing the algorithm.
+ 
+\change_inserted 361918700 1470066313
+The mitdb includes 48 recordings of 30 minutes length, sampled at 360 Hz
+ with 11 bits and 
+\begin_inset Formula $5\,\mu V$
+\end_inset
+
+ resolution with a slew rate of 
+\begin_inset Formula $225\,\nicefrac{mV}{sec}$
+\end_inset
+
+.
+ The training set included part of 
+\change_deleted 361918700 1470066321
+For training the algorithm we used 
+\change_unchanged
+the ecgqdb and the mitdb, 
+\change_inserted 361918700 1470066352
+while 
+\change_deleted 361918700 1470066360
+and 
+\change_unchanged
+the ecgqdb 
+\change_deleted 361918700 1470066364
+is 
+\change_inserted 361918700 1470066365
+was 
+\change_unchanged
+used for testing 
+\change_deleted 361918700 1470066379
+the algorithm
+\change_inserted 361918700 1470066381
+purposes
+\change_unchanged
+.
 \end_layout
 
 \begin_layout Subsection
@@ -299,18 +562,47 @@ Proposed algorithm
 \begin_layout Standard
 We identified three important causes that are present in the unacceptable
  recordings: 1) flatlines, 2) spikes and 3) steps.
+ Because the effect of these type of intereferences ruin the signal, 
+\change_inserted 361918700 1470067767
+w
+\change_unchanged
+e decide to 
+\change_deleted 361918700 1470067773
+develop 
+\change_inserted 361918700 1470067782
+include in a first step 
+\change_unchanged
+a binary tree for detecting these problems
+\change_inserted 361918700 1470067788
+,
+\change_unchanged
+ as 
+\change_deleted 361918700 1470067794
+it can be seen 
+\change_inserted 361918700 1470067795
+shown 
+\change_unchanged
+in 
+\change_inserted 361918700 1470067470
+F
+\change_deleted 361918700 1470067469
+f
+\change_unchanged
+ig
+\change_inserted 361918700 1470067473
+ure
+\change_unchanged
  
-\end_layout
-
-\begin_layout Standard
-We decide to develop a binary tree for detecting these problems as it can
- be seen in fig 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "fig:Flow-chart-and-main"
 
 \end_inset
 
+
+\change_inserted 361918700 1470067797
+.
+\change_unchanged
 
 \end_layout
 
@@ -325,7 +617,6 @@ status open
 \align center
 \begin_inset Graphics
 	filename img/chart.svg
-	scale 80
 
 \end_inset
 
@@ -356,13 +647,44 @@ Flow-chart and main blocks of the proposed algorithm.
 \end_layout
 
 \begin_layout Standard
-If this tree give the record as acceptable, then it is processed with a
- detector for doing the last classification.
- Our
-\change_inserted -1260779252 1469538913
+If this tree 
+\change_deleted 361918700 1470067907
+give the record as acceptable
+\change_inserted 361918700 1470067915
+does not detect any of these interferences
+\change_unchanged
+, then 
+\change_deleted 361918700 1470067858
+it is processed with a
+\change_inserted 361918700 1470067863
+we use a finer
+\change_unchanged
+ 
+\change_deleted 361918700 1470067891
+detector
+\change_inserted 361918700 1470067892
+analysis
+\change_unchanged
+ 
+\change_inserted 361918700 1470067879
+based on SQI features 
+\change_unchanged
+for doing the last 
+\change_deleted 361918700 1470067896
+classification
+\change_inserted 361918700 1470067897
+detection
+\change_unchanged
+.
+ 
+\change_deleted 361918700 1470067948
+Our
+\change_inserted 361918700 1470067949
+The 
+\change_deleted 361918700 1470067928
 
 \begin_inset Note Note
-status open
+status collapsed
 
 \begin_layout Plain Layout
 
@@ -375,10 +697,8 @@ acá no seguimos un criterio de otro artículo ?
 \end_inset
 
 
-\change_inserted 1323020071 1469554416
-
 \begin_inset Note Note
-status open
+status collapsed
 
 \begin_layout Plain Layout
 
@@ -391,13 +711,47 @@ Si, pero nadie lo aclara.
 
 \end_inset
 
-
+ 
 \change_unchanged
- criterion for an acceptable is that all leads of the record must be good
- quality.
+criterion 
+\change_inserted 361918700 1470067956
+adopted 
+\change_unchanged
+for 
+\change_inserted 361918700 1470067961
+considering 
+\change_unchanged
+an acceptable 
+\change_inserted 361918700 1470067969
+recording, 
+\change_unchanged
+is that all 
+\change_inserted 361918700 1470067977
+the included 
+\change_unchanged
+leads 
+\change_deleted 361918700 1470067986
+of the record must be 
+\change_inserted 361918700 1470067990
+have 
+\change_unchanged
+good quality.
+
+\change_deleted 361918700 1470068018
  If any lead is disconnected or presents bad quality, the record is considered
  as unacceptable.
  
+\change_inserted 361918700 1470068366
+ Below we describe each block of Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Flow-chart-and-main"
+
+\end_inset
+
+.
+\change_unchanged
+
 \end_layout
 
 \begin_layout Subsubsection
@@ -405,13 +759,32 @@ Flatline detector
 \end_layout
 
 \begin_layout Standard
-When an ECG processing is performed, It is frequently observed long times
- of non electric activity in one or multiple leads caused by different reasons.
+
+\change_deleted 361918700 1470068859
+When an ECG processing is performed, It is frequently observed long
+\change_inserted 361918700 1470068887
+We considered flatline as an extended
+\change_unchanged
+ time
+\change_deleted 361918700 1470068891
+s
+\change_unchanged
+ of 
+\change_deleted 361918700 1470068900
+non electric 
+\change_inserted 361918700 1470068900
+in
+\change_unchanged
+activity in one or multiple leads 
+\change_deleted 361918700 1470068914
+caused by different reasons
+\change_unchanged
+.
  
 \change_deleted 1323020071 1469556090
 
 \begin_inset Note Note
-status open
+status collapsed
 
 \begin_layout Plain Layout
 
@@ -428,22 +801,56 @@ s detectarlo.
 .
 
 \change_unchanged
- For detecting this, we developed 3 algorithms analysing the variance, the
- derivative and the signal excursion: 
+ For detecting this, we developed 3 algorithms 
+\change_inserted 361918700 1470068975
+that 
+\change_unchanged
+analy
+\change_inserted 361918700 1470068978
+ze
+\change_deleted 361918700 1470068977
+sing
+\change_unchanged
+ the variance, the derivative and the signal 
+\change_deleted 361918700 1470068986
+excursion
+\change_inserted 361918700 1470069041
+amplitude in order to implement the best performing approach
+\change_unchanged
+: 
 \begin_inset Formula 
 \[
-FL1=\underset{i,j}{min}\left\{ \sqrt{var(S_{i,j})}\right\} 
+FL1=min\left\{ \sqrt{var(\mathrm{\mathbf{S}})}\right\} 
 \]
 
 \end_inset
 
+
+\change_inserted 361918700 1470069282
+
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+
+\change_inserted 361918700 1470069317
+Por lo gral las matrices, o señales multilead, van en mayúscula y negrita.
+ La raíz no tiene sentido, dado que buscás un mínimo.
+\change_unchanged
+
+\end_layout
+
+\end_inset
+
+
+\change_unchanged
 
 \end_layout
 
 \begin_layout Standard
 \begin_inset Formula 
 \[
-FL2=\underset{i,j}{min}\left\{ mean\left(\frac{dS_{i,j}}{dt}\right)\right\} 
+FL2=min\left\{ mean\left(\frac{d\mathrm{\mathbf{S}}}{dt}\right)\right\} 
 \]
 
 \end_inset
@@ -461,6 +868,8 @@ definí mean
 \change_inserted 1323020071 1469556299
 .
  Es necesario? no esta entendido que es la media?
+\change_inserted 361918700 1470069267
+, OK creo que si
 \change_unchanged
 
 \end_layout
@@ -475,7 +884,7 @@ definí mean
 \begin_layout Standard
 \begin_inset Formula 
 \[
-{\displaystyle FL3=\underset{i,j}{min}\left\{ abs\left(S_{i,j}-mean(S_{i,j})\right)\right\} }
+{\displaystyle FL3=min\left\{ \left|S_{i,j}-mean(S_{i,j})\right|\right\} }
 \]
 
 \end_inset
@@ -484,19 +893,44 @@ definí mean
 \end_layout
 
 \begin_layout Standard
-\begin_inset Formula $S_{i,j}$
+
+\change_inserted 361918700 1470069758
+The multilead ECG signal 
+\change_unchanged
+
+\begin_inset Formula $\mathrm{\mathbf{S}}$
 \end_inset
 
- represents the ECG signal in the interval 
+ 
+\change_deleted 361918700 1470069203
+represents the ECG signal 
+\change_unchanged
+in the interval 
 \begin_inset Formula $w$
 \end_inset
 
-, which starts at the sample i
+, which starts at the 
+\change_inserted 361918700 1470069785
+i
+\emph on
+-th
+\emph default
+ 
+\change_unchanged
+sample 
+\change_deleted 361918700 1470069783
+i
 \emph on
 th
 \emph default
- of the j
+ 
+\change_unchanged
+of the j
+\change_inserted 361918700 1470069221
+
 \emph on
+-
+\change_unchanged
 th
 \emph default
  lead.
@@ -528,11 +962,21 @@ sugerencia, intentá justificar de una manera similar la adopción de umbrales
 \end_layout
 
 \begin_layout Standard
-When the FL's
+
+\change_deleted 361918700 1470069943
+When t
+\change_inserted 361918700 1470069943
+T
+\change_unchanged
+he FL
+\change_inserted 361918700 1470069879
+x
+\change_deleted 361918700 1470069861
+'s
 \change_inserted -1260779252 1469541771
 
 \begin_inset Note Note
-status open
+status collapsed
 
 \begin_layout Plain Layout
 
@@ -548,21 +992,125 @@ donde definiste FL?
 
 
 \change_unchanged
- estimators are calculated, they are compared with a threshold which determines
- if it is flatline or not.
- For setting this threshold, it was generated a labelling from the ecgqdb
- having the gold-standard of flatlines for training this parameter (121
- flatlines and 756 acceptable records).
- The labeling was performed by a experimented person in ECG analysis who
- labeled the ecgqdb at 3 times.
- Comparing the results in each cases, if the three labels assigned to a
- record didn't match, the record was discarded.Then, the ROC curves were
- obtained by processing the generated dataset and sweeping the threshold
- value for each detector.
+ estimators 
+\change_deleted 361918700 1470069957
+are calculated, they 
+\change_unchanged
+are compared with a threshold 
+\change_deleted 361918700 1470069971
+which determines
+\change_inserted 361918700 1470069978
+for determining
+\change_unchanged
+ 
+\change_deleted 361918700 1470070017
+if it is 
+\change_unchanged
+flatline 
+\change_deleted 361918700 1470070020
+or not
+\change_inserted 361918700 1470070021
+presence
+\change_unchanged
+.
+ 
+\change_deleted 361918700 1470070040
+For setting t
+\change_inserted 361918700 1470070040
+T
+\change_unchanged
+his threshold
+\change_inserted 361918700 1470070321
+ was trained in the ecgqdb, after the database was labelled accordingly
+ to serve as ground truth (121 flatlines)
+\change_deleted 361918700 1470070292
+, it was generated a labelling from the ecgqdb having the gold-standard
+ of flatlines for training this parameter (121 flatlines and 756 acceptable
+ records)
+\change_unchanged
+.
+ The 
+\change_deleted 361918700 1470070328
+labeling
+\change_inserted 361918700 1470070328
+labelling
+\change_unchanged
+ was performed by a 
+\change_inserted 361918700 1470070497
+single student, 
+\change_unchanged
+experimented 
+\change_deleted 361918700 1470070491
+person
+\change_unchanged
+ in ECG analysis who labeled the 
+\change_inserted 361918700 1470070674
+all recordings in 
+\change_unchanged
+ecgqdb 
+\change_deleted 361918700 1470070546
+at 
+\change_unchanged
+3 times
+\change_inserted 361918700 1470070651
+, each time in a random order
+\change_unchanged
+.
+ Comparing the 
+\change_deleted 361918700 1470070685
+results
+\change_inserted 361918700 1470070686
+labels
+\change_unchanged
+ 
+\change_deleted 361918700 1470070689
+in 
+\change_inserted 361918700 1470070689
+for 
+\change_unchanged
+each case
+\change_deleted 361918700 1470070691
+s
+\change_unchanged
+, if 
+\change_deleted 361918700 1470070707
+the three labels assigned to a record didn't match,
+\change_inserted 361918700 1470070713
+we found a mismatch
+\change_unchanged
+ the record
+\change_inserted 361918700 1470070726
+ing
+\change_unchanged
+ was discarded.
+\change_inserted 361918700 1470070821
+
+\end_layout
+
+\begin_layout Standard
+
+\change_inserted 361918700 1470071238
+With the generated ground truth, we analyzed the 
+\change_deleted 361918700 1470071240
+Then, the 
+\change_unchanged
+ROC curves 
+\change_deleted 361918700 1470071254
+were obtained by processing the generated dataset and 
+\change_inserted 361918700 1470071255
+by 
+\change_unchanged
+sweeping the threshold value for each 
+\change_deleted 361918700 1470071306
+detector
+\change_inserted 361918700 1470071317
+FLx flatline detector
+\change_unchanged
+.
 \change_inserted -1260779252 1469542490
 
 \begin_inset Note Note
-status open
+status collapsed
 
 \begin_layout Plain Layout
 
@@ -581,6 +1129,14 @@ Esta oración y hasta el final pasalo a resultados.
 Justamente eso da la ROC,fui variando los TH para obtener las curvas y ver
  cual es el TH que daba una mejor performance.
  Poreso no lo puse en resultados.
+\change_inserted 361918700 1470070831
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\change_inserted 361918700 1470070833
+ok.
 \change_unchanged
 
 \end_layout
@@ -590,90 +1146,18 @@ Justamente eso da la ROC,fui variando los TH para obtener las curvas y ver
 
 \change_deleted -1260779252 1469542488
 :
+\change_inserted 361918700 1470071552
+ 
+\change_unchanged
+In 
+\change_inserted 361918700 1470071574
+Figure
+\change_deleted 361918700 1470071574
+fig 
+\change_inserted 361918700 1470071578
+ 
 \change_unchanged
 
-\end_layout
-
-\begin_layout Standard
-\begin_inset Float figure
-placement H
-wide false
-sideways false
-status open
-
-\begin_layout Plain Layout
-\align center
-\begin_inset Graphics
-	filename img/fl-roc.svg
-	scale 70
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-\align center
-\begin_inset Caption Standard
-
-\begin_layout Plain Layout
-\begin_inset CommandInset label
-LatexCommand label
-name "fig:FL-ROC"
-
-\end_inset
-
-FlatLine - ROC curves
-\end_layout
-
-\end_inset
-
-
-\change_inserted -1260779252 1469541947
-
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-
-\change_inserted -1260779252 1469542122
-0.9917 de TP no sale en el gráfico, por lo tanto no se puede ver.
- Ojo ! 
-\change_unchanged
-
-\end_layout
-
-\end_inset
-
-
-\change_inserted 1323020071 1469554615
-
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-
-\change_inserted 1323020071 1469554635
-Es la linea roja...
- tengo que ponen un punto marcando?
-\change_unchanged
-
-\end_layout
-
-\end_inset
-
-
-\change_unchanged
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-In fig 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "fig:FL-ROC"
@@ -684,7 +1168,11 @@ reference "fig:FL-ROC"
 \begin_inset Formula $FL2$
 \end_inset
 
- is the estimator with best response getting 
+ is the 
+\change_inserted 361918700 1470071596
+best performing 
+\change_unchanged
+estimator with best response getting 
 \begin_inset Formula $99.17\%$
 \end_inset
 
@@ -697,27 +1185,6 @@ reference "fig:FL-ROC"
 \end_inset
 
 .
-
-\change_inserted 1323020071 1469558098
- 
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-
-\change_inserted 1323020071 1469558142
-Estos resultados son sobre el entrenamiento con la base de datos generada
- por mi, por eso tampoco creo que va en seccion resultados.
- 
-\change_unchanged
-
-\end_layout
-
-\end_inset
-
-
-\change_unchanged
-
 \end_layout
 
 \begin_layout Subsubsection
@@ -725,7 +1192,9 @@ Spikes Detector
 \end_layout
 
 \begin_layout Standard
-The spikes detector is based in 
+The spikes detector 
+\change_deleted 361918700 1470077752
+is based in 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "dieter-cinc"
@@ -733,15 +1202,32 @@ key "dieter-cinc"
 \end_inset
 
 .
- This algorithm analyse the percentage of signal per lead which its slew
- rate is higher than a threshold.
+ This algorithm analyse 
+\change_inserted 361918700 1470077754
+quantifies 
+\change_unchanged
+the percentage of 
+\change_inserted 361918700 1470077858
+signal's slew rate above than a threshold 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "dieter-cinc"
+
+\end_inset
+
+.
+ 
+\change_deleted 361918700 1470077850
+signal per lead which its slew rate is higher than a threshold.
  It can be represented by the next equation:
+\change_unchanged
+
 \end_layout
 
 \begin_layout Standard
 \begin_inset Formula 
 \[
-SP_{det}=\underset{j}{max}\left\{ \dfrac{1}{N}\sum_{n=1}^{N}\left[\dfrac{dS_{j}[n]}{dt}\geq TH\right]\right\} 
+SD=\underset{j}{max}\left\{ \dfrac{1}{N}\sum_{n=1}^{N}\left[\dfrac{dS_{j}[n]}{dt}\geq th\right]\right\} 
 \]
 
 \end_inset
@@ -750,87 +1236,95 @@ SP_{det}=\underset{j}{max}\left\{ \dfrac{1}{N}\sum_{n=1}^{N}\left[\dfrac{dS_{j}[
 \end_layout
 
 \begin_layout Standard
-The TH was obtained analysing the slew rate of the QRS complex in the entire
- mitdb because we need a mostly clean database and we don't want to overtrain
- this threshold value to the ecgqdb.
- Using the MIT's QRS annotations, we calculated the max slew rate around
- each QRS complex using an interval of 
-\begin_inset Formula $\pm100ms$
-\end_inset
+The 
+\change_inserted 361918700 1470077898
+value of 
+\change_deleted 361918700 1470077882
+TH
+\change_inserted 361918700 1470077886
 
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset Float figure
-placement H
-wide false
-sideways false
-status open
-
-\begin_layout Plain Layout
-\align center
-\begin_inset Graphics
-	filename img/slewrate_hist.svg
-	scale 80
-
-\end_inset
-
-
-\change_inserted -1260779252 1469543299
-
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-
-\change_inserted -1260779252 1469543350
-A todos los grafs, sacales las cajas, creo que en matlab es box off o algo
- así, o borralas en inkscape.
- Ponele tipografía CMR10, eso lo podés editar en inkscape.
-\change_unchanged
-
-\end_layout
-
+\begin_inset Formula $th$
 \end_inset
 
 
 \change_unchanged
+ was obtained analysing the slew rate of the QRS complex in the entire mitdb
+\change_inserted 361918700 1470078016
+.
+ 
+\change_deleted 361918700 1470078190
+ because we need a mostly clean database and we don't want to overtrain
+ this threshold value to the ecgqdb
+\change_unchanged
+.
+ 
+\change_deleted 361918700 1470078090
+Using the MIT's QRS annotations, w
+\change_inserted 361918700 1470078090
+W
+\change_unchanged
+e calculated the max
+\change_inserted 361918700 1470078237
+imum
+\change_unchanged
+ slew rate 
+\change_deleted 361918700 1470078155
+around 
+\change_inserted 361918700 1470078249
+in a 200 ms window centred in 
+\change_unchanged
+each QRS complex
+\change_inserted 361918700 1470078176
+.
 
-\begin_inset Caption Standard
-
-\begin_layout Plain Layout
-\begin_inset CommandInset label
-LatexCommand label
-name "fig:QRS-complex's-slew"
-
+\change_deleted 361918700 1470078176
+ using an interval of 
+\begin_inset Formula $\pm100\,ms$
 \end_inset
 
-QRS complex's slew rate histogram
-\end_layout
 
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
+\change_inserted 361918700 1470078316
+.
+ Remember that mitdb is a mainly clean database, so the estimation has low
+ influence of any kind of interferences.
+\change_unchanged
 
 \end_layout
 
 \begin_layout Standard
-In Fig.
+In 
+\change_inserted 361918700 1470078356
+panel c of 
+\change_unchanged
+Fig
+\change_inserted 361918700 1470078342
+ure
+\change_deleted 361918700 1470078343
+.
+
+\change_unchanged
  
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "fig:QRS-complex's-slew"
+reference "fig:FL-ROC"
 
 \end_inset
 
- is represented the histogram of the maximum slew rates of each QRS complex.
+
+\change_deleted 361918700 1470078377
+ is represented 
+\change_unchanged
+the histogram of the maximum slew rates of each QRS complex
+\change_inserted 361918700 1470078385
+ is shown
+\change_unchanged
+.
  Last bar of the histogram is due to the hardware used in the mitdb, which
- limits the slew rate to 
+ limits the slew rate 
+\change_inserted 361918700 1470078402
+up 
+\change_unchanged
+to 
 \begin_inset Formula $225\,\nicefrac{mV}{sec}$
 \end_inset
 
@@ -839,30 +1333,67 @@ reference "fig:QRS-complex's-slew"
 \begin_inset Formula $90th$
 \end_inset
 
- percentile, resulting in TH value of 
+ percentile, resulting in 
+\change_deleted 361918700 1470078458
+TH 
+\change_inserted 361918700 1470078459
+ a 
+\change_unchanged
+value of 
 \begin_inset Formula $189\,\nicefrac{mV}{sec}$
 \end_inset
 
+
+\change_inserted 361918700 1470078462
+ for 
+\begin_inset Formula $th$
+\end_inset
+
+
+\change_unchanged
 .
  
 \end_layout
 
 \begin_layout Standard
 Then, we train the value of 
-\begin_inset Formula $SP_{det}$
+\begin_inset Formula $SD$
 \end_inset
 
+
+\change_inserted 361918700 1470078422
+ 
+\change_unchanged
 for considering the record as acceptable.
  For the training process, we calculate the 
+\change_deleted 361918700 1470078492
+
 \begin_inset Formula $SP_{det}$
 \end_inset
 
-for all the non-flat records (756 acceptable and 61 unacceptable records)
- and we perform the ROC curve.
+
+\change_inserted 361918700 1470078492
+
+\begin_inset Formula $SD$
+\end_inset
+
+ 
+\change_unchanged
+for all the 
+\change_deleted 361918700 1470078555
+non-flat
+\change_unchanged
+ record
+\change_inserted 361918700 1470078563
+ings without spikes
+\change_deleted 361918700 1470078557
+s
+\change_unchanged
+ (756 acceptable and 61 unacceptable records) and we perform the ROC curve.
 \change_inserted -1260779252 1469543134
 
 \begin_inset Note Note
-status open
+status collapsed
 
 \begin_layout Plain Layout
 
@@ -880,42 +1411,9 @@ de nuevo, pasá esto a resultados, y simplemente terminá donde explicás la
 \end_inset
 
 
-\change_unchanged
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset Float figure
-placement H
-wide false
-sideways false
-status open
-
-\begin_layout Plain Layout
-\align center
-\begin_inset Graphics
-	filename img/spike_roc.svg
-	scale 70
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-\begin_inset Caption Standard
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
+\change_inserted 361918700 1470078607
+ 
+\change_deleted 361918700 1470078604
 
 \end_layout
 
@@ -928,7 +1426,18 @@ Considering a true positive error of
 \begin_inset Formula $10\%$
 \end_inset
 
- of spikes to classify the record as unacceptable.
+ of spikes to classify the record as unacceptable
+\change_inserted 361918700 1470078680
+, as is shown in panel b of Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:FL-ROC"
+
+\end_inset
+
+
+\change_unchanged
+.
  
 \end_layout
 
@@ -961,7 +1470,7 @@ key "chengyu-cinc"
 \change_inserted -1260779252 1469543384
 
 \begin_inset Note Note
-status open
+status collapsed
 
 \begin_layout Plain Layout
 
@@ -982,50 +1491,246 @@ poné algún ejemplo, con valores, creo que podría aportar para ver cómo funci
 
 \end_layout
 
-\begin_layout Subsubsection
-Fine Classification: Machine Learning
-\change_inserted -1260779252 1469543450
-
-\begin_inset Note Note
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
 status open
 
 \begin_layout Plain Layout
+\align center
+\begin_inset Tabular
+<lyxtabular version="3" rows="2" columns="3">
+<features tabularvalignment="middle">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<row>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
 
-\change_inserted -1260779252 1469543458
-cambiá lo de ML, queda muy mal
-\change_inserted 1323020071 1469560132
-.
- Vos que nombre decis de ponerle?.
-\change_unchanged
+\begin_layout Plain Layout
+a
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+b
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+c
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename img/fl-roc.svg
+	width 27text%
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename img/spike_roc.svg
+	width 25text%
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename img/slewrate_hist.svg
+	width 36text%
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:FL-ROC"
+
+\end_inset
+
+ROC curves for a) the flatline and b) spikes detectors.
+ In c) the QRS complex's slew rate histogram is shown.
+\end_layout
+
+\end_inset
+
 
 \end_layout
 
 \end_inset
 
 
+\end_layout
+
+\begin_layout Subsubsection
+
+\change_deleted 361918700 1470079209
+Fine Classification: Machine Learning
+\change_inserted 361918700 1470090970
+SQI based detector
 \change_unchanged
 
 \end_layout
 
 \begin_layout Standard
-For the machine learning approach, the feature models described in [
+
+\change_deleted 361918700 1470079489
+For the machine learning approach,
+\change_inserted 361918700 1470079564
+For the implementation of the detector we
+\change_deleted 361918700 1470079569
+ the
+\change_inserted 361918700 1470079571
+used the
+\change_unchanged
+ 
+\change_inserted 361918700 1470079445
+SQI 
+\change_unchanged
+feature
+\change_inserted 361918700 1470079449
+s
+\change_unchanged
+ model
+\change_deleted 361918700 1470079451
+s
+\change_unchanged
+ described in 
+\change_deleted 361918700 1470090742
+[
+\change_unchanged
+
 \begin_inset CommandInset citation
 LatexCommand cite
 key "clifford-quality-cinc,behar-quality,liq-multilevel"
 
 \end_inset
 
-] were implemented.
- Performing it, we found an obstacle: the eplimited QRS detector
+
+\change_deleted 361918700 1470090744
+]
+\change_inserted 361918700 1470089117
+.
+
+\change_deleted 361918700 1470079586
+ were implemented
+\change_unchanged
+.
+ 
+\change_deleted 361918700 1470079605
+Performing it, we found an obstacle:
+\change_inserted 361918700 1470079680
+ Some
+\change_deleted 361918700 1470079689
+ 
+\change_inserted 361918700 1470089135
+subtle changes were adopted in our implementation, since 
+\change_unchanged
+the 
+\change_deleted 361918700 1470079723
+ep
+\change_inserted 361918700 1470079726
+EP 
+\change_unchanged
+limited QRS detector
+\change_inserted 361918700 1470079730
+ 
+\change_unchanged
+
 \begin_inset CommandInset citation
 LatexCommand cite
 key "eplimited"
 
 \end_inset
 
- have 8 seconds of initialisation and it is not useful for 10 seconds records.
- Then, we decided to use other QRS detectors and evaluate their performance.
- When only one detector is needed, it is used the Wavelet detector
+ 
+\change_deleted 361918700 1470079735
+have
+\change_inserted 361918700 1470079773
+uses
+\change_unchanged
+ 8 seconds 
+\change_deleted 361918700 1470079739
+of
+\change_inserted 361918700 1470079739
+for
+\change_unchanged
+ initialisation
+\change_inserted 361918700 1470089225
+ of its internal parameters.
+
+\change_deleted 361918700 1470079762
+ and it is not useful for 10 seconds records
+\change_unchanged
+.
+ 
+\change_deleted 361918700 1470079797
+Then
+\change_inserted 361918700 1470079798
+Instead
+\change_unchanged
+, we decided to use 
+\change_deleted 361918700 1470089284
+other QRS detectors and evaluate their performance.
+ When only one detector is needed, it is used 
+\change_inserted 361918700 1470089304
+a Wavelet based detector, widely used in our group 
+\change_deleted 361918700 1470089284
+the Wavelet detector
+\change_unchanged
+
 \begin_inset CommandInset citation
 LatexCommand cite
 key "Martinez04"
@@ -1033,15 +1738,49 @@ key "Martinez04"
 \end_inset
 
 .
- A Support Vector Machine with Gaussian kernel is used.
  
+\change_deleted 361918700 1470089360
+A Support Vector Machine with Gaussian kernel is used.
+ 
+\change_unchanged
+
 \end_layout
 
 \begin_layout Standard
-The feature model is composed of seventeen signal quality indices (SQI)
- that were calculated per lead resulting in a total of 144 features :
+The feature
+\change_inserted 361918700 1470080012
+s
+\change_unchanged
+ model is composed of 
+\change_deleted 361918700 1470089942
+seventeen
+\change_inserted 361918700 1470089944
+twelve
+\change_unchanged
+ 
+\change_deleted 361918700 1470089963
+signal quality indices (
+\change_unchanged
+SQI
+\change_deleted 361918700 1470089964
+)
+\change_inserted 361918700 1470089970
+ per lead
+\change_unchanged
+ 
+\change_deleted 361918700 1470089974
+that were calculated per lead 
+\change_unchanged
+resulting in a total of 144 features
+\change_inserted 361918700 1470090824
+ per 10 seconds segment.
+
+\change_deleted 361918700 1470090132
+ :
+\change_unchanged
+
 \begin_inset Note Note
-status open
+status collapsed
 
 \begin_layout Plain Layout
 Las descripciones son casi todas copy paste del paper de C.
@@ -1055,105 +1794,121 @@ Las descripciones son casi todas copy paste del paper de C.
 \end_inset
 
 
-\end_layout
+\change_inserted 361918700 1470093184
+ The SQI features model certain aspects regarding the energy of the QRS
+ complex (pSQI, eSQI, rsdSQI), the baseline wander present in the recording
+ (basSQI and bsSQI), the high frequency noise (hfSQI), some statistical
+ moments of the signal samples (sSQI and kSQI) and other more elaborated
+ features described in 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "clifford-quality-cinc,behar-quality,liq-multilevel"
 
-\begin_layout Enumerate
-pSQI: the relative power in the QRS complex.
-\end_layout
+\end_inset
 
-\begin_layout Enumerate
-basSQI: the relative power in the baseline
-\end_layout
+.
+ In this work, we analysed some variants of the bSQI feature, which is the
+ ratio of the heartbeats detected by a robust QRS detector, such as the
+ wavedet algorithm 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Martinez04"
 
-\begin_layout Enumerate
-bsSQI: baseline wander check in time domain.
-\end_layout
+\end_inset
 
-\begin_layout Enumerate
-eSQI: the relative energy in the QRS complex.
-\end_layout
-
-\begin_layout Enumerate
-hfSQI: the relative amplitude of high frequency noise.
-\end_layout
-
-\begin_layout Enumerate
-bSQI[1-6]: the percentage of beats detected by one detector that were also
- detected by other one.
- We performed 6 combinations of detectors generating 6 different SQI to
- evaluate.
- The combinations of detectors are: 1) sqrs
+, to the amount detected by a simple detector, such as the sqrs algorithm.
+ We also studied six other ratios of detectors with the combinations of
+ these detectors: sqrs, wqrs and gqrs from 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "PhysioNet"
 
 \end_inset
 
- and wqrs
+, and wavedet 
 \begin_inset CommandInset citation
 LatexCommand cite
-key "PhysioNet"
+key "Martinez04"
 
 \end_inset
 
- 2) gqrs
-\begin_inset CommandInset citation
-LatexCommand cite
-key "PhysioNet"
-
-\end_inset
-
- and wqrs 3) wqrs and wavedets 4) sqrs and wavedet 5) gqrs and wavedet 6)
- gqrs and sqrs.
- 
-\end_layout
-
-\begin_layout Enumerate
-sSQI: the third moment (skewness) of the ECG signal
-\end_layout
-
-\begin_layout Enumerate
-kSQI: the fourth moment (kurtosis) of the ECG signal
-\end_layout
-
-\begin_layout Enumerate
-rsdSQI: the relative standard deviation (STD) of QRS com- plex
-\end_layout
-
-\begin_layout Enumerate
-purSQI: signal purity of ECG
-\end_layout
-
-\begin_layout Enumerate
-entSQI: sample entropy of the ECG signal
-\end_layout
-
-\begin_layout Enumerate
-pcaSQI: Ratio between the sum of the eigenvalues associated with the five
- principal components over the sum of all eigenvalues.
+.
+ The combinations of detectors are bSQI1: sqrs - wqrs, bSQI2: gqrs - wqrs,
+ bSQI3: wqrs - wavedet, bSQI4: sqrs - wavedet, bSQI5: gqrs - wavedet and
+ bSQI6: gqrs - sqrs.
 \end_layout
 
 \begin_layout Standard
+
+\change_inserted 361918700 1470093057
+Following the methodologies adopted in 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "clifford-quality-cinc,behar-quality,liq-multilevel"
+
+\end_inset
+
+, a support vector machine with Gaussian kernel was used as detector.
+ 
+\change_unchanged
 From these features, we train two models: a reduced model which only uses
- 6 of the 12 SQIs (kSQI, sSQI, pSQI, basSQI, bSQI and pcaSQI) like [
+ 6 of the 12 SQIs (kSQI, sSQI, pSQI, basSQI, bSQI and pcaSQI) 
+\change_deleted 361918700 1470093092
+like
+\change_inserted 361918700 1470093093
+as in
+\change_deleted 361918700 1470093094
+ [
+\change_unchanged
+
 \begin_inset CommandInset citation
 LatexCommand cite
 key "behar-quality"
 
 \end_inset
 
-]and the other, the full model, which uses all of them like [
+
+\change_deleted 361918700 1470093096
+]
+\change_inserted 361918700 1470093097
+ 
+\change_unchanged
+and 
+\change_deleted 361918700 1470093099
+the 
+\change_unchanged
+other
+\change_inserted 361918700 1470093102
+ 
+\change_deleted 361918700 1470093104
+, the full model, 
+\change_unchanged
+which uses all 
+\change_deleted 361918700 1470093113
+of them like [
+\change_inserted 361918700 1470093117
+ the features as in 
+\change_unchanged
+
 \begin_inset CommandInset citation
 LatexCommand cite
 key "liq-multilevel"
 
 \end_inset
 
-].
+
+\change_deleted 361918700 1470093119
+]
+\change_unchanged
+.
 \end_layout
 
 \begin_layout Section
 Results
+\change_inserted 361918700 1470093528
+ and Discussion
+\change_unchanged
+
 \end_layout
 
 \begin_layout Standard
@@ -1517,20 +2272,14 @@ status open
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-\begin_inset CommandInset label
-LatexCommand label
-name "tab:Individual-Performance"
-
-\end_inset
-
-Individual Performance
+Joint Performance
 \end_layout
 
 \end_inset
 
 
 \begin_inset Tabular
-<lyxtabular version="3" rows="6" columns="4">
+<lyxtabular version="3" rows="12" columns="4">
 <features tabularvalignment="middle">
 <column alignment="center" valignment="top">
 <column alignment="center" valignment="top">
@@ -1727,7 +2476,7 @@ Reduced Detector
 </cell>
 </row>
 <row>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
@@ -1736,7 +2485,7 @@ Full Detector
 
 \end_inset
 </cell>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
@@ -1745,7 +2494,7 @@ Full Detector
 
 \end_inset
 </cell>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
@@ -1754,86 +2503,11 @@ Full Detector
 
 \end_inset
 </cell>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-0.7733 
-\end_layout
-
-\end_inset
-</cell>
-</row>
-</lyxtabular>
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset Float table
-placement H
-wide false
-sideways false
-status open
-
-\begin_layout Plain Layout
-\align center
-\begin_inset Caption Standard
-
-\begin_layout Plain Layout
-Joint Performance
-\end_layout
-
-\end_inset
-
-
-\begin_inset Tabular
-<lyxtabular version="3" rows="15" columns="4">
-<features tabularvalignment="middle">
-<column alignment="center" valignment="top">
-<column alignment="center" valignment="top">
-<column alignment="center" valignment="top">
-<column alignment="center" valignment="top">
-<row>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-Accuracy
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-Sensitivity
-\end_layout
-
-\end_inset
-</cell>
 <cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
-Specificity
+0.7733 
 \end_layout
 
 \end_inset
@@ -1845,44 +2519,6 @@ Specificity
 
 \begin_layout Plain Layout
 FlatLine-Spike
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-0.9248
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-0.9690 
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-0.7733 
-\end_layout
-
-\end_inset
-</cell>
-</row>
-<row>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-Spike-FlatLine
 \end_layout
 
 \end_inset
@@ -1958,44 +2594,6 @@ FlatLine-Huge Impulse
 \begin_inset Text
 
 \begin_layout Plain Layout
-Huge Impulse-Flatline
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-0.9228
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-0.9547
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-0.8133
-\end_layout
-
-\end_inset
-</cell>
-</row>
-<row>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
 Spike-Huge Impulse
 \end_layout
 
@@ -2034,235 +2632,7 @@ Spike-Huge Impulse
 \begin_inset Text
 
 \begin_layout Plain Layout
-Huge Impulse - Spike
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-0.8036
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-0.9638 
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-0.2533
-\end_layout
-
-\end_inset
-</cell>
-</row>
-<row>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
 FlatLine - Spike - Huge Impulse
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-0.9208
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-0.9508
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-0.8178
-\end_layout
-
-\end_inset
-</cell>
-</row>
-<row>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-FlatLine - Huge Impulse - Spike
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-0.9208
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-0.9508
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-0.8178
-\end_layout
-
-\end_inset
-</cell>
-</row>
-<row>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-Spike - FlatLine - Huge Impulse
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-0.9208
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-0.9508
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-0.8178
-\end_layout
-
-\end_inset
-</cell>
-</row>
-<row>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-Spike - Huge Impulse - FlatLine
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-0.9208
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-0.9508
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-0.8178
-\end_layout
-
-\end_inset
-</cell>
-</row>
-<row>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-Huge Impulse - FlatLine - Spike
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-0.9208
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-0.9508
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-0.8178
-\end_layout
-
-\end_inset
-</cell>
-</row>
-<row>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-Huge Impulse - Spike - FlatLine
 \end_layout
 
 \end_inset
@@ -2396,34 +2766,26 @@ Orden de los factores no altera la clasificacion
 \end_inset
 
 
-\end_layout
+\change_deleted 361918700 1470093551
 
-\begin_layout Section
-Discussion and Conclusion 
 \end_layout
 
 \begin_layout Standard
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "tab:Features-selected"
 
-\end_inset
-
-methodology presented, the results obtained in Table 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "tab:Performance"
-
-\end_inset
-
- represent an improvement with respect to those reported in 
-\begin_inset CommandInset citation
-LatexCommand cite
-key "Sharir2012"
-
-\end_inset
-
+\change_deleted 361918700 1470093556
 .
+\change_unchanged
+
+\end_layout
+
+\begin_layout Section*
+Acknowledgements
+\end_layout
+
+\begin_layout Standard
+This work was supported by projects ASUTNBA0003860 from Universidad Tecnológica
+ Nacional, Buenos Aires, Argentina, and D9-UTN1714 from Secretaría de Políticas
+ Universitarias, Ministerio de Educación, Argentina.
 \end_layout
 
 \begin_layout Standard
