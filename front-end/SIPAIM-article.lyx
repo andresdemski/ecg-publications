@@ -491,9 +491,8 @@ status open
 \begin_layout Plain Layout
 \align center
 \begin_inset Graphics
-	filename img/Architecture.png
-	lyxscale 35
-	scale 25
+	filename svg/Architecture.svg
+	width 50text%
 
 \end_inset
 
@@ -2916,8 +2915,20 @@ name "fig:Graph-example"
 \end_inset
 
 
+\change_deleted 361918700 1470018766
+Graph
+\change_inserted 361918700 1470018787
+Examples of graphical reports
 \change_unchanged
-Graph example
+ 
+\change_inserted 361918700 1470019292
+created.
+ In panel a) a recording performance represented by colorbars.
+ In b) a recording strip of ECG, ABP and PPG is shown.
+\change_deleted 361918700 1470018801
+example
+\change_unchanged
+
 \end_layout
 
 \end_inset
@@ -3032,51 +3043,69 @@ key "Demski2016,ecg-kit-web"
  With the online version of this toolbox, we plan to bring these tools to
  wider and multidisciplinary audience.
  
-\change_unchanged
-As it was mentioned 
-\change_deleted 361918700 1470016295
-before
-\change_inserted 361918700 1470016295
-above
-\change_unchanged
-, in a nearly feature the application will give the option to store the
- recordings uploaded by the cardiologist.
+\change_deleted 361918700 1470017983
+As it was mentioned before, in a nearly feature the application will give
+ the option to store the recordings uploaded by the cardiologist.
  Doing that, it will be possible to store recordings of real ECG to analyze
- 
-\change_deleted 361918700 1470012773
-and understand CVD
-\change_unchanged
-.
+ and understand CVD.
  Using that information, it will be possible to run different analysis regarding
 , regions, ages, and so on.
-
-\change_inserted 361918700 1470015949
- 
-\change_unchanged
-It is worth highlighting that there is not any other open application like
- this on internet.
- 
-\change_inserted 361918700 1470015949
+\change_inserted 361918700 1470018113
 
 \end_layout
 
 \begin_layout Standard
 
-\change_inserted 361918700 1470012726
-This web application could be also used for learning purposes.
- Students could use it to compare their results with the application's results.
- Furthermore, not only this app could be used by students but also by medicine
- teachers who want to use an interactive tool.
- The application will be also integrated with Physionet databases 
+\change_inserted 361918700 1470018655
+Other possible use of this web application is for academic and learning
+ purposes.
+ The academic community could find this tool useful for accessing the huge
+ databank available through the integration with Physionet databases 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "PhysioNet"
 
 \end_inset
 
-, therefore, it will be possible for students to use the application with
- enough ECG examples.
+.
+ In these context our tool not only can be used for analysis, but visualization
+ purposes, given the large amount of physiological and pathological recordings
+ available in the databank.
+ 
 \change_unchanged
+It is worth 
+\change_deleted 361918700 1470017983
+highlighting 
+\change_inserted 361918700 1470017915
+to point 
+\change_unchanged
+that 
+\change_deleted 361918700 1470017983
+there is not
+\change_inserted 361918700 1470017938
+we did not find
+\change_unchanged
+ any other 
+\change_inserted 361918700 1470017948
+online and 
+\change_unchanged
+open
+\change_inserted 361918700 1470017951
+ source
+\change_unchanged
+ application 
+\change_deleted 361918700 1470017983
+like this 
+\change_inserted 361918700 1470018001
+with the features described 
+\change_deleted 361918700 1470017983
+on internet
+\change_inserted 361918700 1470018020
+available at the moment of writing
+\change_unchanged
+.
+ 
+\change_inserted 361918700 1470015949
 
 \end_layout
 
@@ -3084,7 +3113,13 @@ key "PhysioNet"
 As it was possible to see through this document, the project surrounds many
  areas such as research, medicine, learning.
  The code is available on Github for any developer or cardiologist who wants
- to see how the app was done.
+ to see how the app was 
+\change_deleted 361918700 1470018679
+done
+\change_inserted 361918700 1470018682
+implemented
+\change_unchanged
+.
  And of course, it will be also possible to collaborate fixing or creating
  new features for the app.
 \end_layout
