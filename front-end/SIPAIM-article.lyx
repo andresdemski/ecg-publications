@@ -491,7 +491,7 @@ status open
 \begin_layout Plain Layout
 \align center
 \begin_inset Graphics
-	filename svg/Architecture.svg
+	filename img/Architecture.svg
 	width 50text%
 
 \end_inset
@@ -2860,7 +2860,7 @@ b)
 
 \change_inserted 361918700 1470008240
 \begin_inset Graphics
-	filename svg/reporte.svg
+	filename img/reporte.svg
 	lyxscale 35
 	width 55text%
 
