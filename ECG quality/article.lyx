@@ -119,6 +119,23 @@ Andrés Demski and Mariano Llamedo Soria
 Universidad Tecnológica Nacional, Buenos Aires, Argentina
 \end_layout
 
+\begin_layout Section*
+Abstract
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+Te toca gordo !
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
 \begin_layout Section
 Introduction
 \end_layout
@@ -1851,8 +1868,8 @@ key "clifford-quality-cinc,behar-quality,liq-multilevel"
 , a support vector machine with Gaussian kernel was used as detector.
  
 \change_unchanged
-From these features, we train two models: a reduced model which only uses
- 6 of the 12 SQIs (kSQI, sSQI, pSQI, basSQI, bSQI and pcaSQI) 
+From these features, we train two models: a reduced model (RD) which only
+ uses 6 of the 12 SQIs (kSQI, sSQI, pSQI, basSQI, bSQI and pcaSQI) 
 \change_deleted 361918700 1470093092
 like
 \change_inserted 361918700 1470093093
@@ -1883,7 +1900,7 @@ other
 \change_deleted 361918700 1470093104
 , the full model, 
 \change_unchanged
-which uses all 
+which uses all (FD) 
 \change_deleted 361918700 1470093113
 of them like [
 \change_inserted 361918700 1470093117
@@ -1905,10 +1922,6 @@ key "liq-multilevel"
 
 \begin_layout Section
 Results
-\change_inserted 361918700 1470093528
- and Discussion
-\change_unchanged
-
 \end_layout
 
 \begin_layout Standard
@@ -2922,7 +2935,7 @@ BT - FD
 \begin_layout Plain Layout
 
 \size scriptsize
-FL: flatline
+detectors FL: flatline
 \begin_inset space ~
 \end_inset
 
@@ -2978,7 +2991,7 @@ HI: high impulse
 \begin_layout Plain Layout
 
 \size scriptsize
-BT: FL+SK+HI
+BT: binary tree (FL+SK+HI)
 \begin_inset space ~
 \end_inset
 
@@ -3033,7 +3046,7 @@ FD: full detector
 
 
 \begin_inset Note Note
-status collapsed
+status open
 
 \begin_layout Plain Layout
 Orden de los factores no altera la clasificacion
@@ -3042,6 +3055,12 @@ Orden de los factores no altera la clasificacion
  Se podria achicar para que no quede tan grande al pedo
 \change_unchanged
  
+\end_layout
+
+\begin_layout Plain Layout
+OK, la achiqué no tenía sentido.
+ Fijate si podés resaltar en negrita algún dato, para focalizar la lectura
+ entre tantos nros.
 \end_layout
 
 \end_inset
@@ -3061,6 +3080,23 @@ Orden de los factores no altera la clasificacion
 \change_deleted 361918700 1470093556
 .
 \change_unchanged
+
+\end_layout
+
+\begin_layout Section
+Discussion
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+Te toca gordo ! Esto casi es lo más importante del trabajo.
+\end_layout
+
+\end_inset
+
 
 \end_layout
 
