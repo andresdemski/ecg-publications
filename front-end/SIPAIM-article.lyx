@@ -94,13 +94,11 @@
 \papercolumns 1
 \papersides 1
 \paperpagestyle default
-\tracking_changes true
+\tracking_changes false
 \output_changes false
 \html_math_output 0
 \html_css_as_file 0
 \html_be_strict false
-\author -1260779252 "mariano"
-\author 361918700 "Mariano"
 \author 2088930433 "Alan"
 \end_header
 
@@ -175,11 +173,7 @@ During the last decades, the relation between the cardiology and computer
  technology has become closer, and as long as this relation keeps evolving,
  cardiologists, scientists and people will be benefit.
  Computers helps cardiology in different areas such as data storage, surgical
- procedures, knowledge and diagnostic sharing
-\change_deleted -1260779252 1469630405
- 
-\change_unchanged
-.
+ procedures, knowledge and diagnostic sharing.
  In this case, computerized methods can help to detect cardiovascular diseases
  with a high degree of assistance.
  The ECG is an inexpensive routine methodology in the clinical practice.
@@ -255,67 +249,6 @@ ecg-kit
  features to create an open web software that could be easily accessed by
  any user in general, and cardiologists and researchers in particular.
  
-\change_inserted 361918700 1469986784
-
-\end_layout
-
-\begin_layout Standard
-
-\change_deleted 361918700 1469986795
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-esto último no me gusta mucho :( si querés, poner algo que esta aplicación
- podría ampliar aún más el alcance global de la difusión de nuestra tarea
- investigativa.
-\end_layout
-
-\end_inset
-
-
-\change_unchanged
-
-\end_layout
-
-\begin_layout Standard
-
-\change_deleted 361918700 1469986802
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-Yo acá haría una referencia a lo que ya hemos desarrollado del ecg-kit,
- qué particularidades tiene, qué tipo de algoritmos ya tiene implementado
- y qué análisis se podrían hacer, hacé una primera versión si querés.
-\end_layout
-
-\end_inset
-
-
-\change_inserted 361918700 1469986810
-
-\end_layout
-
-\begin_layout Standard
-
-\change_inserted 361918700 1469986814
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-
-\change_inserted 361918700 1469986823
-La intro ya va quedando mucho mejor ! congrats !
-\change_unchanged
-
-\end_layout
-
-\end_inset
-
-
-\change_unchanged
-
 \end_layout
 
 \begin_layout Section
@@ -327,12 +260,9 @@ Scope
 \end_layout
 
 \begin_layout Standard
-The main objective of the application is to
-\change_deleted 2088930433 1469992106
- 
-\change_unchanged
- provide the possibility of performing an automatic analysis of cardiovascular
- signals, to any user with minimum requirements of software and hardware.
+The main objective of the application is to provide the possibility of performin
+g an automatic analysis of cardiovascular signals, to any user with minimum
+ requirements of software and hardware.
  With this tool, users could perform heartbeat detection and classification,
  wave delineation and pulse detection in arterial blood pressure (ABP) or
  plethysmographic (PPG) signals.
@@ -358,28 +288,6 @@ Components
 This software will be implemented by the following main components, ECG
  graph library, front end web application, backend, and Matlab core.
  
-\change_inserted 361918700 1469991299
-
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-
-\change_inserted 361918700 1469991327
-todo soft libre ? salvo 
-\change_unchanged
-Matlab
-\change_inserted 361918700 1469991327
- obvio, algún comentario más acerca de por qué elegimos cada comp ?
-\change_unchanged
-
-\end_layout
-
-\end_inset
-
-
-\change_unchanged
-
 \end_layout
 
 \begin_layout Enumerate
@@ -389,11 +297,8 @@ ECG graph library
 \series default
 : During our research, we realized there is not any well-developed open
  library to create ECG graphs for JavaScript.
- Therefore, one of the main tasks in this project is
-\change_inserted 361918700 1469991349
- 
-\change_unchanged
-to create an open library for the graphics of the ECG,
+ Therefore, one of the main tasks in this project is to create an open library
+ for the graphics of the ECG,
 \end_layout
 
 \begin_layout Enumerate
@@ -455,15 +360,7 @@ pantom
 \emph on
 ecgpuwave
 \emph default
- and
-\change_deleted 2088930433 1469992100
- 
-\change_unchanged
- EP limited.
-
-\change_deleted 2088930433 1469992100
- 
-\change_unchanged
+ and EP limited.
  After detecting the QRS, it can be performed the peak detection over pulsatile
  signals, if available, such as ABP or PPG.
  The task uses two algorithms to achieve pulse detection, and as in QRS
@@ -518,23 +415,8 @@ Main user interaction
 \end_layout
 
 \begin_layout Standard
-The user interaction will be handled 
-\change_deleted 361918700 1470005152
-by the app 
-\change_unchanged
-in the form of a 
-\change_inserted 361918700 1470005133
-Single page application
-\change_deleted 361918700 1470005135
-SPA
-\change_unchanged
- (
-\change_inserted 361918700 1470005136
-SPA
-\change_deleted 361918700 1470005131
-Single page application
-\change_unchanged
-).
+The user interaction will be handled in the form of a Single page application
+ (SPA).
  This means that the final user will be using the homepage for its objective.
  The homepage will provide a checkbox for the selection of the operations
  to be applied to the selected ECG.
@@ -543,31 +425,16 @@ Single page application
 \emph on
 ecg-kit
 \emph default
- 
-\change_deleted 361918700 1470005180
-Matlab package
-\change_inserted 361918700 1470005211
-toolbox 
+ toolbox 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "ecg-kit-web"
 
 \end_inset
 
-
-\change_unchanged
 .
- The user will also be provided with an input field to upload its own 
-\change_deleted 361918700 1470005228
-registered
-\change_unchanged
- ECG
-\change_inserted 361918700 1470005233
- recording
-\change_deleted 361918700 1470005229
-'s
-\change_unchanged
-.
+ The user will also be provided with an input field to upload its own ECG
+ recording.
 \end_layout
 
 \begin_layout Standard
@@ -578,31 +445,10 @@ Once the desired action is selected the user will be presented with a loading
  signal to the 
 \emph on
 ecg-kit
-\change_deleted 361918700 1470005259
-
 \emph default
- Matlab package
-\change_inserted 361918700 1470005264
- in Matlab
-\change_unchanged
-.
- 
-\change_deleted 361918700 1470005277
-The 
-\emph on
-ecg-kit
-\emph default
- 
-\change_inserted 361918700 1470005278
-From 
-\change_unchanged
-Matlab 
-\change_deleted 361918700 1470005292
-package
-\change_inserted 361918700 1470005294
-the toolbox
-\change_unchanged
- will process the request and serve the raw data to a python service.
+ in Matlab.
+ From Matlab the toolbox will process the request and serve the raw data
+ to a python service.
  The python service will process the newly acquired data and serve it to
  the web application in JSON format.
 \end_layout
@@ -624,70 +470,12 @@ ECG
 \end_layout
 
 \begin_layout Standard
-The 
-\change_deleted 361918700 1470005956
-ECG recording 
-\change_inserted 361918700 1470006010
-web page 
-\change_unchanged
-will show 
-\change_inserted 361918700 1470006014
-the 
-\change_unchanged
-signals 
-\change_deleted 361918700 1470005898
-provided
-\change_inserted 361918700 1470005899
-available
-\change_unchanged
- 
-\change_deleted 361918700 1470005901
-by
-\change_inserted 361918700 1470005902
-in
-\change_unchanged
- the 
-\change_inserted 361918700 1470005961
-ECG recording 
-\change_unchanged
-uploaded
-\change_deleted 361918700 1470006044
- file
-\change_unchanged
-.
- 
-\change_deleted 361918700 1470006142
-In
-\change_inserted 361918700 1470006142
-For
-\change_unchanged
- each signal the application will give the option of 
-\change_deleted 361918700 1470005350
-overprint
-\change_inserted 361918700 1470006154
-superimposing
-\change_unchanged
- more information 
-\change_deleted 361918700 1470005383
-about the
-\change_inserted 361918700 1470006166
-produced by other
-\change_unchanged
- analysis such as QRS detections, wave delineation, 
-\change_inserted 361918700 1470005426
-or/
-\change_unchanged
-and heartbeat 
-\change_deleted 361918700 1470005415
-type
-\change_inserted 361918700 1470005417
-classification
-\change_unchanged
-.
- Furthermore, the report will include
-\change_inserted 361918700 1470007971
-, when the ground truth was provided, the tables defined by the EC-57 standard
- 
+The web page will show the signals available in the ECG recording uploaded.
+ For each signal the application will give the option of superimposing more
+ information produced by other analysis such as QRS detections, wave delineation
+, or/and heartbeat classification.
+ Furthermore, the report will include, when the ground truth was provided,
+ the tables defined by the EC-57 standard 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "AAMI-EC57"
@@ -696,21 +484,14 @@ key "AAMI-EC57"
 
 , regarding to rhythm analysis and heartbeat detection and classification
  performance.
- Also, the user can export
-\change_deleted 361918700 1470005648
- 
-\change_unchanged
-several views of the signals at different time scales
-\change_inserted 361918700 1470008341
-, as is shown in Figure 
+ Also, the user can exportseveral views of the signals at different time
+ scales, as is shown in Figure 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "fig:Graph-example"
 
 \end_inset
 
-
-\change_unchanged
 .
 \end_layout
 
@@ -719,31 +500,16 @@ Report
 \end_layout
 
 \begin_layout Standard
-
-\change_deleted 361918700 1470005722
-Thanks to the Automatic Heartbeat classification developed in the ecg-kit,
- the heartbeats are going to be classified into the following classes: Normal,
- Supraventricular, Ventricular, Fusion of Normal and Ventricular.
- 
-\change_inserted 361918700 1470006261
 The web application will have the possibility of producing a report, or
  producing results in a raw format for further analysis.
- 
-\change_unchanged
-Following the AAMI-EC57 standard
-\change_inserted 361918700 1470005806
- 
+ Following the AAMI-EC57 standard 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "AAMI-EC57"
 
 \end_inset
 
-
-\change_unchanged
-, 
-\change_inserted 361918700 1470006446
-several tables for each of the analysis performed can be produced.
+, several tables for each of the analysis performed can be produced.
  Two examples are shown in Table 
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -762,11 +528,6 @@ key "PhysioNet"
 , second two other recordings of this database were analyzed with a heartbeat
  classifier.
  
-\change_deleted 361918700 1470006294
-the report will present the amount of heartbeats detected and the amount
- for each type.
-\change_unchanged
-
 \end_layout
 
 \begin_layout Standard
@@ -780,16 +541,12 @@ status open
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-
-\change_inserted 361918700 1470006309
 \begin_inset CommandInset label
 LatexCommand label
 name "tab:Report-examples-for"
 
 \end_inset
 
-
-\change_unchanged
 Report examples for a) QRS detection and b) heart beat classification.
 \end_layout
 
@@ -2769,25 +2526,8 @@ status open
 
 \end_layout
 
-\begin_layout Plain Layout
-
-\end_layout
-
 \end_inset
 
-
-\end_layout
-
-\begin_layout Standard
-
-\change_deleted 361918700 1470008324
-Furthermore, when uploaded files include the expert annotations, or ‘’ground
- truth’‘, it is going to be possible to check how sensitivity the algorithms
- are.
- To achieve those results, the report will show the amount of true positives,
- false negative, false positive and so on.
- 
-\change_unchanged
 
 \end_layout
 
@@ -2799,8 +2539,6 @@ status open
 
 \begin_layout Plain Layout
 \align center
-
-\change_inserted 361918700 1470008178
 \begin_inset Tabular
 <lyxtabular version="3" rows="3" columns="2">
 <features tabularvalignment="middle">
@@ -2811,11 +2549,7 @@ status open
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\change_inserted 361918700 1470008187
 a)
-\change_unchanged
-
 \end_layout
 
 \end_inset
@@ -2824,11 +2558,7 @@ a)
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\change_inserted 361918700 1470008190
 b)
-\change_unchanged
-
 \end_layout
 
 \end_inset
@@ -2839,8 +2569,6 @@ b)
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\change_inserted 361918700 1470008205
 \begin_inset Graphics
 	filename img/Recording 231.jpg
 	lyxscale 35
@@ -2857,8 +2585,6 @@ b)
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\change_inserted 361918700 1470008240
 \begin_inset Graphics
 	filename img/reporte.svg
 	lyxscale 35
@@ -2878,8 +2604,6 @@ b)
 
 \begin_layout Plain Layout
 
-\change_inserted 361918700 1470008287
-
 \end_layout
 
 \end_inset
@@ -2888,8 +2612,6 @@ b)
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\change_inserted 361918700 1470008287
 
 \end_layout
 
@@ -2901,42 +2623,22 @@ b)
 \end_inset
 
 
-\change_unchanged
-
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-
-\change_inserted 361918700 1470008027
 \begin_inset CommandInset label
 LatexCommand label
 name "fig:Graph-example"
 
 \end_inset
 
-
-\change_deleted 361918700 1470018766
-Graph
-\change_inserted 361918700 1470018787
-Examples of graphical reports
-\change_unchanged
- 
-\change_inserted 361918700 1470019292
-created.
+Examples of graphical reports created.
  In panel a) a recording performance represented by colorbars.
  In b) a recording strip of ECG, ABP and PPG is shown.
-\change_deleted 361918700 1470018801
-example
-\change_unchanged
-
 \end_layout
 
 \end_inset
 
-
-\end_layout
-
-\begin_layout Plain Layout
 
 \end_layout
 
@@ -2946,80 +2648,10 @@ example
 \end_layout
 
 \begin_layout Section
-
-\change_deleted 361918700 1470012661
-Learning Purposes
+Discussion and Future releases
 \end_layout
 
 \begin_layout Standard
-
-\change_deleted 361918700 1470012661
-When a patient goes to the Emergency Room, the ECG is the first procedure
- to be done.
- Sometimes, in seconds, doctors need to understand what is happening with
- the patient.
- Having enough practice reading ECG, could be the difference to recover
- a patient in a risk situation.
- It is clear the importance of knowing how to read an ECG properly, and
- this the reason why ECG reading is one of the first things to be learn
- by doctors.
-\end_layout
-
-\begin_layout Standard
-
-\change_deleted 361918700 1470012661
-This web application could be also used for learning purposes.
- Students could use it to compare their results with the application's results.
- Furthermore, not only this app could be used by students but also by medicine
- teachers who want to use an interactive tool.
- The application will be also integrated with Physionet databases 
-\begin_inset CommandInset citation
-LatexCommand cite
-key "PhysioNet"
-
-\end_inset
-
-, therefore, it will be possible for students to use the application with
- enough ECG examples.
-\change_inserted 361918700 1470012663
-
-\end_layout
-
-\begin_layout Standard
-
-\change_inserted 361918700 1470012666
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-
-\change_inserted 361918700 1470012694
-Esto no me gustó mucho, a lo sumo poner algún párrafo en la discusión.
- 
-\change_unchanged
-
-\end_layout
-
-\end_inset
-
-
-\change_unchanged
-
-\end_layout
-
-\begin_layout Section
-
-\change_deleted 361918700 1470016278
-Conclusion
-\change_inserted 361918700 1470016280
-Discussion
-\change_unchanged
- and Future releases
-\end_layout
-
-\begin_layout Standard
-
-\change_inserted 361918700 1470016247
 In this work we presented an online tool for the analysis of cardiovascular
  signals.
  At the moment of writing, most of the applications already implemented
@@ -3043,20 +2675,9 @@ key "Demski2016,ecg-kit-web"
  With the online version of this toolbox, we plan to bring these tools to
  wider and multidisciplinary audience.
  
-\change_deleted 361918700 1470017983
-As it was mentioned before, in a nearly feature the application will give
- the option to store the recordings uploaded by the cardiologist.
- Doing that, it will be possible to store recordings of real ECG to analyze
- and understand CVD.
- Using that information, it will be possible to run different analysis regarding
-, regions, ages, and so on.
-\change_inserted 361918700 1470018113
-
 \end_layout
 
 \begin_layout Standard
-
-\change_inserted 361918700 1470018655
 Other possible use of this web application is for academic and learning
  purposes.
  The academic community could find this tool useful for accessing the huge
@@ -3071,75 +2692,18 @@ key "PhysioNet"
  In these context our tool not only can be used for analysis, but visualization
  purposes, given the large amount of physiological and pathological recordings
  available in the databank.
+ It is worth to point that we did not find any other online and open source
+ application with the features described available at the moment of writing.
  
-\change_unchanged
-It is worth 
-\change_deleted 361918700 1470017983
-highlighting 
-\change_inserted 361918700 1470017915
-to point 
-\change_unchanged
-that 
-\change_deleted 361918700 1470017983
-there is not
-\change_inserted 361918700 1470017938
-we did not find
-\change_unchanged
- any other 
-\change_inserted 361918700 1470017948
-online and 
-\change_unchanged
-open
-\change_inserted 361918700 1470017951
- source
-\change_unchanged
- application 
-\change_deleted 361918700 1470017983
-like this 
-\change_inserted 361918700 1470018001
-with the features described 
-\change_deleted 361918700 1470017983
-on internet
-\change_inserted 361918700 1470018020
-available at the moment of writing
-\change_unchanged
-.
- 
-\change_inserted 361918700 1470015949
-
 \end_layout
 
 \begin_layout Standard
 As it was possible to see through this document, the project surrounds many
  areas such as research, medicine, learning.
  The code is available on Github for any developer or cardiologist who wants
- to see how the app was 
-\change_deleted 361918700 1470018679
-done
-\change_inserted 361918700 1470018682
-implemented
-\change_unchanged
-.
+ to see how the app was implemented.
  And of course, it will be also possible to collaborate fixing or creating
  new features for the app.
-\end_layout
-
-\begin_layout Standard
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-Esto no tenías por qué saberlo Alan, se suele usar el gestor de citas, para
- evitar andar renumerándolas a medida que las vas cambiando de lugar en
- el texto, y por centralizar todas las referencias.
- Eso se hace en el archivo report.bib que se lo referencia al final de este
- doc.
- Se puede editar fácilmente mediante el soft jabref
-\end_layout
-
-\end_inset
-
-
 \end_layout
 
 \begin_layout Section*
