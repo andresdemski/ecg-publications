@@ -190,22 +190,8 @@ Introduction
 \end_layout
 
 \begin_layout Standard
-The analysis of 
-\change_inserted 361918700 1470247509
-the 
-\change_unchanged
-electrocardiogra
-\change_inserted 361918700 1470247520
-m
-\change_deleted 361918700 1470247519
-phic
-\change_unchanged
- (ECG) 
-\change_deleted 361918700 1470247526
-signals 
-\change_unchanged
-provides a noninvasive and inexpensive technique to analyze the heart function
- for different cardiac conditions.
+The analysis of the electrocardiogram (ECG) provides a noninvasive and inexpensi
+ve technique to analyze the heart function for different cardiac conditions.
  The first task to perform in almost all automatic procedures is the detection
  of heartbeats or QRS complexes, and the subsequent construction of the
  RR interval sequence.
@@ -6594,27 +6580,6 @@ options "spiebib"
 
 \end_inset
 
-
-\change_inserted 361918700 1470247697
-
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-
-\change_inserted 361918700 1470247756
-Juani saqué tu base de datos de biblio, dejá todo en report.bib así lo podemos
- compilar tanto en tu compu como en la mia.
- Sino figuraba un path en Windows a tu biblio.
- 
-\change_unchanged
-
-\end_layout
-
-\end_inset
-
-
-\change_unchanged
 
 \end_layout
 
