@@ -6589,11 +6589,32 @@ This work was supported by projects TEC2010-21703-C03-02, TEC2010-19410
 \begin_layout Standard
 \begin_inset CommandInset bibtex
 LatexCommand bibtex
-bibfiles "report,C:/Users/Juani/My Lyx Projects/articlesDB"
+bibfiles "report"
 options "spiebib"
 
 \end_inset
 
+
+\change_inserted 361918700 1470247697
+
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+
+\change_inserted 361918700 1470247756
+Juani saqué tu base de datos de biblio, dejá todo en report.bib así lo podemos
+ compilar tanto en tu compu como en la mia.
+ Sino figuraba un path en Windows a tu biblio.
+ 
+\change_unchanged
+
+\end_layout
+
+\end_inset
+
+
+\change_unchanged
 
 \end_layout
 
