@@ -98,6 +98,7 @@
 \html_math_output 0
 \html_css_as_file 0
 \html_be_strict false
+\author -1260779252 "mariano"
 \author -468262419 "JuanIgnacio"
 \author 361918700 "Mariano"
 \author 1034985151 "Gavilanes"
@@ -190,6 +191,25 @@ IM
 
 \begin_layout Section
 Introduction
+\change_inserted -1260779252 1470331725
+
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+
+\change_inserted -1260779252 1470331747
+Activá la corrección ortográfica todo el tiempo, hay muchos errores de ortografí
+a.
+\change_unchanged
+
+\end_layout
+
+\end_inset
+
+
+\change_unchanged
+
 \end_layout
 
 \begin_layout Standard
@@ -207,7 +227,15 @@ key "pantom,Martinez04,PhysioNet"
 
 \end_inset
 
- and some of them are open-source or freely available 
+
+\change_inserted -1260779252 1470326842
+,
+\change_unchanged
+ 
+\change_deleted -1260779252 1470326845
+and 
+\change_unchanged
+some of them are open-source or freely available 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "PhysioNet,ecg-kit2016"
@@ -218,11 +246,38 @@ key "PhysioNet,ecg-kit2016"
 \end_layout
 
 \begin_layout Standard
-It's clear that almost every algorithm for QRS detection is divided in two
- process: signal processing and decision rules.
- In a preliminary study we evaluated wich of these algotirhms should be
- fully representative for a complete first work as researchers, and for
- being robust and widely used decided to evaluate the Pan and Tompkins algorithm
+
+\change_deleted -1260779252 1470326876
+It's clear that 
+\change_inserted -1260779252 1470326890
+According to the literature reviewed 
+\change_unchanged
+almost every algorithm for QRS detection is divided in two 
+\change_deleted -1260779252 1470329222
+process
+\change_inserted -1260779252 1470329223
+parts
+\change_unchanged
+: 
+\change_deleted -1260779252 1470329244
+signal processing
+\change_inserted -1260779252 1470329593
+one consists in generating the detection signal
+\change_unchanged
+ 
+\change_inserted -1260779252 1470329625
+or the feature vectors 
+\change_unchanged
+and 
+\change_inserted -1260779252 1470329631
+the second in performing pattern recognition or 
+\change_unchanged
+decision rules.
+ 
+\change_deleted -1260779252 1470329691
+In a preliminary study we evaluated wich of these algotirhms should be fully
+ representative for a complete first work as researchers, and for being
+ robust and widely used decided to evaluate the Pan and Tompkins algorithm
  of each author of this article against the same implemented in the ECG-kit
  
 \begin_inset CommandInset citation
@@ -232,7 +287,29 @@ key "ecg-kit-web"
 \end_inset
 
 .
- Probably the most popular detector is the Pan and Tompkins algorithm, developed
+
+\change_unchanged
+ 
+\change_inserted -1260779252 1470329751
+
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+
+\change_inserted -1260779252 1470329748
+comentá acá algunos enfoques que se encuadren en lo que dijimos en la anterior
+ oración, para luego decir que implementaremos el P&T
+\change_unchanged
+
+\end_layout
+
+\end_inset
+
+.
+ 
+\change_unchanged
+Probably the most popular detector is the Pan and Tompkins algorithm, developed
  thirty years ago it remains a common choice because of its simplicity and
  performance.
  It constructs a detection signal based on digital bandpass filter, followed
@@ -248,9 +325,60 @@ wqrs
  Referring to the algorithm based on wavelet transform, it's an implementation
  based on the multiscale approach, amplitude based criteria and the adaptive
  thresholding for each scale of this transform.
- Finally, SQRS is based on the techniques of amplitud threshold, a first
- and second derivative and a stage for digital filtering.
+ Finally, 
+\change_deleted -1260779252 1470330312
+SQRS
+\change_inserted -1260779252 1470330315
+
+\emph on
+sqrs
+\change_unchanged
+
+\emph default
+ is based on the techniques of 
+\change_deleted -1260779252 1470330326
+amplitud
+\change_inserted -1260779252 1470330326
+amplitude
+\change_unchanged
+ threshold, a first and second derivative and a stage for digital filtering
+\change_inserted -1260779252 1470330349
+
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+
+\change_inserted -1260779252 1470330360
+ponelo en el orden correcto, primero DSP luego umbrales
+\change_unchanged
+
+\end_layout
+
+\end_inset
+
+
+\change_unchanged
+.
  
+\change_inserted -1260779252 1470330216
+
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+
+\change_inserted -1260779252 1470330240
+acá yo pondría que se decidió usar el P&T y por qué
+\change_unchanged
+
+\end_layout
+
+\end_inset
+
+
+\change_unchanged
+
 \end_layout
 
 \begin_layout Standard
@@ -282,11 +410,17 @@ As previously mentioned, we used the well-known MIT-BIH Arrhythmia database,
  Two or more cardiologists independently annotated each recording and resolved
  the disagreements, generating a reference annotation for each heartbeat
  in the database.
- Four of these 48 records (102, 104, 107, and 217) include paced beats and
- their QRS complexes are not recognized by using commonly methods described
+ Four of these 48 records (102, 104, 107, and 217) include paced beats
+\change_inserted -1260779252 1470331411
+ and were discarded.
+
+\change_deleted -1260779252 1470331319
+ and their QRS complexes are not recognized by using commonly methods described
  in the introduction, so we decided not to evaluate our implementation on
  them.
  There are, however, developed pacemaker artifact detectors.
+\change_unchanged
+
 \end_layout
 
 \begin_layout Subsection
@@ -301,9 +435,17 @@ reference "fig:Pan-and-Tompkins-1"
 
 \end_inset
 
-, the algorithm consist in 6 well-defined stages: a bandpass filter, a derivativ
-e block, a squaring nonlinear transformation, a moving window integration,
- an algorithm of adaptive thresholds and a decision rule.
+, the algorithm consist
+\change_inserted -1260779252 1470331482
+s
+\change_unchanged
+ in 6 
+\change_deleted -1260779252 1470331486
+well-defined 
+\change_unchanged
+stages: a bandpass filter, a derivative block, a squaring nonlinear transformati
+on, a moving window integration, an algorithm of adaptive thresholds and
+ a decision rule.
 \end_layout
 
 \begin_layout Standard
@@ -361,6 +503,23 @@ allowing
 samples per second
 \change_inserted -468262419 1470063199
 Hz
+\change_inserted -1260779252 1470332018
+
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+
+\change_inserted -1260779252 1470332057
+Este párrafo me parece anecdótico, lo pondría si hablara de cómo lo vamos
+ a tratar nosotros, marcando el contraste, sino, saquenló.
+\change_unchanged
+
+\end_layout
+
+\end_inset
+
+
 \change_unchanged
 .
 
@@ -394,6 +553,26 @@ status open
 \end_inset
 
 
+\change_inserted -1260779252 1470331915
+
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+
+\change_inserted -1260779252 1470331959
+Yo pondría todas las señales juntas y sincronizadas en tiempo cosa que se
+ pueda asociar el paso de un bloque con el efecto que el bloque tuvo en
+ la señal.
+\change_unchanged
+
+\end_layout
+
+\end_inset
+
+
+\change_inserted -468262419 1470064223
+
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
@@ -424,12 +603,29 @@ name "fig:ECG-signal:-MLII"
 \end_layout
 
 \begin_layout Standard
-The first stage consist in a band-pass filter in order to attenuete low
- frequencies like P and T waves, attenuate power-line, muscle noise and
- baseline drift.
+The first stage consist in a band-pass filter in order to 
+\change_deleted -1260779252 1470332106
+attenuete low frequencies like P and T waves, attenuate power-line, muscle
+ noise and baseline drift
+\change_inserted -1260779252 1470332118
+retain only QRS complex energy
+\change_unchanged
+.
  In fact, the original Pan and Tompkins band-pass filter consist in the
  cascade of a low-pass filter and a high-pass filter to achieve the goal.
- Using the technic for integer coefficents, they design
+ Using the 
+\change_deleted -1260779252 1470332146
+technic
+\change_inserted -1260779252 1470332146
+technique
+\change_unchanged
+ for integer 
+\change_deleted -1260779252 1470332159
+coefficents
+\change_inserted -1260779252 1470332159
+coefficients
+\change_unchanged
+, they design
 \change_inserted -468262419 1470064329
 ed
 \change_unchanged
@@ -439,6 +635,24 @@ ed
 z
 \shape default
  plane.
+\change_inserted -1260779252 1470332213
+
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+
+\change_inserted -1260779252 1470332302
+Esto último no es al revés ?, en qué lugar de la circunsf se cancela ?
+\change_unchanged
+
+\end_layout
+
+\end_inset
+
+
+\change_unchanged
+
 \end_layout
 
 \begin_layout Standard
@@ -475,7 +689,11 @@ reference "eq:lpf"
 \begin_layout Standard
 Next, the high-pass filter's transfer function is implementated by a subtraction
  of a a low-pass filter from an all-pass filter.
- The transfer funcition
+ The transfer 
+\change_deleted -1260779252 1470332324
+funcition
+\change_inserted -1260779252 1470332324
+function
 \change_deleted -468262419 1470064360
  for this
 \change_unchanged
@@ -502,7 +720,13 @@ reference "eq:hpf"
 \end_inset
 
  is different from the described in the original Pan and Tompkins paper.
- We decided to implemet a different version of the high-pass filter
+ We decided to 
+\change_deleted -1260779252 1470332364
+implemet
+\change_inserted -1260779252 1470332364
+implement
+\change_unchanged
+ a different version of the high-pass filter
 \change_inserted -468262419 1470064382
 ,
 \change_unchanged

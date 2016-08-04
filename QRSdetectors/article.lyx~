@@ -98,6 +98,7 @@
 \html_math_output 0
 \html_css_as_file 0
 \html_be_strict false
+\author -1260779252 "mariano"
 \author -468262419 "JuanIgnacio"
 \author 361918700 "Mariano"
 \author 1034985151 "Gavilanes"
@@ -207,7 +208,15 @@ key "pantom,Martinez04,PhysioNet"
 
 \end_inset
 
- and some of them are open-source or freely available 
+
+\change_inserted -1260779252 1470326842
+,
+\change_unchanged
+ 
+\change_deleted -1260779252 1470326845
+and 
+\change_unchanged
+some of them are open-source or freely available 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "PhysioNet,ecg-kit2016"
@@ -218,11 +227,38 @@ key "PhysioNet,ecg-kit2016"
 \end_layout
 
 \begin_layout Standard
-It's clear that almost every algorithm for QRS detection is divided in two
- process: signal processing and decision rules.
- In a preliminary study we evaluated wich of these algotirhms should be
- fully representative for a complete first work as researchers, and for
- being robust and widely used decided to evaluate the Pan and Tompkins algorithm
+
+\change_deleted -1260779252 1470326876
+It's clear that 
+\change_inserted -1260779252 1470326890
+According to the literature reviewed 
+\change_unchanged
+almost every algorithm for QRS detection is divided in two 
+\change_deleted -1260779252 1470329222
+process
+\change_inserted -1260779252 1470329223
+parts
+\change_unchanged
+: 
+\change_deleted -1260779252 1470329244
+signal processing
+\change_inserted -1260779252 1470329593
+one consists in generating the detection signal
+\change_unchanged
+ 
+\change_inserted -1260779252 1470329625
+or the feature vectors 
+\change_unchanged
+and 
+\change_inserted -1260779252 1470329631
+the second in performing pattern recognition or 
+\change_unchanged
+decision rules.
+ 
+\change_deleted -1260779252 1470329691
+In a preliminary study we evaluated wich of these algotirhms should be fully
+ representative for a complete first work as researchers, and for being
+ robust and widely used decided to evaluate the Pan and Tompkins algorithm
  of each author of this article against the same implemented in the ECG-kit
  
 \begin_inset CommandInset citation
@@ -232,7 +268,29 @@ key "ecg-kit-web"
 \end_inset
 
 .
- Probably the most popular detector is the Pan and Tompkins algorithm, developed
+
+\change_unchanged
+ 
+\change_inserted -1260779252 1470329751
+
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+
+\change_inserted -1260779252 1470329748
+comentá acá algunos enfoques que se encuadren en lo que dijimos en la anterior
+ oración, para luego decir que implementaremos el P&T
+\change_unchanged
+
+\end_layout
+
+\end_inset
+
+.
+ 
+\change_unchanged
+Probably the most popular detector is the Pan and Tompkins algorithm, developed
  thirty years ago it remains a common choice because of its simplicity and
  performance.
  It constructs a detection signal based on digital bandpass filter, followed
@@ -248,9 +306,60 @@ wqrs
  Referring to the algorithm based on wavelet transform, it's an implementation
  based on the multiscale approach, amplitude based criteria and the adaptive
  thresholding for each scale of this transform.
- Finally, SQRS is based on the techniques of amplitud threshold, a first
- and second derivative and a stage for digital filtering.
+ Finally, 
+\change_deleted -1260779252 1470330312
+SQRS
+\change_inserted -1260779252 1470330315
+
+\emph on
+sqrs
+\change_unchanged
+
+\emph default
+ is based on the techniques of 
+\change_deleted -1260779252 1470330326
+amplitud
+\change_inserted -1260779252 1470330326
+amplitude
+\change_unchanged
+ threshold, a first and second derivative and a stage for digital filtering
+\change_inserted -1260779252 1470330349
+
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+
+\change_inserted -1260779252 1470330360
+ponelo en el orden correcto, primero DSP luego umbrales
+\change_unchanged
+
+\end_layout
+
+\end_inset
+
+
+\change_unchanged
+.
  
+\change_inserted -1260779252 1470330216
+
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+
+\change_inserted -1260779252 1470330240
+acá yo pondría que se decidió usar el P&T y por qué
+\change_unchanged
+
+\end_layout
+
+\end_inset
+
+
+\change_unchanged
+
 \end_layout
 
 \begin_layout Standard
@@ -282,11 +391,17 @@ As previously mentioned, we used the well-known MIT-BIH Arrhythmia database,
  Two or more cardiologists independently annotated each recording and resolved
  the disagreements, generating a reference annotation for each heartbeat
  in the database.
- Four of these 48 records (102, 104, 107, and 217) include paced beats and
- their QRS complexes are not recognized by using commonly methods described
+ Four of these 48 records (102, 104, 107, and 217) include paced beats
+\change_inserted -1260779252 1470331411
+ and were discarded.
+
+\change_deleted -1260779252 1470331319
+ and their QRS complexes are not recognized by using commonly methods described
  in the introduction, so we decided not to evaluate our implementation on
  them.
  There are, however, developed pacemaker artifact detectors.
+\change_unchanged
+
 \end_layout
 
 \begin_layout Subsection
@@ -6362,6 +6477,42 @@ status open
 
 \begin_layout Section
 Discussion and conclusions
+\end_layout
+
+\begin_layout Standard
+
+\change_inserted 1034985151 1470256141
+Este es un trabajo de estudiantes y tiene el caracter de trabajo de investigació
+n.
+ En él se buscó implementar este conocido algoritmo de gran vigencia en
+ la actualidad.
+ Lo mas positivo es que ambas personas lo pudieron llevar a cabo con exito,
+ uno mejor que el otro pero ambos con resultados esperados y satisfactorios.
+ La implementación del algoritmo 2 no tuvo una performance brillante si
+ bien en el PV + consiguio un valor levemente superior a la otra implementación
+ la sensibilidad esta muy por debajo del la del paper original.
+ En contra parte la otra implementación la del algoritmo 2 tuvo una mejor
+ performance diriamos excelente performance, muy buenos ambos parametros
+ PV + y SENS superiores al 99%.
+ Hay que notar que este rendimiento es superior al del paper en el cual
+ esta mal calculado el rendimiento(Falla en el cálculo de complejos QRS
+ totales).
+ No solo es bajo el rendimiento del algoritmo 2 sino que el procesamiento
+ al ser programado en Matlab no fue optimizado como se debía con la capacidad
+ de manejar matrices de dicha herramienta, sino que fue realizado con ciclos
+ 
+\begin_inset Quotes eld
+\end_inset
+
+for
+\begin_inset Quotes erd
+\end_inset
+
+ lo que lo hizo mas lento.
+ Igualmente se puede usar para procesamiento en tiempo real porque no es
+ tan lento como uno se imagina.
+ El tiempo de procesamiento de toda la base de datos de MIT fue de 37(valor
+ estimado) minutos para este algoritmo y de X minutos para el 1.
 \end_layout
 
 \begin_layout Standard
