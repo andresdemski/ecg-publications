@@ -6366,6 +6366,42 @@ Discussion and conclusions
 
 \begin_layout Standard
 
+\change_inserted 1034985151 1470256141
+Este es un trabajo de estudiantes y tiene el caracter de trabajo de investigació
+n.
+ En él se buscó implementar este conocido algoritmo de gran vigencia en
+ la actualidad.
+ Lo mas positivo es que ambas personas lo pudieron llevar a cabo con exito,
+ uno mejor que el otro pero ambos con resultados esperados y satisfactorios.
+ La implementación del algoritmo 2 no tuvo una performance brillante si
+ bien en el PV + consiguio un valor levemente superior a la otra implementación
+ la sensibilidad esta muy por debajo del la del paper original.
+ En contra parte la otra implementación la del algoritmo 2 tuvo una mejor
+ performance diriamos excelente performance, muy buenos ambos parametros
+ PV + y SENS superiores al 99%.
+ Hay que notar que este rendimiento es superior al del paper en el cual
+ esta mal calculado el rendimiento(Falla en el cálculo de complejos QRS
+ totales).
+ No solo es bajo el rendimiento del algoritmo 2 sino que el procesamiento
+ al ser programado en Matlab no fue optimizado como se debía con la capacidad
+ de manejar matrices de dicha herramienta, sino que fue realizado con ciclos
+ 
+\begin_inset Quotes eld
+\end_inset
+
+for
+\begin_inset Quotes erd
+\end_inset
+
+ lo que lo hizo mas lento.
+ Igualmente se puede usar para procesamiento en tiempo real porque no es
+ tan lento como uno se imagina.
+ El tiempo de procesamiento de toda la base de datos de MIT fue de 37(valor
+ estimado) minutos para este algoritmo y de X minutos para el 1.
+\end_layout
+
+\begin_layout Standard
+
 \change_deleted -468262419 1470075113
 In this work we presented a model of features for ischemia detection in
  EST, based on three groups: pretest, exercise and a set of proposed measurement
