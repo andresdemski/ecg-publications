@@ -687,8 +687,13 @@ reference "eq:lpf"
 \end_layout
 
 \begin_layout Standard
-Next, the high-pass filter's transfer function is implementated by a subtraction
- of a a low-pass filter from an all-pass filter.
+Next, the high-pass filter's transfer function is 
+\change_deleted -1260779252 1470406337
+implementated
+\change_inserted -1260779252 1470406337
+implemented
+\change_unchanged
+ by a subtraction of a a low-pass filter from an all-pass filter.
  The transfer 
 \change_deleted -1260779252 1470332324
 funcition
@@ -785,12 +790,33 @@ normalizaed
 \change_inserted 361918700 1470247584
 normalized
 \change_unchanged
- amplitude response of the band-pass filter for each frequency between 0Hz
- and 
+ amplitude response of the band-pass filter
+\change_deleted -1260779252 1470406484
+ for each frequency between 0Hz and 
 \begin_inset Formula $f_{nyquist}=\frac{f_{s}}{2}$
 \end_inset
 
 .
+\change_inserted -1260779252 1470406501
+.
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+
+\change_inserted -1260779252 1470406543
+Esto ya lo dice el pie de figura, comenten algún otro detalle, intenten
+ no ser redundantes en lo que se dice, porque nos salta la ficha que no
+ tenemos mucho que decir :)
+\change_unchanged
+
+\end_layout
+
+\end_inset
+
+
+\change_unchanged
+
 \end_layout
 
 \begin_layout Standard
@@ -842,6 +868,27 @@ The bandwidth of the band-pass filter is between 9Hz-21Hz, with a total
 Notice that the filter's 3dB bandwidth designed by Pan and Tompkins is slightly
  enlarged from the original 5Hz-12Hz because the change in the sampling
  frequency.
+\change_inserted -1260779252 1470406585
+
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+
+\change_inserted -1260779252 1470406652
+esto es mala nuestra OJO ! como que no lo corregimos esto, es decir que
+ teníamos un filtro para 200 Hz y lo usamos igual ? esto anoten para cambiarlo
+ y no lo digamos porque es un error fulero, ninguno de los dos lo tuvo en
+ cuenta esto ?
+\change_unchanged
+
+\end_layout
+
+\end_inset
+
+
+\change_inserted -468262419 1470066793
+
 \end_layout
 
 \begin_layout Standard
@@ -1020,6 +1067,25 @@ reference "fig:Band-pass-filtered-and"
 \end_inset
 
 .
+\change_inserted -1260779252 1470406718
+
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+
+\change_inserted -1260779252 1470406742
+bien el comentario del ancho de banda útil del derivador, esos son los aportes
+ que tenemos que hacer en este artículo
+\change_unchanged
+
+\end_layout
+
+\end_inset
+
+
+\change_inserted -468262419 1470069290
+
 \end_layout
 
 \begin_layout Standard
@@ -1113,6 +1179,28 @@ y[n.T_{s}]=\left(x[n.T_{s}]\right)^{2}\label{eq:P&T_square}
 \end_inset
 
 
+\change_inserted -1260779252 1470406771
+
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+
+\change_inserted -1260779252 1470406946
+esta ecuación es redundante, yo no la pondría.
+ Se sobre entiende del texto.
+ Tal vez podrían poner algún espectro, si quieren, para ver la aparición
+ de intermodulaciones de 2da armónica, pero solo si les parece, o comentar
+ algo de la naturaleza no lineal, razón por la cual luego filtramos pasabajo.
+\change_unchanged
+
+\end_layout
+
+\end_inset
+
+
+\change_inserted -468262419 1470027228
+
 \end_layout
 
 \begin_layout Standard
@@ -1171,12 +1259,57 @@ name "fig:Band-pass-filtered,-differentiat"
 
 The slope of the R wave by itself is not enough to identify a QRS event,
  so the output from the squaring stage is filtered with a moving window
- integration in order to add all points within the window.
- The size of the windows's width was originally determined empirically with
- a value of 150 milliseconds, representing N = 54 samples or data points
- for a signal sampled at 360Hz.
+ integration in order to add all points within the window
+\change_inserted -1260779252 1470406991
+
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+
+\change_inserted -1260779252 1470407039
+esto no es así, tal vez podés argumentar que hay muchos flancos positivos
+ en una ventana de tiempo, pero no que no es suficiente, porque la propia
+ señal nos refuta
+\change_unchanged
+
+\end_layout
+
+\end_inset
+
+
+\change_inserted -468262419 1470070367
+.
+ The size of the windows
+\change_deleted -1260779252 1470406958
+'s
+\change_inserted -468262419 1470070367
+ width was originally determined empirically with a value of 150 milliseconds
+\change_deleted -1260779252 1470407058
+, representing N = 54 samples or data points for a signal sampled at 360Hz
+\change_inserted -468262419 1470070367
+.
  With this value, we ensure that all possibles QRS complexes completely
  fit in the choosen window.
+\change_inserted -1260779252 1470407096
+
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+
+\change_inserted -1260779252 1470407129
+y esto equivale a un filtro pasabajos del que sería interesante tb ver la
+ respuesta en frecuencia y porsupu el ancho de banda
+\change_unchanged
+
+\end_layout
+
+\end_inset
+
+
+\change_inserted -468262419 1470070367
+
 \end_layout
 
 \begin_layout Standard
@@ -1194,7 +1327,7 @@ y[n]=\frac{1}{N}\left(x[n]+x[n\text{−}1]+\text{·}\text{·}\text{·}+x[n\text{
 
 \begin_layout Standard
 
-\change_inserted -468262419 1470070827
+\change_deleted -1260779252 1470407151
 The equation 
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -1202,12 +1335,49 @@ reference "eq:P&T_movingAve"
 
 \end_inset
 
- represents a moving average filter with N = 54 samples.
+ represents a moving average filter with N = 54 samples
+\change_inserted -1260779252 1470407139
+
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+
+\change_inserted -1260779252 1470407160
+ya lo dijeron arriba, ojo con ser muy redundantes
+\change_unchanged
+
+\end_layout
+
+\end_inset
+
+
+\change_inserted -468262419 1470070827
+.
  All the close datapoints merge to generate one peak.
  If the window's width is too narrow, more peaks will form.
  Also, if too wide, will merge not only the QRS complex but also P and T
  waves.
  Figure represents the output of this stage.
+\change_inserted -1260779252 1470407176
+
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+
+\change_inserted -1260779252 1470407207
+esto lo pueden interpretar así, o como el filtrado de las intermodulaciones
+ de alta frecuencia producidas por el batido de la nolinealidad
+\change_unchanged
+
+\end_layout
+
+\end_inset
+
+
+\change_inserted -468262419 1470070827
+
 \end_layout
 
 \begin_layout Standard
@@ -1262,9 +1432,31 @@ Band-pass filtered, differentiated, squared and post moving-window ECG
 
 \begin_layout Standard
 
+\change_inserted -1260779252 1470407274
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+
+\change_inserted -1260779252 1470407334
+Estaría bueno ver todas las señales alineadas en tiempo, ver como se suceden
+ las etapas digitales y van generando finalmente esta señal, por eso sugería
+ rehacer estos gráficos todos juntos y alineados verticalmente tal vez
+\change_unchanged
+
+\end_layout
+
+\end_inset
+
+
 \change_inserted -468262419 1470072055
-For the thresholdig, two set of threshold are used, each one with two threshold
- level.
+For the 
+\change_deleted -1260779252 1470407348
+thresholdig
+\change_inserted -1260779252 1470407366
+detection of heartbeats
+\change_inserted -468262419 1470072055
+, two set of threshold are used, each one with two threshold level.
  The first applied to the waveform from the moving window integrator, while
  the other pair is applied to the band-pass output signal, where the signal-to-n
 oise ratio was increased.
@@ -1284,6 +1476,368 @@ key "pantom"
  time and is necessary to look back in time.
  Finally, a peak must be recognized in both the moving window integrator
  and bandpass output.
+\change_inserted -1260779252 1470407374
+
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+
+\change_inserted -1260779252 1470407436
+acá podemos meter algún ejemplo concreto donde falla y donde lo hace bien
+ el algortimos, busquen FP y FN para hacer un grafiquito didáctico mostrando
+ cómo funcan los umbrales.
+ Hagan bien esos gráfs que se van a cansar de usarlos luego, en este art,
+ en la presentación, etc etc.
+\change_unchanged
+
+\end_layout
+
+\end_inset
+
+
+\change_inserted -468262419 1470072055
+
+\end_layout
+
+\begin_layout Standard
+
+\change_inserted -1260779252 1470407735
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+
+\change_inserted -1260779252 1470408099
+falta aclarar qué obtienenen como resultado de la detección y cómo calculan
+ las métricas de rendimiento, parciales y finales.
+ Tal vez tb este sea un buen lugar para explicar el criterio de máxima performan
+ce por registro que explican más abajo.
+ Les pego algo que les puede servir para esto que les falta, tal vez alguna
+ ecuación o para armar la matriz de confusión si quieren, sino lo borran
+ Usemos S y P como sensibilidad PPV, ya que acá no se confunde con ninguna
+ otra P y S
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\change_inserted -1260779252 1470407977
+With the estimated and true labels we construct a 
+\begin_inset Formula $3\times3$
+\end_inset
+
+ confusion matrix to calculate the class and global performances:
+\begin_inset Separator latexpar
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\align center
+
+\change_inserted -1260779252 1470407977
+\begin_inset Tabular
+<lyxtabular version="3" rows="2" columns="2">
+<features tabularvalignment="middle">
+<column alignment="center" valignment="top" width="0pt">
+<column alignment="center" valignment="top">
+<row>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\change_inserted -1260779252 1470407977
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\change_inserted -1260779252 1470407977
+Estimated classes
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="middle" rotate="90" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\change_inserted -1260779252 1470407977
+\begin_inset space \hspace*{}
+\length -7mm
+\end_inset
+
+True classes
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\change_inserted -1260779252 1470407977
+\begin_inset Formula $\begin{array}{ccc}
+ & \begin{array}{ccccccccc}
+1 &  & \ldots &  & i &  & \ldots &  & C\end{array}\\
+\begin{array}{c}
+1\\
+\\
+i\\
+\vdots\\
+C
+\end{array} & \left(\begin{array}{ccccc}
+n_{11}^{T} & \ldots & n_{1i}^{F} & \ldots & n_{1C}^{F}\\
+\vdots & \ddots & \vdots\\
+n_{i1}^{F} & \ldots & n_{ii}^{T} & \ldots & n_{iC}^{F}\\
+\vdots &  & \vdots & \ddots\\
+n_{C1}^{F} & \ldots & n_{Ci}^{F} & \ldots & n_{CC}^{T}
+\end{array}\right) & \begin{array}{c}
+N_{1}\\
+\vdots\\
+N_{i}\\
+\vdots\\
+N_{C}
+\end{array}\\
+ & \begin{array}{ccccc}
+P_{1} & \ldots & P_{i} & \ldots & P_{C}\end{array} & N_{T}.
+\end{array}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\change_inserted -1260779252 1470407977
+For the 
+\begin_inset Formula $i$
+\end_inset
+
+-th class 
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\noun off
+\color none
+
+\begin_inset Formula $n_{ii}^{T}$
+\end_inset
+
+
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\noun default
+\color inherit
+ is the number of correctly classified examples and 
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\noun off
+\color none
+
+\begin_inset Formula $n_{ij}^{F}$
+\end_inset
+
+
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\noun default
+\color inherit
+ is the number of examples of class 
+\begin_inset Formula $i$
+\end_inset
+
+ classified as class 
+\begin_inset Formula $j$
+\end_inset
+
+; 
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\noun off
+\color none
+
+\begin_inset Formula $N_{i}$
+\end_inset
+
+ is the total number of examples for class 
+\begin_inset Formula $i$
+\end_inset
+
+, 
+\begin_inset Formula $P_{i}$
+\end_inset
+
+ is the number of examples classified as class 
+\begin_inset Formula $i$
+\end_inset
+
+ and 
+\begin_inset Formula $N_{T}$
+\end_inset
+
+ is the total number of heartbeats in the dataset.
+ Being 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\noun default
+\color inherit
+
+\begin_inset Formula $N_{i}=n_{ii}^{T}+\sum_{m\neq i}n_{im}^{F}$
+\end_inset
+
+, 
+\begin_inset Formula $P_{i}=n_{ii}^{T}+\sum_{m\neq i}n_{mi}^{F}$
+\end_inset
+
+, and 
+\begin_inset Formula $N_{T}=\sum_{i=1}^{C}N_{i}$
+\end_inset
+
+, then for each class we define class sensitivity (
+\begin_inset Formula $S_{i}$
+\end_inset
+
+) and class positive predictive value (
+\begin_inset Formula $P_{i}^{+}$
+\end_inset
+
+) as
+\end_layout
+
+\begin_layout Standard
+
+\change_inserted -1260779252 1470407977
+\begin_inset Formula 
+\begin{equation}
+S_{i}=\frac{n_{ii}^{T}}{N_{i}}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\change_inserted -1260779252 1470407977
+\begin_inset Formula 
+\begin{equation}
+P_{i}^{+}=\frac{n_{ii}^{T}}{P_{i}},
+\end{equation}
+
+\end_inset
+
+ and its global counterparts as the mean of all class performances 
+\begin_inset Formula $S=\frac{1}{C}\sum_{i=1}^{C}S_{i}$
+\end_inset
+
+ and 
+\begin_inset Formula $P^{+}=\frac{1}{C}\sum_{i=1}^{C}P_{i}^{+}$
+\end_inset
+
+.
+ Finally the global accuracy is calculated as 
+\begin_inset Formula 
+\begin{equation}
+A=\frac{1}{N_{T}}\sum_{i=1}^{C}n_{ii}^{T}=\sum_{i=1}^{C}\frac{N_{i}}{N_{T}}S_{i}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\change_inserted -1260779252 1470407979
+Using the estimated labels we finally calculated a quality index 
+\begin_inset Formula 
+\[
+q_{l}=2\hat{S_{l}}+\hat{P_{l}^{+}}
+\]
+
+\end_inset
+
+ for each lead 
+\begin_inset Formula $l$
+\end_inset
+
+ where 
+\begin_inset Formula $\hat{S_{l}}=\frac{\mathrm{TP}}{\mathrm{TP+FN}}$
+\end_inset
+
+ and 
+\begin_inset Formula $\hat{P_{l}^{+}}=\frac{\mathrm{TP}}{\mathrm{TP+FP}}$
+\end_inset
+
+.
+ Then for each recording, we choose the lead with higher 
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+
+\begin_inset Formula $q_{l}$
+\end_inset
+
+ for performance calculation.
 \end_layout
 
 \begin_layout Section
@@ -1301,13 +1855,130 @@ reference "tab:Performance"
 \end_inset
 
 .
- Algorithm 1 was implemented by Juan Ignacio Robledo and the algorithm 2
- was implemented by Juan Ignacio Bianchetti.
+ 
+\change_inserted -1260779252 1470407498
+
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+
+\change_inserted -1260779252 1470407539
+Yo no haría nombres, no tiene sentido no es un dato que le interese al que
+ lee, implementación 1 y 2 y listo.
+\change_unchanged
+
+\end_layout
+
+\end_inset
+
+
+\change_deleted -1260779252 1470407527
+Algorithm 1 was implemented by Juan Ignacio Robledo and the algorithm 2
+ was implemented by Juan Ignacio Bianchetti
+\change_inserted -468262419 1470072707
+.
  Both were tested in all records of MIT-BIH Arrhythmia database with the
- exception of records 102, 104, 107 and 217.
- The following criteria were used to present the results: lead with both
- PV+ (predictive value positive) y SENS (sensibility) maximun, if maximum
- were not in the same lead, it is presented MLII.
+ exception of records 102, 104, 107 and 217
+\change_inserted -1260779252 1470407565
+
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+
+\change_inserted -1260779252 1470407597
+como ya lo dijeron, para no repetir, pueden decir en los registros without
+ paced beats
+\change_unchanged
+
+\end_layout
+
+\end_inset
+
+
+\change_inserted -468262419 1470072707
+.
+ 
+\change_inserted -1260779252 1470408188
+
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+
+\change_inserted -1260779252 1470408253
+no está muy claro, empiecen contando que como hay 2 leads por registros,
+ hay que elegir un criterio para saber cuál es la perf por registro.
+ Luego relean esto y traten de hacerlo más claro, tal vez se pueda poner
+ en metodología tb
+\change_unchanged
+
+\end_layout
+
+\end_inset
+
+
+\change_inserted -468262419 1470072707
+The following 
+\change_deleted -1260779252 1470408129
+criteria
+\change_inserted -1260779252 1470408130
+criterion
+\change_inserted -468262419 1470072707
+ 
+\change_deleted -1260779252 1470408131
+were 
+\change_inserted -1260779252 1470408132
+was 
+\change_inserted -468262419 1470072707
+used to present the results: lead with both 
+\change_inserted -1260779252 1470407699
+positive predictive value 
+\change_deleted -1260779252 1470407622
+PV+ 
+\change_inserted -468262419 1470072707
+(
+\change_inserted -1260779252 1470407619
+P
+\change_deleted -1260779252 1470407614
+predictive value positive
+\change_inserted -468262419 1470072707
+) 
+\change_inserted -1260779252 1470407629
+
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+
+\change_inserted -1260779252 1470407650
+por lo gral se pone lo que significa, y entre paréntesis la sigla resumida
+\change_unchanged
+
+\end_layout
+
+\end_inset
+
+
+\change_deleted -1260779252 1470407709
+y
+\change_inserted -1260779252 1470407712
+and
+\change_inserted -468262419 1470072707
+ 
+\change_inserted -1260779252 1470407657
+sensitivity 
+\change_deleted -1260779252 1470407659
+SENS 
+\change_inserted -468262419 1470072707
+(
+\change_inserted -1260779252 1470407660
+S
+\change_deleted -1260779252 1470407654
+sensibility
+\change_inserted -468262419 1470072707
+) maximun, if maximum were not in the same lead, it is presented MLII.
  If MLII was not an available lead, the first entry in order of appearance
  was chosen.
  Both algorithms use the same criteria to show its results.
@@ -6593,10 +7264,46 @@ Discussion and conclusions
 \change_inserted 1034985151 1470256141
 Este es un trabajo de estudiantes y tiene el caracter de trabajo de investigació
 n.
+\change_inserted -1260779252 1470408265
+
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+
+\change_inserted -1260779252 1470408286
+mmm no arranquemos tirándo abajo el trabajo, digamos lo que hicimos —>>
+\change_unchanged
+
+\end_layout
+
+\end_inset
+
+
+\change_inserted 1034985151 1470256141
  En él se buscó implementar este conocido algoritmo de gran vigencia en
  la actualidad.
  Lo mas positivo es que ambas personas lo pudieron llevar a cabo con exito,
- uno mejor que el otro pero ambos con resultados esperados y satisfactorios.
+ uno mejor que el otro pero ambos con resultados esperados y satisfactorios
+\change_inserted -1260779252 1470408309
+
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+
+\change_inserted -1260779252 1470408378
+no hagamos calificaciones ni valoraciones innecesarias, como uno mejor que
+ el otro, digamos que cumplimos con el objetivo del trabjo de implementarlos.
+\change_unchanged
+
+\end_layout
+
+\end_inset
+
+
+\change_inserted 1034985151 1470256141
+.
  La implementación del algoritmo 2 no tuvo una performance brillante si
  bien en el PV + consiguio un valor levemente superior a la otra implementación
  la sensibilidad esta muy por debajo del la del paper original.
@@ -6605,7 +7312,26 @@ n.
  PV + y SENS superiores al 99%.
  Hay que notar que este rendimiento es superior al del paper en el cual
  esta mal calculado el rendimiento(Falla en el cálculo de complejos QRS
- totales).
+ totales)
+\change_inserted -1260779252 1470408455
+
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+
+\change_inserted -1260779252 1470408490
+esto como un comentario extra, no digamos así que está MAL ! se suele ser
+ más indulgente, como poner un errror de cálculo, porque fue eso en definitiva.
+\change_unchanged
+
+\end_layout
+
+\end_inset
+
+
+\change_inserted 1034985151 1470256141
+.
  No solo es bajo el rendimiento del algoritmo 2 sino que el procesamiento
  al ser programado en Matlab no fue optimizado como se debía con la capacidad
  de manejar matrices de dicha herramienta, sino que fue realizado con ciclos
@@ -6622,6 +7348,24 @@ for
  tan lento como uno se imagina.
  El tiempo de procesamiento de toda la base de datos de MIT fue de 37(valor
  estimado) minutos para este algoritmo y de X minutos para el 1.
+\change_inserted -1260779252 1470408525
+
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+
+\change_inserted -1260779252 1470408545
+No está mal incluir los tiempos de procesamiento buena idea.
+\change_unchanged
+
+\end_layout
+
+\end_inset
+
+
+\change_inserted 1034985151 1470256141
+
 \end_layout
 
 \begin_layout Standard
