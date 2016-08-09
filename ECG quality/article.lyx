@@ -562,7 +562,7 @@ reference "fig:FL-ROC"
 \end_layout
 
 \begin_layout Subsubsection
-HI Detector
+Hugh Impulse/Step Detector
 \end_layout
 
 \begin_layout Standard
@@ -849,6 +849,19 @@ key "liq-multilevel"
 
 \begin_layout Section
 Results
+\end_layout
+
+\begin_layout Standard
+The performance of bSQI was evaluated giving the results of table 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "tab:Performance-of-bSQIs"
+
+\end_inset
+
+.
+ There, it can be seen that the bSQI2 is the index with better individual
+ performance, then it is going to be used in the detector's model.
 \end_layout
 
 \begin_layout Standard
@@ -1296,19 +1309,6 @@ Specificity
 \end_layout
 
 \begin_layout Standard
-The performance of bSQI was evaluated giving the results of table 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "tab:Performance-of-bSQIs"
-
-\end_inset
-
-.
- There, it can be seen that the bSQI2 is the index with better individual
- performance, then it is going to be used in the detector's model.
-\end_layout
-
-\begin_layout Standard
 The individual performance was determined using the ecgqdb.
  The table
 \begin_inset CommandInset ref
@@ -1453,7 +1453,7 @@ FL
 \begin_inset Text
 
 \begin_layout Plain Layout
-0.9208 
+0.9780 
 \end_layout
 
 \end_inset
@@ -1558,7 +1558,7 @@ RD
 \begin_inset Text
 
 \begin_layout Plain Layout
-0.9339 
+0.9329 
 \end_layout
 
 \end_inset
@@ -1567,7 +1567,7 @@ RD
 \begin_inset Text
 
 \begin_layout Plain Layout
-0.9793 
+0.9767
 \end_layout
 
 \end_inset
@@ -1576,7 +1576,7 @@ RD
 \begin_inset Text
 
 \begin_layout Plain Layout
-0.7778 
+0.7822
 \end_layout
 
 \end_inset
@@ -1596,7 +1596,9 @@ FD
 \begin_inset Text
 
 \begin_layout Plain Layout
-0.9379 
+
+\series bold
+0.9369 
 \end_layout
 
 \end_inset
@@ -1605,6 +1607,8 @@ FD
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\series bold
 0.9858 
 \end_layout
 
@@ -1614,7 +1618,7 @@ FD
 \begin_inset Text
 
 \begin_layout Plain Layout
-0.7733 
+0.7689 
 \end_layout
 
 \end_inset
@@ -1786,7 +1790,7 @@ BT - RD
 \begin_inset Text
 
 \begin_layout Plain Layout
-0.9248
+0.9259
 \end_layout
 
 \end_inset
@@ -1795,7 +1799,7 @@ BT - RD
 \begin_inset Text
 
 \begin_layout Plain Layout
-0.9379
+0.9392
 \end_layout
 
 \end_inset
@@ -1826,8 +1830,6 @@ BT - FD
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\series bold
 0.9259
 \end_layout
 
@@ -1837,8 +1839,6 @@ BT - FD
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\series bold
 0.9418
 \end_layout
 
@@ -1985,16 +1985,43 @@ Discussion
 \end_layout
 
 \begin_layout Standard
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-Te toca gordo ! Esto casi es lo más importante del trabajo.
+During this work, we presented a mixed algorithm which includes a binary
+ tree and a SQI based detector for the quality classification of ECG records.
 \end_layout
 
-\end_inset
+\begin_layout Standard
+The joint and individual performance was evaluated for all the detectors
+ giving us hopeful results.
+ The best accuracy and sensitivity was obtained by the full detector based
+ in SQI with almost a 94% of accuracy and 99% of sensitivity, followed by
+ the RD with a accuracy of 93% and sensitivity of 98%.
+ The best specificity was obtained by de BT-RD with 88% followed by BT-FD
+ with 87%.
+\end_layout
 
+\begin_layout Standard
+The performance of the binary tree is good but, comparing FL-HI and FL-SK-HI
+ performance, we found that the SK detector does not make considerable contribut
+ion and it could be removed in future works.
+ 
+\end_layout
 
+\begin_layout Standard
+Both SQI models detector's performance have the best accuracy and sensitivity.
+ The results of the joint performance BT-RD and BT-FD are worst than we
+ expected, we were looking to improve the individual performance of RD and
+ FD.
+ One reason is that we found many acceptable records which contain flatline
+ or huge impulses, that considering our criterion of acceptability, are
+ bad labelled.
+\end_layout
+
+\begin_layout Standard
+For being a first approach, we are hopeful with the results.
+ In next works, we are going to develop a better model for the detector
+ and reduce it for improve the computational cost.
+ Also, we will test the algorithm over others datasets and re-label the
+ current one.
 \end_layout
 
 \begin_layout Section*
