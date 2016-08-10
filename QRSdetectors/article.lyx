@@ -377,26 +377,7 @@ name "fig:Pan-and-Tompkins-1"
 We consider important to notice that the Pan and Tompkins algorithm was
  developed for integer arithmetic in a microprocessor, which is intended
  to avoid excessive computing power and allowing real-time processing.
- Also, the original algorithm uses ECG signals obtained at 200 Hz
-\change_inserted -1260779252 1470332018
-
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-
-\change_inserted -1260779252 1470332057
-Este párrafo me parece anecdótico, lo pondría si hablara de cómo lo vamos
- a tratar nosotros, marcando el contraste, sino, saquenló.
-\change_unchanged
-
-\end_layout
-
-\end_inset
-
-
-\change_unchanged
-.
+ Also, the original algorithm uses ECG signals obtained at 200 Hz.
  Figure 
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -463,30 +444,16 @@ The first stage consist in a band-pass filter in order to retain only QRS
  In fact, the original Pan and Tompkins band-pass filter consist in the
  cascade of a low-pass filter and a high-pass filter to achieve the goal.
  Using the technique for integer coefficients, they designed a band-pass
- filter with bandwidth about 5Hz-12Hz, where the poles are located to cancel
- the zeros on the unit circle of the 
+ filter with bandwidth about 5Hz-12Hz, where several zeros are located to
+ cancel the poles on the unit circle of the 
 \shape italic
 z
 \shape default
- plane.
-\change_inserted -1260779252 1470332213
-
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-
-\change_inserted -1260779252 1470332302
-Esto último no es al revés ?, en qué lugar de la circunsf se cancela ?
-\change_unchanged
-
-\end_layout
-
+ plane at 
+\begin_inset Formula $\omega=0$
 \end_inset
 
-
-\change_unchanged
-
+ [rad/sg].
 \end_layout
 
 \begin_layout Standard
@@ -583,27 +550,7 @@ reference "fig:Poles-and-zeros-3"
 
 \end_inset
 
- shows the normalized amplitude response of the band-pass filter
-\change_inserted -1260779252 1470406501
-.
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-
-\change_inserted -1260779252 1470406543
-Esto ya lo dice el pie de figura, comenten algún otro detalle, intenten
- no ser redundantes en lo que se dice, porque nos salta la ficha que no
- tenemos mucho que decir :)
-\change_unchanged
-
-\end_layout
-
-\end_inset
-
-
-\change_unchanged
-
+ shows the normalized amplitude response of the band-pass filter.
 \end_layout
 
 \begin_layout Standard
@@ -648,39 +595,14 @@ name "fig:Poles-and-zeros-3"
 \end_layout
 
 \begin_layout Standard
-The bandwidth of the band-pass filter is between 9Hz-21Hz, with a total
- delay of 21 samples.
+The bandwidth of the band-pass filter, using the sampling frequency of the
+ records is between 9Hz-21Hz, with a total delay of 21 samples.
  
-\change_inserted -468262419 1470066793
-Notice that the filter's 3dB bandwidth designed by Pan and Tompkins is slightly
- enlarged from the original 5Hz-12Hz because the change in the sampling
- frequency.
-\change_inserted -1260779252 1470406585
-
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-
-\change_inserted -1260779252 1470406652
-esto es mala nuestra OJO ! como que no lo corregimos esto, es decir que
- teníamos un filtro para 200 Hz y lo usamos igual ? esto anoten para cambiarlo
- y no lo digamos porque es un error fulero, ninguno de los dos lo tuvo en
- cuenta esto ?
-\change_unchanged
-
-\end_layout
-
-\end_inset
-
-
 \change_inserted -468262419 1470066793
 
 \end_layout
 
 \begin_layout Standard
-
-\change_inserted -468262419 1470068339
 The effect of this band-pass filter in the signal is represented in Figure
  
 \begin_inset CommandInset ref
@@ -690,6 +612,8 @@ reference "fig:Band-pass-filtered-ECG"
 \end_inset
 
 .
+\change_inserted -468262419 1470068339
+
 \end_layout
 
 \begin_layout Standard
@@ -699,10 +623,6 @@ reference "fig:Band-pass-filtered-ECG"
 wide false
 sideways false
 status open
-
-\begin_layout Plain Layout
-
-\end_layout
 
 \begin_layout Plain Layout
 \align center
@@ -740,18 +660,12 @@ name "fig:Band-pass-filtered-ECG"
 
 \end_layout
 
-\begin_layout Plain Layout
-
-\end_layout
-
 \end_inset
 
 
 \end_layout
 
 \begin_layout Standard
-
-\change_inserted -468262419 1470007167
 The second stage is a five-point derivative where the signal is differentiated
  to provide the QRS complex slope information.
  The number of points refers to the maximun order in the '
@@ -762,8 +676,6 @@ z
 \end_layout
 
 \begin_layout Standard
-
-\change_inserted -468262419 1470006203
 \begin_inset Formula 
 \begin{equation}
 H(z)=\frac{1}{8}.\left(2+z^{-1}-z^{-3}-2.z^{-4}\right)\label{eq:P&T_derivative}
@@ -775,8 +687,6 @@ H(z)=\frac{1}{8}.\left(2+z^{-1}-z^{-3}-2.z^{-4}\right)\label{eq:P&T_derivative}
 \end_layout
 
 \begin_layout Standard
-
-\change_inserted -468262419 1470026882
 The gain value of 1/8 is actually an aproximation of the real gain 0.1 desired,
  in order to facilitate operations in real-time by using power-of-two parameters.
  Figure 
@@ -787,6 +697,8 @@ reference "fig:Differentiator:-Amplitude-respon"
 \end_inset
 
 shows the amplitude response of this filter.
+\change_inserted -468262419 1470026882
+
 \end_layout
 
 \begin_layout Standard
@@ -841,8 +753,6 @@ name "fig:Differentiator:-Amplitude-respon"
 \end_layout
 
 \begin_layout Standard
-
-\change_inserted -468262419 1470069290
 With a sampling frequency of 360Hz, this transfer function acts like a ideal
  derivative from 0Hz to 54Hz.
  As the signal pass through the differentiator, P and T waves are attenuated
@@ -854,43 +764,16 @@ reference "fig:Band-pass-filtered-and"
 \end_inset
 
 .
-\change_inserted -1260779252 1470406718
-
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-
-\change_inserted -1260779252 1470406742
-bien el comentario del ancho de banda útil del derivador, esos son los aportes
- que tenemos que hacer en este artículo
-\change_unchanged
-
-\end_layout
-
-\end_inset
-
-
-\change_inserted -468262419 1470069290
-
 \end_layout
 
 \begin_layout Standard
-
-\change_inserted -468262419 1470068580
 \begin_inset Float figure
 wide false
 sideways false
 status open
 
 \begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
 \align center
-
-\change_inserted -468262419 1470069248
 \begin_inset Graphics
 	filename PandT_DiffSignal_2.svg
 	lyxscale 50
@@ -902,8 +785,6 @@ status open
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-
-\change_inserted -468262419 1470068660
 Band-pass filtered and differentiated ECG 
 \begin_inset CommandInset label
 LatexCommand label
@@ -912,18 +793,10 @@ name "fig:Band-pass-filtered-and"
 \end_inset
 
 
-\change_unchanged
-
 \end_layout
 
 \end_inset
 
-
-\change_unchanged
-
-\end_layout
-
-\begin_layout Plain Layout
 
 \end_layout
 
@@ -933,8 +806,6 @@ name "fig:Band-pass-filtered-and"
 \end_layout
 
 \begin_layout Standard
-
-\change_inserted -468262419 1470070322
 The nonlinear transformation consist in a point-by-point squaring 
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -956,8 +827,6 @@ reference "fig:Band-pass-filtered,-differentiat"
 \end_layout
 
 \begin_layout Standard
-
-\change_inserted -468262419 1470027228
 \begin_inset Formula 
 \begin{equation}
 y[n.T_{s}]=\left(x[n.T_{s}]\right)^{2}\label{eq:P&T_square}
@@ -966,46 +835,21 @@ y[n.T_{s}]=\left(x[n.T_{s}]\right)^{2}\label{eq:P&T_square}
 \end_inset
 
 
-\change_inserted -1260779252 1470406771
-
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-
-\change_inserted -1260779252 1470406946
-esta ecuación es redundante, yo no la pondría.
- Se sobre entiende del texto.
- Tal vez podrían poner algún espectro, si quieren, para ver la aparición
- de intermodulaciones de 2da armónica, pero solo si les parece, o comentar
- algo de la naturaleza no lineal, razón por la cual luego filtramos pasabajo.
-\change_unchanged
-
-\end_layout
-
-\end_inset
-
-
-\change_inserted -468262419 1470027228
-
 \end_layout
 
 \begin_layout Standard
+As has been previously mentioned, this is a non-linear transfer, which generates
+ in the frequency domain new components to be eliminated in the next stage.
+\end_layout
 
-\change_inserted -468262419 1470070367
+\begin_layout Standard
 \begin_inset Float figure
 wide false
 sideways false
 status open
 
 \begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
 \align center
-
-\change_inserted -468262419 1470070165
 \begin_inset Graphics
 	filename PandT_SquareSignal_2.svg
 	lyxscale 50
@@ -1017,8 +861,6 @@ status open
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-
-\change_inserted -468262419 1470070149
 Band-pass filtered, differentiated and squared ECG
 \begin_inset CommandInset label
 LatexCommand label
@@ -1027,28 +869,30 @@ name "fig:Band-pass-filtered,-differentiat"
 \end_inset
 
  
-\change_unchanged
-
 \end_layout
 
 \end_inset
 
 
-\change_unchanged
-
-\end_layout
-
-\begin_layout Plain Layout
-
 \end_layout
 
 \end_inset
 
-The slope of the R wave by itself is not enough to identify a QRS event,
- so the output from the squaring stage is filtered with a moving window
- integration in order to add all points within the window
+As can be seen in 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Band-pass-filtered,-differentiat"
+
+\end_inset
+
+, all the slopes of a QRS event are enhanced, so the output from the squaring
+ stage is filtered with a moving window integration in order to generate
+ only one.
+\end_layout
+
+\begin_layout Standard
+
 \change_inserted -1260779252 1470406991
-
 \begin_inset Note Note
 status open
 
@@ -1065,17 +909,10 @@ esto no es así, tal vez podés argumentar que hay muchos flancos positivos
 \end_inset
 
 
-\change_inserted -468262419 1470070367
+\change_inserted -468262419 1470862538
 .
- The size of the windows
-\change_deleted -1260779252 1470406958
-'s
-\change_inserted -468262419 1470070367
- width was originally determined empirically with a value of 150 milliseconds
-\change_deleted -1260779252 1470407058
-, representing N = 54 samples or data points for a signal sampled at 360Hz
-\change_inserted -468262419 1470070367
-.
+ The size of the windows width was originally determined empirically with
+ a value of 150 milliseconds.
  With this value, we ensure that all possibles QRS complexes completely
  fit in the choosen window.
 \change_inserted -1260779252 1470407096
@@ -1095,7 +932,7 @@ y esto equivale a un filtro pasabajos del que sería interesante tb ver la
 \end_inset
 
 
-\change_inserted -468262419 1470070367
+\change_inserted -468262419 1470862538
 
 \end_layout
 
@@ -1113,8 +950,6 @@ y[n]=\frac{1}{N}\left(x[n]+x[n\text{−}1]+\text{·}\text{·}\text{·}+x[n\text{
 \end_layout
 
 \begin_layout Standard
-
-\change_deleted -1260779252 1470407151
 The equation 
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -1122,67 +957,25 @@ reference "eq:P&T_movingAve"
 
 \end_inset
 
- represents a moving average filter with N = 54 samples
-\change_inserted -1260779252 1470407139
-
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-
-\change_inserted -1260779252 1470407160
-ya lo dijeron arriba, ojo con ser muy redundantes
-\change_unchanged
-
-\end_layout
-
-\end_inset
-
-
-\change_inserted -468262419 1470070827
-.
+ represents a moving average filter with N = 54 samples.
  All the close datapoints merge to generate one peak.
- If the window's width is too narrow, more peaks will form.
- Also, if too wide, will merge not only the QRS complex but also P and T
- waves.
+ If the window's width is too narrow, more peaks will form and if too wide,
+ will merge not only the QRS complex but also P and T waves.
  Figure represents the output of this stage.
-\change_inserted -1260779252 1470407176
-
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-
-\change_inserted -1260779252 1470407207
-esto lo pueden interpretar así, o como el filtrado de las intermodulaciones
- de alta frecuencia producidas por el batido de la nolinealidad
-\change_unchanged
-
-\end_layout
-
-\end_inset
-
-
-\change_inserted -468262419 1470070827
+ Also, this can be interpreted as a low-pass filter, which eliminates high
+ frequencies introduced by the non-linear transformation, 
+\change_deleted -468262419 1470857920
 
 \end_layout
 
 \begin_layout Standard
-
-\change_inserted -468262419 1470070829
 \begin_inset Float figure
 wide false
 sideways false
 status open
 
 \begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
 \align center
-
-\change_inserted -468262419 1470071374
 \begin_inset Graphics
 	filename PandT_MovWin_3.svg
 	lyxscale 50
@@ -1194,21 +987,11 @@ status open
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-
-\change_inserted -468262419 1470071898
 Band-pass filtered, differentiated, squared and post moving-window ECG
-\change_unchanged
-
 \end_layout
 
 \end_inset
 
-
-\change_unchanged
-
-\end_layout
-
-\begin_layout Plain Layout
 
 \end_layout
 
@@ -1218,32 +1001,8 @@ Band-pass filtered, differentiated, squared and post moving-window ECG
 \end_layout
 
 \begin_layout Standard
-
-\change_inserted -1260779252 1470407274
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-
-\change_inserted -1260779252 1470407334
-Estaría bueno ver todas las señales alineadas en tiempo, ver como se suceden
- las etapas digitales y van generando finalmente esta señal, por eso sugería
- rehacer estos gráficos todos juntos y alineados verticalmente tal vez
-\change_unchanged
-
-\end_layout
-
-\end_inset
-
-
-\change_inserted -468262419 1470072055
-For the 
-\change_deleted -1260779252 1470407348
-thresholdig
-\change_inserted -1260779252 1470407366
-detection of heartbeats
-\change_inserted -468262419 1470072055
-, two set of threshold are used, each one with two threshold level.
+For the detection of heartbeats, two set of threshold are used, each one
+ with two threshold level.
  The first applied to the waveform from the moving window integrator, while
  the other pair is applied to the band-pass output signal, where the signal-to-n
 oise ratio was increased.

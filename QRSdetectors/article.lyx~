@@ -957,7 +957,7 @@ reference "fig:Band-pass-filtered,-differentiat"
 
 \begin_layout Standard
 
-\change_inserted -468262419 1470027228
+\change_inserted -468262419 1470856117
 \begin_inset Formula 
 \begin{equation}
 y[n.T_{s}]=\left(x[n.T_{s}]\right)^{2}\label{eq:P&T_square}
@@ -966,28 +966,13 @@ y[n.T_{s}]=\left(x[n.T_{s}]\right)^{2}\label{eq:P&T_square}
 \end_inset
 
 
-\change_inserted -1260779252 1470406771
-
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-
-\change_inserted -1260779252 1470406946
-esta ecuación es redundante, yo no la pondría.
- Se sobre entiende del texto.
- Tal vez podrían poner algún espectro, si quieren, para ver la aparición
- de intermodulaciones de 2da armónica, pero solo si les parece, o comentar
- algo de la naturaleza no lineal, razón por la cual luego filtramos pasabajo.
-\change_unchanged
-
 \end_layout
 
-\end_inset
+\begin_layout Standard
 
-
-\change_inserted -468262419 1470027228
-
+\change_inserted -468262419 1470857184
+As has been previously mentioned, this is a non-linear transfer, which generates
+ in the frequency domain new components to be eliminated in the next stage.
 \end_layout
 
 \begin_layout Standard
@@ -997,10 +982,6 @@ esta ecuación es redundante, yo no la pondría.
 wide false
 sideways false
 status open
-
-\begin_layout Plain Layout
-
-\end_layout
 
 \begin_layout Plain Layout
 \align center
@@ -1038,10 +1019,6 @@ name "fig:Band-pass-filtered,-differentiat"
 
 \end_layout
 
-\begin_layout Plain Layout
-
-\end_layout
-
 \end_inset
 
 The slope of the R wave by itself is not enough to identify a QRS event,
@@ -1067,15 +1044,8 @@ esto no es así, tal vez podés argumentar que hay muchos flancos positivos
 
 \change_inserted -468262419 1470070367
 .
- The size of the windows
-\change_deleted -1260779252 1470406958
-'s
-\change_inserted -468262419 1470070367
- width was originally determined empirically with a value of 150 milliseconds
-\change_deleted -1260779252 1470407058
-, representing N = 54 samples or data points for a signal sampled at 360Hz
-\change_inserted -468262419 1470070367
-.
+ The size of the windows width was originally determined empirically with
+ a value of 150 milliseconds.
  With this value, we ensure that all possibles QRS complexes completely
  fit in the choosen window.
 \change_inserted -1260779252 1470407096
@@ -1113,8 +1083,6 @@ y[n]=\frac{1}{N}\left(x[n]+x[n\text{−}1]+\text{·}\text{·}\text{·}+x[n\text{
 \end_layout
 
 \begin_layout Standard
-
-\change_deleted -1260779252 1470407151
 The equation 
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -1122,67 +1090,25 @@ reference "eq:P&T_movingAve"
 
 \end_inset
 
- represents a moving average filter with N = 54 samples
-\change_inserted -1260779252 1470407139
-
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-
-\change_inserted -1260779252 1470407160
-ya lo dijeron arriba, ojo con ser muy redundantes
-\change_unchanged
-
-\end_layout
-
-\end_inset
-
-
-\change_inserted -468262419 1470070827
-.
+ represents a moving average filter with N = 54 samples.
  All the close datapoints merge to generate one peak.
- If the window's width is too narrow, more peaks will form.
- Also, if too wide, will merge not only the QRS complex but also P and T
- waves.
+ If the window's width is too narrow, more peaks will form and if too wide,
+ will merge not only the QRS complex but also P and T waves.
  Figure represents the output of this stage.
-\change_inserted -1260779252 1470407176
-
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-
-\change_inserted -1260779252 1470407207
-esto lo pueden interpretar así, o como el filtrado de las intermodulaciones
- de alta frecuencia producidas por el batido de la nolinealidad
-\change_unchanged
-
-\end_layout
-
-\end_inset
-
-
-\change_inserted -468262419 1470070827
+ Also, this can be interpreted as a low-pass filter, which eliminates high
+ frequencies introduced by the non-linear transformation, 
+\change_deleted -468262419 1470857920
 
 \end_layout
 
 \begin_layout Standard
-
-\change_inserted -468262419 1470070829
 \begin_inset Float figure
 wide false
 sideways false
 status open
 
 \begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
 \align center
-
-\change_inserted -468262419 1470071374
 \begin_inset Graphics
 	filename PandT_MovWin_3.svg
 	lyxscale 50
@@ -1194,21 +1120,11 @@ status open
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-
-\change_inserted -468262419 1470071898
 Band-pass filtered, differentiated, squared and post moving-window ECG
-\change_unchanged
-
 \end_layout
 
 \end_inset
 
-
-\change_unchanged
-
-\end_layout
-
-\begin_layout Plain Layout
 
 \end_layout
 
@@ -1218,32 +1134,8 @@ Band-pass filtered, differentiated, squared and post moving-window ECG
 \end_layout
 
 \begin_layout Standard
-
-\change_inserted -1260779252 1470407274
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-
-\change_inserted -1260779252 1470407334
-Estaría bueno ver todas las señales alineadas en tiempo, ver como se suceden
- las etapas digitales y van generando finalmente esta señal, por eso sugería
- rehacer estos gráficos todos juntos y alineados verticalmente tal vez
-\change_unchanged
-
-\end_layout
-
-\end_inset
-
-
-\change_inserted -468262419 1470072055
-For the 
-\change_deleted -1260779252 1470407348
-thresholdig
-\change_inserted -1260779252 1470407366
-detection of heartbeats
-\change_inserted -468262419 1470072055
-, two set of threshold are used, each one with two threshold level.
+For the detection of heartbeats, two set of threshold are used, each one
+ with two threshold level.
  The first applied to the waveform from the moving window integrator, while
  the other pair is applied to the band-pass output signal, where the signal-to-n
 oise ratio was increased.
@@ -7091,7 +6983,7 @@ no hagamos calificaciones ni valoraciones innecesarias, como uno mejor que
 .
  La implementación del algoritmo 2 no tuvo una performance brillante si
  bien en el PV + consiguio un valor levemente superior a la otra implementación
- la sensibilidad esta muy por debajo del la del paper original.
+ la sensibilidad esta muy por debajo de la del paper original.
  En contra parte la otra implementación la del algoritmo 1 tuvo una mejor
  performance diriamos excelente performance, muy buenos ambos parametros
  PV + y SENS superiores al 99%.
@@ -7135,7 +7027,7 @@ for
 \change_inserted -1260779252 1470408525
 
 \begin_inset Note Note
-status open
+status collapsed
 
 \begin_layout Plain Layout
 
@@ -7148,8 +7040,20 @@ No está mal incluir los tiempos de procesamiento buena idea.
 \end_inset
 
 
-\change_inserted 1034985151 1470426366
-
+\change_inserted 1034985151 1470427982
+Las implementaciones de ambos algoritmos se fueron optimizando para esta
+ base de datos lo que genera un sobre entrenamiento, pero nos deja conformes
+ que el paper original tambien fue probado en esta BD y se lo ha podido,
+ si se puede decir, implementar de manera un tanto mas eficiente.
+ Por lo menos para esta BD.
+ Gracias a esta herramienta de programación(MatLab) y al Goldstandar se
+ pudieron ir graficando los FP y los FN de cada algoritmo y así ver donde
+ había que hacer algun ajuste.
+ Si bien la base es el ya conocido método del paper algunos retoques, sin
+ escaparse de lo que dice el mismo, se pudieron realizar.
+ De todas maneras el mecanismo de detección es el mismo.
+ Fueron 2 destacadas implementaciones del increiblemente actual Pan&Tompkins
+ que, como se puede ver en el paper, fue desarrollado en el año 1985
 \end_layout
 
 \begin_layout Standard
@@ -7347,9 +7251,20 @@ Acknowledgments
 \end_layout
 
 \begin_layout Standard
-This work was supported by projects ASUTNBA0003860 from Universidad Tecnológica
- Nacional, Buenos Aires, Argentina, and D9-UTN1714 from Secretaría de Políticas
- Universitarias, Ministerio de Educación, Argentina.
+This work was supported by projects ASUTNBA0003860 from 
+\lang spanish
+Universidad
+\lang english
+ 
+\lang spanish
+Tecnológica
+\lang english
+ 
+\lang spanish
+Nacional
+\lang english
+, Buenos Aires, Argentina, and D9-UTN1714 from Secretaría de Políticas Universit
+arias, Ministerio de Educación, Argentina.
 \end_layout
 
 \begin_layout Standard
