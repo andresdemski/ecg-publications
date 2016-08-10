@@ -120,18 +120,52 @@ Universidad Tecnológica Nacional, Buenos Aires, Argentina
 \end_layout
 
 \begin_layout Abstract
-Escribir el resumen.
- 
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-Te toca gordo !
+An ECG recording is commonly corrupted by several sources of noise or interferin
+g signals.
+ It is very important to detect the quality of the recordings for reducing
+ the automatic systems mistakes and false alarms.
+ This topic was discussed during the PhysioNet/Computing in Cardiology Challenge
+ 2011 and generated many results which are used in this paper.
 \end_layout
 
-\end_inset
+\begin_layout Abstract
+In this work its presented a first approach of ECG quality classification.
+ It was developed an algorithm which combines a binary tree and a SQI based
+ detector.
+ The binary tree is in charge of detect some features like flatline and
+ regions of the signal with too much energy.
+ If the binary tree classified a record as acceptable, then a fine analyse
+ is done using the SQI based detector.
+ This detector uses a support vector machine with a Gaussian kernel for
+ doing this work.
+ The SQI are extracted from the record, they are calculated per lead individualy
+ getting 144 SQI per record.
+ 
+\end_layout
 
+\begin_layout Abstract
+The databases that are used in this work are the PhysioNet/Computing in
+ Cardiology Challenge 2011 dataset and the MIY-BIH database.
+ Both of them are used for training the algorithms and only the challenge
+ dataset was used for testing.
+\end_layout
 
+\begin_layout Abstract
+The results of this work are hopeful for being a preliminary result.
+ It is obtained a 93 
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+\lang english
+0.9369 	0.9858 	0.7689
 \end_layout
 
 \begin_layout Section
