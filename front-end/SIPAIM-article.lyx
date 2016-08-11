@@ -2700,9 +2700,22 @@ key "PhysioNet"
 \begin_layout Standard
 As it was possible to see through this document, the project surrounds many
  areas such as research, medicine, learning.
- The code is available on Github for any developer or cardiologist who wants
- to see how the app was implemented.
- And of course, it will be also possible to collaborate fixing or creating
+ The application is already online 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "EcgKitOnline"
+
+\end_inset
+
+ and the source code is available on Github 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "EcgKitOnlineSrc"
+
+\end_inset
+
+ for any developer or cardiologist who wants to see how the app was implemented.
+ Furthermore, it will be also possible to collaborate fixing or creating
  new features for the app.
 \end_layout
 
