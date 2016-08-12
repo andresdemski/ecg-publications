@@ -100,7 +100,6 @@
 \html_be_strict false
 \author -1260779252 "mariano"
 \author -468262419 "JuanIgnacio"
-\author 361918700 "Mariano"
 \author 1034985151 "Gavilanes"
 \end_header
 
@@ -322,30 +321,45 @@ Pan and Tompkins algorithm
 
 \begin_layout Standard
 As shown in Figure 
+\change_inserted -468262419 1471033681
+
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "fig:Pan-and-Tompkins-1"
+reference "fig:Stages-of-Pan"
 
 \end_inset
 
-, the algorithm consists in 6 stages: a bandpass filter, a derivative block,
+
+\change_unchanged
+, the algorithm consists in 6 stages: a band-pass filter, a derivative block,
  a squaring nonlinear transformation, a moving window integration, an algorithm
  of adaptive thresholds and a decision rule.
+
+\change_inserted -468262419 1471034116
+ The same figure shows how the waveform evolves when crossing through one
+ stage to the next one of the algorithm.
+\change_unchanged
+
 \end_layout
 
 \begin_layout Standard
+
+\change_inserted -468262419 1471033056
 \begin_inset Float figure
-placement H
 wide false
 sideways false
 status open
 
 \begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
 \align center
+
+\change_inserted -468262419 1471033583
 \begin_inset Graphics
-	filename flow.png
-	scale 50
-	rotateOrigin center
+	filename FlowDiagram.svg
 
 \end_inset
 
@@ -353,23 +367,36 @@ status open
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Pan and Tompkins block diagram
+
+\change_inserted -468262419 1471033655
+Stages of Pan and Tompkins QRS detector and waveforms.
+ 
 \begin_inset CommandInset label
 LatexCommand label
-name "fig:Pan-and-Tompkins-1"
+name "fig:Stages-of-Pan"
 
 \end_inset
 
+
+\change_unchanged
 
 \end_layout
 
 \end_inset
 
 
+\change_unchanged
+
+\end_layout
+
+\begin_layout Plain Layout
+
 \end_layout
 
 \end_inset
 
+
+\change_unchanged
 
 \end_layout
 
@@ -378,64 +405,23 @@ We consider important to notice that the Pan and Tompkins algorithm was
  developed for integer arithmetic in a microprocessor, which is intended
  to avoid excessive computing power and allowing real-time processing.
  Also, the original algorithm uses ECG signals obtained at 200 Hz.
- Figure 
+ 
+\change_inserted -468262419 1471033764
+First waveform of
+\change_unchanged
+ 
+\change_inserted -468262419 1471033778
+
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "fig:ECG-signal:-MLII"
+reference "fig:Stages-of-Pan"
 
 \end_inset
 
- shows as example three seconds of the record N° 100 signal after removing
+
+\change_unchanged
+shows as example three seconds of the record N° 100 signal after removing
  its mean value.
-\end_layout
-
-\begin_layout Standard
-\begin_inset Float figure
-wide false
-sideways false
-status open
-
-\begin_layout Plain Layout
-\align center
-\begin_inset Graphics
-	filename PandT_input_2.svg
-
-\end_inset
-
-
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-Yo pondría todas las señales juntas y sincronizadas en tiempo cosa que se
- pueda asociar el paso de un bloque con el efecto que el bloque tuvo en
- la señal.
-\end_layout
-
-\end_inset
-
-
-\begin_inset Caption Standard
-
-\begin_layout Plain Layout
-ECG signal: MLII of record N° 100 from MIT-BIH Arrythmia database 
-\begin_inset CommandInset label
-LatexCommand label
-name "fig:ECG-signal:-MLII"
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
 \end_layout
 
 \begin_layout Standard
@@ -444,12 +430,15 @@ The first stage consist in a band-pass filter in order to retain only QRS
  In fact, the original Pan and Tompkins band-pass filter consist in the
  cascade of a low-pass filter and a high-pass filter to achieve the goal.
  Using the technique for integer coefficients, they designed a band-pass
- filter with bandwidth about 5Hz-12Hz, where several zeros are located to
- cancel the poles on the unit circle of the 
+ filter with bandwidth about 5Hz-12Hz, where several zeros are 
+\change_inserted -468262419 1471033956
+present in the unit circle of the 
 \shape italic
 z
 \shape default
- plane at 
+ plane and located in order 
+\change_unchanged
+to cancel the poles at 
 \begin_inset Formula $\omega=0$
 \end_inset
 
@@ -550,7 +539,8 @@ reference "fig:Poles-and-zeros-3"
 
 \end_inset
 
- shows the normalized amplitude response of the band-pass filter.
+ shows the amplitude response of the band-pass filter for a sampling frequency
+ of 360Hz.
 \end_layout
 
 \begin_layout Standard
@@ -595,74 +585,9 @@ name "fig:Poles-and-zeros-3"
 \end_layout
 
 \begin_layout Standard
-The bandwidth of the band-pass filter, using the sampling frequency of the
- records is between 9Hz-21Hz, with a total delay of 21 samples.
+The bandwidth of the band-pass filter is between 9Hz-21Hz, with a total
+ delay of 21 samples.
  
-\change_inserted -468262419 1470066793
-
-\end_layout
-
-\begin_layout Standard
-The effect of this band-pass filter in the signal is represented in Figure
- 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "fig:Band-pass-filtered-ECG"
-
-\end_inset
-
-.
-\change_inserted -468262419 1470068339
-
-\end_layout
-
-\begin_layout Standard
-
-\change_inserted -468262419 1470067029
-\begin_inset Float figure
-wide false
-sideways false
-status open
-
-\begin_layout Plain Layout
-\align center
-
-\change_inserted -468262419 1470068273
-\begin_inset Graphics
-	filename PandT_BandpassSiganl_2.svg
-	lyxscale 50
-	scale 50
-
-\end_inset
-
-
-\begin_inset Caption Standard
-
-\begin_layout Plain Layout
-
-\change_inserted -468262419 1470067167
-Band-pass filtered ECG 
-\begin_inset CommandInset label
-LatexCommand label
-name "fig:Band-pass-filtered-ECG"
-
-\end_inset
-
-
-\change_unchanged
-
-\end_layout
-
-\end_inset
-
-
-\change_unchanged
-
-\end_layout
-
-\end_inset
-
-
 \end_layout
 
 \begin_layout Standard
@@ -687,7 +612,7 @@ H(z)=\frac{1}{8}.\left(2+z^{-1}-z^{-3}-2.z^{-4}\right)\label{eq:P&T_derivative}
 \end_layout
 
 \begin_layout Standard
-The gain value of 1/8 is actually an aproximation of the real gain 0.1 desired,
+The gain value of 1/8 is actually an approximation of the real gain 0.1 desired,
  in order to facilitate operations in real-time by using power-of-two parameters.
  Figure 
 \begin_inset CommandInset ref
@@ -756,53 +681,8 @@ name "fig:Differentiator:-Amplitude-respon"
 With a sampling frequency of 360Hz, this transfer function acts like a ideal
  derivative from 0Hz to 54Hz.
  As the signal pass through the differentiator, P and T waves are attenuated
- but QRS complexes are clearly enhanced as shows Figure 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "fig:Band-pass-filtered-and"
-
-\end_inset
-
-.
-\end_layout
-
-\begin_layout Standard
-\begin_inset Float figure
-wide false
-sideways false
-status open
-
-\begin_layout Plain Layout
-\align center
-\begin_inset Graphics
-	filename PandT_DiffSignal_2.svg
-	lyxscale 50
-	scale 50
-
-\end_inset
-
-
-\begin_inset Caption Standard
-
-\begin_layout Plain Layout
-Band-pass filtered and differentiated ECG 
-\begin_inset CommandInset label
-LatexCommand label
-name "fig:Band-pass-filtered-and"
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
+ but QRS complexes are clearly enhanced.
+ 
 \end_layout
 
 \begin_layout Standard
@@ -839,82 +719,53 @@ y[n.T_{s}]=\left(x[n.T_{s}]\right)^{2}\label{eq:P&T_square}
 
 \begin_layout Standard
 As has been previously mentioned, this is a non-linear transfer, which generates
- in the frequency domain new components to be eliminated in the next stage.
+ in the frequency domain new components to be eliminated in the next stage
+ by filtering.
 \end_layout
 
 \begin_layout Standard
-\begin_inset Float figure
-wide false
-sideways false
-status open
 
-\begin_layout Plain Layout
-\align center
-\begin_inset Graphics
-	filename PandT_SquareSignal_2.svg
-	lyxscale 50
-	scale 50
-
-\end_inset
-
-
-\begin_inset Caption Standard
-
-\begin_layout Plain Layout
-Band-pass filtered, differentiated and squared ECG
-\begin_inset CommandInset label
-LatexCommand label
-name "fig:Band-pass-filtered,-differentiat"
-
-\end_inset
-
- 
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-As can be seen in 
+\change_inserted -468262419 1471034438
+Back
+\change_unchanged
+ in 
+\change_inserted -468262419 1471034267
+Figure 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "fig:Band-pass-filtered,-differentiat"
+reference "fig:Stages-of-Pan"
 
 \end_inset
 
-, all the slopes of a QRS event are enhanced, so the output from the squaring
- stage is filtered with a moving window integration in order to generate
- only one.
+
+\change_unchanged
+, the slopes of a QRS event 
+\change_deleted -468262419 1471034293
+are 
+\change_inserted -468262419 1471034293
+were 
+\change_unchanged
+enhanced
+\change_inserted -468262419 1471034472
+ after squaring
+\change_unchanged
+, so 
+\change_inserted -468262419 1471034309
+next 
+\change_unchanged
+the output from the squaring stage is filtered with a moving window integration
+ in order to generate only one.
+\change_inserted -468262419 1470870836
+
 \end_layout
 
 \begin_layout Standard
 
-\change_inserted -1260779252 1470406991
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-
-\change_inserted -1260779252 1470407039
-esto no es así, tal vez podés argumentar que hay muchos flancos positivos
- en una ventana de tiempo, pero no que no es suficiente, porque la propia
- señal nos refuta
-\change_unchanged
-
-\end_layout
-
-\end_inset
-
-
-\change_inserted -468262419 1470862538
-.
- The size of the windows width was originally determined empirically with
- a value of 150 milliseconds.
+\change_inserted -468262419 1471034636
+The moving window integration has a window width originally determined empirical
+ly by 150 milliseconds long.
  With this value, we ensure that all possibles QRS complexes completely
- fit in the choosen window.
+ fit in the window.
 \change_inserted -1260779252 1470407096
 
 \begin_inset Note Note
@@ -957,27 +808,38 @@ reference "eq:P&T_movingAve"
 
 \end_inset
 
- represents a moving average filter with N = 54 samples.
- All the close datapoints merge to generate one peak.
- If the window's width is too narrow, more peaks will form and if too wide,
- will merge not only the QRS complex but also P and T waves.
- Figure represents the output of this stage.
- Also, this can be interpreted as a low-pass filter, which eliminates high
- frequencies introduced by the non-linear transformation, 
-\change_deleted -468262419 1470857920
+ represents a moving average filter with N = 54 samples
+\change_inserted -468262419 1471036031
+ and acts like 6.6Hz bandwidth low-pass filter which eliminates high frequencies
+ introduced by the non-linear transformation, as the function transfer in
+ Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Moving-average:-Amplitude"
 
+\end_inset
+
+ shows, .
 \end_layout
 
 \begin_layout Standard
+
+\change_inserted -468262419 1471034725
 \begin_inset Float figure
 wide false
 sideways false
 status open
 
 \begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
 \align center
+
+\change_inserted -468262419 1471035878
 \begin_inset Graphics
-	filename PandT_MovWin_3.svg
+	filename PandT_movingAverage_2.svg
 	lyxscale 50
 	scale 50
 
@@ -987,7 +849,29 @@ status open
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Band-pass filtered, differentiated, squared and post moving-window ECG
+
+\change_inserted -468262419 1471034761
+Moving average: Amplitude response 
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Moving-average:-Amplitude"
+
+\end_inset
+
+
+\change_unchanged
+
+\end_layout
+
+\end_inset
+
+
+\change_unchanged
+
+\end_layout
+
+\begin_layout Plain Layout
+
 \end_layout
 
 \end_inset
@@ -995,9 +879,15 @@ Band-pass filtered, differentiated, squared and post moving-window ECG
 
 \end_layout
 
-\end_inset
+\begin_layout Standard
 
-
+\change_deleted -468262419 1471034719
+ 
+\change_unchanged
+All the close data points merge to generate one peak.
+ If the window's width is too narrow, more peaks will form and if too wide,
+ will merge not only the QRS complex but also P and T waves.
+ 
 \end_layout
 
 \begin_layout Standard
@@ -1021,7 +911,7 @@ key "pantom"
  The lower threshold in both set is used when no QRS is detected in a certain
  time and is necessary to look back in time.
  Finally, a peak must be recognized in both the moving window integrator
- and bandpass output.
+ and band-pass filter output.
 \change_inserted -1260779252 1470407374
 
 \begin_inset Note Note
@@ -1391,8 +1281,6 @@ Results
 \end_layout
 
 \begin_layout Standard
-
-\change_inserted -468262419 1470072707
 The results for boths algorithms are presented in Table 
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -1401,50 +1289,10 @@ reference "tab:Performance"
 \end_inset
 
 .
- 
-\change_inserted -1260779252 1470407498
-
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-
-\change_inserted -1260779252 1470407539
-Yo no haría nombres, no tiene sentido no es un dato que le interese al que
- lee, implementación 1 y 2 y listo.
-\change_unchanged
-
-\end_layout
-
-\end_inset
-
-
-\change_deleted -1260779252 1470407527
-Algorithm 1 was implemented by Juan Ignacio Robledo and the algorithm 2
- was implemented by Juan Ignacio Bianchetti
-\change_inserted -468262419 1470072707
-.
  Both were tested in all records of MIT-BIH Arrhythmia database with the
- exception of records 102, 104, 107 and 217
-\change_inserted -1260779252 1470407565
+ exception of records without paced beats.
 
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-
-\change_inserted -1260779252 1470407597
-como ya lo dijeron, para no repetir, pueden decir en los registros without
- paced beats
-\change_unchanged
-
-\end_layout
-
-\end_inset
-
-
-\change_inserted -468262419 1470072707
-.
+\change_inserted -468262419 1471036384
  
 \change_inserted -1260779252 1470408188
 
@@ -1465,105 +1313,32 @@ no está muy claro, empiecen contando que como hay 2 leads por registros,
 \end_inset
 
 
-\change_inserted -468262419 1470072707
-The following 
-\change_deleted -1260779252 1470408129
-criteria
-\change_inserted -1260779252 1470408130
-criterion
-\change_inserted -468262419 1470072707
- 
-\change_deleted -1260779252 1470408131
-were 
-\change_inserted -1260779252 1470408132
-was 
-\change_inserted -468262419 1470072707
-used to present the results: lead with both 
-\change_inserted -1260779252 1470407699
-positive predictive value 
-\change_deleted -1260779252 1470407622
-PV+ 
-\change_inserted -468262419 1470072707
-(
-\change_inserted -1260779252 1470407619
-P
-\change_deleted -1260779252 1470407614
-predictive value positive
-\change_inserted -468262419 1470072707
-) 
-\change_inserted -1260779252 1470407629
-
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-
-\change_inserted -1260779252 1470407650
-por lo gral se pone lo que significa, y entre paréntesis la sigla resumida
 \change_unchanged
-
-\end_layout
-
-\end_inset
-
-
-\change_deleted -1260779252 1470407709
-y
-\change_inserted -1260779252 1470407712
-and
-\change_inserted -468262419 1470072707
- 
-\change_inserted -1260779252 1470407657
-sensitivity 
-\change_deleted -1260779252 1470407659
-SENS 
-\change_inserted -468262419 1470072707
-(
-\change_inserted -1260779252 1470407660
-S
-\change_deleted -1260779252 1470407654
-sensibility
-\change_inserted -468262419 1470072707
-) maximun, if maximum were not in the same lead, it is presented MLII.
+The following criterion was used to present the results: lead with both
+ positive predictive value (P) and sensitivity (S) maximum, if maximum were
+ not in the same lead, it is presented MLII.
  If MLII was not an available lead, the first entry in order of appearance
  was chosen.
  Both algorithms use the same criteria to show its results.
 \end_layout
 
 \begin_layout Standard
-
-\change_inserted -468262419 1470057505
 \begin_inset Float table
 wide false
 sideways false
 status open
 
 \begin_layout Plain Layout
-
-\change_inserted -468262419 1470057505
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-
-\change_inserted -468262419 1470057505
 \begin_inset CommandInset label
 LatexCommand label
 name "tab:Performance"
 
 \end_inset
 
-Final results for boths algorithms 
-\change_deleted 361918700 1470247621
-
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "tab:Features-selected"
-
-\end_inset
-
-
-\change_inserted -468262419 1470057505
-.
+Final results for boths algorithms .
 \end_layout
 
 \end_inset
@@ -1572,14 +1347,10 @@ reference "tab:Features-selected"
 \end_layout
 
 \begin_layout Plain Layout
-
-\change_inserted -468262419 1470057505
 \begin_inset ERT
 status open
 
 \begin_layout Plain Layout
-
-\change_inserted -468262419 1470057505
 
 %
 \backslash
@@ -1595,8 +1366,6 @@ textwidth}{!}{
 
 \begin_layout Plain Layout
 \align center
-
-\change_inserted -468262419 1470057505
 \begin_inset Tabular
 <lyxtabular version="3" rows="48" columns="5">
 <features tabularvalignment="middle">
@@ -1610,8 +1379,6 @@ textwidth}{!}{
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\change_inserted -468262419 1470057505
 Recordings
 \end_layout
 
@@ -1621,9 +1388,7 @@ Recordings
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\change_inserted -468262419 1470057505
-Algorithm 1
+Implementation 1
 \end_layout
 
 \end_inset
@@ -1641,9 +1406,7 @@ Algorithm 1
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\change_inserted -468262419 1470057505
-Algorithm 2
+Implementation 2
 \end_layout
 
 \end_inset
@@ -1672,8 +1435,6 @@ Algorithm 2
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\change_inserted -468262419 1470057505
 PV +
 \end_layout
 
@@ -1683,8 +1444,6 @@ PV +
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\change_inserted -468262419 1470057505
 SENS
 \end_layout
 
@@ -1694,8 +1453,6 @@ SENS
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\change_inserted -468262419 1470057505
 PV +
 \end_layout
 
@@ -1705,8 +1462,6 @@ PV +
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\change_inserted -468262419 1470057505
 SENS
 \end_layout
 
@@ -1718,8 +1473,6 @@ SENS
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\change_inserted -468262419 1470057505
 
 \family roman
 \series medium
@@ -1741,8 +1494,6 @@ SENS
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\change_inserted -468262419 1470073177
 1
 \end_layout
 
@@ -1752,8 +1503,6 @@ SENS
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\change_inserted -468262419 1470057505
 
 \family roman
 \series medium
@@ -1776,8 +1525,6 @@ SENS
 
 \begin_layout Plain Layout
 
-\change_inserted -468262419 1470057505
-
 \family roman
 \series medium
 \shape up
@@ -1798,8 +1545,6 @@ SENS
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\change_inserted -468262419 1470057505
 
 \family roman
 \series medium
@@ -1824,8 +1569,6 @@ SENS
 
 \begin_layout Plain Layout
 
-\change_inserted -468262419 1470057505
-
 \family roman
 \series medium
 \shape up
@@ -1846,8 +1589,6 @@ SENS
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\change_inserted -468262419 1470073187
 
 \family roman
 \series medium
@@ -1870,8 +1611,6 @@ SENS
 
 \begin_layout Plain Layout
 
-\change_inserted -468262419 1470073195
-
 \family roman
 \series medium
 \shape up
@@ -1893,8 +1632,6 @@ SENS
 
 \begin_layout Plain Layout
 
-\change_inserted -468262419 1470057505
-
 \family roman
 \series medium
 \shape up
@@ -1915,8 +1652,6 @@ SENS
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\change_inserted -468262419 1470057505
 
 \family roman
 \series medium
@@ -1941,8 +1676,6 @@ SENS
 
 \begin_layout Plain Layout
 
-\change_inserted -468262419 1470057505
-
 \family roman
 \series medium
 \shape up
@@ -1963,8 +1696,6 @@ SENS
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\change_inserted -468262419 1470073209
 1
 \end_layout
 
@@ -1974,8 +1705,6 @@ SENS
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\change_inserted -468262419 1470073215
 1
 \end_layout
 
@@ -1985,8 +1714,6 @@ SENS
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\change_inserted -468262419 1470057505
 
 \family roman
 \series medium
@@ -2008,8 +1735,6 @@ SENS
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\change_inserted -468262419 1470057505
 
 \family roman
 \series medium
@@ -2034,8 +1759,6 @@ SENS
 
 \begin_layout Plain Layout
 
-\change_inserted -468262419 1470057505
-
 \family roman
 \series medium
 \shape up
@@ -2056,8 +1779,6 @@ SENS
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\change_inserted -468262419 1470073234
 
 \family roman
 \series medium
@@ -2080,8 +1801,6 @@ SENS
 
 \begin_layout Plain Layout
 
-\change_inserted -468262419 1470073243
-
 \family roman
 \series medium
 \shape up
@@ -2103,8 +1822,6 @@ SENS
 
 \begin_layout Plain Layout
 
-\change_inserted -468262419 1470057505
-
 \family roman
 \series medium
 \shape up
@@ -2125,8 +1842,6 @@ SENS
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\change_inserted -468262419 1470057505
 
 \family roman
 \series medium
@@ -2151,8 +1866,6 @@ SENS
 
 \begin_layout Plain Layout
 
-\change_inserted -468262419 1470057505
-
 \family roman
 \series medium
 \shape up
@@ -2173,8 +1886,6 @@ SENS
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\change_inserted -468262419 1470073270
 1
 \end_layout
 
@@ -2184,8 +1895,6 @@ SENS
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\change_inserted -468262419 1470073284
 
 \family roman
 \series medium
@@ -2208,8 +1917,6 @@ SENS
 
 \begin_layout Plain Layout
 
-\change_inserted -468262419 1470057505
-
 \family roman
 \series medium
 \shape up
@@ -2230,8 +1937,6 @@ SENS
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\change_inserted -468262419 1470057505
 
 \family roman
 \series medium
@@ -2256,8 +1961,6 @@ SENS
 
 \begin_layout Plain Layout
 
-\change_inserted -468262419 1470057505
-
 \family roman
 \series medium
 \shape up
@@ -2278,8 +1981,6 @@ SENS
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\change_inserted -468262419 1470073305
 
 \family roman
 \series medium
@@ -2302,8 +2003,6 @@ SENS
 
 \begin_layout Plain Layout
 
-\change_inserted -468262419 1470073311
-
 \family roman
 \series medium
 \shape up
@@ -2325,8 +2024,6 @@ SENS
 
 \begin_layout Plain Layout
 
-\change_inserted -468262419 1470057505
-
 \family roman
 \series medium
 \shape up
@@ -2347,8 +2044,6 @@ SENS
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\change_inserted -468262419 1470057505
 
 \family roman
 \series medium
@@ -2373,8 +2068,6 @@ SENS
 
 \begin_layout Plain Layout
 
-\change_inserted -468262419 1470057505
-
 \family roman
 \series medium
 \shape up
@@ -2395,8 +2088,6 @@ SENS
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\change_inserted -468262419 1470073326
 1
 \end_layout
 
@@ -2406,8 +2097,6 @@ SENS
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\change_inserted -468262419 1470073332
 
 \family roman
 \series medium
@@ -2430,8 +2119,6 @@ SENS
 
 \begin_layout Plain Layout
 
-\change_inserted -468262419 1470057505
-
 \family roman
 \series medium
 \shape up
@@ -2452,8 +2139,6 @@ SENS
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\change_inserted -468262419 1470057505
 
 \family roman
 \series medium
@@ -2478,8 +2163,6 @@ SENS
 
 \begin_layout Plain Layout
 
-\change_inserted -468262419 1470057505
-
 \family roman
 \series medium
 \shape up
@@ -2501,8 +2184,6 @@ SENS
 
 \begin_layout Plain Layout
 
-\change_inserted -468262419 1470073357
-
 \family roman
 \series medium
 \shape up
@@ -2523,8 +2204,6 @@ SENS
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\change_inserted -468262419 1470073367
 
 \family roman
 \series medium
@@ -2547,8 +2226,6 @@ SENS
 
 \begin_layout Plain Layout
 
-\change_inserted -468262419 1470057505
-
 \family roman
 \series medium
 \shape up
@@ -2569,8 +2246,6 @@ SENS
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\change_inserted -468262419 1470057505
 
 \family roman
 \series medium
@@ -2595,8 +2270,6 @@ SENS
 
 \begin_layout Plain Layout
 
-\change_inserted -468262419 1470057505
-
 \family roman
 \series medium
 \shape up
@@ -2618,8 +2291,6 @@ SENS
 
 \begin_layout Plain Layout
 
-\change_inserted -468262419 1470073388
-
 \family roman
 \series medium
 \shape up
@@ -2640,8 +2311,6 @@ SENS
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\change_inserted -468262419 1470073397
 1
 \end_layout
 
@@ -2651,8 +2320,6 @@ SENS
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\change_inserted -468262419 1470057505
 
 \family roman
 \series medium
@@ -2674,8 +2341,6 @@ SENS
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\change_inserted -468262419 1470057505
 
 \family roman
 \series medium
@@ -2700,8 +2365,6 @@ SENS
 
 \begin_layout Plain Layout
 
-\change_inserted -468262419 1470057505
-
 \family roman
 \series medium
 \shape up
@@ -2723,8 +2386,6 @@ SENS
 
 \begin_layout Plain Layout
 
-\change_inserted -468262419 1470073414
-
 \family roman
 \series medium
 \shape up
@@ -2745,8 +2406,6 @@ SENS
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\change_inserted -468262419 1470073421
 
 \family roman
 \series medium
@@ -2769,8 +2428,6 @@ SENS
 
 \begin_layout Plain Layout
 
-\change_inserted -468262419 1470057505
-
 \family roman
 \series medium
 \shape up
@@ -2791,8 +2448,6 @@ SENS
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\change_inserted -468262419 1470057505
 
 \family roman
 \series medium
@@ -2817,8 +2472,6 @@ SENS
 
 \begin_layout Plain Layout
 
-\change_inserted -468262419 1470057505
-
 \family roman
 \series medium
 \shape up
@@ -2839,8 +2492,6 @@ SENS
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\change_inserted -468262419 1470073436
 
 \family roman
 \series medium
@@ -2863,8 +2514,6 @@ SENS
 
 \begin_layout Plain Layout
 
-\change_inserted -468262419 1470073444
-
 \family roman
 \series medium
 \shape up
@@ -2886,8 +2535,6 @@ SENS
 
 \begin_layout Plain Layout
 
-\change_inserted -468262419 1470057505
-
 \family roman
 \series medium
 \shape up
@@ -2908,8 +2555,6 @@ SENS
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\change_inserted -468262419 1470057505
 
 \family roman
 \series medium
@@ -2934,8 +2579,6 @@ SENS
 
 \begin_layout Plain Layout
 
-\change_inserted -468262419 1470057505
-
 \family roman
 \series medium
 \shape up
@@ -2956,8 +2599,6 @@ SENS
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\change_inserted -468262419 1470073482
 0,999
 \end_layout
 
@@ -2967,8 +2608,6 @@ SENS
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\change_inserted -468262419 1470073488
 
 \family roman
 \series medium
@@ -2990,8 +2629,6 @@ SENS
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\change_inserted -468262419 1470057505
 
 \family roman
 \series medium
@@ -3013,8 +2650,6 @@ SENS
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\change_inserted -468262419 1470057505
 
 \family roman
 \series medium
@@ -3039,8 +2674,6 @@ SENS
 
 \begin_layout Plain Layout
 
-\change_inserted -468262419 1470057505
-
 \family roman
 \series medium
 \shape up
@@ -3061,8 +2694,6 @@ SENS
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\change_inserted -468262419 1470073503
 
 \family roman
 \series medium
@@ -3085,8 +2716,6 @@ SENS
 
 \begin_layout Plain Layout
 
-\change_inserted -468262419 1470073519
-
 \family roman
 \series medium
 \shape up
@@ -3108,8 +2737,6 @@ SENS
 
 \begin_layout Plain Layout
 
-\change_inserted -468262419 1470057505
-
 \family roman
 \series medium
 \shape up
@@ -3130,8 +2757,6 @@ SENS
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\change_inserted -468262419 1470057505
 
 \family roman
 \series medium
@@ -3156,8 +2781,6 @@ SENS
 
 \begin_layout Plain Layout
 
-\change_inserted -468262419 1470057505
-
 \family roman
 \series medium
 \shape up
@@ -3178,8 +2801,6 @@ SENS
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\change_inserted -468262419 1470073529
 0,999
 \end_layout
 
@@ -3189,8 +2810,6 @@ SENS
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\change_inserted -468262419 1470057505
 
 \family roman
 \series medium
@@ -3212,8 +2831,6 @@ SENS
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\change_inserted -468262419 1470057505
 
 \family roman
 \series medium
@@ -3235,8 +2852,6 @@ SENS
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\change_inserted -468262419 1470057505
 
 \family roman
 \series medium
@@ -3261,8 +2876,6 @@ SENS
 
 \begin_layout Plain Layout
 
-\change_inserted -468262419 1470057505
-
 \family roman
 \series medium
 \shape up
@@ -3284,8 +2897,6 @@ SENS
 
 \begin_layout Plain Layout
 
-\change_inserted -468262419 1470073560
-
 \family roman
 \series medium
 \shape up
@@ -3306,8 +2917,6 @@ SENS
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\change_inserted -468262419 1470073569
 1
 \end_layout
 
@@ -3317,8 +2926,6 @@ SENS
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\change_inserted -468262419 1470057505
 
 \family roman
 \series medium
@@ -3340,8 +2947,6 @@ SENS
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\change_inserted -468262419 1470057505
 
 \family roman
 \series medium
@@ -3366,8 +2971,6 @@ SENS
 
 \begin_layout Plain Layout
 
-\change_inserted -468262419 1470057505
-
 \family roman
 \series medium
 \shape up
@@ -3388,8 +2991,6 @@ SENS
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\change_inserted -468262419 1470073607
 0,999
 \end_layout
 
@@ -3399,8 +3000,6 @@ SENS
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\change_inserted -468262419 1470073620
 1
 \end_layout
 
@@ -3410,8 +3009,6 @@ SENS
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\change_inserted -468262419 1470057505
 
 \family roman
 \series medium
@@ -3433,8 +3030,6 @@ SENS
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\change_inserted -468262419 1470057505
 
 \family roman
 \series medium
@@ -3459,8 +3054,6 @@ SENS
 
 \begin_layout Plain Layout
 
-\change_inserted -468262419 1470057505
-
 \family roman
 \series medium
 \shape up
@@ -3481,8 +3074,6 @@ SENS
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\change_inserted -468262419 1470073649
 
 \family roman
 \series medium
@@ -3505,8 +3096,6 @@ SENS
 
 \begin_layout Plain Layout
 
-\change_inserted -468262419 1470073657
-
 \family roman
 \series medium
 \shape up
@@ -3528,8 +3117,6 @@ SENS
 
 \begin_layout Plain Layout
 
-\change_inserted -468262419 1470057505
-
 \family roman
 \series medium
 \shape up
@@ -3550,8 +3137,6 @@ SENS
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\change_inserted -468262419 1470057505
 
 \family roman
 \series medium
@@ -3576,8 +3161,6 @@ SENS
 
 \begin_layout Plain Layout
 
-\change_inserted -468262419 1470057505
-
 \family roman
 \series medium
 \shape up
@@ -3598,8 +3181,6 @@ SENS
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\change_inserted -468262419 1470073667
 1
 \end_layout
 
@@ -3609,8 +3190,6 @@ SENS
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\change_inserted -468262419 1470073671
 1
 \end_layout
 
@@ -3620,8 +3199,6 @@ SENS
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\change_inserted -468262419 1470057505
 
 \family roman
 \series medium
@@ -3643,8 +3220,6 @@ SENS
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\change_inserted -468262419 1470057505
 
 \family roman
 \series medium
@@ -3669,8 +3244,6 @@ SENS
 
 \begin_layout Plain Layout
 
-\change_inserted -468262419 1470057505
-
 \family roman
 \series medium
 \shape up
@@ -3692,8 +3265,6 @@ SENS
 
 \begin_layout Plain Layout
 
-\change_inserted -468262419 1470073683
-
 \family roman
 \series medium
 \shape up
@@ -3714,8 +3285,6 @@ SENS
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\change_inserted -468262419 1470073687
 
 \family roman
 \series medium
@@ -3738,8 +3307,6 @@ SENS
 
 \begin_layout Plain Layout
 
-\change_inserted -468262419 1470057505
-
 \family roman
 \series medium
 \shape up
@@ -3760,8 +3327,6 @@ SENS
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\change_inserted -468262419 1470057505
 
 \family roman
 \series medium
@@ -3786,8 +3351,6 @@ SENS
 
 \begin_layout Plain Layout
 
-\change_inserted -468262419 1470057505
-
 \family roman
 \series medium
 \shape up
@@ -3808,8 +3371,6 @@ SENS
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\change_inserted -468262419 1470073702
 
 \family roman
 \series medium
@@ -3832,8 +3393,6 @@ SENS
 
 \begin_layout Plain Layout
 
-\change_inserted -468262419 1470073706
-
 \family roman
 \series medium
 \shape up
@@ -3855,8 +3414,6 @@ SENS
 
 \begin_layout Plain Layout
 
-\change_inserted -468262419 1470057505
-
 \family roman
 \series medium
 \shape up
@@ -3877,8 +3434,6 @@ SENS
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\change_inserted -468262419 1470057505
 
 \family roman
 \series medium
@@ -3903,8 +3458,6 @@ SENS
 
 \begin_layout Plain Layout
 
-\change_inserted -468262419 1470057505
-
 \family roman
 \series medium
 \shape up
@@ -3925,8 +3478,6 @@ SENS
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\change_inserted -468262419 1470073726
 
 \family roman
 \series medium
@@ -3949,8 +3500,6 @@ SENS
 
 \begin_layout Plain Layout
 
-\change_inserted -468262419 1470073748
-
 \family roman
 \series medium
 \shape up
@@ -3972,8 +3521,6 @@ SENS
 
 \begin_layout Plain Layout
 
-\change_inserted -468262419 1470057505
-
 \family roman
 \series medium
 \shape up
@@ -3994,8 +3541,6 @@ SENS
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\change_inserted -468262419 1470057505
 
 \family roman
 \series medium
@@ -4020,8 +3565,6 @@ SENS
 
 \begin_layout Plain Layout
 
-\change_inserted -468262419 1470057505
-
 \family roman
 \series medium
 \shape up
@@ -4042,8 +3585,6 @@ SENS
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\change_inserted -468262419 1470073772
 
 \family roman
 \series medium
@@ -4066,8 +3607,6 @@ SENS
 
 \begin_layout Plain Layout
 
-\change_inserted -468262419 1470073776
-
 \family roman
 \series medium
 \shape up
@@ -4089,8 +3628,6 @@ SENS
 
 \begin_layout Plain Layout
 
-\change_inserted -468262419 1470057505
-
 \family roman
 \series medium
 \shape up
@@ -4111,8 +3648,6 @@ SENS
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\change_inserted -468262419 1470057505
 
 \family roman
 \series medium
@@ -4137,8 +3672,6 @@ SENS
 
 \begin_layout Plain Layout
 
-\change_inserted -468262419 1470057505
-
 \family roman
 \series medium
 \shape up
@@ -4159,8 +3692,6 @@ SENS
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\change_inserted -468262419 1470073788
 1
 \end_layout
 
@@ -4170,8 +3701,6 @@ SENS
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\change_inserted -468262419 1470073791
 
 \family roman
 \series medium
@@ -4194,8 +3723,6 @@ SENS
 
 \begin_layout Plain Layout
 
-\change_inserted -468262419 1470057505
-
 \family roman
 \series medium
 \shape up
@@ -4216,8 +3743,6 @@ SENS
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\change_inserted -468262419 1470057505
 
 \family roman
 \series medium
@@ -4242,8 +3767,6 @@ SENS
 
 \begin_layout Plain Layout
 
-\change_inserted -468262419 1470057505
-
 \family roman
 \series medium
 \shape up
@@ -4264,8 +3787,6 @@ SENS
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\change_inserted -468262419 1470073810
 
 \family roman
 \series medium
@@ -4288,8 +3809,6 @@ SENS
 
 \begin_layout Plain Layout
 
-\change_inserted -468262419 1470073813
-
 \family roman
 \series medium
 \shape up
@@ -4311,8 +3830,6 @@ SENS
 
 \begin_layout Plain Layout
 
-\change_inserted -468262419 1470057505
-
 \family roman
 \series medium
 \shape up
@@ -4333,8 +3850,6 @@ SENS
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\change_inserted -468262419 1470057505
 
 \family roman
 \series medium
@@ -4359,8 +3874,6 @@ SENS
 
 \begin_layout Plain Layout
 
-\change_inserted -468262419 1470057505
-
 \family roman
 \series medium
 \shape up
@@ -4381,8 +3894,6 @@ SENS
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\change_inserted -468262419 1470073828
 1
 \end_layout
 
@@ -4392,8 +3903,6 @@ SENS
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\change_inserted -468262419 1470073832
 
 \family roman
 \series medium
@@ -4416,8 +3925,6 @@ SENS
 
 \begin_layout Plain Layout
 
-\change_inserted -468262419 1470057505
-
 \family roman
 \series medium
 \shape up
@@ -4438,8 +3945,6 @@ SENS
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\change_inserted -468262419 1470057505
 
 \family roman
 \series medium
@@ -4464,8 +3969,6 @@ SENS
 
 \begin_layout Plain Layout
 
-\change_inserted -468262419 1470057505
-
 \family roman
 \series medium
 \shape up
@@ -4486,8 +3989,6 @@ SENS
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\change_inserted -468262419 1470073851
 
 \family roman
 \series medium
@@ -4510,8 +4011,6 @@ SENS
 
 \begin_layout Plain Layout
 
-\change_inserted -468262419 1470073868
-
 \family roman
 \series medium
 \shape up
@@ -4533,8 +4032,6 @@ SENS
 
 \begin_layout Plain Layout
 
-\change_inserted -468262419 1470057505
-
 \family roman
 \series medium
 \shape up
@@ -4555,8 +4052,6 @@ SENS
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\change_inserted -468262419 1470057505
 
 \family roman
 \series medium
@@ -4581,8 +4076,6 @@ SENS
 
 \begin_layout Plain Layout
 
-\change_inserted -468262419 1470057505
-
 \family roman
 \series medium
 \shape up
@@ -4603,8 +4096,6 @@ SENS
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\change_inserted -468262419 1470073895
 
 \family roman
 \series medium
@@ -4627,8 +4118,6 @@ SENS
 
 \begin_layout Plain Layout
 
-\change_inserted -468262419 1470073902
-
 \family roman
 \series medium
 \shape up
@@ -4650,8 +4139,6 @@ SENS
 
 \begin_layout Plain Layout
 
-\change_inserted -468262419 1470057505
-
 \family roman
 \series medium
 \shape up
@@ -4672,8 +4159,6 @@ SENS
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\change_inserted -468262419 1470057505
 
 \family roman
 \series medium
@@ -4698,8 +4183,6 @@ SENS
 
 \begin_layout Plain Layout
 
-\change_inserted -468262419 1470057505
-
 \family roman
 \series medium
 \shape up
@@ -4720,8 +4203,6 @@ SENS
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\change_inserted -468262419 1470073911
 
 \family roman
 \series medium
@@ -4744,8 +4225,6 @@ SENS
 
 \begin_layout Plain Layout
 
-\change_inserted -468262419 1470073916
-
 \family roman
 \series medium
 \shape up
@@ -4767,8 +4246,6 @@ SENS
 
 \begin_layout Plain Layout
 
-\change_inserted -468262419 1470057505
-
 \family roman
 \series medium
 \shape up
@@ -4789,8 +4266,6 @@ SENS
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\change_inserted -468262419 1470057505
 
 \family roman
 \series medium
@@ -4815,8 +4290,6 @@ SENS
 
 \begin_layout Plain Layout
 
-\change_inserted -468262419 1470057505
-
 \family roman
 \series medium
 \shape up
@@ -4837,8 +4310,6 @@ SENS
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\change_inserted -468262419 1470073926
 
 \family roman
 \series medium
@@ -4861,8 +4332,6 @@ SENS
 
 \begin_layout Plain Layout
 
-\change_inserted -468262419 1470073966
-
 \family roman
 \series medium
 \shape up
@@ -4884,8 +4353,6 @@ SENS
 
 \begin_layout Plain Layout
 
-\change_inserted -468262419 1470057505
-
 \family roman
 \series medium
 \shape up
@@ -4906,8 +4373,6 @@ SENS
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\change_inserted -468262419 1470057505
 
 \family roman
 \series medium
@@ -4932,8 +4397,6 @@ SENS
 
 \begin_layout Plain Layout
 
-\change_inserted -468262419 1470057505
-
 \family roman
 \series medium
 \shape up
@@ -4955,8 +4418,6 @@ SENS
 
 \begin_layout Plain Layout
 
-\change_inserted -468262419 1470073973
-
 \family roman
 \series medium
 \shape up
@@ -4977,8 +4438,6 @@ SENS
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\change_inserted -468262419 1470073976
 1
 \end_layout
 
@@ -4988,8 +4447,6 @@ SENS
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\change_inserted -468262419 1470057505
 
 \family roman
 \series medium
@@ -5011,8 +4468,6 @@ SENS
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\change_inserted -468262419 1470057505
 
 \family roman
 \series medium
@@ -5037,8 +4492,6 @@ SENS
 
 \begin_layout Plain Layout
 
-\change_inserted -468262419 1470057505
-
 \family roman
 \series medium
 \shape up
@@ -5059,8 +4512,6 @@ SENS
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\change_inserted -468262419 1470074015
 1
 \end_layout
 
@@ -5070,8 +4521,6 @@ SENS
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\change_inserted -468262419 1470074025
 
 \family roman
 \series medium
@@ -5094,8 +4543,6 @@ SENS
 
 \begin_layout Plain Layout
 
-\change_inserted -468262419 1470057505
-
 \family roman
 \series medium
 \shape up
@@ -5116,8 +4563,6 @@ SENS
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\change_inserted -468262419 1470057505
 
 \family roman
 \series medium
@@ -5142,8 +4587,6 @@ SENS
 
 \begin_layout Plain Layout
 
-\change_inserted -468262419 1470057505
-
 \family roman
 \series medium
 \shape up
@@ -5164,8 +4607,6 @@ SENS
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\change_inserted -468262419 1470074037
 
 \family roman
 \series medium
@@ -5188,8 +4629,6 @@ SENS
 
 \begin_layout Plain Layout
 
-\change_inserted -468262419 1470074040
-
 \family roman
 \series medium
 \shape up
@@ -5211,8 +4650,6 @@ SENS
 
 \begin_layout Plain Layout
 
-\change_inserted -468262419 1470057505
-
 \family roman
 \series medium
 \shape up
@@ -5233,8 +4670,6 @@ SENS
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\change_inserted -468262419 1470057505
 
 \family roman
 \series medium
@@ -5259,8 +4694,6 @@ SENS
 
 \begin_layout Plain Layout
 
-\change_inserted -468262419 1470057505
-
 \family roman
 \series medium
 \shape up
@@ -5281,8 +4714,6 @@ SENS
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\change_inserted -468262419 1470074059
 1
 \end_layout
 
@@ -5292,8 +4723,6 @@ SENS
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\change_inserted -468262419 1470074069
 
 \family roman
 \series medium
@@ -5316,8 +4745,6 @@ SENS
 
 \begin_layout Plain Layout
 
-\change_inserted -468262419 1470057505
-
 \family roman
 \series medium
 \shape up
@@ -5338,8 +4765,6 @@ SENS
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\change_inserted -468262419 1470057505
 
 \family roman
 \series medium
@@ -5364,8 +4789,6 @@ SENS
 
 \begin_layout Plain Layout
 
-\change_inserted -468262419 1470057505
-
 \family roman
 \series medium
 \shape up
@@ -5386,8 +4809,6 @@ SENS
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\change_inserted -468262419 1470074108
 1
 \end_layout
 
@@ -5397,8 +4818,6 @@ SENS
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\change_inserted -468262419 1470057505
 
 \family roman
 \series medium
@@ -5421,8 +4840,6 @@ SENS
 
 \begin_layout Plain Layout
 
-\change_inserted -468262419 1470057505
-
 \family roman
 \series medium
 \shape up
@@ -5443,8 +4860,6 @@ SENS
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\change_inserted -468262419 1470057505
 
 \family roman
 \series medium
@@ -5469,8 +4884,6 @@ SENS
 
 \begin_layout Plain Layout
 
-\change_inserted -468262419 1470057505
-
 \family roman
 \series medium
 \shape up
@@ -5491,8 +4904,6 @@ SENS
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\change_inserted -468262419 1470074145
 1
 \end_layout
 
@@ -5502,8 +4913,6 @@ SENS
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\change_inserted -468262419 1470057505
 
 \family roman
 \series medium
@@ -5526,8 +4935,6 @@ SENS
 
 \begin_layout Plain Layout
 
-\change_inserted -468262419 1470057505
-
 \family roman
 \series medium
 \shape up
@@ -5548,8 +4955,6 @@ SENS
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\change_inserted -468262419 1470057505
 
 \family roman
 \series medium
@@ -5574,8 +4979,6 @@ SENS
 
 \begin_layout Plain Layout
 
-\change_inserted -468262419 1470057505
-
 \family roman
 \series medium
 \shape up
@@ -5596,8 +4999,6 @@ SENS
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\change_inserted -468262419 1470074163
 1
 \end_layout
 
@@ -5607,8 +5008,6 @@ SENS
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\change_inserted -468262419 1470074167
 
 \family roman
 \series medium
@@ -5631,8 +5030,6 @@ SENS
 
 \begin_layout Plain Layout
 
-\change_inserted -468262419 1470057505
-
 \family roman
 \series medium
 \shape up
@@ -5653,8 +5050,6 @@ SENS
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\change_inserted -468262419 1470057505
 
 \family roman
 \series medium
@@ -5679,8 +5074,6 @@ SENS
 
 \begin_layout Plain Layout
 
-\change_inserted -468262419 1470057505
-
 \family roman
 \series medium
 \shape up
@@ -5702,8 +5095,6 @@ SENS
 
 \begin_layout Plain Layout
 
-\change_inserted -468262419 1470074175
-
 \family roman
 \series medium
 \shape up
@@ -5724,8 +5115,6 @@ SENS
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\change_inserted -468262419 1470074178
 
 \family roman
 \series medium
@@ -5748,8 +5137,6 @@ SENS
 
 \begin_layout Plain Layout
 
-\change_inserted -468262419 1470057505
-
 \family roman
 \series medium
 \shape up
@@ -5770,8 +5157,6 @@ SENS
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\change_inserted -468262419 1470057505
 
 \family roman
 \series medium
@@ -5796,8 +5181,6 @@ SENS
 
 \begin_layout Plain Layout
 
-\change_inserted -468262419 1470057505
-
 \family roman
 \series medium
 \shape up
@@ -5819,8 +5202,6 @@ SENS
 
 \begin_layout Plain Layout
 
-\change_inserted -468262419 1470074193
-
 \family roman
 \series medium
 \shape up
@@ -5841,8 +5222,6 @@ SENS
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\change_inserted -468262419 1470074197
 1
 \end_layout
 
@@ -5852,8 +5231,6 @@ SENS
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\change_inserted -468262419 1470057505
 
 \family roman
 \series medium
@@ -5875,8 +5252,6 @@ SENS
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\change_inserted -468262419 1470057505
 
 \family roman
 \series medium
@@ -5901,8 +5276,6 @@ SENS
 
 \begin_layout Plain Layout
 
-\change_inserted -468262419 1470057505
-
 \family roman
 \series medium
 \shape up
@@ -5923,8 +5296,6 @@ SENS
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\change_inserted -468262419 1470074235
 
 \family roman
 \series medium
@@ -5947,8 +5318,6 @@ SENS
 
 \begin_layout Plain Layout
 
-\change_inserted -468262419 1470074244
-
 \family roman
 \series medium
 \shape up
@@ -5970,8 +5339,6 @@ SENS
 
 \begin_layout Plain Layout
 
-\change_inserted -468262419 1470057505
-
 \family roman
 \series medium
 \shape up
@@ -5992,8 +5359,6 @@ SENS
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\change_inserted -468262419 1470057505
 
 \family roman
 \series medium
@@ -6018,8 +5383,6 @@ SENS
 
 \begin_layout Plain Layout
 
-\change_inserted -468262419 1470057505
-
 \family roman
 \series medium
 \shape up
@@ -6040,8 +5403,6 @@ SENS
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\change_inserted -468262419 1470074263
 1
 \end_layout
 
@@ -6051,8 +5412,6 @@ SENS
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\change_inserted -468262419 1470074266
 1
 \end_layout
 
@@ -6062,8 +5421,6 @@ SENS
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\change_inserted -468262419 1470057505
 
 \family roman
 \series medium
@@ -6085,8 +5442,6 @@ SENS
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\change_inserted -468262419 1470057505
 
 \family roman
 \series medium
@@ -6111,8 +5466,6 @@ SENS
 
 \begin_layout Plain Layout
 
-\change_inserted -468262419 1470057505
-
 \family roman
 \series medium
 \shape up
@@ -6134,8 +5487,6 @@ SENS
 
 \begin_layout Plain Layout
 
-\change_inserted -468262419 1470074282
-
 \family roman
 \series medium
 \shape up
@@ -6156,8 +5507,6 @@ SENS
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\change_inserted -468262419 1470074268
 1
 \end_layout
 
@@ -6167,8 +5516,6 @@ SENS
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\change_inserted -468262419 1470057505
 
 \family roman
 \series medium
@@ -6190,8 +5537,6 @@ SENS
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\change_inserted -468262419 1470057505
 
 \family roman
 \series medium
@@ -6216,8 +5561,6 @@ SENS
 
 \begin_layout Plain Layout
 
-\change_inserted -468262419 1470057505
-
 \family roman
 \series medium
 \shape up
@@ -6238,8 +5581,6 @@ SENS
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\change_inserted -468262419 1470074300
 
 \family roman
 \series medium
@@ -6262,8 +5603,6 @@ SENS
 
 \begin_layout Plain Layout
 
-\change_inserted -468262419 1470074304
-
 \family roman
 \series medium
 \shape up
@@ -6285,8 +5624,6 @@ SENS
 
 \begin_layout Plain Layout
 
-\change_inserted -468262419 1470057505
-
 \family roman
 \series medium
 \shape up
@@ -6307,8 +5644,6 @@ SENS
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\change_inserted -468262419 1470057505
 
 \family roman
 \series medium
@@ -6333,8 +5668,6 @@ SENS
 
 \begin_layout Plain Layout
 
-\change_inserted -468262419 1470057505
-
 \family roman
 \series medium
 \shape up
@@ -6355,8 +5688,6 @@ SENS
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\change_inserted -468262419 1470074330
 
 \family roman
 \series medium
@@ -6379,8 +5710,6 @@ SENS
 
 \begin_layout Plain Layout
 
-\change_inserted -468262419 1470074341
-
 \family roman
 \series medium
 \shape up
@@ -6402,8 +5731,6 @@ SENS
 
 \begin_layout Plain Layout
 
-\change_inserted -468262419 1470057505
-
 \family roman
 \series medium
 \shape up
@@ -6424,8 +5751,6 @@ SENS
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\change_inserted -468262419 1470057505
 
 \family roman
 \series medium
@@ -6450,8 +5775,6 @@ SENS
 
 \begin_layout Plain Layout
 
-\change_inserted -468262419 1470057505
-
 \family roman
 \series medium
 \shape up
@@ -6473,8 +5796,6 @@ SENS
 
 \begin_layout Plain Layout
 
-\change_inserted -468262419 1470057505
-
 \family roman
 \series medium
 \shape up
@@ -6495,8 +5816,6 @@ SENS
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\change_inserted -468262419 1470074353
 
 \family roman
 \series medium
@@ -6519,8 +5838,6 @@ SENS
 
 \begin_layout Plain Layout
 
-\change_inserted -468262419 1470057505
-
 \family roman
 \series medium
 \shape up
@@ -6541,8 +5858,6 @@ SENS
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\change_inserted -468262419 1470057505
 
 \family roman
 \series medium
@@ -6567,8 +5882,6 @@ SENS
 
 \begin_layout Plain Layout
 
-\change_inserted -468262419 1470057505
-
 \end_layout
 
 \end_inset
@@ -6577,8 +5890,6 @@ SENS
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\change_inserted -468262419 1470057505
 
 \family roman
 \series medium
@@ -6601,8 +5912,6 @@ Total PV+
 
 \begin_layout Plain Layout
 
-\change_inserted -468262419 1470057505
-
 \family roman
 \series medium
 \shape up
@@ -6624,8 +5933,6 @@ Total SENS
 
 \begin_layout Plain Layout
 
-\change_inserted -468262419 1470057505
-
 \family roman
 \series medium
 \shape up
@@ -6646,8 +5953,6 @@ Total PV+
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\change_inserted -468262419 1470057505
 
 \family roman
 \series medium
@@ -6681,8 +5986,6 @@ Total SENS
 
 \begin_layout Plain Layout
 
-\change_inserted -468262419 1470075015
-
 \family roman
 \series medium
 \shape up
@@ -6703,8 +6006,6 @@ Total SENS
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\change_inserted -468262419 1470075075
 
 \family roman
 \series medium
@@ -6727,8 +6028,6 @@ Total SENS
 
 \begin_layout Plain Layout
 
-\change_inserted -468262419 1470057505
-
 \family roman
 \series medium
 \shape up
@@ -6749,8 +6048,6 @@ Total SENS
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\change_inserted -468262419 1470057505
 
 \family roman
 \series medium
@@ -6777,14 +6074,10 @@ Total SENS
 \end_layout
 
 \begin_layout Plain Layout
-
-\change_inserted -468262419 1470057505
 \begin_inset ERT
 status open
 
 \begin_layout Plain Layout
-
-\change_inserted -468262419 1470057505
 
 %}
 \end_layout
@@ -6796,8 +6089,6 @@ status open
 
 \end_inset
 
-
-\change_unchanged
 
 \end_layout
 
