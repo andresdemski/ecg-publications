@@ -138,34 +138,23 @@ In this work its presented a first approach of ECG quality classification.
  is done using the SQI based detector.
  This detector uses a support vector machine with a Gaussian kernel for
  doing this work.
- The SQI are extracted from the record, they are calculated per lead individualy
- getting 144 SQI per record.
+ The SQI are extracted from the record, there are calculated 12 per each
+ lead, getting 144 SQI per record.
  
 \end_layout
 
 \begin_layout Abstract
 The databases that are used in this work are the PhysioNet/Computing in
- Cardiology Challenge 2011 dataset and the MIY-BIH database.
+ Cardiology Challenge 2011 dataset and the MIT-BIH database.
  Both of them are used for training the algorithms and only the challenge
  dataset was used for testing.
 \end_layout
 
 \begin_layout Abstract
-The results of this work are hopeful for being a preliminary result.
- It is obtained a 93 
-\family roman
-\series medium
-\shape up
-\size normal
-\emph off
-\bar no
-\strikeout off
-\uuline off
-\uwave off
-\noun off
-\color none
-\lang english
-0.9369 	0.9858 	0.7689
+The performance of the algorithms was assessed using accuracy, sensitivity
+ and specificity metrics.
+ The bad quality detection performance obtained in this work reaches a 93%
+ of accuracy, a 98% of sensitivity and a 76% of specificity.
 \end_layout
 
 \begin_layout Section
@@ -464,6 +453,44 @@ The FLx estimators are compared with a threshold for determining flatline
 \end_layout
 
 \begin_layout Standard
+\begin_inset Float figure
+placement h
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename img/fl-roc.svg
+	width 70text%
+
+\end_inset
+
+
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:FL-ROC"
+
+\end_inset
+
+ROC curves for the flatline detectors 
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
 With the generated ground truth, we analyzed the ROC curves by sweeping
  the threshold value for each FLx flatline detector.
  In Figure 
@@ -533,10 +560,52 @@ The value of
 \end_layout
 
 \begin_layout Standard
-In panel c of Figure 
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename img/slewrate_hist.svg
+	width 70text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:SR-HIST"
+
+\end_inset
+
+The QRS complex's slew rate histogram is shown.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+In Figure 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "fig:FL-ROC"
+reference "fig:SR-HIST"
 
 \end_inset
 
@@ -583,16 +652,54 @@ Then, we train the value of
 \begin_inset Formula $10\%$
 \end_inset
 
- of spikes to classify the record as unacceptable, as is shown in panel
- b of Figure 
+ of spikes to classify the record as unacceptable, as is shown in Figure
+ 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "fig:FL-ROC"
+reference "fig:SP-ROC"
 
 \end_inset
 
 .
  
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename img/spike_roc.svg
+	width 70text%
+
+\end_inset
+
+
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:SP-ROC"
+
+\end_inset
+
+ROC curve for spikes derector
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Subsubsection
@@ -643,129 +750,6 @@ poné algún ejemplo, con valores, creo que podría aportar para ver cómo funci
 
 
 \change_unchanged
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset Float figure
-placement H
-wide false
-sideways false
-status open
-
-\begin_layout Plain Layout
-\align center
-\begin_inset Tabular
-<lyxtabular version="3" rows="2" columns="3">
-<features tabularvalignment="middle">
-<column alignment="center" valignment="top">
-<column alignment="center" valignment="top">
-<column alignment="center" valignment="top">
-<row>
-<cell alignment="center" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-a
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-b
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-c
-\end_layout
-
-\end_inset
-</cell>
-</row>
-<row>
-<cell alignment="center" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-\begin_inset Graphics
-	filename img/fl-roc.svg
-	width 27text%
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-\begin_inset Graphics
-	filename img/spike_roc.svg
-	width 25text%
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-\begin_inset Graphics
-	filename img/slewrate_hist.svg
-	width 36text%
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-</cell>
-</row>
-</lyxtabular>
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-\align center
-\begin_inset Caption Standard
-
-\begin_layout Plain Layout
-\begin_inset CommandInset label
-LatexCommand label
-name "fig:FL-ROC"
-
-\end_inset
-
-ROC curves for a) the flatline and b) spikes detectors.
- In c) the QRS complex's slew rate histogram is shown.
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
 
 \end_layout
 
@@ -900,6 +884,7 @@ reference "tab:Performance-of-bSQIs"
 
 \begin_layout Standard
 \begin_inset Float table
+placement H
 wide false
 sideways false
 status open
@@ -2025,7 +2010,7 @@ During this work, we presented a mixed algorithm which includes a binary
 
 \begin_layout Standard
 The joint and individual performance was evaluated for all the detectors
- giving us hopeful results.
+ giving hopeful results.
  The best accuracy and sensitivity was obtained by the full detector based
  in SQI with almost a 94% of accuracy and 99% of sensitivity, followed by
  the RD with a accuracy of 93% and sensitivity of 98%.
@@ -2043,8 +2028,8 @@ ion and it could be removed in future works.
 \begin_layout Standard
 Both SQI models detector's performance have the best accuracy and sensitivity.
  The results of the joint performance BT-RD and BT-FD are worst than we
- expected, we were looking to improve the individual performance of RD and
- FD.
+ expected, we were looking to get a better performance than the individual
+ performance of RD and FD.
  One reason is that we found many acceptable records which contain flatline
  or huge impulses, that considering our criterion of acceptability, are
  bad labelled.
@@ -2054,8 +2039,11 @@ Both SQI models detector's performance have the best accuracy and sensitivity.
 For being a first approach, we are hopeful with the results.
  In next works, we are going to develop a better model for the detector
  and reduce it for improve the computational cost.
- Also, we will test the algorithm over others datasets and re-label the
- current one.
+ As we have seen several mistakes in the labels of the database, we are
+ considering to re-label them for having a better training.
+ Also, we are going to test the algorithm in different databases for getting
+ its real performance.
+ 
 \end_layout
 
 \begin_layout Section*
