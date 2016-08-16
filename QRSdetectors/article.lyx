@@ -360,6 +360,7 @@ status open
 \change_inserted -468262419 1471033583
 \begin_inset Graphics
 	filename FlowDiagram.svg
+	height 40theight%
 
 \end_inset
 
@@ -6102,7 +6103,7 @@ Discussion and conclusions
 
 \change_inserted -1260779252 1470408265
 \begin_inset Note Note
-status collapsed
+status open
 
 \begin_layout Plain Layout
 
@@ -6123,7 +6124,7 @@ mmm no arranquemos tirándo abajo el trabajo, digamos lo que hicimos —>>
 \change_inserted -1260779252 1470408309
 
 \begin_inset Note Note
-status collapsed
+status open
 
 \begin_layout Plain Layout
 
@@ -6150,7 +6151,7 @@ no hagamos calificaciones ni valoraciones innecesarias, como uno mejor que
 \change_inserted -1260779252 1470408455
 
 \begin_inset Note Note
-status collapsed
+status open
 
 \begin_layout Plain Layout
 
@@ -6185,7 +6186,7 @@ for
 \change_inserted -1260779252 1470408525
 
 \begin_inset Note Note
-status collapsed
+status open
 
 \begin_layout Plain Layout
 
