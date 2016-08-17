@@ -334,32 +334,21 @@ reference "fig:Stages-of-Pan"
 , the algorithm consists in 6 stages: a band-pass filter, a derivative block,
  a squaring nonlinear transformation, a moving window integration, an algorithm
  of adaptive thresholds and a decision rule.
-
-\change_inserted -468262419 1471034116
- The same figure shows how the waveform evolves when crossing through one
+ The same figure shows how the waveform evolves while passing through one
  stage to the next one of the algorithm.
-\change_unchanged
-
 \end_layout
 
 \begin_layout Standard
-
-\change_inserted -468262419 1471033056
 \begin_inset Float figure
 wide false
 sideways false
 status open
 
 \begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
 \align center
-
-\change_inserted -468262419 1471033583
 \begin_inset Graphics
 	filename FlowDiagram.svg
+	height 40theight%
 
 \end_inset
 
@@ -367,8 +356,6 @@ status open
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-
-\change_inserted -468262419 1471033655
 Stages of Pan and Tompkins QRS detector and waveforms.
  
 \begin_inset CommandInset label
@@ -378,25 +365,15 @@ name "fig:Stages-of-Pan"
 \end_inset
 
 
-\change_unchanged
-
 \end_layout
 
 \end_inset
 
 
-\change_unchanged
-
-\end_layout
-
-\begin_layout Plain Layout
-
 \end_layout
 
 \end_inset
 
-
-\change_unchanged
 
 \end_layout
 
@@ -405,21 +382,13 @@ We consider important to notice that the Pan and Tompkins algorithm was
  developed for integer arithmetic in a microprocessor, which is intended
  to avoid excessive computing power and allowing real-time processing.
  Also, the original algorithm uses ECG signals obtained at 200 Hz.
- 
-\change_inserted -468262419 1471033764
-First waveform of
-\change_unchanged
- 
-\change_inserted -468262419 1471033778
-
+ First waveform of 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "fig:Stages-of-Pan"
 
 \end_inset
 
-
-\change_unchanged
 shows as example three seconds of the record N° 100 signal after removing
  its mean value.
 \end_layout
@@ -428,21 +397,18 @@ shows as example three seconds of the record N° 100 signal after removing
 The first stage consist in a band-pass filter in order to retain only QRS
  complex energy.
  In fact, the original Pan and Tompkins band-pass filter consist in the
- cascade of a low-pass filter and a high-pass filter to achieve the goal.
- Using the technique for integer coefficients, they designed a band-pass
- filter with bandwidth about 5Hz-12Hz, where several zeros are 
-\change_inserted -468262419 1471033956
-present in the unit circle of the 
+ cascade of a low-pass filter and a high-pass filter to achieve this goal.
+ Using a technique for integer coefficients, they designed a band-pass filter
+ with bandwidth about 5Hz-12Hz, where several zeros are present in the unit
+ circle of the 
 \shape italic
 z
 \shape default
- plane and located in order 
-\change_unchanged
-to cancel the poles at 
+ plane, with some of them located at 
 \begin_inset Formula $\omega=0$
 \end_inset
 
- [rad/sg].
+ [rad/sg] in order to cancel the poles there.
 \end_layout
 
 \begin_layout Standard
@@ -593,7 +559,7 @@ The bandwidth of the band-pass filter is between 9Hz-21Hz, with a total
 \begin_layout Standard
 The second stage is a five-point derivative where the signal is differentiated
  to provide the QRS complex slope information.
- The number of points refers to the maximun order in the '
+ The number of points refers to the maximum order in the '
 \shape italic
 z
 \shape default
@@ -622,13 +588,9 @@ reference "fig:Differentiator:-Amplitude-respon"
 \end_inset
 
 shows the amplitude response of this filter.
-\change_inserted -468262419 1470026882
-
 \end_layout
 
 \begin_layout Standard
-
-\change_inserted -468262419 1470005391
 \begin_inset Float figure
 wide false
 sideways false
@@ -636,8 +598,6 @@ status open
 
 \begin_layout Plain Layout
 \align center
-
-\change_inserted -468262419 1470006928
 \begin_inset Graphics
 	filename diff_plot_2.svg
 	lyxscale 50
@@ -649,8 +609,6 @@ status open
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-
-\change_inserted -468262419 1470026874
 Differentiator: Amplitude response
 \begin_inset CommandInset label
 LatexCommand label
@@ -659,21 +617,15 @@ name "fig:Differentiator:-Amplitude-respon"
 \end_inset
 
 
-\change_unchanged
-
 \end_layout
 
 \end_inset
 
 
-\change_unchanged
-
 \end_layout
 
 \end_inset
 
-
-\change_unchanged
 
 \end_layout
 
@@ -724,72 +676,26 @@ As has been previously mentioned, this is a non-linear transfer, which generates
 \end_layout
 
 \begin_layout Standard
-
-\change_inserted -468262419 1471034438
-Back
-\change_unchanged
- in 
-\change_inserted -468262419 1471034267
-Figure 
+Back in Figure 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "fig:Stages-of-Pan"
 
 \end_inset
 
-
-\change_unchanged
-, the slopes of a QRS event 
-\change_deleted -468262419 1471034293
-are 
-\change_inserted -468262419 1471034293
-were 
-\change_unchanged
-enhanced
-\change_inserted -468262419 1471034472
- after squaring
-\change_unchanged
-, so 
-\change_inserted -468262419 1471034309
-next 
-\change_unchanged
-the output from the squaring stage is filtered with a moving window integration
- in order to generate only one.
-\change_inserted -468262419 1470870836
-
+, the slopes of a QRS event were enhanced after squaring, so next the output
+ from the squaring stage is filtered with a moving window integration in
+ order to generate only one peak.
 \end_layout
 
 \begin_layout Standard
-
-\change_inserted -468262419 1471034636
 The moving window integration has a window width originally determined empirical
 ly by 150 milliseconds long.
  With this value, we ensure that all possibles QRS complexes completely
  fit in the window.
-\change_inserted -1260779252 1470407096
-
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-
-\change_inserted -1260779252 1470407129
-y esto equivale a un filtro pasabajos del que sería interesante tb ver la
- respuesta en frecuencia y porsupu el ancho de banda
-\change_unchanged
-
-\end_layout
-
-\end_inset
-
-
-\change_inserted -468262419 1470862538
-
 \end_layout
 
 \begin_layout Standard
-
-\change_inserted -468262419 1470028605
 \begin_inset Formula 
 \begin{equation}
 y[n]=\frac{1}{N}\left(x[n]+x[n\text{−}1]+\text{·}\text{·}\text{·}+x[n\text{−}(N\text{−}1)]\right)\label{eq:P&T_movingAve}
@@ -808,36 +714,26 @@ reference "eq:P&T_movingAve"
 
 \end_inset
 
- represents a moving average filter with N = 54 samples
-\change_inserted -468262419 1471036031
- and acts like 6.6Hz bandwidth low-pass filter which eliminates high frequencies
- introduced by the non-linear transformation, as the function transfer in
- Figure 
+ represents a moving average filter with N = 54 samples and acts like 6.6Hz
+ bandwidth low-pass filter as the function transfer in Figure 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "fig:Moving-average:-Amplitude"
 
 \end_inset
 
- shows, .
+ shows.
+ It eliminates high frequencies introduced by the non-linear transformation.
 \end_layout
 
 \begin_layout Standard
-
-\change_inserted -468262419 1471034725
 \begin_inset Float figure
 wide false
 sideways false
 status open
 
 \begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
 \align center
-
-\change_inserted -468262419 1471035878
 \begin_inset Graphics
 	filename PandT_movingAverage_2.svg
 	lyxscale 50
@@ -849,8 +745,6 @@ status open
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-
-\change_inserted -468262419 1471034761
 Moving average: Amplitude response 
 \begin_inset CommandInset label
 LatexCommand label
@@ -859,18 +753,10 @@ name "fig:Moving-average:-Amplitude"
 \end_inset
 
 
-\change_unchanged
-
 \end_layout
 
 \end_inset
 
-
-\change_unchanged
-
-\end_layout
-
-\begin_layout Plain Layout
 
 \end_layout
 
@@ -880,10 +766,6 @@ name "fig:Moving-average:-Amplitude"
 \end_layout
 
 \begin_layout Standard
-
-\change_deleted -468262419 1471034719
- 
-\change_unchanged
 All the close data points merge to generate one peak.
  If the window's width is too narrow, more peaks will form and if too wide,
  will merge not only the QRS complex but also P and T waves.
@@ -912,33 +794,8 @@ key "pantom"
  time and is necessary to look back in time.
  Finally, a peak must be recognized in both the moving window integrator
  and band-pass filter output.
-\change_inserted -1260779252 1470407374
-
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-
-\change_inserted -1260779252 1470407436
-acá podemos meter algún ejemplo concreto donde falla y donde lo hace bien
- el algortimos, busquen FP y FN para hacer un grafiquito didáctico mostrando
- cómo funcan los umbrales.
- Hagan bien esos gráfs que se van a cansar de usarlos luego, en este art,
- en la presentación, etc etc.
-\change_unchanged
-
-\end_layout
-
-\end_inset
-
-
-\change_inserted -468262419 1470072055
-
-\end_layout
-
-\begin_layout Standard
-
 \change_inserted -1260779252 1470407735
+
 \begin_inset Note Note
 status open
 
@@ -961,13 +818,30 @@ ce por registro que explican más abajo.
 \end_layout
 
 \begin_layout Standard
+Results of QRS detections were evaluated against the annotations present
+ in each record of the MIT-BIH Arrhythmia database in order to be in compliance
+ with the standards of performance.
+ Using the beat-by-beat comparison algorithm described in Physionet
+\begin_inset CommandInset citation
+LatexCommand cite
+key "PhysioNet"
 
-\change_inserted -1260779252 1470407977
-With the estimated and true labels we construct a 
-\begin_inset Formula $3\times3$
 \end_inset
 
- confusion matrix to calculate the class and global performances:
+ and implemented in the ecg-kit
+\begin_inset CommandInset citation
+LatexCommand cite
+key "ecg-kit2016"
+
+\end_inset
+
+, we construct a 
+\begin_inset Formula $2\times2$
+\end_inset
+
+ the following confusion matrix:
+\change_inserted -1260779252 1470407977
+
 \begin_inset Separator latexpar
 \end_inset
 
@@ -976,8 +850,6 @@ With the estimated and true labels we construct a
 
 \begin_layout Standard
 \align center
-
-\change_inserted -1260779252 1470407977
 \begin_inset Tabular
 <lyxtabular version="3" rows="2" columns="2">
 <features tabularvalignment="middle">
@@ -989,8 +861,6 @@ With the estimated and true labels we construct a
 
 \begin_layout Plain Layout
 
-\change_inserted -1260779252 1470407977
-
 \end_layout
 
 \end_inset
@@ -999,9 +869,7 @@ With the estimated and true labels we construct a
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\change_inserted -1260779252 1470407977
-Estimated classes
+Predicted conditions
 \end_layout
 
 \end_inset
@@ -1012,13 +880,11 @@ Estimated classes
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\change_inserted -1260779252 1470407977
 \begin_inset space \hspace*{}
 \length -7mm
 \end_inset
 
-True classes
+True conditions
 \end_layout
 
 \end_inset
@@ -1027,32 +893,17 @@ True classes
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\change_inserted -1260779252 1470407977
 \begin_inset Formula $\begin{array}{ccc}
- & \begin{array}{ccccccccc}
-1 &  & \ldots &  & i &  & \ldots &  & C\end{array}\\
+ & \begin{array}{cc}
+Predicted\,Positive & Predicted\end{array}Negative\\
 \begin{array}{c}
-1\\
+Condition\,True\\
+Condition\,False
+\end{array} & \left(\begin{array}{cc}
+True\,Positive\,(TP) & False\,Negative\,(FN)\\
+False\,Positive\,(FP) & True\,Negative\,(TN)
+\end{array}\right)\\
 \\
-i\\
-\vdots\\
-C
-\end{array} & \left(\begin{array}{ccccc}
-n_{11}^{T} & \ldots & n_{1i}^{F} & \ldots & n_{1C}^{F}\\
-\vdots & \ddots & \vdots\\
-n_{i1}^{F} & \ldots & n_{ii}^{T} & \ldots & n_{iC}^{F}\\
-\vdots &  & \vdots & \ddots\\
-n_{C1}^{F} & \ldots & n_{Ci}^{F} & \ldots & n_{CC}^{T}
-\end{array}\right) & \begin{array}{c}
-N_{1}\\
-\vdots\\
-N_{i}\\
-\vdots\\
-N_{C}
-\end{array}\\
- & \begin{array}{ccccc}
-P_{1} & \ldots & P_{i} & \ldots & P_{C}\end{array} & N_{T}.
 \end{array}$
 \end_inset
 
@@ -1067,213 +918,51 @@ P_{1} & \ldots & P_{i} & \ldots & P_{C}\end{array} & N_{T}.
 \end_inset
 
 
-\end_layout
-
-\begin_layout Standard
-
 \change_inserted -1260779252 1470407977
-For the 
-\begin_inset Formula $i$
-\end_inset
-
--th class 
-\family roman
-\series medium
-\shape up
-\size normal
-\emph off
-\bar no
-\noun off
-\color none
-
-\begin_inset Formula $n_{ii}^{T}$
-\end_inset
-
-
-\family default
-\series default
-\shape default
-\size default
-\emph default
-\bar default
-\noun default
-\color inherit
- is the number of correctly classified examples and 
-\family roman
-\series medium
-\shape up
-\size normal
-\emph off
-\bar no
-\noun off
-\color none
-
-\begin_inset Formula $n_{ij}^{F}$
-\end_inset
-
-
-\family default
-\series default
-\shape default
-\size default
-\emph default
-\bar default
-\noun default
-\color inherit
- is the number of examples of class 
-\begin_inset Formula $i$
-\end_inset
-
- classified as class 
-\begin_inset Formula $j$
-\end_inset
-
-; 
-\family roman
-\series medium
-\shape up
-\size normal
-\emph off
-\bar no
-\noun off
-\color none
-
-\begin_inset Formula $N_{i}$
-\end_inset
-
- is the total number of examples for class 
-\begin_inset Formula $i$
-\end_inset
-
-, 
-\begin_inset Formula $P_{i}$
-\end_inset
-
- is the number of examples classified as class 
-\begin_inset Formula $i$
-\end_inset
-
- and 
-\begin_inset Formula $N_{T}$
-\end_inset
-
- is the total number of heartbeats in the dataset.
- Being 
-\family default
-\series default
-\shape default
-\size default
-\emph default
-\bar default
-\noun default
-\color inherit
-
-\begin_inset Formula $N_{i}=n_{ii}^{T}+\sum_{m\neq i}n_{im}^{F}$
-\end_inset
-
-, 
-\begin_inset Formula $P_{i}=n_{ii}^{T}+\sum_{m\neq i}n_{mi}^{F}$
-\end_inset
-
-, and 
-\begin_inset Formula $N_{T}=\sum_{i=1}^{C}N_{i}$
-\end_inset
-
-, then for each class we define class sensitivity (
-\begin_inset Formula $S_{i}$
-\end_inset
-
-) and class positive predictive value (
-\begin_inset Formula $P_{i}^{+}$
-\end_inset
-
-) as
-\end_layout
-
-\begin_layout Standard
-
-\change_inserted -1260779252 1470407977
-\begin_inset Formula 
-\begin{equation}
-S_{i}=\frac{n_{ii}^{T}}{N_{i}}
-\end{equation}
-
-\end_inset
-
 
 \end_layout
 
 \begin_layout Standard
 
-\change_inserted -1260779252 1470407977
-\begin_inset Formula 
-\begin{equation}
-P_{i}^{+}=\frac{n_{ii}^{T}}{P_{i}},
-\end{equation}
-
+\change_inserted -468262419 1471468339
+True conditions are computer-readable annotations made by cardiologists
+ and included in all records of the database that indicates the location
+ of a QRS complex, while predicted conditions are the locations of QRS complex
+ obtained from each developed algorithms.
+ True positive is the number of correctly detected QRS, a false negative
+ occurs when annotations indicates the presence of a QRS complex but it
+ was not detected by our algorithms and 
+\begin_inset Quotes eld
 \end_inset
 
- and its global counterparts as the mean of all class performances 
-\begin_inset Formula $S=\frac{1}{C}\sum_{i=1}^{C}S_{i}$
+false positive
+\begin_inset Quotes erd
 \end_inset
 
- and 
-\begin_inset Formula $P^{+}=\frac{1}{C}\sum_{i=1}^{C}P_{i}^{+}$
-\end_inset
-
-.
- Finally the global accuracy is calculated as 
-\begin_inset Formula 
-\begin{equation}
-A=\frac{1}{N_{T}}\sum_{i=1}^{C}n_{ii}^{T}=\sum_{i=1}^{C}\frac{N_{i}}{N_{T}}S_{i}
-\end{equation}
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
+, when there was no QRS complex where our algorithm detected the presence
+ of one.
+ Finally, true negatives were not calculated because the representation
+ of every sample that is not marked by both annotations and our algorithms
+ as a QRS complex has no sense in this study.
+ Notice that the time detected when a event of a QRS complex occurs does
+ not need to be exactly the same in annotation, but a matching window specifies
+ the tolerable difference between both locations.
 
 \change_inserted -1260779252 1470407979
-Using the estimated labels we finally calculated a quality index 
-\begin_inset Formula 
-\[
-q_{l}=2\hat{S_{l}}+\hat{P_{l}^{+}}
-\]
-
-\end_inset
-
- for each lead 
-\begin_inset Formula $l$
-\end_inset
-
- where 
-\begin_inset Formula $\hat{S_{l}}=\frac{\mathrm{TP}}{\mathrm{TP+FN}}$
+ 
+\change_unchanged
+For both leads in each record, 
+\begin_inset Formula $S=\frac{\mathrm{TP}}{\mathrm{TP+FN}}$
 \end_inset
 
  and 
-\begin_inset Formula $\hat{P_{l}^{+}}=\frac{\mathrm{TP}}{\mathrm{TP+FP}}$
+\begin_inset Formula $PPV=\frac{\mathrm{TP}}{\mathrm{TP+FP}}$
 \end_inset
 
-.
- Then for each recording, we choose the lead with higher 
-\family roman
-\series medium
-\shape up
-\size normal
-\emph off
-\bar no
-\strikeout off
-\uuline off
-\uwave off
-\noun off
-\color none
+ were calculated in order to show the results statistically.
+ 
+\change_inserted -1260779252 1470407979
 
-\begin_inset Formula $q_{l}$
-\end_inset
-
- for performance calculation.
 \end_layout
 
 \begin_layout Section
@@ -1292,10 +981,16 @@ reference "tab:Performance"
  Both were tested in all records of MIT-BIH Arrhythmia database with the
  exception of records without paced beats.
 
-\change_inserted -468262419 1471036384
- 
-\change_inserted -1260779252 1470408188
+\change_inserted -468262419 1471470868
+ As each record consist in two leads, a criteria to measure performance
+ must be defined.
+ The standard nomenclature used for the leads in each records is: modified
+ lead II (MLII) and the precordials V1, V2, V4 and V5
+\end_layout
 
+\begin_layout Standard
+
+\change_inserted -1260779252 1470408188
 \begin_inset Note Note
 status open
 
@@ -6102,7 +5797,7 @@ Discussion and conclusions
 
 \change_inserted -1260779252 1470408265
 \begin_inset Note Note
-status collapsed
+status open
 
 \begin_layout Plain Layout
 
@@ -6123,7 +5818,7 @@ mmm no arranquemos tirándo abajo el trabajo, digamos lo que hicimos —>>
 \change_inserted -1260779252 1470408309
 
 \begin_inset Note Note
-status collapsed
+status open
 
 \begin_layout Plain Layout
 
@@ -6150,7 +5845,7 @@ no hagamos calificaciones ni valoraciones innecesarias, como uno mejor que
 \change_inserted -1260779252 1470408455
 
 \begin_inset Note Note
-status collapsed
+status open
 
 \begin_layout Plain Layout
 
@@ -6185,7 +5880,7 @@ for
 \change_inserted -1260779252 1470408525
 
 \begin_inset Note Note
-status collapsed
+status open
 
 \begin_layout Plain Layout
 
