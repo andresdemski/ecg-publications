@@ -522,7 +522,6 @@ status open
 	filename PandT_BandpassFilter_2.svg
 	lyxscale 50
 	scale 50
-	rotateOrigin center
 
 \end_inset
 
@@ -793,7 +792,7 @@ key "pantom"
  The lower threshold in both set is used when no QRS is detected in a certain
  time and is necessary to look back in time.
  Finally, a peak must be recognized in both the moving window integrator
- and band-pass filter output.
+ and band-pass filter outputs.
 \end_layout
 
 \begin_layout Standard
@@ -948,6 +947,88 @@ For both leads in each record,
 
  were calculated in order to show the results statistically.
  
+\change_inserted -468262419 1471535540
+
+\end_layout
+
+\begin_layout Standard
+
+\change_inserted -468262419 1471553602
+With the intention of show where this algorithms fails and generates, for
+ example, a false negative, Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:A-false-negative"
+
+\end_inset
+
+ illustrates 6 seconds of the first lead present in record 105 and both
+ first analysis and search-back thresholds.
+ As can be seen, the necessary conditions to detect a QRS complex are not
+ met.
+ Even when it is detected in the band-pass filtered signal, it is not after
+ the integration window.
+ Finally, it is incorrectly considered by the algorithm as noise peak.
+\end_layout
+
+\begin_layout Standard
+
+\change_inserted -468262419 1471536747
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+
+\change_inserted -468262419 1471553068
+\begin_inset Graphics
+	filename false_negatives.svg
+	lyxscale 40
+	scale 40
+
+\end_inset
+
+
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+
+\change_inserted -468262419 1471553213
+False negative example.
+ a) Output of the moving window integrator.
+ b) Output of band-pass filter.
+ c) Peaks detected in input ECG.
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:A-false-negative"
+
+\end_inset
+
+
+\change_unchanged
+
+\end_layout
+
+\end_inset
+
+
+\change_unchanged
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
 \change_inserted -1260779252 1470407979
 
 \end_layout

@@ -522,7 +522,6 @@ status open
 	filename PandT_BandpassFilter_2.svg
 	lyxscale 50
 	scale 50
-	rotateOrigin center
 
 \end_inset
 
@@ -793,7 +792,7 @@ key "pantom"
  The lower threshold in both set is used when no QRS is detected in a certain
  time and is necessary to look back in time.
  Finally, a peak must be recognized in both the moving window integrator
- and band-pass filter output.
+ and band-pass filter outputs.
 \end_layout
 
 \begin_layout Standard
@@ -827,11 +826,15 @@ key "ecg-kit2016"
 
 \end_inset
 
-, we construct a 
+, we construct the following 
 \begin_inset Formula $2\times2$
 \end_inset
 
- the following confusion matrix:
+
+\change_deleted -468262419 1471494325
+ 
+\change_unchanged
+ confusion matrix:
 \change_inserted -1260779252 1470407977
 
 \begin_inset Separator latexpar
@@ -916,26 +919,17 @@ False\,Positive\,(FP) & True\,Negative\,(TN)
 
 \begin_layout Standard
 
-\change_inserted -468262419 1471468339
+\change_inserted -468262419 1471494532
 True conditions are computer-readable annotations made by cardiologists
  and included in all records of the database that indicates the location
  of a QRS complex, while predicted conditions are the locations of QRS complex
  obtained from each developed algorithms.
  True positive is the number of correctly detected QRS, a false negative
  occurs when annotations indicates the presence of a QRS complex but it
- was not detected by our algorithms and 
-\begin_inset Quotes eld
-\end_inset
-
-false positive
-\begin_inset Quotes erd
-\end_inset
-
-, when there was no QRS complex where our algorithm detected the presence
- of one.
- Finally, true negatives were not calculated because the representation
- of every sample that is not marked by both annotations and our algorithms
- as a QRS complex has no sense in this study.
+ was not detected by our algorithms, and false positive when there was no
+ QRS complex where our algorithm detected the presence of one.
+ Finally, true negatives were not calculated because the number of samples
+ that was not marked as a QRS complex has no importance in this study.
  Notice that the time detected when a event of a QRS complex occurs does
  not need to be exactly the same in annotation, but a matching window specifies
  the tolerable difference between both locations.
@@ -953,6 +947,75 @@ For both leads in each record,
 
  were calculated in order to show the results statistically.
  
+\change_inserted -468262419 1471535540
+
+\end_layout
+
+\begin_layout Standard
+
+\change_inserted -468262419 1471536980
+With the intention of show where this algorithms fails and generates, for
+ example, a false negative, Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:A-false-negative"
+
+\end_inset
+
+ illustrates seconds of the first lead present in record 103.
+ As can be seen, the necessary conditions to detect a QRS complex are not
+ met.
+ Even when the beat is detected in the filtered signal, it is not after
+ the integration, Finally, it is wrongly considered by the algorithm as
+ noise peak.
+\end_layout
+
+\begin_layout Standard
+
+\change_inserted -468262419 1471536747
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\change_inserted -468262419 1471536747
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+
+\change_inserted -468262419 1471537536
+A false negative .
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:A-false-negative"
+
+\end_inset
+
+
+\change_unchanged
+
+\end_layout
+
+\end_inset
+
+
+\change_unchanged
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
 \change_inserted -1260779252 1470407979
 
 \end_layout
