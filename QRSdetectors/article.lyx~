@@ -794,22 +794,14 @@ key "pantom"
  time and is necessary to look back in time.
  Finally, a peak must be recognized in both the moving window integrator
  and band-pass filter output.
-\change_inserted -1260779252 1470407735
+\end_layout
 
+\begin_layout Standard
 \begin_inset Note Note
 status open
 
 \begin_layout Plain Layout
-
-\change_inserted -1260779252 1470408099
-falta aclarar qué obtienenen como resultado de la detección y cómo calculan
- las métricas de rendimiento, parciales y finales.
- Tal vez tb este sea un buen lugar para explicar el criterio de máxima performan
-ce por registro que explican más abajo.
- Les pego algo que les puede servir para esto que les falta, tal vez alguna
- ecuación o para armar la matriz de confusión si quieren, sino lo borran
- Usemos S y P como sensibilidad PPV, ya que acá no se confunde con ninguna
- otra P y S
+CORREGIDO DESDE ACA 
 \end_layout
 
 \end_inset
@@ -981,33 +973,12 @@ reference "tab:Performance"
  Both were tested in all records of MIT-BIH Arrhythmia database with the
  exception of records without paced beats.
 
-\change_inserted -468262419 1471470868
- As each record consist in two leads, a criteria to measure performance
- must be defined.
+\change_inserted -468262419 1471471000
  The standard nomenclature used for the leads in each records is: modified
- lead II (MLII) and the precordials V1, V2, V4 and V5
-\end_layout
-
-\begin_layout Standard
-
-\change_inserted -1260779252 1470408188
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-
-\change_inserted -1260779252 1470408253
-no está muy claro, empiecen contando que como hay 2 leads por registros,
- hay que elegir un criterio para saber cuál es la perf por registro.
- Luego relean esto y traten de hacerlo más claro, tal vez se pueda poner
- en metodología tb
-\change_unchanged
-
-\end_layout
-
-\end_inset
-
-
+ lead II (MLII) and the precordials V1, V2, V4 and V5.
+ As each record consist in two of the previous leads, a criteria to measure
+ performance must be defined.
+ 
 \change_unchanged
 The following criterion was used to present the results: lead with both
  positive predictive value (P) and sensitivity (S) maximum, if maximum were

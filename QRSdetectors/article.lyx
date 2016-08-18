@@ -827,11 +827,15 @@ key "ecg-kit2016"
 
 \end_inset
 
-, we construct a 
+, we construct the following 
 \begin_inset Formula $2\times2$
 \end_inset
 
- the following confusion matrix:
+
+\change_deleted -468262419 1471494325
+ 
+\change_unchanged
+ confusion matrix:
 \change_inserted -1260779252 1470407977
 
 \begin_inset Separator latexpar
@@ -916,26 +920,17 @@ False\,Positive\,(FP) & True\,Negative\,(TN)
 
 \begin_layout Standard
 
-\change_inserted -468262419 1471468339
+\change_inserted -468262419 1471494532
 True conditions are computer-readable annotations made by cardiologists
  and included in all records of the database that indicates the location
  of a QRS complex, while predicted conditions are the locations of QRS complex
  obtained from each developed algorithms.
  True positive is the number of correctly detected QRS, a false negative
  occurs when annotations indicates the presence of a QRS complex but it
- was not detected by our algorithms and 
-\begin_inset Quotes eld
-\end_inset
-
-false positive
-\begin_inset Quotes erd
-\end_inset
-
-, when there was no QRS complex where our algorithm detected the presence
- of one.
- Finally, true negatives were not calculated because the representation
- of every sample that is not marked by both annotations and our algorithms
- as a QRS complex has no sense in this study.
+ was not detected by our algorithms, and false positive when there was no
+ QRS complex where our algorithm detected the presence of one.
+ Finally, true negatives were not calculated because the number of samples
+ that was not marked as a QRS complex has no importance in this study.
  Notice that the time detected when a event of a QRS complex occurs does
  not need to be exactly the same in annotation, but a matching window specifies
  the tolerable difference between both locations.
