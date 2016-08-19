@@ -918,15 +918,15 @@ False\,Positive\,(FP) & True\,Negative\,(TN)
 
 \begin_layout Standard
 
-\change_inserted -468262419 1471494532
+\change_inserted -468262419 1471622447
 True conditions are computer-readable annotations made by cardiologists
  and included in all records of the database that indicates the location
  of a QRS complex, while predicted conditions are the locations of QRS complex
  obtained from each developed algorithms.
- True positive is the number of correctly detected QRS, a false negative
- occurs when annotations indicates the presence of a QRS complex but it
- was not detected by our algorithms, and false positive when there was no
- QRS complex where our algorithm detected the presence of one.
+ True positive is the number of correctly detected QRS complex, a false
+ negative occurs when annotations indicates the presence of a QRS complex
+ but it was not detected by our algorithms, and false positive when there
+ was no QRS complex where our algorithm detected the presence of one.
  Finally, true negatives were not calculated because the number of samples
  that was not marked as a QRS complex has no importance in this study.
  Notice that the time detected when a event of a QRS complex occurs does
@@ -1168,7 +1168,7 @@ Implementation 2
 \begin_inset Text
 
 \begin_layout Plain Layout
-PV +
+P
 \end_layout
 
 \end_inset
@@ -1177,7 +1177,7 @@ PV +
 \begin_inset Text
 
 \begin_layout Plain Layout
-SENS
+S
 \end_layout
 
 \end_inset
@@ -1186,7 +1186,7 @@ SENS
 \begin_inset Text
 
 \begin_layout Plain Layout
-PV +
+P
 \end_layout
 
 \end_inset
@@ -1195,7 +1195,7 @@ PV +
 \begin_inset Text
 
 \begin_layout Plain Layout
-SENS
+S
 \end_layout
 
 \end_inset
@@ -5827,9 +5827,70 @@ status open
 
 \begin_layout Section
 Discussion and conclusions
+\change_inserted -468262419 1471616578
+
 \end_layout
 
 \begin_layout Standard
+
+\change_inserted -468262419 1471618741
+In this work, we have successfully developed two implementation of a QRS
+ detector based on Pan and Tompkins algorithm.
+ Slight differences exist, as using other set of band-pass filters than
+ the described in the original paper or using self-designed local maximum
+ corrector.
+ Furthermore, they have been evaluated all over the MIT-BIH Arrhythmia database
+ to get sensitivity and predictive positive value measures.
+\end_layout
+
+\begin_layout Standard
+
+\change_inserted -468262419 1471619819
+As the original implementation, both algorithms adapt thresholds and interval
+ limits in each cycle, allowing an adaptive classification inside the decision
+ rule stage.
+\end_layout
+
+\begin_layout Standard
+
+\change_inserted -468262419 1471619983
+The processing time of all the database was X minutes for the first algorithm
+ described and 37 minutes for the second one.
+\end_layout
+
+\begin_layout Standard
+
+\change_inserted -468262419 1471621676
+As can be seen in Table 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "tab:Performance"
+
+\end_inset
+
+, the performance of both implementations was evaluated obtaining excellent
+ results, with only a barely noticeable difference in sensibility, but predictiv
+e positive values measures with 
+\begin_inset Formula $P\geq99\%$
+\end_inset
+
+.
+ However, it is necessary to evaluate the performance using other databases,
+ in order to validate the performance improvement presented in this work.
+\end_layout
+
+\begin_layout Standard
+
+\change_inserted -468262419 1471622400
+Finally, the developed detectors use simple algorithms and it would be interesti
+ng to optimize them to real time environment.
+\change_unchanged
+
+\end_layout
+
+\begin_layout Standard
+
+\change_deleted -468262419 1471622489
 En este trabajo de investigación se buscó implementar este conocido algoritmo
  de gran vigencia en la actualidad.
  Lo mas positivo es que ambos investigadores lo pudieron llevar a cabo con
@@ -5870,6 +5931,8 @@ iones de ambos algoritmos se fueron optimizando para esta base de datos
  De todas maneras el mecanismo de detección es el mismo.
  Se lograron 2 implementaciones del increiblemente actual Pan&Tompkins que,
  como se puede ver en el paper, fue desarrollado en el año 1985
+\change_unchanged
+
 \end_layout
 
 \begin_layout Standard
