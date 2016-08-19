@@ -953,7 +953,7 @@ For both leads in each record,
 
 \begin_layout Standard
 
-\change_inserted -468262419 1471536980
+\change_inserted -468262419 1471553602
 With the intention of show where this algorithms fails and generates, for
  example, a false negative, Figure 
 \begin_inset CommandInset ref
@@ -962,12 +962,13 @@ reference "fig:A-false-negative"
 
 \end_inset
 
- illustrates seconds of the first lead present in record 103.
+ illustrates 6 seconds of the first lead present in record 105 and both
+ first analysis and search-back thresholds.
  As can be seen, the necessary conditions to detect a QRS complex are not
  met.
- Even when the beat is detected in the filtered signal, it is not after
- the integration, Finally, it is wrongly considered by the algorithm as
- noise peak.
+ Even when it is detected in the band-pass filtered signal, it is not after
+ the integration window.
+ Finally, it is incorrectly considered by the algorithm as noise peak.
 \end_layout
 
 \begin_layout Standard
@@ -983,14 +984,26 @@ status open
 \end_layout
 
 \begin_layout Plain Layout
+\align center
 
-\change_inserted -468262419 1471536747
+\change_inserted -468262419 1471553068
+\begin_inset Graphics
+	filename false_negatives.svg
+	lyxscale 40
+	scale 40
+
+\end_inset
+
+
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
 
-\change_inserted -468262419 1471537536
-A false negative .
+\change_inserted -468262419 1471553213
+False negative example.
+ a) Output of the moving window integrator.
+ b) Output of band-pass filter.
+ c) Peaks detected in input ECG.
 \begin_inset CommandInset label
 LatexCommand label
 name "fig:A-false-negative"
