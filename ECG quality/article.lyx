@@ -93,7 +93,7 @@
 \papercolumns 1
 \papersides 1
 \paperpagestyle default
-\tracking_changes false
+\tracking_changes true
 \output_changes false
 \html_math_output 0
 \html_css_as_file 0
@@ -120,22 +120,150 @@ Universidad Tecnológica Nacional, Buenos Aires, Argentina
 \end_layout
 
 \begin_layout Abstract
-An ECG recording is commonly corrupted by several sources of noise or interferin
-g signals.
- It is very important to detect the quality of the recordings for reducing
- the automatic systems mistakes and false alarms.
- This topic was discussed during the PhysioNet/Computing in Cardiology Challenge
- 2011 and generated many results which are used in this paper.
+
+\change_deleted -1260779252 1471547177
+An ECG 
+\change_inserted -1260779252 1471547184
+The electrocardiogram (ECG) 
+\change_unchanged
+recording is commonly corrupted by several sources of noise or interfering
+ signals.
+ It is very important to 
+\change_deleted -1260779252 1471547454
+detect
+\change_inserted -1260779252 1471547519
+quantify
+\change_unchanged
+ the quality of the 
+\change_inserted -1260779252 1471547462
+ECG 
+\change_unchanged
+recordings for reducing the automatic systems mistakes and false alarms.
+ This topic 
+\change_deleted -1260779252 1471547607
+was
+\change_inserted -1260779252 1471547609
+has been
+\change_unchanged
+ 
+\change_inserted -1260779252 1471547603
+already 
+\change_unchanged
+discussed during the PhysioNet/Computing in Cardiology Challenge 2011
+\change_inserted -1260779252 1471547774
+, where the best performing algorithms served as starting point to our work.
+
+\change_deleted -1260779252 1471547714
+ and generated many results which are used in this paper.
+\change_unchanged
+
 \end_layout
 
 \begin_layout Abstract
-In this work its presented a first approach of ECG quality classification.
- It was developed an algorithm which combines a binary tree and a SQI based
- detector.
- The binary tree is in charge of detect some features like flatline and
- regions of the signal with too much energy.
- If the binary tree classified a record as acceptable, then a fine analyse
- is done using the SQI based detector.
+In this work 
+\change_deleted -1260779252 1471547823
+its presented
+\change_inserted -1260779252 1471547830
+we present
+\change_unchanged
+ 
+\change_deleted -1260779252 1471547839
+a first
+\change_inserted -1260779252 1471547840
+an
+\change_unchanged
+ approach 
+\change_deleted -1260779252 1471547847
+of
+\change_inserted -1260779252 1471547847
+for
+\change_unchanged
+ ECG quality 
+\change_deleted -1260779252 1471547910
+classification
+\change_inserted -1260779252 1471547913
+quantification
+\change_deleted -1260779252 1471547910
+.
+ It was developed an algorithm which combines
+\change_inserted -1260779252 1471547863
+based on a combination of
+\change_unchanged
+ a binary tree and 
+\change_deleted -1260779252 1471547873
+a
+\change_inserted -1260779252 1471547878
+signal quality indexes
+\change_unchanged
+ 
+\change_inserted -1260779252 1471547881
+(
+\change_unchanged
+SQI
+\change_inserted -1260779252 1471547882
+)
+\change_deleted -1260779252 1471547899
+ based detector
+\change_unchanged
+.
+ The binary tree is 
+\change_deleted -1260779252 1471548235
+in charge
+\change_inserted -1260779252 1471548237
+responsible
+\change_unchanged
+ of detect
+\change_inserted -1260779252 1471548239
+ing
+\change_unchanged
+ 
+\change_deleted -1260779252 1471548252
+some features like
+\change_inserted -1260779252 1471548327
+coarse interferences
+\change_unchanged
+ 
+\change_inserted -1260779252 1471548331
+such as 
+\change_unchanged
+flatline
+\change_inserted -1260779252 1471548332
+s
+\change_unchanged
+ and 
+\change_deleted -1260779252 1471548369
+regions of the signal with too much energy
+\change_inserted -1260779252 1471548374
+high energy noise
+\change_unchanged
+.
+ If the binary tree classified a record as acceptable, then a fine
+\change_inserted -1260779252 1471548390
+r
+\change_unchanged
+ 
+\change_deleted -1260779252 1471548411
+analyse
+\change_inserted -1260779252 1471548414
+analysis
+\change_unchanged
+ is 
+\change_deleted -1260779252 1471548424
+done
+\change_inserted -1260779252 1471548425
+performed
+\change_unchanged
+ using 
+\change_inserted -1260779252 1471548508
+a detector based on 
+\change_unchanged
+the SQI 
+\change_inserted -1260779252 1471548513
+features
+\change_deleted -1260779252 1471548515
+based detector
+\change_unchanged
+.
  This detector uses a support vector machine with a Gaussian kernel for
  doing this work.
  The SQI are extracted from the record, there are calculated 12 per each
