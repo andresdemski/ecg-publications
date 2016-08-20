@@ -100,6 +100,7 @@
 \html_be_strict false
 \author -1260779252 "mariano"
 \author -468262419 "JuanIgnacio"
+\author 361918700 "Mariano"
 \end_header
 
 \begin_body
@@ -181,6 +182,28 @@ IM
 
 , Se 76%, Sp 90% and AUC 0.95.
  
+\change_inserted 361918700 1471689635
+
+\end_layout
+
+\begin_layout Abstract
+
+\change_inserted 361918700 1471689643
+Y el abstract ?
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+
+\change_inserted 361918700 1471689646
+vaamos !
+\change_unchanged
+
+\end_layout
+
+\end_inset
+
+
 \change_unchanged
 
 \end_layout
@@ -599,7 +622,7 @@ status open
 \begin_inset Graphics
 	filename diff_plot_2.svg
 	lyxscale 50
-	scale 50
+	width 90text%
 
 \end_inset
 
@@ -607,7 +630,38 @@ status open
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Differentiator: Amplitude response
+
+\change_inserted 361918700 1471691843
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+
+\change_inserted 361918700 1471691856
+Tirale la recta y marcá hasta donde se comporta como derivador
+\change_unchanged
+
+\end_layout
+
+\end_inset
+
+
+\change_deleted 361918700 1471692949
+Differentiator:
+\change_inserted 361918700 1471692954
+The 
+\change_deleted 361918700 1471692956
+ A
+\change_inserted 361918700 1471692956
+a
+\change_unchanged
+mplitude response
+\change_inserted 361918700 1471693027
+ of the differentiator in solid blue trace, and the ideal response in dotted
+ red.
+ The lowpass response is in dotted green.
+\change_unchanged
+
 \begin_inset CommandInset label
 LatexCommand label
 name "fig:Differentiator:-Amplitude-respon"
@@ -725,6 +779,8 @@ reference "fig:Moving-average:-Amplitude"
 \end_layout
 
 \begin_layout Standard
+
+\change_deleted 361918700 1471693033
 \begin_inset Float figure
 wide false
 sideways false
@@ -760,6 +816,8 @@ name "fig:Moving-average:-Amplitude"
 
 \end_inset
 
+
+\change_unchanged
 
 \end_layout
 
@@ -810,8 +868,23 @@ CORREGIDO DESDE ACA
 \begin_layout Standard
 Results of QRS detections were evaluated against the annotations present
  in each record of the MIT-BIH Arrhythmia database in order to be in compliance
- with the standards of performance.
+ with the standards of performance
+\change_inserted 361918700 1471691137
+ AAMI-EC 57 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "AAMI-EC57"
+
+\end_inset
+
+
+\change_unchanged
+.
  Using the beat-by-beat comparison algorithm described in Physionet
+\change_inserted 361918700 1471691150
+ 
+\change_unchanged
+
 \begin_inset CommandInset citation
 LatexCommand cite
 key "PhysioNet"
@@ -819,6 +892,10 @@ key "PhysioNet"
 \end_inset
 
  and implemented in the ecg-kit
+\change_inserted 361918700 1471691153
+ 
+\change_unchanged
+
 \begin_inset CommandInset citation
 LatexCommand cite
 key "ecg-kit2016"
@@ -863,7 +940,19 @@ key "ecg-kit2016"
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\change_inserted 361918700 1471694197
+\begin_inset space \hspace*{}
+\length 18mm
+\end_inset
+
+
+\change_deleted 361918700 1471693950
 Predicted conditions
+\change_inserted 361918700 1471693960
+Detection
+\change_unchanged
+
 \end_layout
 
 \end_inset
@@ -875,10 +964,16 @@ Predicted conditions
 
 \begin_layout Plain Layout
 \begin_inset space \hspace*{}
-\length -7mm
+\length -4mm
 \end_inset
 
+
+\change_deleted 361918700 1471694245
 True conditions
+\change_inserted 361918700 1471694057
+Truth
+\change_unchanged
+
 \end_layout
 
 \end_inset
@@ -889,13 +984,13 @@ True conditions
 \begin_layout Plain Layout
 \begin_inset Formula $\begin{array}{ccc}
  & \begin{array}{cc}
-Predicted\,Positive & Predicted\end{array}Negative\\
+Pos\end{array}Neg\\
 \begin{array}{c}
-Condition\,True\\
-Condition\,False
+True\\
+False
 \end{array} & \left(\begin{array}{cc}
-True\,Positive\,(TP) & False\,Negative\,(FN)\\
-False\,Positive\,(FP) & True\,Negative\,(TN)
+TP & FN\\
+FP & -
 \end{array}\right)\\
 \\
 \end{array}$
@@ -918,32 +1013,125 @@ False\,Positive\,(FP) & True\,Negative\,(TN)
 
 \begin_layout Standard
 
+\change_inserted 361918700 1471694764
+The ground truth 
+\change_deleted 361918700 1471694767
+True conditions 
 \change_inserted -468262419 1471622447
-True conditions are computer-readable annotations made by cardiologists
- and included in all records of the database that indicates the location
- of a QRS complex, while predicted conditions are the locations of QRS complex
- obtained from each developed algorithms.
- True positive is the number of correctly detected QRS complex, a false
- negative occurs when annotations indicates the presence of a QRS complex
- but it was not detected by our algorithms, and false positive when there
- was no QRS complex where our algorithm detected the presence of one.
- Finally, true negatives were not calculated because the number of samples
+are computer-readable annotations made by cardiologists and included in
+ all records of the database that indicates the location of a QRS complex,
+ while 
+\change_deleted 361918700 1471694743
+predicted conditions 
+\change_inserted 361918700 1471694746
+the detections 
+\change_inserted -468262419 1471622447
+are the locations of QRS complex obtained from each developed algorithms.
+ True positive 
+\change_inserted 361918700 1471694780
+(TP) 
+\change_inserted -468262419 1471622447
+is the number of correctly detected QRS complex, a false negative 
+\change_inserted 361918700 1471694794
+(FN) 
+\change_inserted -468262419 1471622447
+occurs when annotations indicates the presence of a QRS complex but it was
+ not detected by our algorithms
+\change_inserted 361918700 1471694812
+.
+ The 
+\change_deleted 361918700 1471694814
+, and 
+\change_inserted -468262419 1471622447
+false positive
+\change_inserted 361918700 1471694818
+ (FP)
+\change_inserted -468262419 1471622447
+ 
+\change_inserted 361918700 1471694833
+heartbeats are 
+\change_deleted 361918700 1471694844
+when there was no 
+\change_inserted -468262419 1471622447
+QRS complex
+\change_inserted 361918700 1471694853
+es detected by
+\change_inserted -468262419 1471622447
+ 
+\change_deleted 361918700 1471694855
+where 
+\change_inserted -468262419 1471622447
+our algorithm 
+\change_deleted 361918700 1471694889
+detected the presence of one
+\change_inserted 361918700 1471694902
+without correspondence with the true annotations
+\change_inserted -468262419 1471622447
+.
+ 
+\change_deleted 361918700 1471694920
+Finally, true negatives were not calculated because the number of samples
  that was not marked as a QRS complex has no importance in this study.
- Notice that the time detected when a event of a QRS complex occurs does
- not need to be exactly the same in annotation, but a matching window specifies
- the tolerable difference between both locations.
+ 
+\change_inserted -468262419 1471622447
+Notice that the time detected when a event of a QRS complex occurs does
+ not need to be exactly the same 
+\change_deleted 361918700 1471694997
+in
+\change_inserted 361918700 1471695000
+than the
+\change_inserted -468262419 1471622447
+ annotation, but a matching window 
+\change_inserted 361918700 1471695010
+of 150 ms 
+\change_deleted 361918700 1471695025
+specifies the tolerable difference between both locations
+\change_inserted 361918700 1471695046
+is defined as acceptable in AAMI-EC 57 standard
+\change_inserted -468262419 1471622447
+.
 
 \change_inserted -1260779252 1470407979
  
 \change_unchanged
-For both leads in each record, 
-\begin_inset Formula $S=\frac{\mathrm{TP}}{\mathrm{TP+FN}}$
+For both leads in each record
+\change_inserted 361918700 1471695065
+ the performance was measured in terms of sensitivity
+\change_deleted 361918700 1471695066
+,
+\change_unchanged
+ 
+\begin_inset Formula 
+\[
+S=\frac{\mathrm{TP}}{\mathrm{TP+FN}}
+\]
+
 \end_inset
 
  and 
-\begin_inset Formula $PPV=\frac{\mathrm{TP}}{\mathrm{TP+FP}}$
+\change_inserted 361918700 1471695080
+positive predictive value 
+\change_unchanged
+
+\begin_inset Formula 
+\[
+P=\frac{\mathrm{TP}}{\mathrm{TP+FP}}.
+\]
+
 \end_inset
 
+
+\change_inserted 361918700 1471716633
+ The standard lead setup used in MIT-BIH database is: modified lead II (MLII)
+ and some precordial lead, such as V1, V2, V4 or V5.
+ However in one case MLII is not available.
+ As each record includes two of the previous leads, a criterion to select
+ the total performance of a recording must be defined.
+ The criterion was to select the lead with greater S and P, or the MLII
+ lead.
+ If MLII was not available, the first lead available was chosen.
+
+\change_deleted 361918700 1471695099
  were calculated in order to show the results statistically.
  
 \change_inserted -468262419 1471535540
@@ -952,7 +1140,7 @@ For both leads in each record,
 
 \begin_layout Standard
 
-\change_inserted -468262419 1471553602
+\change_deleted 361918700 1471715761
 With the intention of show where this algorithms fails and generates, for
  example, a false negative, Figure 
 \begin_inset CommandInset ref
@@ -968,6 +1156,24 @@ reference "fig:A-false-negative"
  Even when it is detected in the band-pass filtered signal, it is not after
  the integration window.
  Finally, it is incorrectly considered by the algorithm as noise peak.
+\change_inserted 361918700 1471715764
+
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+
+\change_inserted 361918700 1471715775
+Esto no es metodología, lo paso a discusión
+\change_unchanged
+
+\end_layout
+
+\end_inset
+
+
+\change_inserted -468262419 1471553602
+
 \end_layout
 
 \begin_layout Standard
@@ -985,7 +1191,7 @@ status open
 \begin_inset Graphics
 	filename false_negatives.svg
 	lyxscale 40
-	scale 40
+	height 45theight%
 
 \end_inset
 
@@ -993,6 +1199,22 @@ status open
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
+
+\change_inserted 361918700 1471691784
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+
+\change_inserted 361918700 1471691813
+No teníamos un ejemplo de FP también ? Yo lo pondría vertical acá tb.
+ Expliquen lo que son los trazos verde y negro
+\change_unchanged
+
+\end_layout
+
+\end_inset
+
 
 \change_inserted -468262419 1471553213
 False negative example.
@@ -1029,7 +1251,11 @@ Results
 \end_layout
 
 \begin_layout Standard
-The results for boths algorithms are presented in Table 
+The results for both
+\change_deleted 361918700 1471716249
+s
+\change_unchanged
+ algorithms are presented in Table 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "tab:Performance"
@@ -1037,22 +1263,79 @@ reference "tab:Performance"
 \end_inset
 
 .
- Both were tested in all records of MIT-BIH Arrhythmia database with the
- exception of records without paced beats.
+ 
+\change_deleted 361918700 1471716260
+Both 
+\change_inserted 361918700 1471716263
+The algorithms 
+\change_unchanged
+were tested in all records of MIT-BIH Arrhythmia database with the exception
+ of records 
+\change_deleted 361918700 1471716274
+without
+\change_inserted 361918700 1471716277
+with
+\change_unchanged
+ paced beats.
+
+\change_inserted 361918700 1471718298
+ 
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+
+\change_inserted 361918700 1471718358
+Faltaría decir cuál anduvo mejor, y alguna otra descripción fría de los
+ resultados, el resto a la discu.
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\change_unchanged
+
+\end_layout
+
+\end_inset
+
 
 \change_inserted -468262419 1471471000
- The standard nomenclature used for the leads in each records is: modified
+ 
+\change_deleted 361918700 1471716325
+The standard nomenclature used for the leads in each records is: modified
  lead II (MLII) and the precordials V1, V2, V4 and V5.
  As each record consist in two of the previous leads, a criteria to measure
  performance must be defined.
- 
-\change_unchanged
-The following criterion was used to present the results: lead with both
+ The following criterion was used to present the results: lead with both
  positive predictive value (P) and sensitivity (S) maximum, if maximum were
  not in the same lead, it is presented MLII.
  If MLII was not an available lead, the first entry in order of appearance
  was chosen.
  Both algorithms use the same criteria to show its results.
+\change_inserted 361918700 1471716337
+
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+
+\change_inserted 361918700 1471716347
+Esto es metodología, va para arriba.
+\change_unchanged
+
+\end_layout
+
+\end_inset
+
+
+\change_unchanged
+
 \end_layout
 
 \begin_layout Standard
@@ -1076,6 +1359,24 @@ Final results for boths algorithms .
 
 \end_inset
 
+
+\change_inserted 361918700 1471718365
+
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+
+\change_inserted 361918700 1471718369
+DECIMALEEEEES !
+\change_unchanged
+
+\end_layout
+
+\end_inset
+
+
+\change_unchanged
 
 \end_layout
 
@@ -5834,13 +6135,84 @@ Discussion and conclusions
 \begin_layout Standard
 
 \change_inserted -468262419 1471618741
-In this work, we have successfully developed two implementation of a QRS
- detector based on Pan and Tompkins algorithm.
- Slight differences exist, as using other set of band-pass filters than
- the described in the original paper or using self-designed local maximum
- corrector.
- Furthermore, they have been evaluated all over the MIT-BIH Arrhythmia database
- to get sensitivity and predictive positive value measures.
+In this work, we have successfully developed two implementation
+\change_inserted 361918700 1471718380
+s
+\change_inserted -468262419 1471618741
+ of a QRS detector based on 
+\change_inserted 361918700 1471718390
+the 
+\change_inserted -468262419 1471618741
+Pan and Tompkins algorithm.
+ Slight differences exist, as 
+\change_inserted 361918700 1471718673
+we are 
+\change_inserted -468262419 1471618741
+using other set of band-pass filters than the described in the original
+ paper
+\change_inserted 361918700 1471718716
+ 
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+
+\change_inserted 361918700 1471718731
+razón ? discutirla ! de esto y lo que sigue
+\change_unchanged
+
+\end_layout
+
+\end_inset
+
+.
+ ,
+\change_inserted -468262419 1471618741
+ or using self-designed local maximum corrector
+\change_inserted 361918700 1471718742
+ 
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+
+\change_inserted 361918700 1471718744
+por ?
+\change_unchanged
+
+\end_layout
+
+\end_inset
+
+
+\change_inserted -468262419 1471618741
+.
+ Furthermore, 
+\change_deleted 361918700 1471718878
+they
+\change_inserted 361918700 1471718881
+the algorithms
+\change_inserted -468262419 1471618741
+ 
+\change_inserted 361918700 1471718895
+presented in this work 
+\change_inserted -468262419 1471618741
+have been evaluated 
+\change_deleted 361918700 1471718901
+all over the
+\change_inserted 361918700 1471718902
+in the whole
+\change_inserted -468262419 1471618741
+ MIT-BIH Arrhythmia database to get sensitivity and predictive positive
+ value 
+\change_deleted 361918700 1471718909
+measures
+\change_inserted 361918700 1471718910
+performances
+\change_inserted -468262419 1471618741
+.
+\change_deleted 361918700 1471718920
+
 \end_layout
 
 \begin_layout Standard
@@ -5854,8 +6226,73 @@ As the original implementation, both algorithms adapt thresholds and interval
 \begin_layout Standard
 
 \change_inserted -468262419 1471619983
-The processing time of all the database was X minutes for the first algorithm
- described and 37 minutes for the second one.
+The processing time of all the database was X 
+\change_inserted 361918700 1471718942
+
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+
+\change_inserted 361918700 1471718945
+ojota !! 
+\change_unchanged
+
+\end_layout
+
+\end_inset
+
+
+\change_inserted -468262419 1471619983
+minutes for the first algorithm described and 37 minutes for the second
+ one.
+\end_layout
+
+\begin_layout Standard
+
+\change_inserted 361918700 1471719846
+Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:A-false-negative"
+
+\end_inset
+
+ shows an example of a FN heartbeat in the first lead present in record
+ 105 and both thresholds, the main detector and the search-back.
+ As can be seen, the necessary conditions to detect a QRS complex are not
+ met 
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+
+\change_inserted 361918700 1471719791
+recordar cuales son y explicarlo siguiendo la imágen
+\change_unchanged
+
+\end_layout
+
+\end_inset
+
+.
+ Even when it is detected in the band-pass filtered signal, it is not after
+ the integration window.
+ Finally, it is incorrectly considered by the algorithm as noise peak.
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+
+\change_inserted 361918700 1471719859
+Me gustaría el ejeemplo de un FP tb acá
+\change_unchanged
+
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -5868,259 +6305,87 @@ reference "tab:Performance"
 
 \end_inset
 
-, the performance of both implementations was evaluated obtaining excellent
- results, with only a barely noticeable difference in sensibility, but predictiv
-e positive values measures with 
+, the performance of both implementations was evaluated obtaining 
+\change_deleted 361918700 1471719277
+excellent
+\change_inserted 361918700 1471719280
+satisfactory
+\change_inserted -468262419 1471621676
+ results, with only a barely noticeable difference in 
+\change_deleted 361918700 1471718961
+sensibility
+\change_inserted 361918700 1471718963
+sensitivity
+\change_inserted -468262419 1471621676
+, but predictive positive values measures with 
 \begin_inset Formula $P\geq99\%$
 \end_inset
 
 .
+\change_inserted 361918700 1471719574
+
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+
+\change_inserted 361918700 1471719606
+Hipotetisen a qué se debe la diferencia, en qué registros se nota el bajón
+ ? se puede especular a qué se puede deber ?
+\change_unchanged
+
+\end_layout
+
+\end_inset
+
+
+\change_inserted -468262419 1471621676
  However, it is necessary to evaluate the performance using other databases,
  in order to validate the performance improvement presented in this work.
-\end_layout
-
-\begin_layout Standard
-
-\change_inserted -468262419 1471622400
-Finally, the developed detectors use simple algorithms and it would be interesti
-ng to optimize them to real time environment.
-\change_unchanged
+\change_inserted 361918700 1471715792
 
 \end_layout
 
 \begin_layout Standard
 
-\change_deleted -468262419 1471622489
-En este trabajo de investigación se buscó implementar este conocido algoritmo
- de gran vigencia en la actualidad.
- Lo mas positivo es que ambos investigadores lo pudieron llevar a cabo con
- exito, con resultados esperados y satisfactorios.
- En la implementación del algoritmo 2 si bien en el PV + consiguio un valor
- levemente superior a la otra implementación la sensibilidad esta muy por
- debajo de la del paper original.
- En contra parte la otra implementación la del algoritmo 1 tuvo una excelente
- performance, muy buenos ambos parametros PV + y SENS superiores al 99%.
- Hay que notar que este rendimiento es superior al del paper en el cual
- se yerra en el cálculo de la cantidad de Complejos QRS(un simple error
- numérico).
- el rendimiento del algoritmo 2 al ser programado en Matlab no fue optimizado
- como se debía con la capacidad de manejar matrices de dicha herramienta,
- sino que fue realizado con ciclos 
-\begin_inset Quotes eld
-\end_inset
-
-for
-\begin_inset Quotes erd
-\end_inset
-
- lo que lo hizo mas lento.
- Igualmente es útil para procesamiento en tiempo real.
- El tiempo de procesamiento de toda la base de datos de MIT fue de 37 minutos
- (valor estimado) para este algoritmo y de X minutos para el 1.
- Y tardan en procesar una muestra 46useg y xuseg respectivamente .Las implementac
-iones de ambos algoritmos se fueron optimizando para esta base de datos
- lo que genera un sobre entrenamiento, pero nos deja conformes que el paper
- original tambien fue probado en esta BD y se lo ha podido, si se puede
- decir, implementar de manera un tanto mas eficiente.
- Por lo menos para esta BD.
- Gracias a esta herramienta de programación(MatLab)al Goldstandar y al ECG_KIT
- se pudieron ir graficando los FP y los FN de cada algoritmo y así ver donde
- había que hacer algun ajuste.
- Si bien la base es el ya conocido método del paper se hicieron ajustes,
- sin escaparse de lo que dice el mismo.
- De todas maneras el mecanismo de detección es el mismo.
- Se lograron 2 implementaciones del increiblemente actual Pan&Tompkins que,
- como se puede ver en el paper, fue desarrollado en el año 1985
-\change_unchanged
-
-\end_layout
-
-\begin_layout Standard
-
-\change_deleted -468262419 1470075113
-In this work we presented a model of features for ischemia detection in
- EST, based on three groups: pretest, exercise and a set of proposed measurement
-s calculated in ECG recordings of conventional analog bandwidth.
- The proposed group of features is the main methodological contribution
- with respect to 
-\begin_inset CommandInset citation
-LatexCommand cite
-key "Sharir2012"
-
-\end_inset
-
-.
- These features were calculated in most of the cardiac cycle in order to
- measure the effect of stress-induced ischemia.
- Some of the features were studied in previous works in the context of ischemia
- detection 
-\begin_inset CommandInset citation
-LatexCommand cite
-key "ellestad2003stress,Pueyo2008"
-
-\end_inset
-
-, while others as 
-\begin_inset Formula $k_{Z}^{\mathrm{X}}$
-\end_inset
-
- were successfully used for heartbeat classification 
-\begin_inset CommandInset citation
-LatexCommand cite
-key "Llamedo11"
-
-\end_inset
-
-.
- The performance improvement of each feature was analyzed with an SFFS algorithm
-, obtaining two models, one for IM
-\begin_inset Formula $\geq5\%$
-\end_inset
-
- and the other for IM
-\begin_inset Formula $\geq10\%$
-\end_inset
-
-, which maximized the AUC calculated in a crossvalidated fashion.
- We chose these evaluation approach to avoid obtaining a model too overfitted
- to the data, as could happen in 
-\begin_inset CommandInset citation
-LatexCommand cite
-key "Sharir2012"
-
-\end_inset
-
-.
- Of the features included in the models, measurements around the Q wave
- seem to be discriminant (
-\begin_inset Formula $x(k_{\mathrm{Q}})$
-\end_inset
-
+\change_deleted 361918700 1471720029
+Finally
+\change_inserted 361918700 1471720036
+Future improvements to 
+\change_deleted 361918700 1471720042
 , 
-\begin_inset Formula $s_{\mathrm{Q}}^{-}$
-\end_inset
-
- and 
-\begin_inset Formula $s_{\mathrm{R}}^{\mathrm{Q}}$
-\end_inset
-
-), this could be related with the fact that the first region affected by
- ischemia is subendocardial 
-\begin_inset CommandInset citation
-LatexCommand cite
-key "ellestad2003stress"
-
-\end_inset
-
-.
- The terminal slope of the QRS complex ( 
-\begin_inset Formula $s_{\mathrm{-}}^{\mathrm{S}}$
-\end_inset
-
- ) measured in PCA2 or integrated with the SFT strategy were also included.
- These features together with those related to the duration of the ventricular
- repolarization should be further studied to understand its relation with
- stress-induced ischemia.
- The duration of the QRS complex (
-\begin_inset Formula $k_{Z}^{\mathrm{QRS}}$
-\end_inset
-
-) is well known to be affected by ischemia, as well as the level of the
- ST segment 
-\begin_inset CommandInset citation
-LatexCommand cite
-key "ellestad2003stress"
-
-\end_inset
-
-.
- With respect to the high frequency components of the WT QRS complex measured
- with 
-\begin_inset Formula $r^{\mathrm{WTX}}$
-\end_inset
-
-, only scales 3 and 4 were included, despite other scales of higher frequency
- were available for the feature selection.
- An aspect to be further studied is the importance that each feature has
- within the model.
- Respect to the calculation of the features as a ratio respect rest or two
- separate features, both strategies were selected.
- As a consequence, further experimentation is required to know which features
- benefit from each strategy.
- Finally, it would be interesting to study if features similar to HFQRS,
- with good performance reported in 
-\begin_inset CommandInset citation
-LatexCommand cite
-key "Sharir2012"
-
-\end_inset
-
-, could contribute to the obtained models.
- For this purpose we would need ECG recordings with an analog bandwidth
- up to 250 Hz.
-\end_layout
-
-\begin_layout Standard
-
-\change_deleted -468262419 1470075113
-As can be seen in Table 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "tab:Performance"
-
-\end_inset
-
-, the crossvalidated performance is more conservative, but probably more
- representative of the actual performance of a classifier.
- According to the ROC curve shown in figure 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "fig:ROC-curves-for"
-
-\end_inset
-
-, the most challenging detection problem is for 
-\begin_inset Formula $\mathrm{IM}\geq5\%$
-\end_inset
-
-, for the case of 
-\begin_inset Formula $\mathrm{IM}\geq10\%$
-\end_inset
-
- the final model performs extremely well, a symptom that the model could
- be too overfitted, probably because of the scarcity of severe ischemia
- patients in the cohort analyzed.
- However, it is necessary to study how these models performance (and the
- reported in 
-\begin_inset CommandInset citation
-LatexCommand cite
-key "Sharir2012"
-
-\end_inset
-
-) generalize to other databases in order to validate the performance improvement
- presented in this work.
-\end_layout
-
-\begin_layout Standard
-
-\change_deleted -468262419 1470075113
-As a result of the methodology presented, the results obtained in Table
+\change_inserted -468262419 1471622400
+the developed detectors 
+\change_deleted 361918700 1471720052
+use simple algorithms and it would be interesting to 
+\change_inserted 361918700 1471720054
+could be the 
+\change_inserted -468262419 1471622400
+optimiz
+\change_inserted 361918700 1471720056
+ation
+\change_deleted 361918700 1471720062
+e them 
+\change_inserted 361918700 1471720066
  
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "tab:Performance"
+\change_inserted -468262419 1471622400
+to 
+\change_inserted 361918700 1471720076
+implement them in a 
+\change_inserted -468262419 1471622400
+real time environment.
 
-\end_inset
-
- represent an improvement with respect to those reported in 
+\change_inserted 361918700 1471720356
+ The objective of this work was fulfilled since the algorithms performances
+ were in the order of the original algorithm 
 \begin_inset CommandInset citation
 LatexCommand cite
-key "Sharir2012"
+key "pantom"
 
 \end_inset
 
-.
+ and represented the first steps in the development of more complex algorithms
+ for cardiovascular signal processing of undergraduate students.
 \change_unchanged
 
 \end_layout
