@@ -6375,7 +6375,7 @@ implement them in a
 \change_inserted -468262419 1471622400
 real time environment.
 
-\change_inserted 361918700 1471720340
+\change_inserted 361918700 1471720356
  The objective of this work was fulfilled since the algorithms performances
  were in the order of the original algorithm 
 \begin_inset CommandInset citation
@@ -6385,7 +6385,7 @@ key "pantom"
 \end_inset
 
  and represented the first steps in the development of more complex algorithms
- for cardiovascular signal processing.
+ for cardiovascular signal processing of undergraduate students.
 \change_unchanged
 
 \end_layout

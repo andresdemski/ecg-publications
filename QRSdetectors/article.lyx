@@ -100,6 +100,7 @@
 \html_be_strict false
 \author -1260779252 "mariano"
 \author -468262419 "JuanIgnacio"
+\author 267014851 "mache"
 \author 361918700 "Mariano"
 \end_header
 
@@ -1368,7 +1369,11 @@ status open
 \begin_layout Plain Layout
 
 \change_inserted 361918700 1471718369
-DECIMALEEEEES !
+DECIMALEEEEES 
+\change_inserted 267014851 1471729246
+listos
+\change_inserted 361918700 1471718369
+!
 \change_unchanged
 
 \end_layout
@@ -1591,7 +1596,7 @@ S
 \uwave off
 \noun off
 \color none
-0,95821
+0,958
 \end_layout
 
 \end_inset
@@ -1677,7 +1682,7 @@ S
 \uwave off
 \noun off
 \color none
-0,99838
+0,998
 \end_layout
 
 \end_inset
@@ -1698,7 +1703,7 @@ S
 \uwave off
 \noun off
 \color none
-0,98981
+0,99
 \end_layout
 
 \end_inset
@@ -1781,7 +1786,7 @@ S
 \uwave off
 \noun off
 \color none
-0,99184
+0,992
 \end_layout
 
 \end_inset
@@ -1867,7 +1872,7 @@ S
 \uwave off
 \noun off
 \color none
-0,99033
+0,990
 \end_layout
 
 \end_inset
@@ -1888,7 +1893,7 @@ S
 \uwave off
 \noun off
 \color none
-0,63725
+0,637
 \end_layout
 
 \end_inset
@@ -1983,7 +1988,7 @@ S
 \uwave off
 \noun off
 \color none
-0,73804
+0,738
 \end_layout
 
 \end_inset
@@ -2069,7 +2074,7 @@ S
 \uwave off
 \noun off
 \color none
-0,99905
+0,999
 \end_layout
 
 \end_inset
@@ -2090,7 +2095,7 @@ S
 \uwave off
 \noun off
 \color none
-0,59444
+0,594
 \end_layout
 
 \end_inset
@@ -2185,7 +2190,7 @@ S
 \uwave off
 \noun off
 \color none
-0,98815
+0,988
 \end_layout
 
 \end_inset
@@ -2292,7 +2297,7 @@ S
 \uwave off
 \noun off
 \color none
-0,99482
+0,995
 \end_layout
 
 \end_inset
@@ -2387,7 +2392,7 @@ S
 \uwave off
 \noun off
 \color none
-0,99882
+0,999
 \end_layout
 
 \end_inset
@@ -2473,7 +2478,7 @@ S
 \uwave off
 \noun off
 \color none
-0,99943
+0,999
 \end_layout
 
 \end_inset
@@ -2494,7 +2499,7 @@ S
 \uwave off
 \noun off
 \color none
-0,97549
+0,975
 \end_layout
 
 \end_inset
@@ -2601,7 +2606,7 @@ S
 \uwave off
 \noun off
 \color none
-0,98882
+0,989
 \end_layout
 
 \end_inset
@@ -2696,7 +2701,7 @@ S
 \uwave off
 \noun off
 \color none
-0,97593
+0,976
 \end_layout
 
 \end_inset
@@ -2782,7 +2787,7 @@ S
 \uwave off
 \noun off
 \color none
-0,99952
+0,999
 \end_layout
 
 \end_inset
@@ -2803,7 +2808,7 @@ S
 \uwave off
 \noun off
 \color none
-0,86692
+0,867
 \end_layout
 
 \end_inset
@@ -2877,7 +2882,7 @@ S
 \uwave off
 \noun off
 \color none
-0,99935
+0,999
 \end_layout
 
 \end_inset
@@ -2898,7 +2903,7 @@ S
 \uwave off
 \noun off
 \color none
-0,99674
+0,997
 \end_layout
 
 \end_inset
@@ -2993,7 +2998,7 @@ S
 \uwave off
 \noun off
 \color none
-0,99737
+0,997
 \end_layout
 
 \end_inset
@@ -3076,7 +3081,7 @@ S
 \uwave off
 \noun off
 \color none
-0,22144
+0,221
 \end_layout
 
 \end_inset
@@ -3183,7 +3188,7 @@ S
 \uwave off
 \noun off
 \color none
-0,98873
+0,989
 \end_layout
 
 \end_inset
@@ -3266,7 +3271,7 @@ S
 \uwave off
 \noun off
 \color none
-0,99879
+0,999
 \end_layout
 
 \end_inset
@@ -3352,7 +3357,7 @@ S
 \uwave off
 \noun off
 \color none
-0,99868
+0,999
 \end_layout
 
 \end_inset
@@ -3373,7 +3378,7 @@ S
 \uwave off
 \noun off
 \color none
-0,99802
+0,998
 \end_layout
 
 \end_inset
@@ -3480,7 +3485,7 @@ S
 \uwave off
 \noun off
 \color none
-0,96047
+0,960
 \end_layout
 
 \end_inset
@@ -3587,7 +3592,7 @@ S
 \uwave off
 \noun off
 \color none
-0,67743
+0,677
 \end_layout
 
 \end_inset
@@ -3694,7 +3699,7 @@ S
 \uwave off
 \noun off
 \color none
-0,85176
+0,852
 \end_layout
 
 \end_inset
@@ -3768,7 +3773,7 @@ S
 \uwave off
 \noun off
 \color none
-0,99809
+0,998
 \end_layout
 
 \end_inset
@@ -3789,7 +3794,7 @@ S
 \uwave off
 \noun off
 \color none
-0,97846
+0,978
 \end_layout
 
 \end_inset
@@ -3875,7 +3880,7 @@ S
 \uwave off
 \noun off
 \color none
-0,99556
+0,996
 \end_layout
 
 \end_inset
@@ -3896,7 +3901,7 @@ S
 \uwave off
 \noun off
 \color none
-0,45168
+0,452
 \end_layout
 
 \end_inset
@@ -3991,7 +3996,7 @@ S
 \uwave off
 \noun off
 \color none
-0,63404
+0,634
 \end_layout
 
 \end_inset
@@ -4077,7 +4082,7 @@ S
 \uwave off
 \noun off
 \color none
-0,95785
+0,958
 \end_layout
 
 \end_inset
@@ -4098,7 +4103,7 @@ S
 \uwave off
 \noun off
 \color none
-0,89194
+0,892
 \end_layout
 
 \end_inset
@@ -4184,7 +4189,7 @@ S
 \uwave off
 \noun off
 \color none
-0,9989
+0,999
 \end_layout
 
 \end_inset
@@ -4205,7 +4210,7 @@ S
 \uwave off
 \noun off
 \color none
-0,61692
+0,617
 \end_layout
 
 \end_inset
@@ -4291,7 +4296,7 @@ S
 \uwave off
 \noun off
 \color none
-0,99851
+0,998
 \end_layout
 
 \end_inset
@@ -4312,7 +4317,7 @@ S
 \uwave off
 \noun off
 \color none
-0,44459
+0,445
 \end_layout
 
 \end_inset
@@ -4398,7 +4403,7 @@ S
 \uwave off
 \noun off
 \color none
-0,99957
+1
 \end_layout
 
 \end_inset
@@ -4419,7 +4424,7 @@ S
 \uwave off
 \noun off
 \color none
-0,88189
+0,882
 \end_layout
 
 \end_inset
@@ -4514,7 +4519,7 @@ S
 \uwave off
 \noun off
 \color none
-0,99709
+0,997
 \end_layout
 
 \end_inset
@@ -4609,7 +4614,7 @@ S
 \uwave off
 \noun off
 \color none
-0,98185
+0,982
 \end_layout
 
 \end_inset
@@ -4716,7 +4721,7 @@ S
 \uwave off
 \noun off
 \color none
-0,94783
+0,948
 \end_layout
 
 \end_inset
@@ -4790,7 +4795,7 @@ S
 \uwave off
 \noun off
 \color none
-0,97934
+0,979
 \end_layout
 
 \end_inset
@@ -4811,7 +4816,7 @@ S
 \uwave off
 \noun off
 \color none
-0,070473
+0,071
 \end_layout
 
 \end_inset
@@ -4906,7 +4911,7 @@ S
 \uwave off
 \noun off
 \color none
-0,96472
+0,965
 \end_layout
 
 \end_inset
@@ -5001,7 +5006,7 @@ S
 \uwave off
 \noun off
 \color none
-0,99414
+0,994
 \end_layout
 
 \end_inset
@@ -5096,7 +5101,7 @@ S
 \uwave off
 \noun off
 \color none
-0,98393
+0,984
 \end_layout
 
 \end_inset
@@ -5203,7 +5208,7 @@ S
 \uwave off
 \noun off
 \color none
-0,91623
+0,916
 \end_layout
 
 \end_inset
@@ -5298,7 +5303,7 @@ S
 \uwave off
 \noun off
 \color none
-0,86449
+0,864
 \end_layout
 
 \end_inset
@@ -5405,7 +5410,7 @@ S
 \uwave off
 \noun off
 \color none
-0,81344
+0,813
 \end_layout
 
 \end_inset
@@ -5488,7 +5493,7 @@ S
 \uwave off
 \noun off
 \color none
-0,83511
+0,835
 \end_layout
 
 \end_inset
@@ -5583,7 +5588,7 @@ S
 \uwave off
 \noun off
 \color none
-0,99682
+0,997
 \end_layout
 
 \end_inset
@@ -5669,7 +5674,7 @@ S
 \uwave off
 \noun off
 \color none
-0,93267
+0,933
 \end_layout
 
 \end_inset
@@ -5690,7 +5695,7 @@ S
 \uwave off
 \noun off
 \color none
-0,99607
+0,996
 \end_layout
 
 \end_inset
@@ -5797,7 +5802,7 @@ S
 \uwave off
 \noun off
 \color none
-0,90159
+0,902
 \end_layout
 
 \end_inset
@@ -5904,7 +5909,7 @@ S
 \uwave off
 \noun off
 \color none
-0,99673
+0,997
 \end_layout
 
 \end_inset
@@ -6073,7 +6078,7 @@ Total SENS
 \uwave off
 \noun off
 \color none
-0,9964825
+0,9964545
 \end_layout
 
 \end_inset
@@ -6094,7 +6099,7 @@ Total SENS
 \uwave off
 \noun off
 \color none
-0,853393705
+0,8533863
 \end_layout
 
 \end_inset
