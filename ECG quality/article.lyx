@@ -237,7 +237,13 @@ regions of the signal with too much energy
 high energy noise
 \change_unchanged
 .
- If the binary tree classified a record as acceptable, then a fine
+ If the binary tree 
+\change_deleted 361918700 1471644853
+classified
+\change_inserted 361918700 1471644858
+classifies
+\change_unchanged
+ a record as acceptable, then a fine
 \change_inserted -1260779252 1471548390
 r
 \change_unchanged
@@ -264,16 +270,57 @@ features
 based detector
 \change_unchanged
 .
- This detector uses a support vector machine with a Gaussian kernel for
- doing this work.
- The SQI are extracted from the record, there are calculated 12 per each
- lead, getting 144 SQI per record.
+ 
+\change_deleted 361918700 1471644900
+This 
+\change_inserted 361918700 1471644933
+The SQI 
+\change_unchanged
+detector 
+\change_deleted 361918700 1471644950
+uses a 
+\change_inserted 361918700 1471644954
+is based on a 
+\change_unchanged
+support vector machine with a Gaussian kernel
+\change_deleted 361918700 1471644962
+ for doing this work
+\change_unchanged
+.
+ The 
+\change_deleted 361918700 1471686553
+SQI 
+\change_inserted 361918700 1471686568
+detectors features 
+\change_deleted 361918700 1471686553
+are extracted from the record
+\change_inserted 361918700 1471645100
+were calculated in the ECG signal, describing morphological aspects and
+ noise presence
+\change_unchanged
+,
+\change_deleted 361918700 1471686601
+ there are calculated 12 per each lead, getting 
+\change_inserted 361918700 1471686604
+accounting 
+\change_unchanged
+144 SQI
+\change_inserted 361918700 1471686619
+'s
+\change_unchanged
+ per record.
  
 \end_layout
 
 \begin_layout Abstract
-The databases that are used in this work are the PhysioNet/Computing in
- Cardiology Challenge 2011 dataset and the MIT-BIH database.
+The databases that 
+\change_deleted 361918700 1471686627
+are 
+\change_inserted 361918700 1471686628
+were 
+\change_unchanged
+used in this work are the PhysioNet/Computing in Cardiology Challenge 2011
+ dataset and the MIT-BIH database.
  Both of them are used for training the algorithms and only the challenge
  dataset was used for testing.
 \end_layout
@@ -283,6 +330,13 @@ The performance of the algorithms was assessed using accuracy, sensitivity
  and specificity metrics.
  The bad quality detection performance obtained in this work reaches a 93%
  of accuracy, a 98% of sensitivity and a 76% of specificity.
+
+\change_inserted 361918700 1471686786
+ The results are promising and the SQI detector is a starting point for
+ future improvement and further evaluation of the capability of generalisation
+ to other databases.
+\change_unchanged
+
 \end_layout
 
 \begin_layout Section
@@ -324,7 +378,11 @@ One of the best results in the first event of the challenge was from Clifford
 et al
 \emph default
 .
- , who presented
+
+\change_deleted 361918700 1471686817
+ 
+\change_unchanged
+, who presented
 \change_deleted 361918700 1470060420
 s
 \change_unchanged
@@ -490,7 +548,13 @@ Flow-chart and main blocks of the proposed algorithm.
 
 \begin_layout Standard
 If this tree does not detect any of these interferences, then we use a finer
- analysis for doing the last detection.
+ analysis for 
+\change_deleted 361918700 1471686879
+doing
+\change_inserted 361918700 1471686881
+performing
+\change_unchanged
+ the last detection.
  The criterion adopted for considering an acceptable recording, is that
  all the included leads have good quality.
  Below we describe each block of Figure 
@@ -510,9 +574,14 @@ Flatline detector
 \begin_layout Standard
 We considered flatline as an extended time of inactivity in one or multiple
  leads.
- For detecting this, we developed 3 algorithms that analyze the variance,
- the derivative and the signal amplitude in order to implement the best
- performing approach: 
+ For detecting this, we developed 3 algorithms that 
+\change_deleted 361918700 1471686903
+analyze
+\change_inserted 361918700 1471686903
+analyse
+\change_unchanged
+ the variance, the derivative and the signal amplitude in order to implement
+ the best performing approach: 
 \begin_inset Formula 
 \[
 FL1=min\left\{ var(\mathrm{\mathbf{S_{i}}})\right\} 
@@ -569,13 +638,27 @@ The multilead ECG signal
 \end_layout
 
 \begin_layout Standard
-The FLx estimators are compared with a threshold for determining flatline
- presence.
+The 
+\change_deleted 361918700 1471687022
+FLx
+\change_inserted 361918700 1471687022
+
+\begin_inset Formula $FLx$
+\end_inset
+
+
+\change_unchanged
+ estimators are compared with a threshold for determining flatline presence.
  This threshold was trained in the ecgqdb, after the database was labelled
  accordingly to serve as ground truth (121 flatlines).
  The labelling was performed by a single student, experimented in ECG analysis
- who labeled the all recordings in ecgqdb 3 times, each time in a random
- order.
+ who 
+\change_deleted 361918700 1471686930
+labeled
+\change_inserted 361918700 1471686930
+labelled
+\change_unchanged
+ the all recordings in ecgqdb 3 times, each time in a random order.
  Comparing the labels for each case, if we found a mismatch the recording
  was discarded.
 \end_layout
@@ -618,9 +701,28 @@ ROC curves for the flatline detectors
 
 \end_layout
 
+\begin_layout Subsubsection
+Spikes Detector
+\end_layout
+
 \begin_layout Standard
-With the generated ground truth, we analyzed the ROC curves by sweeping
- the threshold value for each FLx flatline detector.
+With the generated ground truth, we 
+\change_deleted 361918700 1471686990
+analyzed
+\change_inserted 361918700 1471686990
+analysed
+\change_unchanged
+ the ROC curves by sweeping the threshold value for each 
+\change_deleted 361918700 1471687017
+FLx
+\change_inserted 361918700 1471687017
+
+\begin_inset Formula $FLx$
+\end_inset
+
+
+\change_unchanged
+ flatline detector.
  In Figure 
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -645,10 +747,6 @@ reference "fig:FL-ROC"
 \end_inset
 
 .
-\end_layout
-
-\begin_layout Subsubsection
-Spikes Detector
 \end_layout
 
 \begin_layout Standard
@@ -2138,39 +2236,227 @@ During this work, we presented a mixed algorithm which includes a binary
 
 \begin_layout Standard
 The joint and individual performance was evaluated for all the detectors
- giving hopeful results.
+ giving 
+\change_deleted 361918700 1471687103
+hopeful
+\change_inserted 361918700 1471687105
+promising
+\change_unchanged
+ results.
  The best accuracy and sensitivity was obtained by the full detector based
  in SQI with almost a 94% of accuracy and 99% of sensitivity, followed by
  the RD with a accuracy of 93% and sensitivity of 98%.
- The best specificity was obtained by de BT-RD with 88% followed by BT-FD
- with 87%.
+ The best specificity was obtained by 
+\change_deleted 361918700 1471687132
+de
+\change_unchanged
+ BT-RD with 88% followed by BT-FD with 87%.
 \end_layout
 
 \begin_layout Standard
 The performance of the binary tree is good but, comparing FL-HI and FL-SK-HI
  performance, we found that the SK detector does not make considerable contribut
-ion and it could be removed in future works.
+ion
+\change_deleted 361918700 1471687215
+ and it could be removed in future works
+\change_unchanged
+.
  
+\change_inserted 361918700 1471687319
+These could be explained because of the scarcity of spikes found in the
+ databases used in these work.
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+
+\change_inserted 361918700 1471687270
+Puede ser por esto ?
+\change_unchanged
+
+\end_layout
+
+\end_inset
+
+ These aspect should be further studied in other databases, and maybe remove
+ it for computational improvement.
+ 
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+
+\change_inserted 361918700 1471687348
+no conviene ser tan terminante a veces ...
+ salvo que estemos seguros que está llena de spikes la db, corregime en
+ ese caso.
+\change_unchanged
+
+\end_layout
+
+\end_inset
+
+
+\change_unchanged
+
 \end_layout
 
 \begin_layout Standard
 Both SQI models detector's performance have the best accuracy and sensitivity.
- The results of the joint performance BT-RD and BT-FD are worst than we
- expected, we were looking to get a better performance than the individual
- performance of RD and FD.
- One reason is that we found many acceptable records which contain flatline
- or huge impulses, that considering our criterion of acceptability, are
- bad labelled.
+ The results of the joint performance BT-RD and BT-FD 
+\change_deleted 361918700 1471687374
+are worst
+\change_inserted 361918700 1471687401
+
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+
+\change_inserted 361918700 1471687409
+worst es muy dura, ojo con las palabras
+\change_unchanged
+
+\end_layout
+
+\end_inset
+
+were lower
+\change_unchanged
+ than we expected, we 
+\change_deleted 361918700 1471687448
+were looking to get
+\change_inserted 361918700 1471687452
+expected to achieve
+\change_unchanged
+ a better performance than the individual performance of RD and FD.
+
+\change_inserted 361918700 1471687475
+ These could be explained because these features do not
+\change_unchanged
+ 
+\change_inserted 361918700 1471687502
+correlate apropiately to further increase the detection performance
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+
+\change_inserted 361918700 1471687536
+en la discusión siempre se intenta explicar o discutir los resultados, no
+ solo citarlos, eso lo podrías hacer en la sección anterior.
+\change_unchanged
+
+\end_layout
+
+\end_inset
+
+.
+ 
+\change_unchanged
+One reason is that we found
+\change_inserted 361918700 1471687667
+ was the criterion used to label the ecgqdb, there
+\change_unchanged
+ many acceptable records 
+\change_inserted 361918700 1471687686
+(according to our criterion) 
+\change_unchanged
+which contain flatline or huge impulses, 
+\change_deleted 361918700 1471687714
+that considering our criterion of acceptability, are bad labelled
+\change_inserted 361918700 1471687734
+were labelled as acceptable
+\change_unchanged
+.
+
+\change_inserted 361918700 1471687558
+ 
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+
+\change_inserted 361918700 1471687577
+bien ! me adelanté con el comentario anterior, poné lo que más te guste.
+\change_unchanged
+
+\end_layout
+
+\end_inset
+
+
+\change_unchanged
+
 \end_layout
 
 \begin_layout Standard
-For being a first approach, we are hopeful with the results.
- In next works, we are going to develop a better model for the detector
- and reduce it for improve the computational cost.
- As we have seen several mistakes in the labels of the database, we are
- considering to re-label them for having a better training.
- Also, we are going to test the algorithm in different databases for getting
- its real performance.
+For being a first approach, we are 
+\change_deleted 361918700 1471687749
+hopeful
+\change_inserted 361918700 1471687750
+confidence
+\change_unchanged
+ with the results
+\change_inserted 361918700 1471687756
+ obtained
+\change_unchanged
+.
+ In 
+\change_deleted 361918700 1471687760
+next 
+\change_inserted 361918700 1471687762
+following 
+\change_unchanged
+works, we are going to develop a better 
+\change_inserted 361918700 1471687776
+features 
+\change_unchanged
+model for the detector and reduce it 
+\change_deleted 361918700 1471687789
+for 
+\change_inserted 361918700 1471687789
+to 
+\change_unchanged
+improve the computational cost.
+ As we have seen several 
+\change_deleted 361918700 1471687845
+mistakes in the 
+\change_inserted 361918700 1471687854
+arguable 
+\change_unchanged
+label
+\change_inserted 361918700 1471687865
+ing
+\change_deleted 361918700 1471687864
+s
+\change_unchanged
+ 
+\change_deleted 361918700 1471687876
+of the database
+\change_inserted 361918700 1471687880
+in the ecgqdb
+\change_unchanged
+, we are considering to re-label 
+\change_deleted 361918700 1471687910
+them for having a better training
+\change_inserted 361918700 1471687918
+it in order to improve the detector
+\change_unchanged
+.
+ 
+\change_deleted 361918700 1471687926
+Also
+\change_inserted 361918700 1471687942
+A final improvement wil
+\change_unchanged
+, we are going to test the algorithm in different databases for 
+\change_deleted 361918700 1471687812
+getting its real performance
+\change_inserted 361918700 1471687834
+analysing the generalisation capability of the results obtained
+\change_unchanged
+.
  
 \end_layout
 
