@@ -93,8 +93,8 @@
 \papercolumns 1
 \papersides 1
 \paperpagestyle default
-\tracking_changes true
-\output_changes false
+\tracking_changes false
+\output_changes true
 \html_math_output 0
 \html_css_as_file 0
 \html_be_strict false
@@ -120,207 +120,31 @@ Universidad Tecnológica Nacional, Buenos Aires, Argentina
 \end_layout
 
 \begin_layout Abstract
-
-\change_deleted -1260779252 1471547177
-An ECG 
-\change_inserted -1260779252 1471547184
-The electrocardiogram (ECG) 
-\change_unchanged
-recording is commonly corrupted by several sources of noise or interfering
- signals.
- It is very important to 
-\change_deleted -1260779252 1471547454
-detect
-\change_inserted -1260779252 1471547519
-quantify
-\change_unchanged
- the quality of the 
-\change_inserted -1260779252 1471547462
-ECG 
-\change_unchanged
-recordings for reducing the automatic systems mistakes and false alarms.
- This topic 
-\change_deleted -1260779252 1471547607
-was
-\change_inserted -1260779252 1471547609
-has been
-\change_unchanged
- 
-\change_inserted -1260779252 1471547603
-already 
-\change_unchanged
-discussed during the PhysioNet/Computing in Cardiology Challenge 2011
-\change_inserted -1260779252 1471547774
-, where the best performing algorithms served as starting point to our work.
-
-\change_deleted -1260779252 1471547714
- and generated many results which are used in this paper.
-\change_unchanged
-
+The electrocardiogram (ECG) recording is commonly corrupted by several sources
+ of noise or interfering signals.
+ It is very important to quantify the quality of the ECG recordings for
+ reducing the automatic systems mistakes and false alarms.
+ This topic has been already discussed during the PhysioNet/Computing in
+ Cardiology Challenge 2011, where the best performing algorithms served
+ as starting point to our work.
 \end_layout
 
 \begin_layout Abstract
-In this work 
-\change_deleted -1260779252 1471547823
-its presented
-\change_inserted -1260779252 1471547830
-we present
-\change_unchanged
- 
-\change_deleted -1260779252 1471547839
-a first
-\change_inserted -1260779252 1471547840
-an
-\change_unchanged
- approach 
-\change_deleted -1260779252 1471547847
-of
-\change_inserted -1260779252 1471547847
-for
-\change_unchanged
- ECG quality 
-\change_deleted -1260779252 1471547910
-classification
-\change_inserted -1260779252 1471547913
-quantification
-\change_deleted -1260779252 1471547910
-.
- It was developed an algorithm which combines
-\change_inserted -1260779252 1471547863
-based on a combination of
-\change_unchanged
- a binary tree and 
-\change_deleted -1260779252 1471547873
-a
-\change_inserted -1260779252 1471547878
-signal quality indexes
-\change_unchanged
- 
-\change_inserted -1260779252 1471547881
-(
-\change_unchanged
-SQI
-\change_inserted -1260779252 1471547882
-)
-\change_deleted -1260779252 1471547899
- based detector
-\change_unchanged
-.
- The binary tree is 
-\change_deleted -1260779252 1471548235
-in charge
-\change_inserted -1260779252 1471548237
-responsible
-\change_unchanged
- of detect
-\change_inserted -1260779252 1471548239
-ing
-\change_unchanged
- 
-\change_deleted -1260779252 1471548252
-some features like
-\change_inserted -1260779252 1471548327
-coarse interferences
-\change_unchanged
- 
-\change_inserted -1260779252 1471548331
-such as 
-\change_unchanged
-flatline
-\change_inserted -1260779252 1471548332
-s
-\change_unchanged
- and 
-\change_deleted -1260779252 1471548369
-regions of the signal with too much energy
-\change_inserted -1260779252 1471548374
-high energy noise
-\change_unchanged
-.
- If the binary tree 
-\change_deleted 361918700 1471644853
-classified
-\change_inserted 361918700 1471644858
-classifies
-\change_unchanged
- a record as acceptable, then a fine
-\change_inserted -1260779252 1471548390
-r
-\change_unchanged
- 
-\change_deleted -1260779252 1471548411
-analyse
-\change_inserted -1260779252 1471548414
-analysis
-\change_unchanged
- is 
-\change_deleted -1260779252 1471548424
-done
-\change_inserted -1260779252 1471548425
-performed
-\change_unchanged
- using 
-\change_inserted -1260779252 1471548508
-a detector based on 
-\change_unchanged
-the SQI 
-\change_inserted -1260779252 1471548513
-features
-\change_deleted -1260779252 1471548515
-based detector
-\change_unchanged
-.
- 
-\change_deleted 361918700 1471644900
-This 
-\change_inserted 361918700 1471644933
-The SQI 
-\change_unchanged
-detector 
-\change_deleted 361918700 1471644950
-uses a 
-\change_inserted 361918700 1471644954
-is based on a 
-\change_unchanged
-support vector machine with a Gaussian kernel
-\change_deleted 361918700 1471644962
- for doing this work
-\change_unchanged
-.
- The 
-\change_deleted 361918700 1471686553
-SQI 
-\change_inserted 361918700 1471686568
-detectors features 
-\change_deleted 361918700 1471686553
-are extracted from the record
-\change_inserted 361918700 1471645100
-were calculated in the ECG signal, describing morphological aspects and
- noise presence
-\change_unchanged
-,
-\change_deleted 361918700 1471686601
- there are calculated 12 per each lead, getting 
-\change_inserted 361918700 1471686604
-accounting 
-\change_unchanged
-144 SQI
-\change_inserted 361918700 1471686619
-'s
-\change_unchanged
- per record.
+In this work we present an approach for ECG quality quantification based
+ on a combination of a binary tree and signal quality indexes (SQI).
+ The binary tree is responsible of detecting coarse interferences such as
+ flatlines and high energy noise.
+ If the binary tree classifies a record as acceptable, then a finer analysis
+ is performed using a detector based on the SQI features.
+ The SQI detector is based on a support vector machine with a Gaussian kernel.
+ The detectors features were calculated in the ECG signal, describing morphologi
+cal aspects and noise presence,accounting 144 SQI's per record.
  
 \end_layout
 
 \begin_layout Abstract
-The databases that 
-\change_deleted 361918700 1471686627
-are 
-\change_inserted 361918700 1471686628
-were 
-\change_unchanged
-used in this work are the PhysioNet/Computing in Cardiology Challenge 2011
- dataset and the MIT-BIH database.
+The databases that were used in this work are the PhysioNet/Computing in
+ Cardiology Challenge 2011 dataset and the MIT-BIH database.
  Both of them are used for training the algorithms and only the challenge
  dataset was used for testing.
 \end_layout
@@ -330,13 +154,9 @@ The performance of the algorithms was assessed using accuracy, sensitivity
  and specificity metrics.
  The bad quality detection performance obtained in this work reaches a 93%
  of accuracy, a 98% of sensitivity and a 76% of specificity.
-
-\change_inserted 361918700 1471686786
  The results are promising and the SQI detector is a starting point for
  future improvement and further evaluation of the capability of generalisation
  to other databases.
-\change_unchanged
-
 \end_layout
 
 \begin_layout Section
@@ -377,17 +197,8 @@ One of the best results in the first event of the challenge was from Clifford
 \emph on
 et al
 \emph default
-.
-
-\change_deleted 361918700 1471686817
- 
-\change_unchanged
-, who presented
-\change_deleted 361918700 1470060420
-s
-\change_unchanged
- a machine learning classification approach based on features corresponding
- to signal quality indexes (SQI) 
+., who presented a machine learning classification approach based on features
+ corresponding to signal quality indexes (SQI) 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "clifford-quality-cinc"
@@ -447,9 +258,6 @@ Database
 
 \begin_layout Standard
 In this work we used the database of the Physionet/Computing in Cardiology
-\change_deleted 361918700 1470064375
- (CinC)
-\change_unchanged
  Challenge 2011 (ecgqdb) 
 \begin_inset CommandInset citation
 LatexCommand cite
@@ -548,13 +356,7 @@ Flow-chart and main blocks of the proposed algorithm.
 
 \begin_layout Standard
 If this tree does not detect any of these interferences, then we use a finer
- analysis for 
-\change_deleted 361918700 1471686879
-doing
-\change_inserted 361918700 1471686881
-performing
-\change_unchanged
- the last detection.
+ analysis for performing the last detection.
  The criterion adopted for considering an acceptable recording, is that
  all the included leads have good quality.
  Below we describe each block of Figure 
@@ -574,14 +376,9 @@ Flatline detector
 \begin_layout Standard
 We considered flatline as an extended time of inactivity in one or multiple
  leads.
- For detecting this, we developed 3 algorithms that 
-\change_deleted 361918700 1471686903
-analyze
-\change_inserted 361918700 1471686903
-analyse
-\change_unchanged
- the variance, the derivative and the signal amplitude in order to implement
- the best performing approach: 
+ For detecting this, we developed 3 algorithms that analyse the variance,
+ the derivative and the signal amplitude in order to implement the best
+ performing approach: 
 \begin_inset Formula 
 \[
 FL1=min\left\{ var(\mathrm{\mathbf{S_{i}}})\right\} 
@@ -639,26 +436,15 @@ The multilead ECG signal
 
 \begin_layout Standard
 The 
-\change_deleted 361918700 1471687022
-FLx
-\change_inserted 361918700 1471687022
-
 \begin_inset Formula $FLx$
 \end_inset
 
-
-\change_unchanged
  estimators are compared with a threshold for determining flatline presence.
  This threshold was trained in the ecgqdb, after the database was labelled
  accordingly to serve as ground truth (121 flatlines).
  The labelling was performed by a single student, experimented in ECG analysis
- who 
-\change_deleted 361918700 1471686930
-labeled
-\change_inserted 361918700 1471686930
-labelled
-\change_unchanged
- the all recordings in ecgqdb 3 times, each time in a random order.
+ who labelled the all recordings in ecgqdb 3 times, each time in a random
+ order.
  Comparing the labels for each case, if we found a mismatch the recording
  was discarded.
 \end_layout
@@ -706,13 +492,8 @@ Spikes Detector
 \end_layout
 
 \begin_layout Standard
-With the generated ground truth, we 
-\change_deleted 361918700 1471686990
-analyzed
-\change_inserted 361918700 1471686990
-analysed
-\change_unchanged
- the ROC curves by sweeping the threshold value for each 
+With the generated ground truth, we analysed the ROC curves by sweeping
+ the threshold value for each 
 \change_deleted 361918700 1471687017
 FLx
 \change_inserted 361918700 1471687017
@@ -993,11 +774,7 @@ key "clifford-quality-cinc,behar-quality,liq-multilevel"
 \end_inset
 
 ..
-
-\change_inserted 361918700 1470089135
- Some
-\change_unchanged
- subtle changes were adopted in our implementation, since the EP limited
+ Some subtle changes were adopted in our implementation, since the EP limited
  QRS detector 
 \begin_inset CommandInset citation
 LatexCommand cite
@@ -2236,227 +2013,43 @@ During this work, we presented a mixed algorithm which includes a binary
 
 \begin_layout Standard
 The joint and individual performance was evaluated for all the detectors
- giving 
-\change_deleted 361918700 1471687103
-hopeful
-\change_inserted 361918700 1471687105
-promising
-\change_unchanged
- results.
+ giving promising results.
  The best accuracy and sensitivity was obtained by the full detector based
  in SQI with almost a 94% of accuracy and 99% of sensitivity, followed by
  the RD with a accuracy of 93% and sensitivity of 98%.
- The best specificity was obtained by 
-\change_deleted 361918700 1471687132
-de
-\change_unchanged
- BT-RD with 88% followed by BT-FD with 87%.
+ The best specificity was obtained by BT-RD with 88% followed by BT-FD with
+ 87%.
 \end_layout
 
 \begin_layout Standard
 The performance of the binary tree is good but, comparing FL-HI and FL-SK-HI
  performance, we found that the SK detector does not make considerable contribut
-ion
-\change_deleted 361918700 1471687215
- and it could be removed in future works
-\change_unchanged
-.
- 
-\change_inserted 361918700 1471687319
-These could be explained because of the scarcity of spikes found in the
+ion.
+ These could be explained because of the scarcity of spikes found in the
  databases used in these work.
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-
-\change_inserted 361918700 1471687270
-Puede ser por esto ?
-\change_unchanged
-
-\end_layout
-
-\end_inset
-
  These aspect should be further studied in other databases, and maybe remove
  it for computational improvement.
  
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-
-\change_inserted 361918700 1471687348
-no conviene ser tan terminante a veces ...
- salvo que estemos seguros que está llena de spikes la db, corregime en
- ese caso.
-\change_unchanged
-
-\end_layout
-
-\end_inset
-
-
-\change_unchanged
-
 \end_layout
 
 \begin_layout Standard
 Both SQI models detector's performance have the best accuracy and sensitivity.
- The results of the joint performance BT-RD and BT-FD 
-\change_deleted 361918700 1471687374
-are worst
-\change_inserted 361918700 1471687401
-
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-
-\change_inserted 361918700 1471687409
-worst es muy dura, ojo con las palabras
-\change_unchanged
-
-\end_layout
-
-\end_inset
-
-were lower
-\change_unchanged
- than we expected, we 
-\change_deleted 361918700 1471687448
-were looking to get
-\change_inserted 361918700 1471687452
-expected to achieve
-\change_unchanged
- a better performance than the individual performance of RD and FD.
-
-\change_inserted 361918700 1471687475
- These could be explained because these features do not
-\change_unchanged
- 
-\change_inserted 361918700 1471687502
-correlate apropiately to further increase the detection performance
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-
-\change_inserted 361918700 1471687536
-en la discusión siempre se intenta explicar o discutir los resultados, no
- solo citarlos, eso lo podrías hacer en la sección anterior.
-\change_unchanged
-
-\end_layout
-
-\end_inset
-
-.
- 
-\change_unchanged
-One reason is that we found
-\change_inserted 361918700 1471687667
- was the criterion used to label the ecgqdb, there
-\change_unchanged
- many acceptable records 
-\change_inserted 361918700 1471687686
-(according to our criterion) 
-\change_unchanged
-which contain flatline or huge impulses, 
-\change_deleted 361918700 1471687714
-that considering our criterion of acceptability, are bad labelled
-\change_inserted 361918700 1471687734
-were labelled as acceptable
-\change_unchanged
-.
-
-\change_inserted 361918700 1471687558
- 
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-
-\change_inserted 361918700 1471687577
-bien ! me adelanté con el comentario anterior, poné lo que más te guste.
-\change_unchanged
-
-\end_layout
-
-\end_inset
-
-
-\change_unchanged
-
+ The results of the joint performance BT-RD and BT-FD were lower than we
+ expected, we expected to achieve a better performance than the individual
+ performance of RD and FD.
+ These could be explained because the criterion used to label the ecgqdb,
+ there are many acceptable records (according to our criterion) which contain
+ flatline or huge impulses, were labelled as acceptable.
 \end_layout
 
 \begin_layout Standard
-For being a first approach, we are 
-\change_deleted 361918700 1471687749
-hopeful
-\change_inserted 361918700 1471687750
-confidence
-\change_unchanged
- with the results
-\change_inserted 361918700 1471687756
- obtained
-\change_unchanged
-.
- In 
-\change_deleted 361918700 1471687760
-next 
-\change_inserted 361918700 1471687762
-following 
-\change_unchanged
-works, we are going to develop a better 
-\change_inserted 361918700 1471687776
-features 
-\change_unchanged
-model for the detector and reduce it 
-\change_deleted 361918700 1471687789
-for 
-\change_inserted 361918700 1471687789
-to 
-\change_unchanged
-improve the computational cost.
- As we have seen several 
-\change_deleted 361918700 1471687845
-mistakes in the 
-\change_inserted 361918700 1471687854
-arguable 
-\change_unchanged
-label
-\change_inserted 361918700 1471687865
-ing
-\change_deleted 361918700 1471687864
-s
-\change_unchanged
- 
-\change_deleted 361918700 1471687876
-of the database
-\change_inserted 361918700 1471687880
-in the ecgqdb
-\change_unchanged
-, we are considering to re-label 
-\change_deleted 361918700 1471687910
-them for having a better training
-\change_inserted 361918700 1471687918
-it in order to improve the detector
-\change_unchanged
-.
- 
-\change_deleted 361918700 1471687926
-Also
-\change_inserted 361918700 1471687942
-A final improvement wil
-\change_unchanged
-, we are going to test the algorithm in different databases for 
-\change_deleted 361918700 1471687812
-getting its real performance
-\change_inserted 361918700 1471687834
-analysing the generalisation capability of the results obtained
-\change_unchanged
-.
+For being a first approach, we are confidence with the results obtained.
+ In following works, we are going to develop a better features model for
+ the detector and reduce it to improve the computational cost.
+ As we have seen several arguable labelling in the ecgqdb, we are considering
+ to re-label it in order to improve the detector.
+ For final improvement, we are going to test the algorithm in different
+ databases for analysing the generalisation capability of the results obtained.
  
 \end_layout
 
