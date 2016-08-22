@@ -109,7 +109,7 @@ Evaluation of Heartbeat Detectors in the Electrocardiogram
 \begin_layout Author
 
 \lang spanish
-Juan Ignacio Bianchetti, Juan Ignacio Robledo
+Juan Ignacio Robledo, Juan Ignacio Bianchetti,
 \lang english
  and 
 \lang spanish
@@ -402,9 +402,10 @@ Finally, when cascaded both low-pass and high-pass filters, the transfer
 
 \begin_layout Standard
 \begin_inset Formula 
-\begin{equation}
-H(z)=\frac{\left(-1+2.z^{-6}-z^{-12}+32.z^{-16}-32.z^{-17}-64.z^{-22}+64.z^{-23}+32.z^{-28}-32.z^{-29}+z^{-32}-2.z^{-38}+z^{-44}\right)}{\left(32-96.z^{-1}+96.z^{-2}-32.z^{-3}\right)}\label{eq:bpf}
-\end{equation}
+\begin{align}
+H(z) & =\frac{\left(-1+2.z^{-6}-z^{-12}+32.z^{-16}-32.z^{-17}-64.z^{-22}\right)}{\left(32-96.z^{-1}+96.z^{-2}-32.z^{-3}\right)}\label{eq:bpf}\\
+ & .\frac{\left(64.z^{-23}+32.z^{-28}-32.z^{-29}+z^{-32}-2.z^{-38}+z^{-44}\right)}{\left(32-96.z^{-1}+96.z^{-2}-32.z^{-3}\right)}\nonumber 
+\end{align}
 
 \end_inset
 
@@ -565,7 +566,7 @@ reference "eq:P&T_square"
  Figure 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "fig:Band-pass-filtered,-differentiat"
+reference "fig:Poles-and-zeros-3"
 
 \end_inset
 
@@ -633,7 +634,7 @@ reference "eq:P&T_movingAve"
  bandwidth low-pass filter as the function transfer in Figure 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "fig:Moving-average:-Amplitude"
+reference "fig:Differentiator:-Amplitude-respon"
 
 \end_inset
 

@@ -109,7 +109,7 @@ Evaluation of Heartbeat Detectors in the Electrocardiogram
 \begin_layout Author
 
 \lang spanish
-Juan Ignacio Bianchetti, Juan Ignacio Robledo
+Juan Ignacio Robledo, Juan Ignacio Bianchetti,
 \lang english
  and 
 \lang spanish
@@ -125,11 +125,6 @@ Electronic Department
 \end_layout
 
 \begin_layout Abstract
-<<<<<<< HEAD
-=======
-
-\change_inserted -468262419 1471878219
->>>>>>> 68a742e1398775bdfd74f554ac049214ac3878d5
 We have developed two implementations of a real-time algorithm for detection
  of the QRS complexes of ECG signals.
  After describing and evaluating different implementations, Pan and Tompkins's
@@ -142,11 +137,6 @@ We have developed two implementations of a real-time algorithm for detection
  With slightly changes described in the article, both implementation individuall
 y obtain a positive predictive value above 99% percent of the QRS complexes
  in the MIT/BIH Arrhythmia database.
-<<<<<<< HEAD
-=======
-\change_unchanged
-
->>>>>>> 68a742e1398775bdfd74f554ac049214ac3878d5
 \end_layout
 
 \begin_layout Section
@@ -575,7 +565,7 @@ reference "eq:P&T_square"
  Figure 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "fig:Band-pass-filtered,-differentiat"
+reference "fig:Poles-and-zeros-3"
 
 \end_inset
 
@@ -643,7 +633,7 @@ reference "eq:P&T_movingAve"
  bandwidth low-pass filter as the function transfer in Figure 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "fig:Moving-average:-Amplitude"
+reference "fig:Differentiator:-Amplitude-respon"
 
 \end_inset
 
@@ -659,20 +649,10 @@ All the close data points merge to generate one peak.
 \end_layout
 
 \begin_layout Standard
-<<<<<<< HEAD
 For the detection of heartbeats, it is essential the correct location of
  fiducial marks as absolute amplitude or slope maximum inside of time fixed
  windows of empirical 0.35 seconds, described as average minimum distance
  between two R waves or RR interval.
-=======
-For the detection of heartbeats,
-\change_inserted -468262419 1471876821
- it is essential the correct location of fiducial marks as absolute amplitude
- or slope maximum inside of time fixed windows of empirical 0.35 seconds,
- described as average minimum distance between two R waves or RR interval.
-
-\change_unchanged
->>>>>>> 68a742e1398775bdfd74f554ac049214ac3878d5
  Two set of threshold are used, each one with two threshold level.
  The first applied to the waveform from the moving window integrator, while
  the other pair is applied to the band-pass output signal, where the signal-to-n
@@ -858,7 +838,7 @@ status open
 \begin_inset Graphics
 	filename false_negatives.svg
 	lyxscale 40
-	height 60theight%
+	height 50theight%
 
 \end_inset
 
@@ -906,21 +886,11 @@ reference "tab:Performance"
 .
  The algorithms were tested in all records of MIT-BIH Arrhythmia database
  with the exception of records with paced beats.
-<<<<<<< HEAD
-=======
-
-\change_inserted -468262419 1471871865
->>>>>>> 68a742e1398775bdfd74f554ac049214ac3878d5
  Algorithm 1 seeks to achieve a faithful implementation of the original
  Pan and Tompkins work, where these significant differences were described
  above.
  Algorithm 2 seeks a better positive predictive value but its sensitivity
  performance declined while minimal changes to the thresholds occurred.
-<<<<<<< HEAD
-=======
-
-\change_unchanged
->>>>>>> 68a742e1398775bdfd74f554ac049214ac3878d5
  
 \end_layout
 
@@ -5657,11 +5627,7 @@ S
 \uwave off
 \noun off
 \color none
-<<<<<<< HEAD
 Total
-=======
-Total P
->>>>>>> 68a742e1398775bdfd74f554ac049214ac3878d5
 \end_layout
 
 \end_inset
@@ -5682,32 +5648,7 @@ Total P
 \uwave off
 \noun off
 \color none
-<<<<<<< HEAD
 0,995
-=======
-Total S
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\family roman
-\series medium
-\shape up
-\size normal
-\emph off
-\bar no
-\strikeout off
-\uuline off
-\uwave off
-\noun off
-\color none
-Total P
->>>>>>> 68a742e1398775bdfd74f554ac049214ac3878d5
 \end_layout
 
 \end_inset
@@ -5728,22 +5669,7 @@ Total P
 \uwave off
 \noun off
 \color none
-<<<<<<< HEAD
 0,997
-=======
-Total S
-\end_layout
-
-\end_inset
-</cell>
-</row>
-<row>
-<cell multirow="4" alignment="center" valignment="top" topline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
->>>>>>> 68a742e1398775bdfd74f554ac049214ac3878d5
 \end_layout
 
 \end_inset
@@ -5829,47 +5755,18 @@ Discussion and conclusions
 In this work, we have successfully developed two implementations of QRS
  detectors based on the Pan and Tompkins algorithm.
  Slight differences exist, as we are using other set of band-pass filters
-<<<<<<< HEAD
  than the described in the original article, in order to use other sampling
  frequency.
  Other minor difference is a local maximum corrector algorithm used in order
  to locate peaks at absolute maximums of the signal, solving the nonlinear
  nature of the group delay response of IIR filters.
-=======
- than the described in the original paper
-\change_inserted -468262419 1471873099
- so as to generate a more accuracy filtering and
-\change_inserted 361918700 1471718716
- 
-\change_inserted -468262419 1471873207
-correct the difference in the sampling frequency
-\change_inserted 361918700 1471718716
-,
-\change_inserted -468262419 1471872887
- or using self-designed local maximum corrector in order to locate peaks
- at absolute maximums
-\change_inserted 361918700 1471718742
- 
-\change_inserted -468262419 1471873379
-of the current processing signal, solving alinearities of group delay
-\change_unchanged
-.
->>>>>>> 68a742e1398775bdfd74f554ac049214ac3878d5
  Furthermore, the algorithms presented in this work have been evaluated
  in the whole MIT-BIH Arrhythmia database to get sensitivity and predictive
  positive value performances.
  As the original implementation, both algorithms adapt thresholds and interval
  limits in each cycle, allowing an adaptive classification inside the decision
  rule stage.
-<<<<<<< HEAD
  
-=======
-\end_layout
-
-\begin_layout Standard
-The processing time of all the database was 8 minutes for the first algorithm
- described and 37 minutes for the second one.
->>>>>>> 68a742e1398775bdfd74f554ac049214ac3878d5
 \end_layout
 
 \begin_layout Standard
@@ -5881,7 +5778,6 @@ reference "fig:A-false-negative"
 \end_inset
 
  shows an example of FN and FP heartbeats on the first lead present in record
-<<<<<<< HEAD
  105 and on the first lead present in record 108 respectively, and both
  main and search-back thresholds.
  First case, the necessary conditions to detect a QRS complex are not met:
@@ -5892,45 +5788,6 @@ reference "fig:A-false-negative"
  Finally, it is incorrectly considered by the algorithm as noise peak.
  On the other hand, on record 108, a greater P wave amplitude and PQ interval,
  generates a detection where only a P wave exist.
-=======
- 105 
-\change_inserted -468262419 1471872505
-and on the first lead present in record 108 respectively, and 
-\change_unchanged
-both 
-\change_inserted -468262419 1471872515
-main and search-back 
-\change_unchanged
-thresholds
-\change_deleted -468262419 1471872206
-, the main detector and the search-back.
- 
-\change_inserted -468262419 1471872535
-.
- First case
-\change_deleted -468262419 1471872548
-As can be seen
-\change_unchanged
-, the necessary conditions to detect a QRS complex are not met
-\change_inserted -468262419 1471872763
-: same peak recognized in the analysis of integration and band-pass filter
- outputs
-\change_unchanged
-.
-
-\change_inserted -468262419 1471872827
- When evaluating record 105, e
-\change_unchanged
-ven when it is detected in the band-pass filtered signal, it is not after
- the integration window.
- Finally, it is incorrectly considered by the algorithm as noise peak.
-
-\change_inserted -468262419 1471873593
- On the other hand, on record 108, a greater P wave amplitude and PQ interval,
- generates a complex detection where only a P wave exist.
-\change_unchanged
-
->>>>>>> 68a742e1398775bdfd74f554ac049214ac3878d5
 \end_layout
 
 \begin_layout Standard
@@ -5941,7 +5798,6 @@ reference "tab:Performance"
 
 \end_inset
 
-<<<<<<< HEAD
 , the performance of both implementations were evaluated obtaining satisfactory
  results, with a slight difference in sensitivity, but both positive predictive
  values above 99%.
@@ -5952,27 +5808,6 @@ reference "tab:Performance"
  described and 37 minutes for the second one, in Intel Core i7 desktop computers.
  Processing time differences are due to different grades of code optimization.
  
-=======
-, the performance of both implementations was evaluated obtaining 
-\change_unchanged
-satisfactory
-\change_inserted -468262419 1471621676
- results, with only a barely noticeable difference in 
-\change_inserted 361918700 1471718963
-sensitivity
-\change_inserted -468262419 1471876140
-, but predictive positive values measures with 
-\begin_inset Formula $P\geq99\%$
-\end_inset
-
-.
- Differences in P and S measures are probably due to .
- Processing time differences respond to different grades of code optimization.
- However, it is necessary to evaluate the performance using other databases,
- in order to validate the performance improvement presented in this work.
-\change_unchanged
-
->>>>>>> 68a742e1398775bdfd74f554ac049214ac3878d5
 \end_layout
 
 \begin_layout Standard
