@@ -93,14 +93,11 @@
 \papercolumns 1
 \papersides 1
 \paperpagestyle default
-\tracking_changes true
+\tracking_changes false
 \output_changes false
 \html_math_output 0
 \html_css_as_file 0
 \html_be_strict false
-\author -1260779252 "mariano"
-\author -468262419 "JuanIgnacio"
-\author 361918700 "Mariano"
 \end_header
 
 \begin_body
@@ -128,8 +125,6 @@ Electronic Department
 \end_layout
 
 \begin_layout Abstract
-
-\change_inserted -468262419 1471878219
 We have developed two implementations of a real-time algorithm for detection
  of the QRS complexes of ECG signals.
  After describing and evaluating different implementations, Pan and Tompkins's
@@ -142,8 +137,6 @@ We have developed two implementations of a real-time algorithm for detection
  With slightly changes described in the article, both implementation individuall
 y obtain a positive predictive value above 99% percent of the QRS complexes
  in the MIT/BIH Arrhythmia database.
-\change_unchanged
-
 \end_layout
 
 \begin_layout Section
@@ -202,13 +195,9 @@ e and a stage for digital filtering Finally, referring to the algorithm
  based on wavelet transform, it's an implementation based on the multi-scale
  approach, amplitude based criteria and the adaptive thresholding for each
  scale of this transform.
-
-\change_inserted -468262419 1471866681
  Analyzing these possibilities, we decided to implement Pan and Tompkins
  algorithm to solve the QRS detection, because of its high theoretical content
  and excellent results.
-\change_unchanged
-
 \end_layout
 
 \begin_layout Standard
@@ -250,16 +239,12 @@ Pan and Tompkins algorithm
 
 \begin_layout Standard
 As shown in Figure 
-\change_inserted -468262419 1471033681
-
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "fig:Stages-of-Pan"
 
 \end_inset
 
-
-\change_unchanged
 , the algorithm consists in 6 stages: a band-pass filter, a derivative block,
  a squaring nonlinear transformation, a moving window integration, an algorithm
  of adaptive thresholds and a decision rule.
@@ -664,13 +649,10 @@ All the close data points merge to generate one peak.
 \end_layout
 
 \begin_layout Standard
-For the detection of heartbeats,
-\change_inserted -468262419 1471876821
- it is essential the correct location of fiducial marks as absolute amplitude
- or slope maximum inside of time fixed windows of empirical 0.35 seconds,
- described as average minimum distance between two R waves or RR interval.
-
-\change_unchanged
+For the detection of heartbeats, it is essential the correct location of
+ fiducial marks as absolute amplitude or slope maximum inside of time fixed
+ windows of empirical 0.35 seconds, described as average minimum distance
+ between two R waves or RR interval.
  Two set of threshold are used, each one with two threshold level.
  The first applied to the waveform from the moving window integrator, while
  the other pair is applied to the band-pass output signal, where the signal-to-n
@@ -846,8 +828,6 @@ P=\frac{\mathrm{TP}}{\mathrm{TP+FP}}.
 \end_layout
 
 \begin_layout Standard
-
-\change_inserted -468262419 1471536747
 \begin_inset Float figure
 wide false
 sideways false
@@ -855,12 +835,10 @@ status open
 
 \begin_layout Plain Layout
 \align center
-
-\change_inserted -468262419 1471553068
 \begin_inset Graphics
 	filename false_negatives.svg
 	lyxscale 40
-	height 45theight%
+	height 50theight%
 
 \end_inset
 
@@ -868,8 +846,6 @@ status open
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-
-\change_inserted -468262419 1471870692
 False negative and false positive examples.
  In first row, the output of the moving window integrator.
  On second row, the output of band-pass filter.
@@ -883,21 +859,15 @@ name "fig:A-false-negative"
 \end_inset
 
 
-\change_unchanged
-
 \end_layout
 
 \end_inset
 
 
-\change_unchanged
-
 \end_layout
 
 \end_inset
 
-
-\change_inserted -1260779252 1470407979
 
 \end_layout
 
@@ -916,15 +886,11 @@ reference "tab:Performance"
 .
  The algorithms were tested in all records of MIT-BIH Arrhythmia database
  with the exception of records with paced beats.
-
-\change_inserted -468262419 1471871865
  Algorithm 1 seeks to achieve a faithful implementation of the original
  Pan and Tompkins work, where these significant differences were described
  above.
  Algorithm 2 seeks a better positive predictive value but its sensitivity
  performance declined while minimal changes to the thresholds occurred.
-
-\change_unchanged
  
 \end_layout
 
@@ -972,8 +938,12 @@ textwidth}{!}{
 
 \begin_layout Plain Layout
 \align center
+\begin_inset space \hfill{}
+\end_inset
+
+
 \begin_inset Tabular
-<lyxtabular version="3" rows="48" columns="5">
+<lyxtabular version="3" rows="25" columns="5">
 <features tabularvalignment="middle">
 <column alignment="center" valignment="top">
 <column alignment="center" valignment="top">
@@ -981,7 +951,7 @@ textwidth}{!}{
 <column alignment="center" valignment="top">
 <column alignment="center" valignment="top">
 <row>
-<cell multirow="3" alignment="center" valignment="middle" usebox="none">
+<cell multirow="3" alignment="center" valignment="middle" bottomline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
@@ -990,7 +960,7 @@ Recordings
 
 \end_inset
 </cell>
-<cell multicolumn="1" alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+<cell multicolumn="1" alignment="center" valignment="top" leftline="true" rightline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
@@ -1008,7 +978,7 @@ Implementation 1
 
 \end_inset
 </cell>
-<cell multicolumn="1" alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+<cell multicolumn="1" alignment="center" valignment="top" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
@@ -1055,7 +1025,7 @@ S
 
 \end_inset
 </cell>
-<cell alignment="center" valignment="top" bottomline="true" leftline="true" usebox="none">
+<cell alignment="center" valignment="top" bottomline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
@@ -1064,7 +1034,7 @@ P
 
 \end_inset
 </cell>
-<cell alignment="center" valignment="top" bottomline="true" rightline="true" usebox="none">
+<cell alignment="center" valignment="top" bottomline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
@@ -1075,7 +1045,7 @@ S
 </cell>
 </row>
 <row>
-<cell alignment="center" valignment="top" topline="true" usebox="none">
+<cell alignment="center" valignment="top" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
@@ -1126,7 +1096,7 @@ S
 
 \end_inset
 </cell>
-<cell alignment="center" valignment="top" leftline="true" usebox="none">
+<cell alignment="center" valignment="top" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
@@ -1147,7 +1117,7 @@ S
 
 \end_inset
 </cell>
-<cell alignment="center" valignment="top" rightline="true" usebox="none">
+<cell alignment="center" valignment="top" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
@@ -1170,7 +1140,7 @@ S
 </cell>
 </row>
 <row>
-<cell alignment="center" valignment="top" topline="true" usebox="none">
+<cell alignment="center" valignment="top" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
@@ -1233,7 +1203,7 @@ S
 
 \end_inset
 </cell>
-<cell alignment="center" valignment="top" leftline="true" usebox="none">
+<cell alignment="center" valignment="top" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
@@ -1254,7 +1224,7 @@ S
 
 \end_inset
 </cell>
-<cell alignment="center" valignment="top" rightline="true" usebox="none">
+<cell alignment="center" valignment="top" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
@@ -1277,7 +1247,7 @@ S
 </cell>
 </row>
 <row>
-<cell alignment="center" valignment="top" topline="true" usebox="none">
+<cell alignment="center" valignment="top" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
@@ -1316,7 +1286,7 @@ S
 
 \end_inset
 </cell>
-<cell alignment="center" valignment="top" leftline="true" usebox="none">
+<cell alignment="center" valignment="top" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
@@ -1337,7 +1307,7 @@ S
 
 \end_inset
 </cell>
-<cell alignment="center" valignment="top" rightline="true" usebox="none">
+<cell alignment="center" valignment="top" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
@@ -1360,7 +1330,7 @@ S
 </cell>
 </row>
 <row>
-<cell alignment="center" valignment="top" topline="true" usebox="none">
+<cell alignment="center" valignment="top" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
@@ -1423,7 +1393,7 @@ S
 
 \end_inset
 </cell>
-<cell alignment="center" valignment="top" leftline="true" usebox="none">
+<cell alignment="center" valignment="top" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
@@ -1444,7 +1414,7 @@ S
 
 \end_inset
 </cell>
-<cell alignment="center" valignment="top" rightline="true" usebox="none">
+<cell alignment="center" valignment="top" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
@@ -1467,7 +1437,7 @@ S
 </cell>
 </row>
 <row>
-<cell alignment="center" valignment="top" topline="true" usebox="none">
+<cell alignment="center" valignment="top" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
@@ -1518,7 +1488,7 @@ S
 
 \end_inset
 </cell>
-<cell alignment="center" valignment="top" leftline="true" usebox="none">
+<cell alignment="center" valignment="top" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
@@ -1539,7 +1509,7 @@ S
 
 \end_inset
 </cell>
-<cell alignment="center" valignment="top" rightline="true" usebox="none">
+<cell alignment="center" valignment="top" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
@@ -1562,7 +1532,7 @@ S
 </cell>
 </row>
 <row>
-<cell alignment="center" valignment="top" topline="true" usebox="none">
+<cell alignment="center" valignment="top" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
@@ -1625,7 +1595,7 @@ S
 
 \end_inset
 </cell>
-<cell alignment="center" valignment="top" leftline="true" usebox="none">
+<cell alignment="center" valignment="top" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
@@ -1646,7 +1616,7 @@ S
 
 \end_inset
 </cell>
-<cell alignment="center" valignment="top" rightline="true" usebox="none">
+<cell alignment="center" valignment="top" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
@@ -1669,7 +1639,7 @@ S
 </cell>
 </row>
 <row>
-<cell alignment="center" valignment="top" topline="true" usebox="none">
+<cell alignment="center" valignment="top" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
@@ -1720,7 +1690,7 @@ S
 
 \end_inset
 </cell>
-<cell alignment="center" valignment="top" leftline="true" usebox="none">
+<cell alignment="center" valignment="top" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
@@ -1741,7 +1711,7 @@ S
 
 \end_inset
 </cell>
-<cell alignment="center" valignment="top" rightline="true" usebox="none">
+<cell alignment="center" valignment="top" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
@@ -1764,7 +1734,7 @@ S
 </cell>
 </row>
 <row>
-<cell alignment="center" valignment="top" topline="true" usebox="none">
+<cell alignment="center" valignment="top" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
@@ -1827,7 +1797,7 @@ S
 
 \end_inset
 </cell>
-<cell alignment="center" valignment="top" leftline="true" usebox="none">
+<cell alignment="center" valignment="top" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
@@ -1848,7 +1818,7 @@ S
 
 \end_inset
 </cell>
-<cell alignment="center" valignment="top" rightline="true" usebox="none">
+<cell alignment="center" valignment="top" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
@@ -1871,7 +1841,7 @@ S
 </cell>
 </row>
 <row>
-<cell alignment="center" valignment="top" topline="true" usebox="none">
+<cell alignment="center" valignment="top" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
@@ -1922,7 +1892,7 @@ S
 
 \end_inset
 </cell>
-<cell alignment="center" valignment="top" leftline="true" usebox="none">
+<cell alignment="center" valignment="top" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
@@ -1943,7 +1913,7 @@ S
 
 \end_inset
 </cell>
-<cell alignment="center" valignment="top" rightline="true" usebox="none">
+<cell alignment="center" valignment="top" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
@@ -1966,7 +1936,7 @@ S
 </cell>
 </row>
 <row>
-<cell alignment="center" valignment="top" topline="true" usebox="none">
+<cell alignment="center" valignment="top" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
@@ -2029,7 +1999,7 @@ S
 
 \end_inset
 </cell>
-<cell alignment="center" valignment="top" leftline="true" usebox="none">
+<cell alignment="center" valignment="top" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
@@ -2050,7 +2020,7 @@ S
 
 \end_inset
 </cell>
-<cell alignment="center" valignment="top" rightline="true" usebox="none">
+<cell alignment="center" valignment="top" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
@@ -2073,7 +2043,7 @@ S
 </cell>
 </row>
 <row>
-<cell alignment="center" valignment="top" topline="true" usebox="none">
+<cell alignment="center" valignment="top" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
@@ -2136,7 +2106,7 @@ S
 
 \end_inset
 </cell>
-<cell alignment="center" valignment="top" leftline="true" usebox="none">
+<cell alignment="center" valignment="top" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
@@ -2157,7 +2127,7 @@ S
 
 \end_inset
 </cell>
-<cell alignment="center" valignment="top" rightline="true" usebox="none">
+<cell alignment="center" valignment="top" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
@@ -2180,7 +2150,7 @@ S
 </cell>
 </row>
 <row>
-<cell alignment="center" valignment="top" topline="true" usebox="none">
+<cell alignment="center" valignment="top" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
@@ -2231,7 +2201,7 @@ S
 
 \end_inset
 </cell>
-<cell alignment="center" valignment="top" leftline="true" usebox="none">
+<cell alignment="center" valignment="top" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
@@ -2252,7 +2222,7 @@ S
 
 \end_inset
 </cell>
-<cell alignment="center" valignment="top" rightline="true" usebox="none">
+<cell alignment="center" valignment="top" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
@@ -2275,7 +2245,7 @@ S
 </cell>
 </row>
 <row>
-<cell alignment="center" valignment="top" topline="true" usebox="none">
+<cell alignment="center" valignment="top" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
@@ -2338,7 +2308,7 @@ S
 
 \end_inset
 </cell>
-<cell alignment="center" valignment="top" leftline="true" usebox="none">
+<cell alignment="center" valignment="top" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
@@ -2359,7 +2329,7 @@ S
 
 \end_inset
 </cell>
-<cell alignment="center" valignment="top" rightline="true" usebox="none">
+<cell alignment="center" valignment="top" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
@@ -2382,7 +2352,7 @@ S
 </cell>
 </row>
 <row>
-<cell alignment="center" valignment="top" topline="true" usebox="none">
+<cell alignment="center" valignment="top" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
@@ -2433,7 +2403,7 @@ S
 
 \end_inset
 </cell>
-<cell alignment="center" valignment="top" leftline="true" usebox="none">
+<cell alignment="center" valignment="top" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
@@ -2454,7 +2424,7 @@ S
 
 \end_inset
 </cell>
-<cell alignment="center" valignment="top" rightline="true" usebox="none">
+<cell alignment="center" valignment="top" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
@@ -2477,7 +2447,7 @@ S
 </cell>
 </row>
 <row>
-<cell alignment="center" valignment="top" topline="true" usebox="none">
+<cell alignment="center" valignment="top" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
@@ -2528,7 +2498,7 @@ S
 
 \end_inset
 </cell>
-<cell alignment="center" valignment="top" leftline="true" usebox="none">
+<cell alignment="center" valignment="top" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
@@ -2549,7 +2519,7 @@ S
 
 \end_inset
 </cell>
-<cell alignment="center" valignment="top" rightline="true" usebox="none">
+<cell alignment="center" valignment="top" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
@@ -2572,7 +2542,7 @@ S
 </cell>
 </row>
 <row>
-<cell alignment="center" valignment="top" topline="true" usebox="none">
+<cell alignment="center" valignment="top" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
@@ -2611,7 +2581,7 @@ S
 
 \end_inset
 </cell>
-<cell alignment="center" valignment="top" leftline="true" usebox="none">
+<cell alignment="center" valignment="top" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
@@ -2632,7 +2602,7 @@ S
 
 \end_inset
 </cell>
-<cell alignment="center" valignment="top" rightline="true" usebox="none">
+<cell alignment="center" valignment="top" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
@@ -2655,7 +2625,7 @@ S
 </cell>
 </row>
 <row>
-<cell alignment="center" valignment="top" topline="true" usebox="none">
+<cell alignment="center" valignment="top" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
@@ -2718,7 +2688,7 @@ S
 
 \end_inset
 </cell>
-<cell alignment="center" valignment="top" leftline="true" usebox="none">
+<cell alignment="center" valignment="top" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
@@ -2739,7 +2709,7 @@ S
 
 \end_inset
 </cell>
-<cell alignment="center" valignment="top" rightline="true" usebox="none">
+<cell alignment="center" valignment="top" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
@@ -2762,7 +2732,7 @@ S
 </cell>
 </row>
 <row>
-<cell alignment="center" valignment="top" topline="true" usebox="none">
+<cell alignment="center" valignment="top" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
@@ -2801,7 +2771,7 @@ S
 
 \end_inset
 </cell>
-<cell alignment="center" valignment="top" leftline="true" usebox="none">
+<cell alignment="center" valignment="top" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
@@ -2822,7 +2792,7 @@ S
 
 \end_inset
 </cell>
-<cell alignment="center" valignment="top" rightline="true" usebox="none">
+<cell alignment="center" valignment="top" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
@@ -2845,7 +2815,7 @@ S
 </cell>
 </row>
 <row>
-<cell alignment="center" valignment="top" topline="true" usebox="none">
+<cell alignment="center" valignment="top" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
@@ -2908,7 +2878,7 @@ S
 
 \end_inset
 </cell>
-<cell alignment="center" valignment="top" leftline="true" usebox="none">
+<cell alignment="center" valignment="top" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
@@ -2929,7 +2899,7 @@ S
 
 \end_inset
 </cell>
-<cell alignment="center" valignment="top" rightline="true" usebox="none">
+<cell alignment="center" valignment="top" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
@@ -2952,7 +2922,7 @@ S
 </cell>
 </row>
 <row>
-<cell alignment="center" valignment="top" topline="true" usebox="none">
+<cell alignment="center" valignment="top" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
@@ -3015,7 +2985,7 @@ S
 
 \end_inset
 </cell>
-<cell alignment="center" valignment="top" leftline="true" usebox="none">
+<cell alignment="center" valignment="top" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
@@ -3036,7 +3006,7 @@ S
 
 \end_inset
 </cell>
-<cell alignment="center" valignment="top" rightline="true" usebox="none">
+<cell alignment="center" valignment="top" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
@@ -3059,7 +3029,7 @@ S
 </cell>
 </row>
 <row>
-<cell alignment="center" valignment="top" topline="true" usebox="none">
+<cell alignment="center" valignment="top" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
@@ -3122,7 +3092,7 @@ S
 
 \end_inset
 </cell>
-<cell alignment="center" valignment="top" leftline="true" usebox="none">
+<cell alignment="center" valignment="top" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
@@ -3143,7 +3113,7 @@ S
 
 \end_inset
 </cell>
-<cell alignment="center" valignment="top" rightline="true" usebox="none">
+<cell alignment="center" valignment="top" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
@@ -3166,7 +3136,7 @@ S
 </cell>
 </row>
 <row>
-<cell alignment="center" valignment="top" topline="true" usebox="none">
+<cell alignment="center" valignment="top" bottomline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
@@ -3187,7 +3157,7 @@ S
 
 \end_inset
 </cell>
-<cell alignment="center" valignment="top" leftline="true" usebox="none">
+<cell alignment="center" valignment="top" bottomline="true" leftline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
@@ -3208,7 +3178,7 @@ S
 
 \end_inset
 </cell>
-<cell alignment="center" valignment="top" rightline="true" usebox="none">
+<cell alignment="center" valignment="top" bottomline="true" rightline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
@@ -3229,7 +3199,7 @@ S
 
 \end_inset
 </cell>
-<cell alignment="center" valignment="top" leftline="true" usebox="none">
+<cell alignment="center" valignment="top" bottomline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
@@ -3250,7 +3220,7 @@ S
 
 \end_inset
 </cell>
-<cell alignment="center" valignment="top" rightline="true" usebox="none">
+<cell alignment="center" valignment="top" bottomline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
@@ -3273,7 +3243,165 @@ S
 </cell>
 </row>
 <row>
-<cell alignment="center" valignment="top" topline="true" usebox="none">
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\begin_inset space \hfill{}
+\end_inset
+
+
+\begin_inset Tabular
+<lyxtabular version="3" rows="25" columns="5">
+<features tabularvalignment="middle">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<row>
+<cell multirow="3" alignment="center" valignment="middle" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Recordings
+\end_layout
+
+\end_inset
+</cell>
+<cell multicolumn="1" alignment="center" valignment="top" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Implementation 1
+\end_layout
+
+\end_inset
+</cell>
+<cell multicolumn="2" alignment="center" valignment="top" topline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell multicolumn="1" alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Implementation 2
+\end_layout
+
+\end_inset
+</cell>
+<cell multicolumn="2" alignment="center" valignment="top" topline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell multirow="4" alignment="center" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+P
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" bottomline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+S
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+P
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+S
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
@@ -3324,7 +3452,7 @@ S
 
 \end_inset
 </cell>
-<cell alignment="center" valignment="top" leftline="true" usebox="none">
+<cell alignment="center" valignment="top" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
@@ -3345,7 +3473,7 @@ S
 
 \end_inset
 </cell>
-<cell alignment="center" valignment="top" rightline="true" usebox="none">
+<cell alignment="center" valignment="top" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
@@ -3368,7 +3496,7 @@ S
 </cell>
 </row>
 <row>
-<cell alignment="center" valignment="top" topline="true" usebox="none">
+<cell alignment="center" valignment="top" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
@@ -3431,7 +3559,7 @@ S
 
 \end_inset
 </cell>
-<cell alignment="center" valignment="top" leftline="true" usebox="none">
+<cell alignment="center" valignment="top" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
@@ -3452,7 +3580,7 @@ S
 
 \end_inset
 </cell>
-<cell alignment="center" valignment="top" rightline="true" usebox="none">
+<cell alignment="center" valignment="top" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
@@ -3475,7 +3603,7 @@ S
 </cell>
 </row>
 <row>
-<cell alignment="center" valignment="top" topline="true" usebox="none">
+<cell alignment="center" valignment="top" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
@@ -3526,7 +3654,7 @@ S
 
 \end_inset
 </cell>
-<cell alignment="center" valignment="top" leftline="true" usebox="none">
+<cell alignment="center" valignment="top" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
@@ -3547,7 +3675,7 @@ S
 
 \end_inset
 </cell>
-<cell alignment="center" valignment="top" rightline="true" usebox="none">
+<cell alignment="center" valignment="top" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
@@ -3570,7 +3698,7 @@ S
 </cell>
 </row>
 <row>
-<cell alignment="center" valignment="top" topline="true" usebox="none">
+<cell alignment="center" valignment="top" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
@@ -3633,7 +3761,7 @@ S
 
 \end_inset
 </cell>
-<cell alignment="center" valignment="top" leftline="true" usebox="none">
+<cell alignment="center" valignment="top" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
@@ -3654,7 +3782,7 @@ S
 
 \end_inset
 </cell>
-<cell alignment="center" valignment="top" rightline="true" usebox="none">
+<cell alignment="center" valignment="top" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
@@ -3677,7 +3805,7 @@ S
 </cell>
 </row>
 <row>
-<cell alignment="center" valignment="top" topline="true" usebox="none">
+<cell alignment="center" valignment="top" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
@@ -3740,7 +3868,7 @@ S
 
 \end_inset
 </cell>
-<cell alignment="center" valignment="top" leftline="true" usebox="none">
+<cell alignment="center" valignment="top" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
@@ -3761,7 +3889,7 @@ S
 
 \end_inset
 </cell>
-<cell alignment="center" valignment="top" rightline="true" usebox="none">
+<cell alignment="center" valignment="top" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
@@ -3784,7 +3912,7 @@ S
 </cell>
 </row>
 <row>
-<cell alignment="center" valignment="top" topline="true" usebox="none">
+<cell alignment="center" valignment="top" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
@@ -3847,7 +3975,7 @@ S
 
 \end_inset
 </cell>
-<cell alignment="center" valignment="top" leftline="true" usebox="none">
+<cell alignment="center" valignment="top" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
@@ -3868,7 +3996,7 @@ S
 
 \end_inset
 </cell>
-<cell alignment="center" valignment="top" rightline="true" usebox="none">
+<cell alignment="center" valignment="top" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
@@ -3891,7 +4019,7 @@ S
 </cell>
 </row>
 <row>
-<cell alignment="center" valignment="top" topline="true" usebox="none">
+<cell alignment="center" valignment="top" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
@@ -3954,7 +4082,7 @@ S
 
 \end_inset
 </cell>
-<cell alignment="center" valignment="top" leftline="true" usebox="none">
+<cell alignment="center" valignment="top" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
@@ -3975,7 +4103,7 @@ S
 
 \end_inset
 </cell>
-<cell alignment="center" valignment="top" rightline="true" usebox="none">
+<cell alignment="center" valignment="top" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
@@ -3998,7 +4126,7 @@ S
 </cell>
 </row>
 <row>
-<cell alignment="center" valignment="top" topline="true" usebox="none">
+<cell alignment="center" valignment="top" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
@@ -4049,7 +4177,7 @@ S
 
 \end_inset
 </cell>
-<cell alignment="center" valignment="top" leftline="true" usebox="none">
+<cell alignment="center" valignment="top" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
@@ -4070,7 +4198,7 @@ S
 
 \end_inset
 </cell>
-<cell alignment="center" valignment="top" rightline="true" usebox="none">
+<cell alignment="center" valignment="top" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
@@ -4093,7 +4221,7 @@ S
 </cell>
 </row>
 <row>
-<cell alignment="center" valignment="top" topline="true" usebox="none">
+<cell alignment="center" valignment="top" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
@@ -4144,7 +4272,7 @@ S
 
 \end_inset
 </cell>
-<cell alignment="center" valignment="top" leftline="true" usebox="none">
+<cell alignment="center" valignment="top" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
@@ -4165,7 +4293,7 @@ S
 
 \end_inset
 </cell>
-<cell alignment="center" valignment="top" rightline="true" usebox="none">
+<cell alignment="center" valignment="top" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
@@ -4188,7 +4316,7 @@ S
 </cell>
 </row>
 <row>
-<cell alignment="center" valignment="top" topline="true" usebox="none">
+<cell alignment="center" valignment="top" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
@@ -4251,7 +4379,7 @@ S
 
 \end_inset
 </cell>
-<cell alignment="center" valignment="top" leftline="true" usebox="none">
+<cell alignment="center" valignment="top" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
@@ -4272,7 +4400,7 @@ S
 
 \end_inset
 </cell>
-<cell alignment="center" valignment="top" rightline="true" usebox="none">
+<cell alignment="center" valignment="top" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
@@ -4295,7 +4423,7 @@ S
 </cell>
 </row>
 <row>
-<cell alignment="center" valignment="top" topline="true" usebox="none">
+<cell alignment="center" valignment="top" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
@@ -4346,7 +4474,7 @@ S
 
 \end_inset
 </cell>
-<cell alignment="center" valignment="top" leftline="true" usebox="none">
+<cell alignment="center" valignment="top" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
@@ -4367,7 +4495,7 @@ S
 
 \end_inset
 </cell>
-<cell alignment="center" valignment="top" rightline="true" usebox="none">
+<cell alignment="center" valignment="top" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
@@ -4390,7 +4518,7 @@ S
 </cell>
 </row>
 <row>
-<cell alignment="center" valignment="top" topline="true" usebox="none">
+<cell alignment="center" valignment="top" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
@@ -4441,7 +4569,7 @@ S
 
 \end_inset
 </cell>
-<cell alignment="center" valignment="top" leftline="true" usebox="none">
+<cell alignment="center" valignment="top" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
@@ -4462,7 +4590,7 @@ S
 
 \end_inset
 </cell>
-<cell alignment="center" valignment="top" rightline="true" usebox="none">
+<cell alignment="center" valignment="top" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
@@ -4485,7 +4613,7 @@ S
 </cell>
 </row>
 <row>
-<cell alignment="center" valignment="top" topline="true" usebox="none">
+<cell alignment="center" valignment="top" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
@@ -4536,7 +4664,7 @@ S
 
 \end_inset
 </cell>
-<cell alignment="center" valignment="top" leftline="true" usebox="none">
+<cell alignment="center" valignment="top" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
@@ -4557,7 +4685,7 @@ S
 
 \end_inset
 </cell>
-<cell alignment="center" valignment="top" rightline="true" usebox="none">
+<cell alignment="center" valignment="top" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
@@ -4580,7 +4708,7 @@ S
 </cell>
 </row>
 <row>
-<cell alignment="center" valignment="top" topline="true" usebox="none">
+<cell alignment="center" valignment="top" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
@@ -4631,7 +4759,7 @@ S
 
 \end_inset
 </cell>
-<cell alignment="center" valignment="top" leftline="true" usebox="none">
+<cell alignment="center" valignment="top" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
@@ -4652,7 +4780,7 @@ S
 
 \end_inset
 </cell>
-<cell alignment="center" valignment="top" rightline="true" usebox="none">
+<cell alignment="center" valignment="top" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
@@ -4675,7 +4803,7 @@ S
 </cell>
 </row>
 <row>
-<cell alignment="center" valignment="top" topline="true" usebox="none">
+<cell alignment="center" valignment="top" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
@@ -4738,7 +4866,7 @@ S
 
 \end_inset
 </cell>
-<cell alignment="center" valignment="top" leftline="true" usebox="none">
+<cell alignment="center" valignment="top" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
@@ -4759,7 +4887,7 @@ S
 
 \end_inset
 </cell>
-<cell alignment="center" valignment="top" rightline="true" usebox="none">
+<cell alignment="center" valignment="top" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
@@ -4782,7 +4910,7 @@ S
 </cell>
 </row>
 <row>
-<cell alignment="center" valignment="top" topline="true" usebox="none">
+<cell alignment="center" valignment="top" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
@@ -4833,7 +4961,7 @@ S
 
 \end_inset
 </cell>
-<cell alignment="center" valignment="top" leftline="true" usebox="none">
+<cell alignment="center" valignment="top" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
@@ -4854,7 +4982,7 @@ S
 
 \end_inset
 </cell>
-<cell alignment="center" valignment="top" rightline="true" usebox="none">
+<cell alignment="center" valignment="top" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
@@ -4877,7 +5005,7 @@ S
 </cell>
 </row>
 <row>
-<cell alignment="center" valignment="top" topline="true" usebox="none">
+<cell alignment="center" valignment="top" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
@@ -4940,7 +5068,7 @@ S
 
 \end_inset
 </cell>
-<cell alignment="center" valignment="top" leftline="true" usebox="none">
+<cell alignment="center" valignment="top" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
@@ -4961,7 +5089,7 @@ S
 
 \end_inset
 </cell>
-<cell alignment="center" valignment="top" rightline="true" usebox="none">
+<cell alignment="center" valignment="top" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
@@ -4984,7 +5112,7 @@ S
 </cell>
 </row>
 <row>
-<cell alignment="center" valignment="top" topline="true" usebox="none">
+<cell alignment="center" valignment="top" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
@@ -5023,7 +5151,7 @@ S
 
 \end_inset
 </cell>
-<cell alignment="center" valignment="top" leftline="true" usebox="none">
+<cell alignment="center" valignment="top" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
@@ -5044,7 +5172,7 @@ S
 
 \end_inset
 </cell>
-<cell alignment="center" valignment="top" rightline="true" usebox="none">
+<cell alignment="center" valignment="top" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
@@ -5067,7 +5195,7 @@ S
 </cell>
 </row>
 <row>
-<cell alignment="center" valignment="top" topline="true" usebox="none">
+<cell alignment="center" valignment="top" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
@@ -5118,7 +5246,7 @@ S
 
 \end_inset
 </cell>
-<cell alignment="center" valignment="top" leftline="true" usebox="none">
+<cell alignment="center" valignment="top" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
@@ -5139,7 +5267,7 @@ S
 
 \end_inset
 </cell>
-<cell alignment="center" valignment="top" rightline="true" usebox="none">
+<cell alignment="center" valignment="top" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
@@ -5162,7 +5290,7 @@ S
 </cell>
 </row>
 <row>
-<cell alignment="center" valignment="top" topline="true" usebox="none">
+<cell alignment="center" valignment="top" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
@@ -5225,7 +5353,7 @@ S
 
 \end_inset
 </cell>
-<cell alignment="center" valignment="top" leftline="true" usebox="none">
+<cell alignment="center" valignment="top" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
@@ -5246,7 +5374,7 @@ S
 
 \end_inset
 </cell>
-<cell alignment="center" valignment="top" rightline="true" usebox="none">
+<cell alignment="center" valignment="top" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
@@ -5269,7 +5397,7 @@ S
 </cell>
 </row>
 <row>
-<cell alignment="center" valignment="top" topline="true" usebox="none">
+<cell alignment="center" valignment="top" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
@@ -5332,7 +5460,7 @@ S
 
 \end_inset
 </cell>
-<cell alignment="center" valignment="top" leftline="true" usebox="none">
+<cell alignment="center" valignment="top" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
@@ -5353,7 +5481,7 @@ S
 
 \end_inset
 </cell>
-<cell alignment="center" valignment="top" rightline="true" usebox="none">
+<cell alignment="center" valignment="top" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
@@ -5376,7 +5504,7 @@ S
 </cell>
 </row>
 <row>
-<cell alignment="center" valignment="top" topline="true" usebox="none">
+<cell alignment="center" valignment="top" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
@@ -5439,7 +5567,7 @@ S
 
 \end_inset
 </cell>
-<cell alignment="center" valignment="top" leftline="true" usebox="none">
+<cell alignment="center" valignment="top" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
@@ -5460,7 +5588,7 @@ S
 
 \end_inset
 </cell>
-<cell alignment="center" valignment="top" rightline="true" usebox="none">
+<cell alignment="center" valignment="top" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
@@ -5483,16 +5611,7 @@ S
 </cell>
 </row>
 <row>
-<cell multirow="3" alignment="center" valignment="middle" topline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+<cell multirow="3" alignment="center" valignment="top" topline="true" bottomline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
@@ -5508,12 +5627,12 @@ S
 \uwave off
 \noun off
 \color none
-Total PV+ 
+Total
 \end_layout
 
 \end_inset
 </cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
@@ -5529,12 +5648,12 @@ Total PV+
 \uwave off
 \noun off
 \color none
-Total SENS
+0,995
 \end_layout
 
 \end_inset
 </cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+<cell alignment="center" valignment="top" topline="true" bottomline="true" rightline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
@@ -5550,12 +5669,12 @@ Total SENS
 \uwave off
 \noun off
 \color none
-Total PV+
+0,997
 \end_layout
 
 \end_inset
 </cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+<cell alignment="center" valignment="top" topline="true" bottomline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
@@ -5571,23 +5690,12 @@ Total PV+
 \uwave off
 \noun off
 \color none
-Total SENS
+0,996
 \end_layout
 
 \end_inset
 </cell>
-</row>
-<row>
-<cell multirow="4" alignment="center" valignment="top" topline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" bottomline="true" leftline="true" rightline="true" usebox="none">
+<cell alignment="center" valignment="top" topline="true" bottomline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
@@ -5603,70 +5711,7 @@ Total SENS
 \uwave off
 \noun off
 \color none
-0,995409
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" bottomline="true" leftline="true" rightline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\family roman
-\series medium
-\shape up
-\size normal
-\emph off
-\bar no
-\strikeout off
-\uuline off
-\uwave off
-\noun off
-\color none
-0,997136
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" bottomline="true" leftline="true" rightline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\family roman
-\series medium
-\shape up
-\size normal
-\emph off
-\bar no
-\strikeout off
-\uuline off
-\uwave off
-\noun off
-\color none
-0,9964545
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" bottomline="true" leftline="true" rightline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\family roman
-\series medium
-\shape up
-\size normal
-\emph off
-\bar no
-\strikeout off
-\uuline off
-\uwave off
-\noun off
-\color none
-0,8533863
+0,853
 \end_layout
 
 \end_inset
@@ -5674,6 +5719,10 @@ Total SENS
 </row>
 </lyxtabular>
 
+\end_inset
+
+
+\begin_inset space \hfill{}
 \end_inset
 
 
@@ -5706,35 +5755,18 @@ Discussion and conclusions
 In this work, we have successfully developed two implementations of QRS
  detectors based on the Pan and Tompkins algorithm.
  Slight differences exist, as we are using other set of band-pass filters
- than the described in the original paper
-\change_inserted -468262419 1471873099
- so as to generate a more accuracy filtering and
-\change_inserted 361918700 1471718716
- 
-\change_inserted -468262419 1471873207
-correct the difference in the sampling frequency
-\change_inserted 361918700 1471718716
-,
-\change_inserted -468262419 1471872887
- or using self-designed local maximum corrector in order to locate peaks
- at absolute maximums
-\change_inserted 361918700 1471718742
- 
-\change_inserted -468262419 1471873379
-of the current processing signal, solving alinearities of group delay
-\change_unchanged
-.
+ than the described in the original article, in order to use other sampling
+ frequency.
+ Other minor difference is a local maximum corrector algorithm used in order
+ to locate peaks at absolute maximums of the signal, solving the nonlinear
+ nature of the group delay response of IIR filters.
  Furthermore, the algorithms presented in this work have been evaluated
  in the whole MIT-BIH Arrhythmia database to get sensitivity and predictive
  positive value performances.
  As the original implementation, both algorithms adapt thresholds and interval
  limits in each cycle, allowing an adaptive classification inside the decision
  rule stage.
-\end_layout
-
-\begin_layout Standard
-The processing time of all the database was 8 minutes for the first algorithm
- described and 37 minutes for the second one.
+ 
 \end_layout
 
 \begin_layout Standard
@@ -5746,48 +5778,19 @@ reference "fig:A-false-negative"
 \end_inset
 
  shows an example of FN and FP heartbeats on the first lead present in record
- 105 
-\change_inserted -468262419 1471872505
-and on the first lead present in record 108 respectively, and 
-\change_unchanged
-both 
-\change_inserted -468262419 1471872515
-main and search-back 
-\change_unchanged
-thresholds
-\change_deleted -468262419 1471872206
-, the main detector and the search-back.
- 
-\change_inserted -468262419 1471872535
-.
- First case
-\change_deleted -468262419 1471872548
-As can be seen
-\change_unchanged
-, the necessary conditions to detect a QRS complex are not met
-\change_inserted -468262419 1471872763
-: same peak recognized in the analysis of integration and band-pass filter
- outputs
-\change_unchanged
-.
-
-\change_inserted -468262419 1471872827
- When evaluating record 105, e
-\change_unchanged
-ven when it is detected in the band-pass filtered signal, it is not after
- the integration window.
+ 105 and on the first lead present in record 108 respectively, and both
+ main and search-back thresholds.
+ First case, the necessary conditions to detect a QRS complex are not met:
+ same peak recognized in the analysis of integration and band-pass filter
+ outputs.
+ When evaluating record 105, even when it is detected in the band-pass filtered
+ signal, it is not after the integration window.
  Finally, it is incorrectly considered by the algorithm as noise peak.
-
-\change_inserted -468262419 1471873593
  On the other hand, on record 108, a greater P wave amplitude and PQ interval,
- generates a complex detection where only a P wave exist.
-\change_unchanged
-
+ generates a detection where only a P wave exist.
 \end_layout
 
 \begin_layout Standard
-
-\change_inserted -468262419 1471621676
 As can be seen in Table 
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -5795,25 +5798,16 @@ reference "tab:Performance"
 
 \end_inset
 
-, the performance of both implementations was evaluated obtaining 
-\change_unchanged
-satisfactory
-\change_inserted -468262419 1471621676
- results, with only a barely noticeable difference in 
-\change_inserted 361918700 1471718963
-sensitivity
-\change_inserted -468262419 1471876140
-, but predictive positive values measures with 
-\begin_inset Formula $P\geq99\%$
-\end_inset
-
-.
- Differences in P and S measures are probably due to .
- Processing time differences respond to different grades of code optimization.
+, the performance of both implementations were evaluated obtaining satisfactory
+ results, with a slight difference in sensitivity, but both positive predictive
+ values above 99%.
  However, it is necessary to evaluate the performance using other databases,
  in order to validate the performance improvement presented in this work.
-\change_unchanged
-
+ Differences in P and S measures are probably due to.
+ The processing time of all the database was 8 minutes for the first algorithm
+ described and 37 minutes for the second one, in Intel Core i7 desktop computers.
+ Processing time differences are due to different grades of code optimization.
+ 
 \end_layout
 
 \begin_layout Standard
