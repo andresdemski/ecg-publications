@@ -121,18 +121,18 @@ Electronic Department, Universidad Tecnológica Nacional, Buenos Aires, Argentin
 \begin_layout Abstract
 The electrocardiogram (ECG) recording is commonly corrupted by several sources
  of noise or interfering signals.
- It is very important to quantify the quality of the ECG recordings for
- reducing the automatic systems mistakes and false alarms.
- This topic has been already discussed during the PhysioNet/Computing in
- Cardiology Challenge 2011, where the best performing algorithms served
- as starting point to our work.
+ It is very important to quantify the ECG recordings quality for reducing
+ false alarms in automatic systems.
+ This topic has already been discussed during the PhysioNet/Computing in
+ Cardiology Challenge in 2011, where the best performing algorithms motivated
+ some improvements presented in this work.
 \end_layout
 
 \begin_layout Abstract
 In this work we present an approach for ECG quality quantification based
  on a combination of a binary tree and signal quality indexes (SQI).
  The binary tree is responsible of detecting coarse interferences such as
- flatlines and high energy noise.
+ flat lines and high energy noise.
  If the binary tree classifies a record as acceptable, then a finer analysis
  is performed using a detector based on the SQI features.
  The SQI detector is based on a support vector machine with a Gaussian kernel.
@@ -142,11 +142,10 @@ In this work we present an approach for ECG quality quantification based
 \begin_layout Abstract
 The performance of the algorithms was assessed using accuracy, sensitivity
  and specificity metrics.
- The bad quality detection performance obtained in this work reaches a 93%
- of accuracy, a 98% of sensitivity and a 76% of specificity.
- The results are promising and the SQI detector is a starting point for
- future improvement and further evaluation of the capability of generalisation
- to other databases.
+ The quantification of ECG quality performance achieved with the presented
+ approach obtained 93% of accuracy, 98% of sensitivity and 76% of specificity.
+ These results are promising compared to other algorithms and represent
+ a starting point for further improvements and evaluations in other databases.
 \end_layout
 
 \begin_layout Section
@@ -673,7 +672,7 @@ key "chengyu-cinc"
 \change_inserted -1260779252 1469543384
 
 \begin_inset Note Note
-status open
+status collapsed
 
 \begin_layout Plain Layout
 
@@ -838,7 +837,7 @@ status open
 placement H
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \begin_inset Caption Standard
@@ -1223,7 +1222,7 @@ status open
 placement H
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \align center
@@ -1915,13 +1914,55 @@ Discussion
 \end_layout
 
 \begin_layout Standard
-During this work, we presented a mixed algorithm which includes a binary
- tree and a SQI based detector for the quality classification of ECG records.
+In this work, we evaluated an algorithm for the quantification of the ECG
+ quality based on a binary tree (BT) followed by an SQI detector with a
+ full (FD) and reduced (RD) set of features.
+ In Table 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "tab:Performance-of-bSQIs-1"
+
+\end_inset
+
+ we presented the results of evaluating the individual contribution of each
+ bSQI alone.
+ The bSQI2 feature achieved the best individual performance, suggesting
+ that QRS detectors 
+\emph on
+gqrs
+\emph default
+ and 
+\emph on
+wqrs
+\emph default
+ are the most appropriate to calculate this feature.
+ Then we evaluated the performance of the BT alone, comparing the detector
+ combinations shown in Table 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "tab:FinalPerformance"
+
+\end_inset
+
+.
+ We found that the SK detector does not produce an increase of the BT performanc
+e, resulting FL-HI the best combination for the BT alone.
+ This could be explained because of the scarcity of spikes found in the
+ databases used in these work.
+ These aspect should be further evaluated in other databases, and eventually
+ removed if these results are corroborated.
+ 
 \end_layout
 
 \begin_layout Standard
-The joint and individual performance was evaluated for all the detectors
- giving promising results.
+The SQI models FD and RD achieved the best accuracy and sensitivity when
+ evaluated alone.
+ When we evaluated the combination of BT-RD and BT-FD, a decrease in performance
+ was obtained.
+ One reason that could explain this fact is the criterion used to label
+ the ecgqdb.
+ We found many acceptable (according to our criterion) records which contain
+ flatline or huge impulses, which were labelled as acceptable.
  The best accuracy and sensitivity was obtained by the full detector based
  in SQI with almost a 94% of accuracy and 99% of sensitivity, followed by
  the RD with a accuracy of 93% and sensitivity of 98%.
@@ -1930,35 +1971,13 @@ The joint and individual performance was evaluated for all the detectors
 \end_layout
 
 \begin_layout Standard
-The performance of the binary tree is good but, comparing FL-HI and FL-SK-HI
- performance, we found that the SK detector does not make considerable contribut
-ion.
- These could be explained because of the scarcity of spikes found in the
- databases used in these work.
- These aspect should be further studied in other databases, and maybe remove
- it for computational improvement.
- 
-\end_layout
-
-\begin_layout Standard
-Both SQI models detector's performance have the best accuracy and sensitivity.
- The results of the joint performance BT-RD and BT-FD were lower than we
- expected, we expected to achieve a better performance than the individual
- performance of RD and FD.
- These could be explained because the criterion used to label the ecgqdb,
- there are many acceptable records (according to our criterion) which contain
- flatline or huge impulses, were labelled as acceptable.
-\end_layout
-
-\begin_layout Standard
-For being a first approach, we are confidence with the results obtained.
- In following works, we are going to develop a better features model for
- the detector and reduce it to improve the computational cost.
- As we have seen several arguable labelling in the ecgqdb, we are considering
- to re-label it in order to improve the detector.
- For final improvement, we are going to test the algorithm in different
- databases for analysing the generalisation capability of the results obtained.
- 
+In following works, we consider that improvements should be performed in
+ the features model and in the labelling quality of the databases used.
+ Other aspect to improve, is to increase the amount of data used, in order
+ to evaluate the generalization capability of the algorithms.
+ As a result of this work, an algorithm for the quantification of the ECG
+ quality was developed, with a performance comparable to the state of the
+ art.
 \end_layout
 
 \begin_layout Section*
