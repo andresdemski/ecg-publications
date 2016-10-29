@@ -14,7 +14,7 @@
    viewBox="0 0 1092.8838 506.37457"
    id="svg3784"
    version="1.1"
-   inkscape:version="0.91 r13725"
+   inkscape:version="0.91 r"
    sodipodi:docname="PandT_BandpassFilter_2.svg">
   <defs
      id="defs3786">
@@ -102,9 +102,9 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="0.7"
-     inkscape:cx="714.3025"
-     inkscape:cy="131.63994"
+     inkscape:zoom="2.8"
+     inkscape:cx="630.40782"
+     inkscape:cy="384.94797"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
      showgrid="false"
@@ -112,9 +112,9 @@
      fit-margin-left="0"
      fit-margin-right="0"
      fit-margin-bottom="0"
-     inkscape:window-width="1920"
-     inkscape:window-height="1004"
-     inkscape:window-x="0"
+     inkscape:window-width="1309"
+     inkscape:window-height="744"
+     inkscape:window-x="57"
      inkscape:window-y="24"
      inkscape:window-maximized="1" />
   <metadata
@@ -125,7 +125,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title></dc:title>
+        <dc:title />
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -884,8 +884,8 @@
        inkscape:connector-curvature="0"
        sodipodi:nodetypes="cc" />
     <path
-       style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-       d="m 668.22102,437.2894 118.18786,0"
+       style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:0.757577px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m 718.57816,437.2894 67.83072,0"
        id="path4311-3"
        inkscape:connector-curvature="0"
        sodipodi:nodetypes="cc" />

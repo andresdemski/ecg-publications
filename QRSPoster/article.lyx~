@@ -93,11 +93,12 @@
 \papercolumns 1
 \papersides 1
 \paperpagestyle default
-\tracking_changes false
+\tracking_changes true
 \output_changes false
 \html_math_output 0
 \html_css_as_file 0
 \html_be_strict false
+\author 226224380 "Juani"
 \end_header
 
 \begin_body
@@ -173,10 +174,16 @@ According to the literature reviewed almost every algorithm for QRS detection
  is divided in two parts: one consists in generating the detection signal
  or the feature vectors and the second in performing pattern recognition
  or decision rules.
- Probably the most popular detector is the Pan and Tompkins algorithm, developed
+ 
+\change_deleted 226224380 1477698619
+Probably the most popular detector is the Pan and Tompkins algorithm, developed
  thirty years ago it remains a common choice because of its simplicity and
  performance.
- It constructs a detection signal based on digital band-pass filter, followed
+ It 
+\change_inserted 226224380 1477698611
+Pan and Tompkins algorithm 
+\change_unchanged
+constructs a detection signal based on digital band-pass filter, followed
  by a differentiator, a squaring function and a sliding window integrator.
  The actual detection is performed through adaptive thresholds and decision
  rules.
@@ -191,13 +198,18 @@ wqrs
 , sqrs
 \emph default
  is based on the techniques of amplitude threshold, a first and second derivativ
-e and a stage for digital filtering Finally, referring to the algorithm
- based on wavelet transform, it's an implementation based on the multi-scale
- approach, amplitude based criteria and the adaptive thresholding for each
- scale of this transform.
- Analyzing these possibilities, we decided to implement Pan and Tompkins
- algorithm to solve the QRS detection, because of its high theoretical content
- and excellent results.
+e and a stage for digital filtering.
+ Finally, referring to the algorithm based on wavelet transform, it's an
+ implementation based on the multi-scale approach, amplitude based criteria
+ and the adaptive thresholding for each scale of this transform.
+ 
+\change_deleted 226224380 1477698657
+Analyzing these possibilities, w
+\change_inserted 226224380 1477698657
+W
+\change_unchanged
+e decided to implement Pan and Tompkins algorithm to solve the QRS detection,
+ because of its high theoretical content and excellent results.
 \end_layout
 
 \begin_layout Standard
@@ -222,15 +234,41 @@ MIT-BIH Arrhythmia database
 \end_layout
 
 \begin_layout Standard
-As previously mentioned, we used the well-known MIT-BIH Arrhythmia database,
- which is a collection of 48 fully annotated half-hour two-lead ECG.
+
+\change_deleted 226224380 1477691616
+Aw
+\change_inserted 226224380 1477691621
+W
+\change_unchanged
+e used the
+\change_deleted 226224380 1477691637
+ well-known
+\change_unchanged
+ MIT-BIH Arrhythmia database, 
+\change_deleted 226224380 1477691644
+which is 
+\change_unchanged
+a collection of 48 fully annotated half-hour two-lead ECG.
  Each recording was sampled at 360 Hz with a voltage resolution of 11-bit
  over a 10mV range.
  Two or more cardiologists independently annotated each recording and resolved
  the disagreements, generating a reference annotation for each heartbeat
  in the database.
- Four of these 48 records (102, 104, 107, and 217) include paced beats and
- were discarded.
+ 
+\change_deleted 226224380 1477691660
+Four of these 48
+\change_inserted 226224380 1477691663
+The
+\change_unchanged
+ records 
+\change_deleted 226224380 1477691670
+(
+\change_unchanged
+102, 104, 107, and 217
+\change_deleted 226224380 1477691674
+)
+\change_unchanged
+ include paced beats and were discarded.
 \end_layout
 
 \begin_layout Subsection
@@ -238,18 +276,43 @@ Pan and Tompkins algorithm
 \end_layout
 
 \begin_layout Standard
-As shown in Figure 
+
+\change_deleted 226224380 1477691686
+As shown in 
+\change_unchanged
+Figure 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "fig:Stages-of-Pan"
 
 \end_inset
 
-, the algorithm consists in 6 stages: a band-pass filter, a derivative block,
- a squaring nonlinear transformation, a moving window integration, an algorithm
- of adaptive thresholds and a decision rule.
+
+\change_deleted 226224380 1477691694
+,
+\change_inserted 226224380 1477691708
+ shows
+\change_unchanged
+ the 
+\change_deleted 226224380 1477691720
+algorithm consists in 
+\change_unchanged
+6 stages
+\change_inserted 226224380 1477691732
+ of the algorithm
+\change_unchanged
+: a band-pass filter, a derivative block, a squaring nonlinear transformation,
+ a moving window integration, an algorithm of adaptive thresholds and a
+ decision rule.
  The same figure shows how the waveform evolves while passing through one
- stage to the next one of the algorithm.
+ stage to the next
+\change_inserted 226224380 1477691762
+.
+
+\change_deleted 226224380 1477691757
+ one of the algorithm.
+\change_unchanged
+
 \end_layout
 
 \begin_layout Standard
@@ -292,10 +355,18 @@ name "fig:Stages-of-Pan"
 \end_layout
 
 \begin_layout Standard
-We consider important to notice that the Pan and Tompkins algorithm was
- developed for integer arithmetic in a microprocessor, which is intended
- to avoid excessive computing power and allowing real-time processing.
- Also, the original algorithm uses ECG signals obtained at 200 Hz.
+We consider important to notice that 
+\change_deleted 226224380 1477691807
+the Pan and Tompkins algorithm was developed for integer arithmetic in a
+ microprocessor, which is intended to avoid excessive computing power and
+ allowing real-time processing.
+ Also, 
+\change_unchanged
+the original algorithm uses ECG signals obtained at 200 Hz
+\change_inserted 226224380 1477692020
+, different compared to the data base sampling frequency
+\change_unchanged
+.
  First waveform of 
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -310,11 +381,34 @@ shows as example three seconds of the record N° 100 signal after removing
 \begin_layout Standard
 The first stage consist in a band-pass filter in order to retain only QRS
  complex energy.
- In fact, the original Pan and Tompkins band-pass filter consist in the
- cascade of a low-pass filter and a high-pass filter to achieve this goal.
- Using a technique for integer coefficients, they designed a band-pass filter
- with bandwidth about 5Hz-12Hz, where several zeros are present in the unit
- circle of the 
+ 
+\change_deleted 226224380 1477692161
+In fact, the original Pan and Tompkins band-pass
+\change_inserted 226224380 1477692169
+Originally this
+\change_unchanged
+ filter
+\change_deleted 226224380 1477692983
+ consist
+\change_inserted 226224380 1477693034
+ is generated by the subtraction of a a low-pass filter from an all-pass
+ filter.
+
+\change_deleted 226224380 1477692998
+ in the cascade of a low-pass filter and a high-pass filter to achieve this
+ goal.
+ Using a technique for integer coefficients, they designed a 
+\change_inserted 226224380 1477693030
+The resulting 
+\change_unchanged
+band-pass filter 
+\change_deleted 226224380 1477692333
+with
+\change_inserted 226224380 1477693030
+has a
+\change_unchanged
+ bandwidth about 5Hz-12Hz, where several zeros are present in the unit circle
+ of the 
 \shape italic
 z
 \shape default
@@ -326,10 +420,35 @@ z
 \end_layout
 
 \begin_layout Standard
-First, the low-pass filter's transfer function is
+
+\change_deleted 226224380 1477692363
+First, t
+\change_inserted 226224380 1477692365
+T
+\change_unchanged
+he low-pass
+\change_inserted 226224380 1477692404
+ and the high-pass
+\change_unchanged
+ filter
+\change_inserted 226224380 1477692391
+s
+\change_unchanged
+'s transfer function
+\change_inserted 226224380 1477692866
+s
+\change_unchanged
+ 
+\change_inserted 226224380 1477695191
+are
+\change_deleted 226224380 1477692411
+is
+\change_inserted 226224380 1477696711
+
 \end_layout
 
 \begin_layout Standard
+\align center
 \begin_inset Formula 
 \begin{equation}
 H(z)=\frac{\left(1-z^{-6}\right){}^{2}}{\left(1-z^{-1}\right)^{2}}\label{eq:lpf}
@@ -338,31 +457,6 @@ H(z)=\frac{\left(1-z^{-6}\right){}^{2}}{\left(1-z^{-1}\right)^{2}}\label{eq:lpf}
 \end_inset
 
 
-\end_layout
-
-\begin_layout Standard
-This transfer function has a gain of 
-\begin_inset Formula $20log_{10}(36)=31,126dB$
-\end_inset
-
- and a delay of 5 samples, that it can be easily obtained by plotting both
- amplitude response and group delay of 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "eq:lpf"
-
-\end_inset
-
-.
-\end_layout
-
-\begin_layout Standard
-Next, the high-pass filter's transfer function is implemented by a subtraction
- of a a low-pass filter from an all-pass filter.
- The transfer function is
-\end_layout
-
-\begin_layout Standard
 \begin_inset Formula 
 \begin{equation}
 H(z)=\frac{\left(-\frac{1}{32}+z^{-16}-z^{-17}+\frac{1}{32}z^{-32}\right)}{\left(1-z^{-1}\right)}\label{eq:hpf}
@@ -375,6 +469,10 @@ H(z)=\frac{\left(-\frac{1}{32}+z^{-16}-z^{-17}+\frac{1}{32}z^{-32}\right)}{\left
 
 \begin_layout Standard
 Notice that 
+\change_inserted 226224380 1477697664
+the high-pass filter 
+\change_unchanged
+
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "eq:hpf"
@@ -391,8 +489,12 @@ key "BMDSP-Tomp"
 \end_inset
 
 .
- With the principle used in the low-pass filter, this transfer function
- of the high-pass filter has a gain of 1 and a delay of 16 samples.
+ 
+\change_deleted 226224380 1477693160
+With the principle used in the low-pass filter, this transfer function of
+ the high-pass filter has a gain of 1 and a delay of 16 samples.
+\change_unchanged
+
 \end_layout
 
 \begin_layout Standard
@@ -402,10 +504,9 @@ Finally, when cascaded both low-pass and high-pass filters, the transfer
 
 \begin_layout Standard
 \begin_inset Formula 
-\begin{align}
-H(z) & =\frac{\left(-1+2.z^{-6}-z^{-12}+32.z^{-16}-32.z^{-17}-64.z^{-22}\right)}{\left(32-96.z^{-1}+96.z^{-2}-32.z^{-3}\right)}\label{eq:bpf}\\
- & .\frac{\left(64.z^{-23}+32.z^{-28}-32.z^{-29}+z^{-32}-2.z^{-38}+z^{-44}\right)}{\left(32-96.z^{-1}+96.z^{-2}-32.z^{-3}\right)}\nonumber 
-\end{align}
+\begin{equation}
+H(z)=\frac{\left(-1+2.z^{-6}-z^{-12}+32.z^{-16}-32.z^{-17}-64.z^{-22}\right)}{\left(32-96.z^{-1}+96.z^{-2}-32.z^{-3}\right)}.\frac{\left(64.z^{-23}+32.z^{-28}-32.z^{-29}+z^{-32}-2.z^{-38}+z^{-44}\right)}{\left(32-96.z^{-1}+96.z^{-2}-32.z^{-3}\right)}\label{eq:bpf}
+\end{equation}
 
 \end_inset
 
@@ -420,8 +521,13 @@ reference "fig:Poles-and-zeros-3"
 
 \end_inset
 
- shows the amplitude response of the band-pass filter for a sampling frequency
- of 360Hz.
+ shows the amplitude response of the band-pass filter for
+\change_inserted 226224380 1477693312
+ the
+\change_deleted 226224380 1477693310
+ a
+\change_unchanged
+ sampling frequency of 360Hz.
 \end_layout
 
 \begin_layout Standard
@@ -473,11 +579,19 @@ The bandwidth of the band-pass filter is between 9Hz-21Hz, with a total
 \begin_layout Standard
 The second stage is a five-point derivative where the signal is differentiated
  to provide the QRS complex slope information.
- The number of points refers to the maximum order in the '
+ The 
+\change_deleted 226224380 1477697905
+number of points refers to the maximum order in the '
 \shape italic
 z
 \shape default
-' variable in the transfer function, which is 
+' variable in the 
+\change_unchanged
+transfer function,
+\change_deleted 226224380 1477697918
+ which
+\change_unchanged
+ is 
 \end_layout
 
 \begin_layout Standard
@@ -492,16 +606,32 @@ H(z)=\frac{1}{8}.\left(2+z^{-1}-z^{-3}-2.z^{-4}\right)\label{eq:P&T_derivative}
 \end_layout
 
 \begin_layout Standard
+
+\change_deleted 226224380 1477697948
 The gain value of 1/8 is actually an approximation of the real gain 0.1 desired,
  in order to facilitate operations in real-time by using power-of-two parameters.
- Figure 
+ 
+\change_inserted 226224380 1477697981
+We can see the amplitude response of this filter in the 
+\change_unchanged
+Figure 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "fig:Differentiator:-Amplitude-respon"
 
 \end_inset
 
-shows the amplitude response of this filter.
+
+\change_inserted 226224380 1477697990
+.
+\change_deleted 226224380 1477697987
+shows
+\change_unchanged
+ 
+\change_deleted 226224380 1477697975
+the amplitude response of this filter
+\change_unchanged
+.
 \end_layout
 
 \begin_layout Standard
@@ -546,10 +676,25 @@ name "fig:Differentiator:-Amplitude-respon"
 \end_layout
 
 \begin_layout Standard
-With a sampling frequency of 360Hz, this transfer function acts like a ideal
- derivative from 0Hz to 54Hz.
+
+\change_deleted 226224380 1477698007
+With a sampling frequency of 360Hz, t
+\change_inserted 226224380 1477698009
+T
+\change_unchanged
+his transfer function acts like a ideal derivative from 0Hz to 54Hz.
  As the signal pass through differentiation, P and T waves are attenuated
- but QRS complexes are clearly enhanced.
+ 
+\change_deleted 226224380 1477698026
+but
+\change_inserted 226224380 1477698027
+and
+\change_unchanged
+ QRS complexes are 
+\change_deleted 226224380 1477698033
+clearly 
+\change_unchanged
+enhanced.
  
 \end_layout
 
@@ -563,6 +708,8 @@ reference "eq:P&T_square"
 
 , making all data positive and also accentuates the higher frequencies generally
  present in QRS complexes within the ECG .
+
+\change_deleted 226224380 1477698145
  Figure 
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -572,6 +719,8 @@ reference "fig:Poles-and-zeros-3"
 
  is the resultant signal after the squaring process.
  
+\change_unchanged
+
 \end_layout
 
 \begin_layout Standard
@@ -586,9 +735,26 @@ y[n.T_{s}]=\left(x[n.T_{s}]\right)^{2}\label{eq:P&T_square}
 \end_layout
 
 \begin_layout Standard
-As has been previously mentioned, this is a non-linear transfer, which generates
- in the frequency domain new components to be eliminated in the next stage
- by filtering.
+
+\change_deleted 226224380 1477698176
+As has been previously mentioned, t
+\change_inserted 226224380 1477698178
+T
+\change_unchanged
+his
+\change_deleted 226224380 1477698170
+ is a
+\change_unchanged
+ non-linear transfer
+\change_deleted 226224380 1477698185
+, which
+\change_inserted 226224380 1477698192
+ 
+\change_deleted 226224380 1477698185
+ 
+\change_unchanged
+generates in the frequency domain new components to be eliminated in the
+ next stage by filtering.
 \end_layout
 
 \begin_layout Standard
@@ -599,16 +765,38 @@ reference "fig:Stages-of-Pan"
 
 \end_inset
 
-, the slopes of a QRS event were enhanced after squaring, so next the output
- from the squaring stage is filtered with a moving window integration in
- order to generate only one peak.
+, the slopes of a QRS event were enhanced after squaring, so 
+\change_deleted 226224380 1477698372
+next the output from the squaring stage is filtered with 
+\change_unchanged
+a moving window integration 
+\change_inserted 226224380 1477698382
+is applied 
+\change_unchanged
+in order to generate only one peak.
 \end_layout
 
 \begin_layout Standard
-The moving window integration has a window width originally determined empirical
-ly by 150 milliseconds long.
- With this value, we ensure that all possibles QRS complexes completely
- fit in the window.
+The moving window integration 
+\change_deleted 226224380 1477698451
+has a window 
+\change_unchanged
+width 
+\change_inserted 226224380 1477698455
+was 
+\change_unchanged
+originally determined empirically by 150 milliseconds long.
+ 
+\change_deleted 226224380 1477698471
+With this value, we 
+\change_unchanged
+ensur
+\change_inserted 226224380 1477698475
+ing
+\change_deleted 226224380 1477698475
+e
+\change_unchanged
+ that all possibles QRS complexes completely fit in the window.
 \end_layout
 
 \begin_layout Standard
@@ -643,8 +831,12 @@ reference "fig:Differentiator:-Amplitude-respon"
 \end_layout
 
 \begin_layout Standard
+
+\change_deleted 226224380 1477698517
 All the close data points merge to generate one peak.
- If the window's width is too narrow, more peaks will form and if too wide,
+ 
+\change_unchanged
+If the window's width is too narrow, more peaks will form and if too wide,
  will merge not only the QRS complex but also P and T waves.
  
 \end_layout
@@ -897,6 +1089,7 @@ reference "tab:Performance"
 
 \begin_layout Standard
 \begin_inset Float table
+placement H
 wide false
 sideways false
 status open
