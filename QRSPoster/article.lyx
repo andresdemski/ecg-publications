@@ -148,11 +148,25 @@ Introduction
 The analysis of the electrocardiogram (ECG) provides a noninvasive and inexpensi
 ve technique to analyze the heart function for different cardiac conditions.
  The first task to perform in almost all automatic procedures is the detection
- of heartbeats or QRS complexes, and the subsequent construction of the
- RR interval sequence.
- In the last decades big efforts were made to perform this analysis automaticall
-y, and as a result, many algorithms for QRS complex detection were published
+ of heartbeats or QRS complexes
+\change_inserted 226224380 1478087157
+ and 
+\change_deleted 226224380 1478087166
+, and 
+\change_unchanged
+the 
+\change_deleted 226224380 1478087169
+subsequent 
+\change_unchanged
+construction of the RR interval sequence.
  
+\change_deleted 226224380 1478087198
+In the last decades b
+\change_inserted 226224380 1478087199
+B
+\change_unchanged
+ig efforts were made to perform this analysis automatically, and as a result,
+ many algorithms for QRS complex detection were published 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "pantom,Martinez04,PhysioNet"
@@ -170,10 +184,37 @@ key "PhysioNet,ecg-kit2016"
 \end_layout
 
 \begin_layout Standard
-According to the literature reviewed almost every algorithm for QRS detection
- is divided in two parts: one consists in generating the detection signal
- or the feature vectors and the second in performing pattern recognition
- or decision rules.
+According to the literature
+\change_inserted 226224380 1478087277
+,
+\change_deleted 226224380 1478087280
+ reviewed
+\change_unchanged
+ almost every algorithm for QRS detection is divided in two parts: 
+\change_deleted 226224380 1478087301
+one consists in 
+\change_inserted 226224380 1478087304
+the 
+\change_unchanged
+generati
+\change_inserted 226224380 1478087307
+on
+\change_deleted 226224380 1478087306
+ng
+\change_unchanged
+ 
+\change_inserted 226224380 1478087320
+of 
+\change_unchanged
+the detection signal 
+\change_deleted 226224380 1478087326
+or the feature vectors 
+\change_unchanged
+and 
+\change_deleted 226224380 1478087343
+the second in performing 
+\change_unchanged
+pattern recognition or decision rules.
  
 \change_deleted 226224380 1477698619
 Probably the most popular detector is the Pan and Tompkins algorithm, developed
@@ -187,7 +228,9 @@ constructs a detection signal based on digital band-pass filter, followed
  by a differentiator, a squaring function and a sliding window integrator.
  The actual detection is performed through adaptive thresholds and decision
  rules.
- Other detectors such as 
+ 
+\change_deleted 226224380 1478088215
+Other detectors such as 
 \emph on
 wqrs
 \emph default
@@ -202,9 +245,7 @@ e and a stage for digital filtering.
  Finally, referring to the algorithm based on wavelet transform, it's an
  implementation based on the multi-scale approach, amplitude based criteria
  and the adaptive thresholding for each scale of this transform.
- 
-\change_deleted 226224380 1477698657
-Analyzing these possibilities, w
+ Analyzing these possibilities, w
 \change_inserted 226224380 1477698657
 W
 \change_unchanged
@@ -907,14 +948,23 @@ If the window's width is too narrow, more peaks will form and if too wide,
 \end_layout
 
 \begin_layout Standard
-For the detection of heartbeats, it is essential the correct location of
- fiducial marks as absolute amplitude or slope maximum inside of time fixed
- windows of empirical 0.35 seconds, described as average minimum distance
- between two R waves or RR interval.
+
+\change_deleted 226224380 1478087690
+For the detection of heartbeats, i
+\change_inserted 226224380 1478087692
+I
+\change_unchanged
+t is essential the correct location of fiducial marks as absolute amplitude
+ or slope maximum inside of time fixed windows of empirical 0.35 seconds,
+ described as average minimum distance between two R waves or RR interval.
  Two set of threshold are used, each one with two threshold level.
  The first applied to the waveform from the moving window integrator, while
- the other pair is applied to the band-pass output signal, where the signal-to-n
-oise ratio was increased.
+ the other 
+\change_deleted 226224380 1478087716
+pair 
+\change_unchanged
+is applied to the band-pass output signal, where the signal-to-noise ratio
+ was increased.
  The details of the algorithm can be found in the original literature from
  the authors 
 \begin_inset CommandInset citation
@@ -1110,7 +1160,7 @@ status open
 \begin_inset Graphics
 	filename false_negatives.svg
 	lyxscale 20
-	scale 20
+	scale 18
 
 \end_inset
 
@@ -6031,8 +6081,11 @@ Discussion and conclusions
 In this work, we have successfully developed two implementations of QRS
  detectors based on the Pan and Tompkins algorithm.
  Slight differences exist, as we are using other set of band-pass filters
- than the described in the original article, in order to use other sampling
- frequency
+ 
+\change_deleted 226224380 1478087800
+than the described in the original article
+\change_unchanged
+, in order to use other sampling frequency
 \change_deleted 226224380 1477699171
 .
  Other minor difference is 
@@ -6045,10 +6098,14 @@ a local maximum corrector algorithm used in order to locate peaks at absolute
  Furthermore, the algorithms presented in this work have been evaluated
  in the whole MIT-BIH Arrhythmia database to get sensitivity and predictive
  positive value performances.
+
+\change_deleted 226224380 1478087837
  As the original implementation, both algorithms adapt thresholds and interval
  limits in each cycle, allowing an adaptive classification inside the decision
  rule stage.
  
+\change_unchanged
+
 \end_layout
 
 \begin_layout Standard
@@ -6112,9 +6169,9 @@ both
 \change_deleted 226224380 1477913420
 Future improvements to the developed detectors could be the optimization
  to implement them in a real time environment.
- T
+ 
 \change_unchanged
-he objective of this work was fulfilled since the algorithms performances
+The objective of this work was fulfilled since the algorithms performances
  were in the order of the original algorithm 
 \begin_inset CommandInset citation
 LatexCommand cite
