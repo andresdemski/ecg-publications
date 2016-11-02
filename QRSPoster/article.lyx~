@@ -228,44 +228,24 @@ constructs a detection signal based on digital band-pass filter, followed
  by a differentiator, a squaring function and a sliding window integrator.
  The actual detection is performed through adaptive thresholds and decision
  rules.
- Other detectors such as 
+ 
+\change_deleted 226224380 1478088215
+Other detectors such as 
 \emph on
 wqrs
 \emph default
- uses 
-\change_deleted 226224380 1478087451
-a similar approach, but the 
-\change_unchanged
-curve length transformation
-\change_inserted 226224380 1478087461
-,
-\change_unchanged
- 
-\change_deleted 226224380 1478087458
-was
-\change_unchanged
- introduced in order to obtain the detection signal.
+ uses a similar approach, but the curve length transformation was introduced
+ in order to obtain the detection signal.
  On the other hand
 \emph on
 , sqrs
 \emph default
  is based on the techniques of amplitude threshold, a first and second derivativ
 e and a stage for digital filtering.
- Finally, 
-\change_deleted 226224380 1478087484
-referring to 
-\change_unchanged
-the algorithm based on wavelet transform
-\change_deleted 226224380 1478087495
-, it's 
-\change_inserted 226224380 1478087497
- is 
-\change_unchanged
-an implementation based on the multi-scale approach, amplitude based criteria
+ Finally, referring to the algorithm based on wavelet transform, it's an
+ implementation based on the multi-scale approach, amplitude based criteria
  and the adaptive thresholding for each scale of this transform.
- 
-\change_deleted 226224380 1477698657
-Analyzing these possibilities, w
+ Analyzing these possibilities, w
 \change_inserted 226224380 1477698657
 W
 \change_unchanged
