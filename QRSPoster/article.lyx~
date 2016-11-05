@@ -561,6 +561,33 @@ complex
 \change_unchanged
 peak.
  
+\change_inserted -1260779252 1478275871
+
+\end_layout
+
+\begin_layout Standard
+
+\change_inserted -1260779252 1478275872
+Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:A-false-negative"
+
+\end_inset
+
+ shows an example of FN and FP heartbeats on the first lead present in record
+ 105 and on the first lead present in record 108 respectively, and both
+ main and search-back thresholds.
+ First case, the necessary conditions to detect a QRS complex are not met:
+ same peak recognized in the analysis of integration and band-pass filter
+ outputs.
+ When evaluating record 105, even when it is detected in the band-pass filtered
+ signal, it is not after the integration window.
+ Finally, it is incorrectly considered by the algorithm as noise peak.
+ On the other hand, on record 108, a greater P wave amplitude and PQ interval,
+ generates a detection where only a P wave exist.
+\change_unchanged
+
 \end_layout
 
 \begin_layout Standard
@@ -1643,6 +1670,8 @@ performance using other databases, in order to validate the performance
 \end_layout
 
 \begin_layout Standard
+
+\change_deleted -1260779252 1478275863
 Figure 
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -1661,6 +1690,8 @@ reference "fig:A-false-negative"
  Finally, it is incorrectly considered by the algorithm as noise peak.
  On the other hand, on record 108, a greater P wave amplitude and PQ interval,
  generates a detection where only a P wave exist.
+\change_unchanged
+
 \end_layout
 
 \begin_layout Standard
