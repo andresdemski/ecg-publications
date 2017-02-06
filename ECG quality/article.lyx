@@ -1961,7 +1961,7 @@ The SQI models FD and RD achieved the best accuracy and sensitivity when
  was obtained.
  One reason that could explain this fact is the criterion used to label
  the ecgqdb.
- We found many acceptable (according to our criterion) records which contain
+ We found many unacceptable records (according to our criterion) which contain
  flatline or huge impulses, which were labelled as acceptable.
  The best accuracy and sensitivity was obtained by the full detector based
  in SQI with almost a 94% of accuracy and 99% of sensitivity, followed by
