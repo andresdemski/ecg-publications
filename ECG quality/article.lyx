@@ -118,36 +118,6 @@ Andrés Demski and Mariano Llamedo Soria
 Electronic Department, Universidad Tecnológica Nacional, Buenos Aires, Argentina
 \end_layout
 
-\begin_layout Abstract
-The electrocardiogram (ECG) recording is commonly corrupted by several sources
- of noise or interfering signals.
- It is very important to quantify the ECG recordings quality for reducing
- false alarms in automatic systems.
- This topic has already been discussed during the PhysioNet/Computing in
- Cardiology Challenge in 2011, where the best performing algorithms motivated
- some improvements presented in this work.
-\end_layout
-
-\begin_layout Abstract
-In this work we present an approach for ECG quality quantification based
- on a combination of a binary tree and signal quality indexes (SQI).
- The binary tree is responsible of detecting coarse interferences such as
- flat lines and high energy noise.
- If the binary tree classifies a record as acceptable, then a finer analysis
- is performed using a detector based on the SQI features.
- The SQI detector is based on a support vector machine with a Gaussian kernel.
- 
-\end_layout
-
-\begin_layout Abstract
-The performance of the algorithms was assessed using accuracy, sensitivity
- and specificity metrics.
- The quantification of ECG quality performance achieved with the presented
- approach obtained 93% of accuracy, 98% of sensitivity and 76% of specificity.
- These results are promising compared to other algorithms and represent
- a starting point for further improvements and evaluations in other databases.
-\end_layout
-
 \begin_layout Section
 Introduction
 \end_layout
@@ -158,29 +128,12 @@ The electrocardiogram (ECG) is a routine and inexpensive technique to analyse
  An ECG recording is commonly corrupted by several sources of noise or interferi
 ng signals, such as power line, skeletal muscle activity, electrode movement
  or disconnection, among others.
- The automatic processing algorithms, such as heartbeat detectors and classifier
-s, wave delineators, among others, are sensitive to the signal quality of
- the ECG.
- This makes important for the automatic systems to be able for quantifying
- the quality of the ECG, in order to minimise the algorithms error rate,
- discard unusable segments from longterm recordings, or discard corrupted
- records from databases.
-\end_layout
-
-\begin_layout Standard
-This topic was discussed during the PhysioNet/Computing in Cardiology Challenge
- 2011 where the aim was to develop an efficient algorithm able to run in
- a mobile phone and provide useful feedback about the quality of the ECG
- for interpretation.
- The algorithm of this challenge should match the opinions of a group of
- human reviewers, who have classified each record as “acceptable” or “unacceptab
-le.
  
 \end_layout
 
 \begin_layout Standard
-Our objective is to study an ECG quality detector, based on the best ranked
- works presented in the challenge 
+Our objective is to study an ECG quality detector based on the best ranked
+ works presented in PhysioNet/ Computing in Cardiology Challenge 2011 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "chengyu-cinc,dieter-cinc,clifford-quality-cinc"
@@ -233,25 +186,7 @@ key "MITBIHDB"
 \end_inset
 
  .
- The ecgqdb includes 1000 ten-seconds records of 12-leads, sampled at 500
- Hz with 16 bits and 
-\begin_inset Formula $5\,\mu V$
-\end_inset
-
- of resolution.
- The database includes 773 acceptable and 225 unacceptable quality recordings.
- The mitdb includes 48 recordings of 30 minutes length, sampled at 360 Hz
- with 11 bits and 
-\begin_inset Formula $5\,\mu V$
-\end_inset
-
- resolution with a slew rate of 
-\begin_inset Formula $225\,\nicefrac{mV}{sec}$
-\end_inset
-
-.
- The training set included part of the ecgqdb and the mitdb, while the ecgqdb
- was used for testing purposes.
+ 
 \end_layout
 
 \begin_layout Subsection
@@ -261,52 +196,9 @@ Proposed algorithm
 \begin_layout Standard
 We identified three important causes that are present in the unacceptable
  recordings: 1) flatlines, 2) spikes and 3) steps.
- For detecting that, we decided to develop three detectors with low computationa
-l cost.
  Then a finer detection is performed using feature extraction and a machine
  learning algorithm.
  
-\end_layout
-
-\begin_layout Standard
-\begin_inset Float figure
-placement H
-wide false
-sideways false
-status open
-
-\begin_layout Plain Layout
-\align center
-\begin_inset Graphics
-	filename img/chart.svg
-	scale 80
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-\begin_inset Caption Standard
-
-\begin_layout Plain Layout
-\begin_inset CommandInset label
-LatexCommand label
-name "fig:Flow-chart-and-main"
-
-\end_inset
-
-Flow-chart and main blocks of the proposed algorithm.
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
 \end_layout
 
 \begin_layout Subsubsection
@@ -314,11 +206,9 @@ Flatline detector
 \end_layout
 
 \begin_layout Standard
-We considered flatline as an extended time of inactivity in one or multiple
- leads.
- For detecting this, we developed 3 algorithms that analyse the variance,
- the derivative and the signal amplitude in order to implement the best
- performing approach: 
+For detecting the inactivity of a lead, we developed 3 algorithms that analyse
+ the variance, the derivative and the signal amplitude in order to implement
+ the best performing approach: 
 \begin_inset Formula 
 \[
 FL1=min\left\{ var(\mathrm{\mathbf{S_{i}}})\right\} \:\:\:\:\:\:\:\:\:\:FL2=min\left\{ mean\left(\frac{d\mathrm{\mathbf{S_{i}}}}{dt}\right)\right\} \:\:\:\:\:\:\:\:\:\:{\displaystyle FL3=min\left\{ \left|\boldsymbol{S_{i}}-mean(\boldsymbol{S_{i}})\right|\right\} }
@@ -349,22 +239,7 @@ The multilead ECG signal
 
  interval was adopted of 1.5 seconds length, this restriction makes unlikely
  to produce false detections in heart rates above 40 bpm.
- 
-\end_layout
-
-\begin_layout Standard
-The 
-\begin_inset Formula $FLx$
-\end_inset
-
- estimators are compared with a threshold for determining flatline presence.
- This threshold was trained in the ecgqdb, after the database was labelled
- accordingly to serve as ground truth (121 flatlines).
-\end_layout
-
-\begin_layout Standard
-With the generated ground truth, we analysed the ROC curves by sweeping
- the threshold value for each 
+ We analysed the ROC curves by sweeping the threshold value for each 
 \begin_inset Formula $FLx$
 \end_inset
 
@@ -393,6 +268,9 @@ reference "fig:FL-ROC"
 \end_inset
 
 .
+\end_layout
+
+\begin_layout Standard
 \begin_inset Float figure
 placement H
 wide false
@@ -593,12 +471,6 @@ reference "fig:SR-HIST"
 \end_inset
 
  the histogram of the maximum slew rates of each QRS complex is shown.
- Last bar of the histogram is due to the hardware used in the mitdb, which
- limits the slew rate up to 
-\begin_inset Formula $225\,\nicefrac{mV}{sec}$
-\end_inset
-
-.
  We adopted the 
 \begin_inset Formula $90th$
 \end_inset
@@ -620,8 +492,7 @@ We calculate the
 \begin_inset Formula $SD$
 \end_inset
 
- for all the recordings without flatlines (756 acceptable and 61 unacceptable
- records) and we perform the ROC curve.
+ for all the recordings without flatlines and we perform the ROC curve.
  Considering a true positive error of 
 \begin_inset Formula $1\%$
 \end_inset
@@ -706,36 +577,13 @@ key "clifford-quality-cinc,behar-quality,liq-multilevel"
 
 \end_inset
 
-..
- Some subtle changes were adopted in our implementation, since the EP limited
- QRS detector 
-\begin_inset CommandInset citation
-LatexCommand cite
-key "eplimited"
-
-\end_inset
-
- uses 8 seconds of initialisation in its internal parameters.
- Instead, we decided to use a Wavelet based detector, widely used in our
- group 
-\begin_inset CommandInset citation
-LatexCommand cite
-key "Martinez04"
-
-\end_inset
-
 .
- 
 \end_layout
 
 \begin_layout Standard
-The features model is composed of twelve SQI per lead resulting in a total
- of 144 features per 10 seconds segment.
- The SQI features model certain aspects regarding the energy of the QRS
- complex (pSQI, eSQI, rsdSQI), the baseline wander present in the recording
- (basSQI and bsSQI), the high frequency noise (hfSQI), some statistical
- moments of the signal samples (sSQI and kSQI) and other more elaborated
- features described in 
+The features model is composed of twelve SQI per lead (pSQI, basSQI, bsSQI,
+ eSQI, hfSQI, bSQI, sSQI, kSQI, rsdSQI, purSQI, entSQI and pcaSQI ) resulting
+ in a total of 144 features per 10 seconds segment described in 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "clifford-quality-cinc,behar-quality,liq-multilevel"
@@ -744,19 +592,11 @@ key "clifford-quality-cinc,behar-quality,liq-multilevel"
 
 .
  In this work, we analysed some variants of the bSQI feature, which is the
- ratio of the heartbeats detected by a robust QRS detector, such as the
- wavedet algorithm 
-\begin_inset CommandInset citation
-LatexCommand cite
-key "Martinez04"
-
-\end_inset
-
-, to the amount detected by a simple detector, such as the sqrs algorithm.
- We also studied six other ratios of detectors.
- The combinations of detectors are bSQI1: sqrs - wqrs, bSQI2: gqrs - wqrs,
- bSQI3: wqrs - wavedet, bSQI4: sqrs - wavedet, bSQI5: gqrs - wavedet and
- bSQI6: gqrs - sqrs.
+ ratio of the heartbeats detected by a robust QRS detector to the amount
+ detected by a simple detector.
+ The studied variants are: bSQI1: sqrs - wqrs, bSQI2: gqrs - wqrs, bSQI3:
+ wqrs - wavedet, bSQI4: sqrs - wavedet, bSQI5: gqrs - wavedet and bSQI6:
+ gqrs - sqrs.
 \end_layout
 
 \begin_layout Standard
@@ -776,31 +616,11 @@ key "behar-quality"
 
 \end_inset
 
- and other which uses all (FD) the features as in 
-\begin_inset CommandInset citation
-LatexCommand cite
-key "liq-multilevel"
-
-\end_inset
-
-.
+ and other which uses all (FD) the features.
 \end_layout
 
 \begin_layout Section
 Results
-\end_layout
-
-\begin_layout Standard
-The performance of bSQI was evaluated giving the results of table 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "tab:Performance-of-bSQIs-1"
-
-\end_inset
-
-.
- There, it can be seen that the bSQI2 is the index with better individual
- performance, then it is going to be used in the detector's model.
 \end_layout
 
 \begin_layout Standard
@@ -837,7 +657,7 @@ status open
 placement H
 wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \begin_inset Caption Standard
@@ -1222,7 +1042,7 @@ status open
 placement H
 wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \align center
@@ -1895,18 +1715,25 @@ FD: full detector, RD: reduced detector
 \end_layout
 
 \begin_layout Standard
-The individual performance was determined using the ecgqdb.
- The table 
+The performance of bSQI was evaluated giving the results of table 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "tab:Performance-of-bSQIs-1"
+
+\end_inset
+
+.
+ There, it can be seen that the bSQI2 is the index with better individual
+ performance, then it is going to be used in the detector's model.
+ The individual performance was determined using the ecgqdb.
+ In table 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "tab:FinalPerformance"
 
 \end_inset
 
- shows that the best accuracy and sensitivity is obtained using the detector
- with all the predictors.
- The reduced model also gets a good performance in accuracy and sensitivity
- with the best specificity.
+ the results are shown.
 \end_layout
 
 \begin_layout Section
@@ -1961,7 +1788,7 @@ The SQI models FD and RD achieved the best accuracy and sensitivity when
  was obtained.
  One reason that could explain this fact is the criterion used to label
  the ecgqdb.
- We found many unacceptable records (according to our criterion) which contain
+ We found many unacceptable (according to our criterion) records which contain
  flatline or huge impulses, which were labelled as acceptable.
  The best accuracy and sensitivity was obtained by the full detector based
  in SQI with almost a 94% of accuracy and 99% of sensitivity, followed by
@@ -1978,16 +1805,6 @@ In following works, we consider that improvements should be performed in
  As a result of this work, an algorithm for the quantification of the ECG
  quality was developed, with a performance comparable to the state of the
  art.
-\end_layout
-
-\begin_layout Section*
-Acknowledgements
-\end_layout
-
-\begin_layout Standard
-This work was supported by projects ASUTNBA0003860 from Universidad Tecnológica
- Nacional, Buenos Aires, Argentina, and D9-UTN1714 from Secretaría de Políticas
- Universitarias, Ministerio de Educación, Argentina.
 \end_layout
 
 \begin_layout Standard
